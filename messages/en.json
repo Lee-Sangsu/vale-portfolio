@@ -1,0 +1,136 @@
+{
+  "site": {
+    "title": "Valeria Jiménez · Designer",
+    "description": "A living archive of professional coherence. Design, product, strategy. 5 years across Bilbao, Berlin, Bogotá and Seoul.",
+    "logo": "Valeria Jiménez",
+    "tagline": "behind the scenes",
+    "indexLabel": "Index"
+  },
+  "nav": {
+    "about": "About",
+    "work": "Projects",
+    "chapters": "Chapters",
+    "contact": "Contact"
+  },
+  "lang": {
+    "switchTo": "Español",
+    "current": "EN",
+    "label": "Language"
+  },
+  "home": {
+    "aboutKicker": "About",
+    "chaptersKicker": "Index",
+    "chaptersTitle": "Five chapters of work.",
+    "chaptersIntro": "Each chapter is a phase of my career: a country, a team, a way of working. The five hero projects above belong to these chapters. Click any chapter to see all of the work inside it.",
+    "workKicker": "Heroes (5/5)",
+    "skillsKicker": "Skills",
+    "contactKicker": "Contact",
+    "moreKicker": "More inside this chapter",
+    "readCase": "Read the case",
+    "seeAll": "See all projects",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "about": {
+    "kicker": "About",
+    "designFor": "Design for",
+    "rotatingWords": ["people", "brands", "communities", "technology"],
+    "signature": "I'm Valeria, a designer in motion.",
+    "bioKicker": "Bio",
+    "carryOnKicker": "Carry-on",
+    "carryOnTitle": "What I'm packing",
+    "factBased": "Based",
+    "factLanguages": "Languages",
+    "factRoles": "Roles",
+    "factAvailable": "Available",
+    "ctaKicker": "Let's talk",
+    "ctaTitle": "If something here resonated, write me.",
+    "ctaBody": "I'm open to projects, collaborations and conversations.",
+    "ctaLink": "Send me an email"
+  },
+  "hero": {
+    "context": "Context",
+    "role": "My role",
+    "partners": "Partners",
+    "speakers": "Speakers",
+    "workshops": "Workshops",
+    "results": "Results",
+    "format": "Format",
+    "methodology": "Methodology",
+    "channels": "Channels",
+    "geography": "Geography",
+    "innovationTrack": "Innovation track",
+    "coffeeTrack": "Coffee track",
+    "participants": "Participants",
+    "status": "Status",
+    "whatsNext": "What's next",
+    "problem": "The problem I mapped",
+    "bets": "Three strategic bets",
+    "shipped": "What I designed and shipped",
+    "missionDef": "What a Misión is",
+    "edition": "This edition",
+    "layers": "Three layers, running at once",
+    "back": "All work"
+  },
+  "skills": {
+    "title": "Skills",
+    "design": "Design",
+    "designBody": "I build visual systems that hold up over time, digital products designed to be used, and content that reads as part of something bigger.",
+    "designItems": [
+      "Brand systems · visual identity, brandbooks, scalable systems",
+      "Product design · UX/UI for mobile and web, flows, design systems",
+      "Visual content · editorial, social media systems, posters, presentations"
+    ],
+    "strategy": "Strategy",
+    "strategyBody": "Before design comes the decision: what to say, to whom, why now. I work that layer first, so the design that follows has something to stand on.",
+    "strategyItems": [
+      "Marketing strategy · tone of voice, communication pillars, content matrices, multichannel campaigns",
+      "Business & growth · positioning, value proposition, strategic consulting for early-stage ventures"
+    ],
+    "events": "Programs & Events",
+    "eventsBody": "I design experiences that happen in the world, not on the screen. From 80 people online to 400+ on site, what matters is people leaving with something they didn't have when they arrived.",
+    "eventsItems": [
+      "Event design & execution · concept to D-day, branding, marketing, logistics, speakers, partners",
+      "Program design · curriculum, methodology, workshops, coaching and facilitation"
+    ],
+    "soft": "Soft skills",
+    "softBody": "What no class teaches and what holds everything else up.",
+    "softItems": [
+      "Leadership · cross-cultural teams, international project coordination",
+      "Communication · bilingual operation between LATAM and Asia, strategic communication across stakeholders, coaching and mentorship",
+      "Project & program management · end-to-end ownership, cross-functional coordination, execution under tight timelines",
+      "Innovation & entrepreneurship · founder mindset applied to client and internal projects, gap identification, building from zero to launch"
+    ],
+    "languages": "Languages",
+    "languagesItems": ["Spanish (native)", "English (fluent)", "Korean (basic)"],
+    "tools": "Tools",
+    "toolsItems": [
+      "Figma",
+      "Adobe Suite (Illustrator, Photoshop, InDesign)",
+      "Canva",
+      "Notion",
+      "ManyChat",
+      "Slack",
+      "Google Workspace"
+    ]
+  },
+  "contact": {
+    "title": "Let's talk.",
+    "body": "I'm open to opportunities. If something here resonated, or if you're building something where any of this could fit, I'd love to hear about it.",
+    "between": "Between Seoul and Bogotá. Available across time zones."
+  },
+  "footer": {
+    "title": "Living archive",
+    "year": "2026",
+    "letsTalk": "Let's talk",
+    "contactCta": "Open to opportunities. If something here resonated, write me.",
+    "contact": "Contact",
+    "rights": "Built by Valeria",
+    "between": "between Seoul + Bogotá"
+  },
+  "notFound": {
+    "title": "Not in the archive",
+    "body": "This page doesn't exist (yet).",
+    "back": "Back home"
+  }
+}

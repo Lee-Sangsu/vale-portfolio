@@ -1,0 +1,136 @@
+{
+  "site": {
+    "title": "Valeria Jiménez · Diseñadora",
+    "description": "Archivo vivo de coherencia profesional. Diseño, producto, estrategia. 5 años entre Bilbao, Berlín, Bogotá y Seúl.",
+    "logo": "Valeria Jiménez",
+    "tagline": "behind the scenes",
+    "indexLabel": "Índice"
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "work": "Proyectos",
+    "chapters": "Capítulos",
+    "contact": "Contacto"
+  },
+  "lang": {
+    "switchTo": "English",
+    "current": "ES",
+    "label": "Idioma"
+  },
+  "home": {
+    "aboutKicker": "Sobre mí",
+    "chaptersKicker": "Índice",
+    "chaptersTitle": "Cinco capítulos de trabajo.",
+    "chaptersIntro": "Cada capítulo es una fase de mi carrera: un país, un equipo, una forma de trabajar. Los cinco proyectos hero de arriba pertenecen a estos capítulos. Hacé click en cualquiera para ver todo el trabajo adentro.",
+    "workKicker": "Heroes (5/5)",
+    "skillsKicker": "Skills",
+    "contactKicker": "Contacto",
+    "moreKicker": "También dentro de este capítulo",
+    "readCase": "Leer el caso",
+    "seeAll": "Ver todos los proyectos",
+    "next": "Siguiente",
+    "previous": "Anterior"
+  },
+  "about": {
+    "kicker": "Sobre mí",
+    "designFor": "Diseño para",
+    "rotatingWords": ["personas", "marcas", "comunidades", "tecnología"],
+    "signature": "Soy Valeria, diseñadora en movimiento.",
+    "bioKicker": "Bio",
+    "carryOnKicker": "Equipaje",
+    "carryOnTitle": "Lo que llevo en el carry-on",
+    "factBased": "Base",
+    "factLanguages": "Idiomas",
+    "factRoles": "Roles",
+    "factAvailable": "Disponible",
+    "ctaKicker": "Hablemos",
+    "ctaTitle": "Si algo aquí te resonó, escríbeme.",
+    "ctaBody": "Estoy abierta a proyectos, colaboraciones y conversaciones.",
+    "ctaLink": "Mándame un correo"
+  },
+  "hero": {
+    "context": "Contexto",
+    "role": "Mi rol",
+    "partners": "Aliados",
+    "speakers": "Speakers",
+    "workshops": "Workshops",
+    "results": "Resultados",
+    "format": "El formato",
+    "methodology": "Metodología",
+    "channels": "Canales",
+    "geography": "Recorrido",
+    "innovationTrack": "Track de innovación",
+    "coffeeTrack": "Track de café",
+    "participants": "Participantes",
+    "status": "Estado",
+    "whatsNext": "Qué sigue",
+    "problem": "El problema que mapeé",
+    "bets": "Tres apuestas estratégicas",
+    "shipped": "Lo que diseñé y lancé",
+    "missionDef": "Qué es una Misión",
+    "edition": "Esta edición",
+    "layers": "Tres capas, en simultáneo",
+    "back": "Todo el trabajo"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "design": "Diseño",
+    "designBody": "Construyo sistemas visuales que sostienen marcas en el tiempo, productos digitales pensados para usar, y contenido que se ve y se siente parte de algo más grande.",
+    "designItems": [
+      "Sistemas de marca · identidad visual, brandbooks, sistemas escalables",
+      "Diseño de producto · UX/UI para mobile y web, flujos, design systems",
+      "Contenido visual · editorial, sistemas para redes sociales, posters, presentaciones"
+    ],
+    "strategy": "Estrategia",
+    "strategyBody": "Antes del diseño viene la decisión: qué decir, a quién, por qué ahora. Trabajo en esa capa primero, y por eso el diseño después tiene a qué sostenerse.",
+    "strategyItems": [
+      "Estrategia de marketing · tono de voz, pilares de comunicación, matrices de contenido, campañas multicanal",
+      "Negocio y crecimiento · posicionamiento, propuesta de valor, consultoría estratégica para early-stage ventures"
+    ],
+    "events": "Programas y Eventos",
+    "eventsBody": "Diseño experiencias que pasan en el mundo, no en la pantalla. De 80 personas online a 400+ en sitio, lo que importa es que la gente se vaya con algo que no tenía cuando llegó.",
+    "eventsItems": [
+      "Diseño y ejecución de eventos · de la concepción al día D, branding, marketing, logística, speakers, alianzas",
+      "Diseño de programas · currículum, metodología, workshops, coaching y facilitación"
+    ],
+    "soft": "Soft skills",
+    "softBody": "Lo que no se enseña en una clase y sostiene todo lo demás.",
+    "softItems": [
+      "Liderazgo · equipos cross-cultural, coordinación de proyectos internacionales",
+      "Comunicación · operación bilingüe entre LATAM y Asia, comunicación estratégica entre stakeholders, coaching y mentoría",
+      "Project y program management · ownership end-to-end, coordinación cross-funcional, ejecución bajo timelines ajustados",
+      "Innovación y emprendimiento · mindset de fundadora aplicado a proyectos de cliente e internos, identificación de gaps, construir desde cero hasta lanzamiento"
+    ],
+    "languages": "Idiomas",
+    "languagesItems": ["Español (nativo)", "Inglés (fluido)", "Coreano (básico)"],
+    "tools": "Herramientas",
+    "toolsItems": [
+      "Figma",
+      "Adobe Suite (Illustrator, Photoshop, InDesign)",
+      "Canva",
+      "Notion",
+      "ManyChat",
+      "Slack",
+      "Google Workspace"
+    ]
+  },
+  "contact": {
+    "title": "Hablemos.",
+    "body": "Estoy abierta a oportunidades. Si algo de lo que viste resonó, o si estás construyendo algo donde cualquiera de esto podría encajar, me encantaría saber de ti.",
+    "between": "Entre Seúl y Bogotá. Disponible entre zonas horarias."
+  },
+  "footer": {
+    "title": "Archivo vivo",
+    "year": "2026",
+    "letsTalk": "Hablemos",
+    "contactCta": "Abierta a oportunidades. Si algo aquí resonó, escríbeme.",
+    "contact": "Contacto",
+    "rights": "Hecho por Valeria",
+    "between": "entre Seúl + Bogotá"
+  },
+  "notFound": {
+    "title": "No está en el archivo",
+    "body": "Esta página no existe (todavía).",
+    "back": "Volver al inicio"
+  }
+}
