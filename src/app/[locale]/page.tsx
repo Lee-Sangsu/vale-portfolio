@@ -112,7 +112,7 @@ export default async function Home({
   const WC = "photos/1. Main /Work chapters";
   const chapterImg: Record<string, string> = {
     n9ne: encodeAsset(`${WC}/N9NE.png`)!,
-    "travelling-university": encodeAsset(`${WC}/Travelling University.png`)!,
+    "travelling-university": encodeAsset(`${WC}/New Folder With Items/Travelling University.png`)!,
     independent: encodeAsset(`${WC}/Idependent design .png`)!,
     "boost-lab": encodeAsset(`${WC}/BOOST LAB.png`)!,
     nomadher: encodeAsset(`${WC}/NomadHer.png`)!,
