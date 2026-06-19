@@ -31,12 +31,7 @@ export default async function ArchivoVivoPage({
   const locale = rawLocale as Locale;
 
   // Pull a few personal photos for the hero polaroid pile.
-  const heroPolaroids = [
-    "/photos/about/My photos/IMG_2260.png",
-    "/photos/about/My photos/IMG_4019.png",
-    "/photos/about/My photos/8EE5F67D-084E-4535-9C40-23D626C51D15.png",
-    "/photos/about/My photos/3E963F58-6CD7-48C5-945D-E26440025D0D.png",
-  ];
+  const heroPolaroids: string[] = [];
 
   return (
     <main className="bg-cream min-h-screen">
@@ -84,7 +79,7 @@ export default async function ArchivoVivoPage({
         {/* Center MacWindow */}
         <div className="relative max-w-md mx-auto">
           <MacWindow
-            src="/photos/about/Val.png"
+            src="/photos/about/Val.jpg"
             alt="Valeria Jiménez"
             title="aloha_valeria"
             maxHeightVh={60}

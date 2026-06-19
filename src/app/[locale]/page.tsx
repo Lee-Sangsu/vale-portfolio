@@ -205,7 +205,7 @@ export default async function Home({
         title={es ? "Marcas con las que he trabajado" : "Brands I've worked with"}
       />
 
-      <WorkTogether photo="/photos/about/Val.png" />
+      <WorkTogether photo="/photos/about/Val.jpg" />
       <SiteFooter />
     </main>
   );

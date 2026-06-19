@@ -60,7 +60,7 @@ export default async function ManchetaPage({
         <div className="grid-editorial items-start gap-y-10">
           <div className="col-span-12 lg:col-span-7">
             <NaturalPhoto
-              src="/photos/about/Val.png"
+              src="/photos/about/Val.jpg"
               alt="Valeria Jiménez"
               maxHeightVh={75}
               rounded="rounded-none"
@@ -82,12 +82,12 @@ export default async function ManchetaPage({
                 letterSpacing: "-0.02em",
               }}
             >
-              <span className="italic">"</span>Construyo
+              <span className="italic">“</span>Construyo
               <br />
               cosas que
               <br />
               <span className="italic">se sostienen.</span>
-              <span className="italic">"</span>
+              <span className="italic">”</span>
             </h2>
             <div className="space-y-4 prose-editorial body-lg text-ink leading-relaxed border-l-2 border-ink pl-5">
               <p>
@@ -183,7 +183,7 @@ export default async function ManchetaPage({
                 lineHeight: 1.25,
               }}
             >
-              "200+ jóvenes, 14 países, una marca bilingüe armada en menos de tres meses."
+              “200+ jóvenes, 14 países, una marca bilingüe armada en menos de tres meses.”
             </blockquote>
 
             <div className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-ink/20 pt-6">

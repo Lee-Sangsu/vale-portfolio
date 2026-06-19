@@ -41,7 +41,9 @@ yarn-error.log*
 next-env.d.ts
 
 # large media files — host on CDN/Vercel Blob instead
-public/photos/
+public/photos/**
+!public/photos/about/
+!public/photos/about/Val.jpg
 *.mov
 *.MOV
 *.mp4

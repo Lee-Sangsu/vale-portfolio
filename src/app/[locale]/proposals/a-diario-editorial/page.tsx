@@ -85,7 +85,7 @@ export default async function DiarioEditorialPage({
           <div className="col-span-12 lg:col-span-5">
             <div className="max-w-md ml-auto">
               <MacWindow
-                src="/photos/about/Val.png"
+                src="/photos/about/Val.jpg"
                 alt="Valeria Jiménez"
                 title="valeria.portrait"
                 maxHeightVh={70}
