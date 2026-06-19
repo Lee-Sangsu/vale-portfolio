@@ -72,9 +72,7 @@ export async function MentionDetail({
           alt={mention.title}
           height="78vh"
           focal="center 40%"
-          desktopIcons={[
-            { src: DECO.book, label: mention.id.split("-")[0], side: "left", top: "20%" },
-          ]}
+          desktopIcons={[]}
           notesOverlay={
             <NotesCard
               back={locale === "es" ? "Notas" : "Notes"}

@@ -45,7 +45,6 @@ export const DECO = {
   plane:             "/Assets%20/Assets%20Icons%20cool/plane.svg",
   camera:            "/Assets%20/Assets%20Icons%20cool/camara.svg",
   laptop:            "/Assets%20/Assets%20Icons%20cool/laptop.svg",
-  book:              "/Assets%20/Assets%20Icons%20cool/book.svg",
   flower:            "/Assets%20/Assets%20Icons%20cool/loto.svg",
   formBlob:          "/Assets%20/Forms/Vector.svg",
   formSquiggle:      "/Assets%20/Forms/Vector-1.svg",

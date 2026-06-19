@@ -14,7 +14,6 @@ export function generateStaticParams() {
 }
 
 const FOLDERS = [
-  { icon: DECO.book,   label: "BOOST_LAB",         rot: -8,  href: "/projects" },
   { icon: DECO.plane,  label: "Travelling_U",      rot: 6,   href: "/projects" },
   { icon: DECO.camera, label: "NomadHer",          rot: -3,  href: "/projects" },
   { icon: DECO.laptop, label: "Independent",       rot: 10,  href: "/projects" },

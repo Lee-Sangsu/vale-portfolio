@@ -34,7 +34,7 @@ const COPY = {
  * Recurring "Let's Work Together!" contact block — photo + green hand
  * accent + a mailto form. Appears at the bottom of every page in the Figma.
  */
-export function WorkTogether({ photo = "/figma/home/portrait.png" }: { photo?: string }) {
+export function WorkTogether({ photo = "/figma/home/portrait.jpg" }: { photo?: string }) {
   const locale = useLocale();
   const t = COPY[locale === "en" ? "en" : "es"];
   const [name, setName] = useState("");
