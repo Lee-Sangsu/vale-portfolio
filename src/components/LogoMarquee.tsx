@@ -47,7 +47,7 @@ export function LogoMarquee({
               className="shrink-0"
               aria-hidden={i >= logos.length}
             >
-              <figure className="h-20 sm:h-24 w-40 sm:w-48 grid place-items-center bg-cream-deep rounded-2xl px-5 shadow-[0_10px_24px_-14px_rgba(40,49,50,0.18)]">
+              <figure className="h-20 sm:h-24 w-40 sm:w-48 grid place-items-center bg-cream-deep rounded-2xl p-2 shadow-[0_10px_24px_-14px_rgba(40,49,50,0.18)]">
                 <Image
                   src={src}
                   alt=""

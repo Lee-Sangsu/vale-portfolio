@@ -5,6 +5,7 @@ import { useTransition } from "react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import clsx from "clsx";
+import { motion } from "motion/react";
 
 type Tone = "light" | "dark";
 
@@ -39,10 +40,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
         {/* Logo */}
         <Link
           href="/"
-          className={clsx(
-            "font-display text-[28px] leading-none tracking-[0.02em] transition-opacity hover:opacity-70 sm:text-[34px]",
-            light ? "text-white" : "text-ink2",
-          )}
+          className="font-display text-[28px] leading-none tracking-[0.02em] text-black transition-opacity hover:opacity-70 sm:text-[34px]"
         >
           Portfolio
         </Link>
@@ -66,24 +64,36 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
           })}
         </div>
 
-        {/* Lang toggle */}
-        <button
-          type="button"
-          onClick={() =>
-            startTransition(() => router.replace(pathname, { locale: other }))
-          }
-          aria-label={
-            other === "es" ? "Cambiar idioma a español" : "Switch language to English"
-          }
-          className={clsx(
-            "rounded-full bg-[#111] px-[22px] py-[11px] font-inter text-[15px] font-semibold text-white transition-opacity hover:opacity-80",
-            pending && "opacity-50",
-          )}
-        >
-          {locale === "en" ? "EN" : "ES"}
-          <span className="opacity-40">/</span>
-          {other === "en" ? "EN" : "ES"}
-        </button>
+        {/* Right: lang toggle + contact CTA */}
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() =>
+              startTransition(() => router.replace(pathname, { locale: other }))
+            }
+            aria-label={
+              other === "es" ? "Cambiar idioma a español" : "Switch language to English"
+            }
+            className={clsx(
+              "font-inter text-[14px] font-semibold transition-opacity hover:opacity-60",
+              light ? "text-black" : "text-ink2",
+              pending && "opacity-40",
+            )}
+          >
+            {locale === "en" ? "EN" : "ES"}
+            <span className="opacity-40">/</span>
+            {other === "en" ? "EN" : "ES"}
+          </button>
+
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <Link
+              href="/contact"
+              className="rounded-full bg-[#111] px-[22px] py-[11px] font-inter text-[15px] font-semibold text-white transition-opacity hover:opacity-80"
+            >
+              {locale === "es" ? "Contacto" : "Contact"}
+            </Link>
+          </motion.div>
+        </div>
       </div>
 
       {/* Mobile link row */}
