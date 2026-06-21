@@ -79,9 +79,10 @@ export function AboutHero({ locale }: { locale: Locale }) {
 
   return (
     <section className="relative isolate min-h-[640px] overflow-hidden sm:min-h-[820px] lg:min-h-[900px]">
-      {/* Sky background */}
+      {/* Cloud-sky background (Figma node 207:563) — the About hero uses a
+          fluffy-cloud sky, distinct from the home hero's flower/palace scene. */}
       <Image
-        src="/figma/home/sky.png"
+        src="/figma/about/sky-clouds.jpg"
         alt=""
         fill
         priority
@@ -123,6 +124,9 @@ export function AboutHero({ locale }: { locale: Locale }) {
             backgroundClip: "text",
             color: "transparent",
             filter: "drop-shadow(0 8px 30px rgba(0,0,0,0.18))",
+            // Quinn ships a broken "me" ligature that renders as garbled glyphs;
+            // the Figma headline disables ligatures (liga 0) for the same reason.
+            fontFeatureSettings: '"liga" 0',
           }}
         >
           {es ? "Sobre mí" : "About me"}

@@ -238,7 +238,6 @@ export const MENTION_MANIFEST: Record<string, ProjectManifest> = {
       `${PUBLIC_PHOTOS}/BOOST LAB/women-entrepreneur-summit-seoul/3385E3EB-B8D3-4CED-ADD8-61290FFB69FD.png`,
       `${PUBLIC_PHOTOS}/BOOST LAB/women-entrepreneur-summit-seoul/32F6B46F-8539-4AC5-921D-318E67767094.png`,
       `${PUBLIC_PHOTOS}/BOOST LAB/women-entrepreneur-summit-seoul/13DE60AA-E0D7-4E2E-8EEC-E734E147F65F.png`,
-      `${PUBLIC_PHOTOS}/BOOST LAB/women-entrepreneur-summit-seoul/Screenshot 2024-11-14 at 9.48.31 AM.png`,
     ],
   },
   "youth-future-talent": {
@@ -248,7 +247,6 @@ export const MENTION_MANIFEST: Record<string, ProjectManifest> = {
       `${PUBLIC_PHOTOS}/BOOST LAB/youth-future-talent/IMG_0980.png`,
       `${PUBLIC_PHOTOS}/BOOST LAB/youth-future-talent/IMG_2991.png`,
       `${PUBLIC_PHOTOS}/BOOST LAB/youth-future-talent/IMG_3562.png`,
-      `${PUBLIC_PHOTOS}/BOOST LAB/youth-future-talent/KakaoTalk_Photo_2024-05-09-7-35-23 PM.png`,
     ],
     mosaic: [
       `${PUBLIC_PHOTOS}/BOOST LAB/youth-future-talent/53317669903_4e9f3191e2_o.png`,
@@ -333,7 +331,6 @@ export const MENTION_MANIFEST: Record<string, ProjectManifest> = {
       `${PUBLIC_PHOTOS}/Independent/opuesto-sas/Group 2871.png`,
       `${PUBLIC_PHOTOS}/Independent/opuesto-sas/Group 2872.png`,
       `${PUBLIC_PHOTOS}/Independent/opuesto-sas/Free_Business_Card_Mockup_1 2.png`,
-      `${PUBLIC_PHOTOS}/Independent/opuesto-sas/Screenshot 2025-01-27 at 2.32.37 PM 1.png`,
     ],
   },
   "santa-juliana": {
@@ -360,7 +357,6 @@ export const MENTION_MANIFEST: Record<string, ProjectManifest> = {
       `${PUBLIC_PHOTOS}/Travelling University/mentes-sin-fronteras/5. Benefits.png`,
       `${PUBLIC_PHOTOS}/Travelling University/mentes-sin-fronteras/6. Agenda morning.png`,
       `${PUBLIC_PHOTOS}/Travelling University/mentes-sin-fronteras/1) Instagram post (Chat - ALEJANDRA BARRERA).png`,
-      `${PUBLIC_PHOTOS}/Travelling University/mentes-sin-fronteras/Screenshot 2025-05-21 at 5.15.58 PM 1.png`,
     ],
     decks: [
       { label: "Post 1",       folder: `${PUBLIC_PHOTOS}/Travelling University/mentes-sin-fronteras/Post 1` },

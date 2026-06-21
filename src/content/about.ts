@@ -56,16 +56,16 @@ export const carryOn = {
 };
 
 /**
- * Tools shown as a visual grid in the Skills section.
- * Drop the icon at /public/tools/<slug>.svg (or .png/.webp/.jpg) and it appears.
+ * Tools shown as a visual grid in the Skills + Contact sections.
+ * `icon` is the real logo under /public/tools/ (extensions vary by file).
  */
-export const tools: { slug: string; label: string }[] = [
-  { slug: "figma", label: "Figma" },
-  { slug: "illustrator", label: "Illustrator" },
-  { slug: "photoshop", label: "Photoshop" },
-  { slug: "framer", label: "Framer" },
-  { slug: "canva", label: "Canva" },
-  { slug: "notion", label: "Notion" },
-  { slug: "capcut", label: "CapCut" },
-  { slug: "manychat", label: "ManyChat" },
+export const tools: { slug: string; label: string; icon: string }[] = [
+  { slug: "figma", label: "Figma", icon: "/tools/figma.avif" },
+  { slug: "illustrator", label: "Illustrator", icon: "/tools/illustrator.webp" },
+  { slug: "photoshop", label: "Photoshop", icon: "/tools/photoshop.avif" },
+  { slug: "framer", label: "Framer", icon: "/tools/framer.avif" },
+  { slug: "canva", label: "Canva", icon: "/tools/canva.webp" },
+  { slug: "notion", label: "Notion", icon: "/tools/notion.png" },
+  { slug: "capcut", label: "CapCut", icon: "/tools/capcut.avif" },
+  { slug: "manychat", label: "ManyChat", icon: "/tools/manychat.webp" },
 ];

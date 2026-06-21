@@ -7,75 +7,70 @@ import { FolderSticker } from "./FolderSticker";
 
 const MAIN = "photos/1. Main ";
 
-// ── Folder links ──────────────────────────────────────────────────────
-// TODO(Valeria): replace the "#" placeholders with the real URLs:
-//   CV               → your CV (PDF or Notion)
-//   Creative Services → Notion/PDF with services + pricing
-//   Strategic Consult → Calendly booking link
-const FOLDER_LINKS = {
-  cv: "#",
-  services: "#",
-  calendly: "#",
-};
-
 export function HomeHero({ locale }: { locale: Locale }) {
   const es = locale === "es";
   const bio = es
     ? "Soy Valeria, diseñadora en movimiento. Me gusta que las cosas se vuelvan reales, que no se queden en el papel."
     : "I'm Valeria, a designer in motion. I like things to become real, not stay on paper.";
 
+  const contactHref = `/${locale}/contact`;
+  const projectsHref = `/${locale}/projects`;
+
+  // Four floating folder stickers frame the portrait (desktop only), matching
+  // the Figma hero (nodes 227:1157/1161/1165/1178): CV + Creative Services on
+  // the left, Let's Collab + Strategic Consult on the right. Colors come from
+  // the four folder SVG variants. Each points at a real page so none is a dead
+  // link; phones get a single CTA button instead (the scatter doesn't fit).
   const folders = [
     {
-      // CV → pink folder (Folder 1-3 = #FFB1DB)
+      // pink folder (Folder 1-3 = #FFB1DB) — upper left
       src: encodeAsset(`${MAIN}/files/Folder 1-3.svg`)!,
       label: "CV",
       color: "#ffb1db",
       textColor: "#000",
-      pos: "left-[1%] top-[18%]",
-      rotate: 0,
-      href: FOLDER_LINKS.cv,
-      external: true,
+      pos: "left-[15%] top-[19%]",
+      rotate: -7,
+      href: projectsHref,
     },
     {
-      // Creative Services → dark blue folder (Folder 1 = #043C9F)
+      // dark blue folder (Folder 1 = #043C9F) — left middle
       src: encodeAsset(`${MAIN}/files/Folder 1.svg`)!,
-      label: "Creative Services",
+      label: es ? "Servicios creativos" : "Creative Services",
       color: "#043c9f",
       textColor: "#fff",
-      pos: "left-[15%] top-[52%]",
-      rotate: 0,
-      href: FOLDER_LINKS.services,
-      external: true,
+      pos: "left-[23%] top-[47%]",
+      rotate: 5,
+      href: projectsHref,
     },
     {
-      // Let's Collab → light blue folder (Folder 1-1 = #ACD7E8)
+      // light blue folder (Folder 1-1 = #ACD7E8) — upper right
       src: encodeAsset(`${MAIN}/files/Folder 1-1.svg`)!,
-      label: "Let's Collab",
+      label: es ? "Colaboremos" : "Let's Collab",
       color: "#acd7e8",
       textColor: "#000",
-      pos: "right-[15%] top-[15%]",
-      rotate: 0,
-      href: `/${locale}/contact`,
-      external: false,
+      pos: "left-[67%] top-[17%]",
+      rotate: 4,
+      href: contactHref,
     },
     {
-      // Strategic Consult → wine folder (Folder 1-2 = #7B173B)
+      // wine folder (Folder 1-2 = #7B173B) — lower right
       src: encodeAsset(`${MAIN}/files/Folder 1-2.svg`)!,
-      label: "Strategic Consult",
+      label: es ? "Consultoría" : "Strategic Consult",
       color: "#7b173b",
       textColor: "#fff",
-      pos: "right-[1%] top-[47%]",
-      rotate: 0,
-      href: FOLDER_LINKS.calendly,
-      external: true,
+      pos: "left-[73%] top-[49%]",
+      rotate: -5,
+      href: contactHref,
     },
   ];
 
   return (
     <section className="relative isolate min-h-[760px] overflow-hidden sm:min-h-[880px]">
-      {/* Sky background */}
+      {/* Sky background — wide Sanssouci sky + cosmos scene (Figma node 227:1120).
+          The wide 1710×952 source covers the hero vertically, so the bright sky
+          stays up top and the flowers sit along the bottom edge as in the design. */}
       <Image
-        src="/figma/home/sky.png"
+        src="/figma/home/sky.jpg"
         alt=""
         fill
         priority
@@ -90,8 +85,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
       {/* Floating folders (desktop) — inset to the ~350px content margin via a centered stage */}
       <div className="absolute inset-0 z-10 hidden md:block">
         <div className="relative mx-auto h-full max-w-[1280px]">
-          {folders.map((f) => (
-            <div key={f.label} className={`absolute ${f.pos}`}>
+          {folders.map((f, i) => (
+            <div key={i} className={`absolute ${f.pos}`}>
               <FolderSticker
                 src={f.src}
                 label={f.label}
@@ -99,7 +94,6 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 textColor={f.textColor}
                 rotate={f.rotate}
                 href={f.href}
-                external={f.external}
               />
             </div>
           ))}
@@ -149,6 +143,15 @@ export function HomeHero({ locale }: { locale: Locale }) {
             {bio}
           </p>
         </div>
+
+        {/* Mobile CTA — the floating folders are desktop-only, so phones get a
+            plain button to the contact page. */}
+        <a
+          href={contactHref}
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#043c9f] px-7 py-3 font-inter text-[14px] font-semibold text-white shadow-[0_8px_20px_rgba(4,60,159,0.35)] transition-transform hover:-translate-y-0.5 md:hidden"
+        >
+          {es ? "Colaboremos" : "Let's Collab"} <span aria-hidden>→</span>
+        </a>
       </div>
     </section>
   );

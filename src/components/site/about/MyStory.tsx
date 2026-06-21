@@ -20,7 +20,7 @@ export function MyStory({ locale }: { locale: Locale }) {
       <div className="mx-auto flex max-w-[1200px] flex-col items-center text-center">
         {/* Dot */}
         <Image
-          src="/figma/about/mystory-ellipse-dot.png"
+          src="/figma/about/mystory-ellipse-dot.svg"
           alt=""
           width={54}
           height={54}

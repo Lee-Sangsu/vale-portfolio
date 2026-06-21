@@ -1,40 +1,49 @@
 import Image from "next/image";
-import { encodeAsset } from "@/content/photo-manifest";
 
 /**
- * Decorative ring of square travel photos that sweeps around an empty center,
- * matching the Figma "Portfolio Spiral" centerpiece. Each tile is a square
- * (no rounded corners) with a soft drop shadow and an individual small rotation
- * so the set reads hand-scattered.
+ * Decorative swoosh of square travel photos that sweeps from the lower-left,
+ * along a dense bottom arc, then curls up the right edge and into a loose
+ * cluster at the top-center — matching the Figma "Contact hero" spiral. The
+ * whole upper-left quadrant is left empty so the "Contact" title reads clearly.
+ * Each tile is a square (no rounded corners) with a soft drop shadow and a
+ * small individual rotation so the set reads hand-scattered.
  *
- * Desktop: absolute scatter inside an oval, center left empty for the title.
  * Mobile: a simple wrapping grid (the absolute scatter does not fit narrow
  * viewports), still square + rotated for character.
+ *
+ * The source travel photos live under the git-ignored `public/photos/**` tree
+ * (6–10 MB each), so they would not deploy. Square 400px JPG copies are baked
+ * into `public/figma/contact/ring/` (tracked, ~40 KB each) and referenced here.
  */
 
-const NICE = "photos/Nice photos ";
-const MINE = "photos/about/My photos";
+const RING = "/figma/contact/ring";
 
 /**
- * Each tile: a source photo + percentage position (left/top of its center
- * within the ring box) + rotation + size. Positions trace a loose oval whose
- * empty middle sits slightly above center, denser toward the bottom/right.
+ * Each tile: a source photo + percentage position (center left/top within the
+ * 1280×600 ring box) + rotation + size. Coordinates are transcribed from the
+ * Figma "Group 1" spiral (node 207:494): a bottom arc left→right (1–4), a dense
+ * centre cluster (5–7), an up-the-right curl (8–10), then a diagonal climb into
+ * the top-centre cluster (11–14). The upper-left stays open for the title.
  */
 const TILES: { src: string; left: number; top: number; rot: number; size: number }[] = [
-  { src: `${NICE}/IMG_0621.png`, left: 12, top: 20, rot: -13.4, size: 116 },
-  { src: `${NICE}/IMG_0622.png`, left: 30, top: 8, rot: 11.9, size: 124 },
-  { src: `${NICE}/IMG_2012.png`, left: 50, top: 5, rot: -3.4, size: 110 },
-  { src: `${NICE}/IMG_2316.png`, left: 70, top: 9, rot: 10.3, size: 122 },
-  { src: `${NICE}/IMG_2567.png`, left: 87, top: 22, rot: 25.9, size: 114 },
-  { src: `${NICE}/IMG_9109_VSCO.png`, left: 92, top: 48, rot: -13.7, size: 118 },
-  { src: `${NICE}/IMG_9454_VSCO.png`, left: 87, top: 74, rot: 20.2, size: 120 },
-  { src: `${NICE}/IMG_3672_VSCO.png`, left: 72, top: 90, rot: -38.1, size: 112 },
-  { src: `${NICE}/IMG_0742_VSCO.png`, left: 52, top: 95, rot: 1.6, size: 126 },
-  { src: `${NICE}/44A94BF8-45CA-40EA-A686-9E602E4DD168_VSCO.png`, left: 32, top: 92, rot: -53.8, size: 114 },
-  { src: `${NICE}/2DA4ABA0-7999-4F50-AA99-E01B4DF45A7F.png`, left: 14, top: 76, rot: 50.6, size: 118 },
-  { src: `${NICE}/4F260AF5-82F7-43B1-B6B8-0C2066C3916F.png`, left: 8, top: 48, rot: -8.9, size: 116 },
-  { src: `${MINE}/IMG_2260.png`, left: 64, top: 64, rot: 32.5, size: 104 },
-  { src: `${MINE}/IMG_7142.png`, left: 40, top: 70, rot: -22.0, size: 100 },
+  // bottom arc, left → right
+  { src: `${RING}/ring-01.jpg`, left: 7, top: 81, rot: -8, size: 123 },
+  { src: `${RING}/ring-02.jpg`, left: 18, top: 89, rot: 6, size: 114 },
+  { src: `${RING}/ring-03.jpg`, left: 30, top: 92, rot: -4, size: 100 },
+  { src: `${RING}/ring-04.jpg`, left: 42, top: 93, rot: 8, size: 116 },
+  // dense centre cluster
+  { src: `${RING}/ring-05.jpg`, left: 64, top: 73, rot: -6, size: 134 },
+  { src: `${RING}/ring-06.jpg`, left: 61, top: 82, rot: 10, size: 128 },
+  { src: `${RING}/ring-07.jpg`, left: 53, top: 65, rot: -10, size: 135 },
+  // up-the-right curl
+  { src: `${RING}/ring-08.jpg`, left: 72, top: 90, rot: 12, size: 112 },
+  { src: `${RING}/ring-09.jpg`, left: 83, top: 92, rot: -7, size: 109 },
+  { src: `${RING}/ring-10.jpg`, left: 95, top: 90, rot: 14, size: 116 },
+  // diagonal climb into the top-centre cluster
+  { src: `${RING}/ring-11.jpg`, left: 68, top: 52, rot: 5, size: 108 },
+  { src: `${RING}/ring-12.jpg`, left: 53, top: 41, rot: -5, size: 138 },
+  { src: `${RING}/ring-13.jpg`, left: 47, top: 25, rot: 7, size: 135 },
+  { src: `${RING}/ring-14.jpg`, left: 64, top: 11, rot: -9, size: 132 },
 ];
 
 export function PhotoRing() {
@@ -56,7 +65,7 @@ export function PhotoRing() {
           >
             <div className="relative h-full w-full overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
               <Image
-                src={encodeAsset(t.src)!}
+                src={t.src}
                 alt=""
                 fill
                 sizes="130px"
@@ -76,7 +85,7 @@ export function PhotoRing() {
             style={{ transform: `rotate(${t.rot / 3}deg)` }}
           >
             <Image
-              src={encodeAsset(t.src)!}
+              src={t.src}
               alt=""
               fill
               sizes="88px"

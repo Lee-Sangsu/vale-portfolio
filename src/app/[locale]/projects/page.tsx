@@ -10,7 +10,6 @@ import { HERO_MANIFEST, encodeAsset } from "@/content/photo-manifest";
 import { carryOn } from "@/content/about";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CommunityStrip } from "@/components/site/CommunityStrip";
-import { FolderSticker } from "@/components/site/FolderSticker";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
@@ -56,31 +55,23 @@ export default async function ProjectsPage({
 
   return (
     <main>
-      {/* ── Hero ── */}
-      <section className="relative isolate min-h-[420px] overflow-hidden bg-gradient-to-b from-[#eef4f8] to-white sm:min-h-[480px]">
+      {/* ── Hero — photo-folder pile centerpiece (Figma node 227:1353) ──
+          The design hero is a single editorial graphic: a folder spilling
+          project photos + colored cards. We render it as one transparent image
+          centered on the pale-sky wash, with an sr-only heading for a11y/SEO. */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#eef4f8] to-white">
         <SiteNav tone="dark" />
-        {/* floating folders */}
-        <div className="pointer-events-none absolute inset-0 hidden md:block">
-          <div className="absolute left-[14%] top-[42%]">
-            <FolderSticker src="/figma/home/folder-1.png" label={es ? "Capítulos" : "Chapters"} color="#043c9f" textColor="#fff" rotate={-6} />
-          </div>
-          <div className="absolute right-[16%] top-[36%]">
-            <FolderSticker src="/figma/home/folder-2.png" label={es ? "Proyectos" : "Projects"} color="#acd7e8" textColor="#000" rotate={5} />
-          </div>
-          <div className="absolute right-[30%] top-[58%] size-[64px] rounded-[12px] bg-blue shadow-[0_8px_18px_rgba(43,131,224,0.35)]" />
-        </div>
-        <div className="relative z-10 mx-auto flex max-w-[1100px] flex-col items-center px-5 pt-[150px] pb-16 text-center sm:pt-[170px]">
-          <span className="font-inter text-[13px] font-semibold uppercase tracking-[0.18em] text-green-soft">
-            {es ? "El archivo" : "The archive"}
-          </span>
-          <h1 className="mt-3 font-heebo text-[44px] font-bold leading-none text-ink2 sm:text-[64px]">
-            {es ? "Trabajo" : "Work"}
-          </h1>
-          <p className="mt-4 max-w-[520px] font-inter text-[16px] leading-[1.6] text-muted sm:text-[17px]">
-            {es
-              ? "Cinco capítulos, cinco proyectos hero y una docena de eventos. El portafolio leído como una historia."
-              : "Five chapters, five hero projects and a dozen events. The portfolio read as a story."}
-          </p>
+        <div className="mx-auto flex max-w-[1100px] flex-col items-center px-5 pb-20 pt-[140px] sm:pb-24 sm:pt-[170px]">
+          <h1 className="sr-only">{es ? "Trabajo" : "Work"}</h1>
+          <Image
+            src="/figma/projects/hero-pile.png"
+            alt={es ? "Pila de fotos de proyectos saliendo de una carpeta" : "Pile of project photos spilling from a folder"}
+            width={701}
+            height={507}
+            priority
+            sizes="(min-width: 640px) 700px, 90vw"
+            className="h-auto w-[90vw] max-w-[700px] drop-shadow-[0_24px_50px_-24px_rgba(0,0,0,0.3)]"
+          />
         </div>
       </section>
 

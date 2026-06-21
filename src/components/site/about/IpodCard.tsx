@@ -70,7 +70,7 @@ export function IpodCard({ locale }: { locale: Locale }) {
         {/* Click wheel */}
         <div className="relative size-[118px]">
           <Image
-            src="/figma/about/ipod-clickwheel-outer.png"
+            src="/figma/about/ipod-clickwheel-outer.svg"
             alt=""
             fill
             sizes="118px"
@@ -90,7 +90,7 @@ export function IpodCard({ locale }: { locale: Locale }) {
           </span>
           <div className="absolute left-1/2 top-1/2 size-[46px] -translate-x-1/2 -translate-y-1/2">
             <Image
-              src="/figma/about/ipod-clickwheel-inner.png"
+              src="/figma/about/ipod-clickwheel-inner.svg"
               alt=""
               fill
               sizes="46px"
