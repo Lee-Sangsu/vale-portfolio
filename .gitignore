@@ -48,3 +48,6 @@ public/photos/**
 *.MOV
 *.mp4
 *.MP4
+
+/.omc/
+/.omx/
