@@ -43,7 +43,8 @@ export default async function ContactPage({
           </h1>
         </div>
 
-        <div className="mx-auto mt-8 max-w-[1400px] md:mt-2">
+        {/* Full-bleed: negative margins cancel the section's px-5/sm:px-8 padding */}
+        <div className="-mx-5 mt-8 sm:-mx-8 md:mt-2">
           <PhotoRing />
         </div>
       </section>

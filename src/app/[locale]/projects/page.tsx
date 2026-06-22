@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/content/types";
 import { heroes, chapters, getMentionsByChapter } from "@/content";
-import { HERO_MANIFEST, encodeAsset } from "@/content/photo-manifest";
+import { HERO_MANIFEST, MENTION_MANIFEST, encodeAsset } from "@/content/photo-manifest";
 import { carryOn } from "@/content/about";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CommunityStrip } from "@/components/site/CommunityStrip";
@@ -23,21 +23,21 @@ type SpreadItem = { kind: "photo"; path: string; w: number; h: number; tx: strin
 
 const HERO_SPREAD: SpreadItem[] = [
   // tall portrait — far left
-  { kind: "photo", path: "photos/Favorite projects/global-youth-summit/_MG_3552.png",                    w: 108, h: 198, tx: "-202px", ty: "-8px",  rot: "-9deg",  delay: "0s",    z: 4 },
+  { kind: "photo", path: "photos/Favorite projects/global-youth-summit/_MG_3552.png",                    w: 170, h: 310, tx: "-440px", ty: "-12px",  rot: "-9deg",  delay: "0s",    z: 4 },
   // outdoor missions
-  { kind: "photo", path: "photos/Favorite projects/misiones-internacionales/IMG_9822.png",               w: 92,  h: 118, tx: "-108px", ty: "-78px", rot: "9deg",   delay: "0.07s", z: 3 },
+  { kind: "photo", path: "photos/Favorite projects/misiones-internacionales/IMG_9822.png",               w: 148, h: 188, tx: "-240px", ty: "-115px", rot: "9deg",   delay: "0.07s", z: 3 },
   // coffee / lifestyle
-  { kind: "photo", path: "photos/N9NE/nobled-coffee/IMG_3839.png",                                       w: 72,  h: 72,  tx: "-14px",  ty: "-52px", rot: "-4deg",  delay: "0.14s", z: 5 },
+  { kind: "photo", path: "photos/N9NE/nobled-coffee/IMG_3839.png",                                       w: 115, h: 115, tx: "-26px",  ty: "-90px",  rot: "-4deg",  delay: "0.14s", z: 5 },
   // summit event
-  { kind: "photo", path: "photos/Favorite projects/global-youth-summit/IMG_0028.png",                    w: 88,  h: 100, tx: "78px",   ty: "-82px", rot: "-10deg", delay: "0.21s", z: 3 },
+  { kind: "photo", path: "photos/Favorite projects/global-youth-summit/IMG_0028.png",                    w: 140, h: 160, tx: "170px",  ty: "-130px", rot: "-10deg", delay: "0.21s", z: 3 },
   // Seoul women's summit
-  { kind: "photo", path: "photos/BOOST LAB/women-entrepreneur-summit-seoul/SWES - @haritza.8x-034.png",  w: 92,  h: 116, tx: "-52px",  ty: "68px",  rot: "1deg",   delay: "0.28s", z: 2 },
+  { kind: "photo", path: "photos/BOOST LAB/women-entrepreneur-summit-seoul/SWES - @haritza.8x-034.png",  w: 148, h: 185, tx: "-115px", ty: "110px",  rot: "1deg",   delay: "0.28s", z: 2 },
   // hackathon — center-right
-  { kind: "photo", path: "photos/Favorite projects/sejong-hackathon/IMG_3845.png",                       w: 102, h: 130, tx: "58px",   ty: "52px",  rot: "10deg",  delay: "0.35s", z: 6 },
+  { kind: "photo", path: "photos/Favorite projects/sejong-hackathon/IMG_3845.png",                       w: 162, h: 208, tx: "130px",  ty: "88px",   rot: "10deg",  delay: "0.35s", z: 6 },
   // tall portrait — far right
-  { kind: "photo", path: "photos/Favorite projects/jal-nomadher/Banner.png",                             w: 108, h: 200, tx: "198px",  ty: "-28px", rot: "5deg",   delay: "0.42s", z: 4 },
+  { kind: "photo", path: "photos/Favorite projects/jal-nomadher/Banner.png",                             w: 170, h: 315, tx: "432px",  ty: "-42px",  rot: "5deg",   delay: "0.42s", z: 4 },
   // personal / travel
-  { kind: "photo", path: "photos/Nice photos /IMG_9454_VSCO.png",                                        w: 75,  h: 113, tx: "172px",  ty: "82px",  rot: "-9deg",  delay: "0.49s", z: 3 },
+  { kind: "photo", path: "photos/Nice photos /IMG_9454_VSCO.png",                                        w: 120, h: 180, tx: "376px",  ty: "130px",  rot: "-9deg",  delay: "0.49s", z: 3 },
 ];
 
 // gradient tops for chapters without a photo cover
@@ -67,12 +67,23 @@ export default async function ProjectsPage({
   const locale = rawLocale as Locale;
   const es = locale === "es";
 
-  // chapter cards: cover from first hero in the chapter, link to first hero/mention
+  // chapter cards: cover from the chapter's hero; for chapters without a hero
+  // (N9NE, Travelling University, Independent) fall back to the first mention
+  // that has a cover photo so every card shows a real image, not a flat tint.
   const chapterCards = chapters.map((c) => {
     const hero = heroes.find((h) => h.chapter === c.id);
-    const mention = getMentionsByChapter(c.id)[0];
-    const cover = hero ? encodeAsset(HERO_MANIFEST[hero.slug]?.cover) : undefined;
-    const href = hero ? `/work/${hero.slug}` : mention ? `/work/${mention.id}` : "/projects";
+    if (hero) {
+      return {
+        c,
+        cover: encodeAsset(HERO_MANIFEST[hero.slug]?.cover),
+        href: `/work/${hero.slug}`,
+      };
+    }
+    const chapterMentions = getMentionsByChapter(c.id);
+    const featured =
+      chapterMentions.find((m) => MENTION_MANIFEST[m.id]?.cover) ?? chapterMentions[0];
+    const cover = featured ? encodeAsset(MENTION_MANIFEST[featured.id]?.cover) : undefined;
+    const href = featured ? `/work/${featured.id}` : "/projects";
     return { c, cover, href };
   });
 
@@ -99,7 +110,7 @@ export default async function ProjectsPage({
         <div className="mx-auto flex max-w-[1100px] flex-col items-center px-5 pb-20 pt-[140px] sm:pb-24 sm:pt-[170px]">
           <h1 className="sr-only">{es ? "Trabajo" : "Work"}</h1>
           {/* pile container — folder base + cards fanning out above it */}
-          <div className="relative h-[380px] w-full max-w-[680px]">
+          <div className="relative h-[560px] w-full">
             {/* folder base — static, sits behind all cards */}
             <div
               className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[10px]"
@@ -133,7 +144,7 @@ export default async function ProjectsPage({
                       src={encodeAsset(card.path)!}
                       alt=""
                       fill
-                      sizes="110px"
+                      sizes="180px"
                       className="object-cover"
                       priority={card.delay === "0s" || card.delay === "0.07s"}
                     />
