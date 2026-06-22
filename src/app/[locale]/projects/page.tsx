@@ -17,6 +17,29 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Hero spread — photo cards fanning out of a folder, matching the Figma interactive pile.
+// Cards start from the folder position (center-bottom) and spread out with staggered animation.
+type SpreadItem = { kind: "photo"; path: string; w: number; h: number; tx: string; ty: string; rot: string; delay: string; z: number };
+
+const HERO_SPREAD: SpreadItem[] = [
+  // tall portrait — far left
+  { kind: "photo", path: "photos/Favorite projects/global-youth-summit/_MG_3552.png",                    w: 108, h: 198, tx: "-202px", ty: "-8px",  rot: "-9deg",  delay: "0s",    z: 4 },
+  // outdoor missions
+  { kind: "photo", path: "photos/Favorite projects/misiones-internacionales/IMG_9822.png",               w: 92,  h: 118, tx: "-108px", ty: "-78px", rot: "9deg",   delay: "0.07s", z: 3 },
+  // coffee / lifestyle
+  { kind: "photo", path: "photos/N9NE/nobled-coffee/IMG_3839.png",                                       w: 72,  h: 72,  tx: "-14px",  ty: "-52px", rot: "-4deg",  delay: "0.14s", z: 5 },
+  // summit event
+  { kind: "photo", path: "photos/Favorite projects/global-youth-summit/IMG_0028.png",                    w: 88,  h: 100, tx: "78px",   ty: "-82px", rot: "-10deg", delay: "0.21s", z: 3 },
+  // Seoul women's summit
+  { kind: "photo", path: "photos/BOOST LAB/women-entrepreneur-summit-seoul/SWES - @haritza.8x-034.png",  w: 92,  h: 116, tx: "-52px",  ty: "68px",  rot: "1deg",   delay: "0.28s", z: 2 },
+  // hackathon — center-right
+  { kind: "photo", path: "photos/Favorite projects/sejong-hackathon/IMG_3845.png",                       w: 102, h: 130, tx: "58px",   ty: "52px",  rot: "10deg",  delay: "0.35s", z: 6 },
+  // tall portrait — far right
+  { kind: "photo", path: "photos/Favorite projects/jal-nomadher/Banner.png",                             w: 108, h: 200, tx: "198px",  ty: "-28px", rot: "5deg",   delay: "0.42s", z: 4 },
+  // personal / travel
+  { kind: "photo", path: "photos/Nice photos /IMG_9454_VSCO.png",                                        w: 75,  h: 113, tx: "172px",  ty: "82px",  rot: "-9deg",  delay: "0.49s", z: 3 },
+];
+
 // gradient tops for chapters without a photo cover
 const CHAPTER_TINT: Record<string, string> = {
   n9ne: "linear-gradient(135deg,#9AA3AD,#c7ced4)",
@@ -55,23 +78,70 @@ export default async function ProjectsPage({
 
   return (
     <main>
-      {/* ── Hero — photo-folder pile centerpiece (Figma node 227:1353) ──
-          The design hero is a single editorial graphic: a folder spilling
-          project photos + colored cards. We render it as one transparent image
-          centered on the pale-sky wash, with an sr-only heading for a11y/SEO. */}
+      {/* ── Hero — cards fan out of a folder, matching the Figma interactive pile ── */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#eef4f8] to-white">
+        <style>{`
+          @keyframes spreadOut {
+            0%   { transform: translate(calc(-50% + 0px), calc(-50% + 55px)) scale(0.45); opacity: 0; }
+            65%  { opacity: 1; }
+            100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) rotate(var(--rot)) scale(1); opacity: 1; }
+          }
+          .spread-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(calc(-50% + 0px), calc(-50% + 55px)) scale(0.45);
+            opacity: 0;
+            animation: spreadOut 0.75s cubic-bezier(0.34, 1.42, 0.64, 1) forwards;
+          }
+        `}</style>
         <SiteNav tone="dark" />
         <div className="mx-auto flex max-w-[1100px] flex-col items-center px-5 pb-20 pt-[140px] sm:pb-24 sm:pt-[170px]">
           <h1 className="sr-only">{es ? "Trabajo" : "Work"}</h1>
-          <Image
-            src="/figma/projects/hero-pile.png"
-            alt={es ? "Pila de fotos de proyectos saliendo de una carpeta" : "Pile of project photos spilling from a folder"}
-            width={701}
-            height={507}
-            priority
-            sizes="(min-width: 640px) 700px, 90vw"
-            className="h-auto w-[90vw] max-w-[700px] drop-shadow-[0_24px_50px_-24px_rgba(0,0,0,0.3)]"
-          />
+          {/* pile container — folder base + cards fanning out above it */}
+          <div className="relative h-[380px] w-full max-w-[680px]">
+            {/* folder base — static, sits behind all cards */}
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[10px]"
+              style={{ zIndex: 1 }}
+            >
+              <div className="h-[155px] w-[370px] rounded-[18px] bg-[#1e1e1e] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.45)]">
+                {/* folder tab */}
+                <div className="absolute -top-[14px] left-[24px] h-[18px] w-[80px] rounded-t-[8px] bg-[#2c2c2c]" />
+              </div>
+            </div>
+
+            {/* spread cards */}
+            {HERO_SPREAD.map((card) => (
+              <div
+                key={card.path}
+                className="spread-card"
+                style={{
+                  "--tx": card.tx,
+                  "--ty": card.ty,
+                  "--rot": card.rot,
+                  animationDelay: card.delay,
+                  zIndex: card.z,
+                } as React.CSSProperties}
+              >
+                <div
+                  className="overflow-hidden rounded-[9px] bg-white shadow-[0_10px_32px_-6px_rgba(0,0,0,0.32)] ring-1 ring-black/5"
+                  style={{ width: card.w, height: card.h, padding: 5 }}
+                >
+                  <div className="relative h-full w-full overflow-hidden rounded-[5px]">
+                    <Image
+                      src={encodeAsset(card.path)!}
+                      alt=""
+                      fill
+                      sizes="110px"
+                      className="object-cover"
+                      priority={card.delay === "0s" || card.delay === "0.07s"}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
