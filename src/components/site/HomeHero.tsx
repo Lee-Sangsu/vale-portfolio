@@ -120,13 +120,15 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
         {/* Name highlight + blinking text cursor */}
         <h1 className="relative mt-7 flex items-start justify-center font-heebo text-[44px] font-bold leading-none text-black sm:text-[64px]">
-          <span className="bg-hero-lime px-2 box-decoration-clone">Valeria Jiménez</span>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={encodeAsset(`${MAIN}/Cursos.svg`)}
-            alt=""
-            className="ml-[3px] h-[44px] w-auto self-start sm:h-[62px]"
-          />
+          <span className="relative bg-hero-lime px-2 box-decoration-clone">
+            Valeria Jiménez
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={encodeAsset(`${MAIN}/Cursos.svg`)}
+              alt=""
+              className="absolute left-full bottom-1 h-[44px] w-auto sm:h-[64px]"
+            />
+          </span>
         </h1>
 
         {/* Bio window */}
