@@ -10,7 +10,6 @@ import { Stat } from "./Stat";
 import { Link } from "@/i18n/navigation";
 import { listPhotos } from "@/lib/photos";
 import { MENTION_MANIFEST, encodeAsset, resolveDecks } from "@/content/photo-manifest";
-import { DECO } from "./Decoration";
 
 function splitTitle(title: string): { lead: string; italic: string } {
   const words = title.split(" ");
@@ -39,7 +38,7 @@ export async function MentionDetail({
   return (
     <article className="pb-24">
       {/* ── Back ── */}
-      <div className="container-page pt-6">
+      <div className="container-page pt-24 sm:pt-28">
         <Link
           href="/projects"
           className="kicker text-ink underline-soft inline-flex items-baseline gap-2"

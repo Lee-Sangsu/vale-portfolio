@@ -22,7 +22,7 @@ type Sticker = {
 
 const STICKERS: Sticker[] = [
   {
-    src: "/figma/about/hero-paint-set.jpg",
+    src: "/figma/about/hero-paint-set-cutout.png",
     alt: "",
     className: "left-[3%] top-[14%] w-[120px] lg:w-[173px]",
     rotate: 12.4,
@@ -42,7 +42,7 @@ const STICKERS: Sticker[] = [
     mobile: true,
   },
   {
-    src: "/figma/about/hero-flowers.jpg",
+    src: "/figma/about/hero-flowers-cutout.png",
     alt: "",
     className: "-left-[2%] top-[64%] w-[150px] lg:w-[200px]",
     rotate: 6.26,

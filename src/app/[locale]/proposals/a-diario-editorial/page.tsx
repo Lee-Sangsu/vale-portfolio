@@ -155,7 +155,10 @@ export default async function DiarioEditorialPage({
           </div>
           <div className="col-span-12 sm:col-span-5">
             <NaturalPhoto
-              src={encodeAsset(HERO_MANIFEST["global-youth-summit"].spotlight)!}
+              src={encodeAsset(
+                HERO_MANIFEST["global-youth-summit"].spotlight ??
+                  HERO_MANIFEST["global-youth-summit"].cover,
+              )!}
               alt="Global Youth Summit — spotlight"
               maxHeightVh={55}
               rounded="rounded-2xl"

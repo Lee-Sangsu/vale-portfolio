@@ -23,11 +23,36 @@ type CardStyle = {
 
 // styles keyed by hero index (order: GYS, Misiones, Sejong, JAL, NomadHer app)
 const STYLES: CardStyle[] = [
-  { height: "lg:h-[229px]", offset: "lg:mt-10", label: "#ff3da0", labelText: "#ffffff" },
-  { height: "lg:h-[287px]", offset: "lg:mt-0", label: "#111111", labelText: "#ffffff" },
-  { height: "lg:h-[263px]", offset: "lg:mt-12", label: "#1f4a37", labelText: "#ffffff" },
-  { height: "lg:h-[238px]", offset: "lg:mt-4", label: "#7a1f3d", labelText: "#ffffff" },
-  { height: "lg:h-[277px]", offset: "lg:mt-14", label: "#e516b0", labelText: "#ffffff" },
+  {
+    height: "lg:h-[229px]",
+    offset: "lg:mt-10",
+    label: "#ff3da0",
+    labelText: "#ffffff",
+  },
+  {
+    height: "lg:h-[287px]",
+    offset: "lg:mt-0",
+    label: "#111111",
+    labelText: "#ffffff",
+  },
+  {
+    height: "lg:h-[263px]",
+    offset: "lg:mt-12",
+    label: "#1f4a37",
+    labelText: "#ffffff",
+  },
+  {
+    height: "lg:h-[238px]",
+    offset: "lg:mt-4",
+    label: "#7a1f3d",
+    labelText: "#ffffff",
+  },
+  {
+    height: "lg:h-[277px]",
+    offset: "lg:mt-14",
+    label: "#e516b0",
+    labelText: "#ffffff",
+  },
 ];
 
 export function SneakPeek({ locale }: { locale: Locale }) {
@@ -36,7 +61,7 @@ export function SneakPeek({ locale }: { locale: Locale }) {
   return (
     <section className="bg-white px-5 py-20 sm:px-8 sm:py-24">
       <div className="mx-auto max-w-[1280px]">
-        <h2 className="text-center font-inter text-[28px] font-semibold text-ink2 sm:text-[34px]">
+        <h2 className="font-inter text-ink2 text-center text-[28px] font-semibold sm:text-[34px]">
           {es ? "Un vistazo a mi trabajo" : "Sneak peek of my works"}
         </h2>
 
@@ -59,20 +84,25 @@ export function SneakPeek({ locale }: { locale: Locale }) {
                       alt={hero.title[locale]}
                       fill
                       sizes="(min-width: 1024px) 230px, 46vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                   )}
                   <span
-                    className="absolute left-3 top-3 rounded-[7px] px-2 py-[3px] font-inter text-[11px] font-semibold"
-                    style={{ backgroundColor: style.label, color: style.labelText }}
+                    className="font-inter absolute top-3 left-3 rounded-[7px] px-2 py-[3px] text-[11px] font-semibold"
+                    style={{
+                      backgroundColor: style.label,
+                      color: style.labelText,
+                    }}
                   >
                     {hero.brand}
                   </span>
                 </div>
-                <p className="mt-3 font-inter text-[15px] font-medium leading-snug text-ink2 transition-colors group-hover:text-green">
+                <p className="font-inter text-ink2 group-hover:text-green mt-3 text-[15px] leading-snug font-medium transition-colors">
                   {hero.title[locale]}
                 </p>
-                <p className="font-inter text-[12px] text-muted">{hero.date[locale]}</p>
+                <p className="font-inter text-muted text-[12px]">
+                  {hero.date[locale]}
+                </p>
               </Link>
             );
           })}

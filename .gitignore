@@ -44,6 +44,7 @@ next-env.d.ts
 public/photos/**
 !public/photos/about/
 !public/photos/about/Val.jpg
+!public/photos/about/Val.png
 *.mov
 *.MOV
 *.mp4

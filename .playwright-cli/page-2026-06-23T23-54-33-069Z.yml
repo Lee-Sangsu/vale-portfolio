@@ -1,0 +1,314 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - navigation [ref=e5]:
+        - generic [ref=e6]:
+          - link "Portfolio" [ref=e7] [cursor=pointer]:
+            - /url: /en
+          - generic [ref=e8]:
+            - link "Home" [ref=e9] [cursor=pointer]:
+              - /url: /en
+            - link "Portfolio" [ref=e10] [cursor=pointer]:
+              - /url: /en/projects
+            - link "About" [ref=e11] [cursor=pointer]:
+              - /url: /en/about
+            - link "Contact" [ref=e12] [cursor=pointer]:
+              - /url: /en/contact
+          - generic [ref=e13]:
+            - button "Cambiar idioma a español" [ref=e14]: EN/ES
+            - link "Contact" [ref=e16] [cursor=pointer]:
+              - /url: /en/contact
+      - generic [ref=e17]:
+        - heading "About me" [level=1] [ref=e18]
+        - paragraph [ref=e19]: I'm Valeria, a designer in motion.
+        - link "See journey" [ref=e20] [cursor=pointer]:
+          - /url: "#story"
+    - paragraph [ref=e22]: 5 years between Bilbao, Berlin, Bogotá and Seoul.
+    - generic [ref=e24]:
+      - list [ref=e25]:
+        - listitem [ref=e26]:
+          - img "Figma" [ref=e28]
+          - generic [ref=e29]: Figma
+        - listitem [ref=e30]:
+          - img "Illustrator" [ref=e32]
+          - generic [ref=e33]: Illustrator
+        - listitem [ref=e34]:
+          - img "Photoshop" [ref=e36]
+          - generic [ref=e37]: Photoshop
+        - listitem [ref=e38]:
+          - img "Framer" [ref=e40]
+          - generic [ref=e41]: Framer
+        - listitem [ref=e42]:
+          - img "Canva" [ref=e44]
+          - generic [ref=e45]: Canva
+        - listitem [ref=e46]:
+          - img "Notion" [ref=e48]
+          - generic [ref=e49]: Notion
+        - listitem [ref=e50]:
+          - img "CapCut" [ref=e52]
+          - generic [ref=e53]: CapCut
+        - listitem [ref=e54]:
+          - img "ManyChat" [ref=e56]
+          - generic [ref=e57]: ManyChat
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - heading "Skills" [level=2] [ref=e60]
+          - paragraph [ref=e61]: A multidisciplinary designer working across strategy, product and content to turn ideas into real things.
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - button "1. Strategy & Brand ⌄" [ref=e65]:
+                - generic [ref=e66]: 1. Strategy & Brand
+                - generic [ref=e67]: ⌄
+              - paragraph [ref=e70]: Branding, voice, visual systems and creative direction for brands and founders.
+            - listitem [ref=e71]:
+              - button "2. Product & UX/UI ⌄" [ref=e72]:
+                - generic [ref=e73]: 2. Product & UX/UI
+                - generic [ref=e74]: ⌄
+              - paragraph [ref=e75]: App and web design, research and product systems (NomadHer).
+            - listitem [ref=e76]:
+              - button "3. Content & Social ⌄" [ref=e77]:
+                - generic [ref=e78]: 3. Content & Social
+                - generic [ref=e79]: ⌄
+              - paragraph [ref=e80]: Campaigns, editorial and social content that keeps the community alive.
+            - listitem [ref=e81]:
+              - button "4. Events & Community ⌄" [ref=e82]:
+                - generic [ref=e83]: 4. Events & Community
+                - generic [ref=e84]: ⌄
+              - paragraph [ref=e85]: Event and community production with BOOST LAB.
+        - generic [ref=e87]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - generic [ref=e95]:
+                - generic [ref=e96]: MENU
+                - generic [ref=e97]: ▶
+              - generic [ref=e98]:
+                - generic [ref=e99]: Strategy & Brand
+                - generic [ref=e100]: Product · UX
+                - generic [ref=e101]: Content & Social
+                - generic [ref=e102]: Events
+            - generic [ref=e103]:
+              - generic [ref=e104]: MENU
+              - generic [ref=e105]: ◄◄
+              - generic [ref=e106]: ►►
+              - generic [ref=e107]: ►
+          - paragraph [ref=e109]: Val's iPod · click any song
+    - generic [ref=e111]:
+      - img "Valeria Jiménez" [ref=e113]
+      - generic [ref=e114]:
+        - heading "Discover My Journey" [level=2] [ref=e115]
+        - paragraph [ref=e116]: "For 5 years I've been designing brands, products, events and communities. I've worked with different teams, in different industries and in different countries, and across all of that I found the way I like to work: practical, creative, and focused on making things happen."
+        - list [ref=e117]:
+          - listitem [ref=e118]:
+            - generic [ref=e119]: Product · UX/UI Designer
+            - generic [ref=e120]:
+              - link "NomadHer" [ref=e121] [cursor=pointer]:
+                - /url: /work/nomadher-app
+              - generic [ref=e122]: Oct 2025 →
+          - listitem [ref=e123]:
+            - generic [ref=e124]: Innovation Lead
+            - generic [ref=e125]:
+              - link "BOOST LAB" [ref=e126] [cursor=pointer]:
+                - /url: /work/global-youth-summit
+              - generic [ref=e127]: 2024 →
+          - listitem [ref=e128]:
+            - generic [ref=e129]: Designer & Consultant
+            - generic [ref=e130]:
+              - generic [ref=e131]: Independent
+              - generic [ref=e132]: 2025 → 2026
+          - listitem [ref=e133]:
+            - generic [ref=e134]: Talent Scout & Ambassador
+            - generic [ref=e135]:
+              - generic [ref=e136]: Travelling University
+              - generic [ref=e137]: "2025"
+          - listitem [ref=e138]:
+            - generic [ref=e139]: Co-founder & Team Lead
+            - generic [ref=e140]:
+              - generic [ref=e141]: N9NE
+              - generic [ref=e142]: 2021 → 2024
+    - generic [ref=e144]:
+      - heading "My story" [level=2] [ref=e145]
+      - paragraph [ref=e146]: "For 5 years I've been designing brands, products, events and communities. I've worked with different teams, in different industries and in different countries, and across all of that I found the way I like to work: practical, creative, and focused on making things happen. I like things to become real, not stay on paper. If it can be automated, good. If it can ship today, better."
+    - generic [ref=e153]:
+      - heading "Sneak peek of my works" [level=2] [ref=e154]
+      - generic [ref=e155]:
+        - 'link "Global Youth: Women''s Entrepreneurship Summit BOOST LAB Global Youth: Women''s Entrepreneurship Summit 21 Sep 2024" [ref=e156] [cursor=pointer]':
+          - /url: /work/global-youth-summit
+          - generic [ref=e157]:
+            - 'img "Global Youth: Women''s Entrepreneurship Summit" [ref=e158]'
+            - generic [ref=e159]: BOOST LAB
+          - paragraph [ref=e160]: "Global Youth: Women's Entrepreneurship Summit"
+          - paragraph [ref=e161]: 21 Sep 2024
+        - link "Misiones Internacionales BOOST LAB Misiones Internacionales 25 Jul – 8 Aug 2025" [ref=e162] [cursor=pointer]:
+          - /url: /work/misiones-internacionales
+          - generic [ref=e163]:
+            - img "Misiones Internacionales" [ref=e164]
+            - generic [ref=e165]: BOOST LAB
+          - paragraph [ref=e166]: Misiones Internacionales
+          - paragraph [ref=e167]: 25 Jul – 8 Aug 2025
+        - link "Sejong Global Idea Hackathon BOOST LAB × Bnomad × Sejong University Campus Town Sejong Global Idea Hackathon 12–13 Dec 2025" [ref=e168] [cursor=pointer]:
+          - /url: /work/sejong-hackathon
+          - generic [ref=e169]:
+            - img "Sejong Global Idea Hackathon" [ref=e170]
+            - generic [ref=e171]: BOOST LAB × Bnomad × Sejong University Campus Town
+          - paragraph [ref=e172]: Sejong Global Idea Hackathon
+          - paragraph [ref=e173]: 12–13 Dec 2025
+        - link "Japan Airlines × NomadHer · Creator Call NomadHer × Japan Airlines Japan Airlines × NomadHer · Creator Call 27 Feb – 20 Mar 2026" [ref=e174] [cursor=pointer]:
+          - /url: /work/jal-nomadher
+          - generic [ref=e175]:
+            - img "Japan Airlines × NomadHer · Creator Call" [ref=e176]
+            - generic [ref=e177]: NomadHer × Japan Airlines
+          - paragraph [ref=e178]: Japan Airlines × NomadHer · Creator Call
+          - paragraph [ref=e179]: 27 Feb – 20 Mar 2026
+        - link "App NomadHer · Product Design NomadHer App NomadHer · Product Design Oct 2025 – present" [ref=e180] [cursor=pointer]:
+          - /url: /work/nomadher-app
+          - generic [ref=e181]:
+            - img "App NomadHer · Product Design" [ref=e182]
+            - generic [ref=e183]: NomadHer
+          - paragraph [ref=e184]: App NomadHer · Product Design
+          - paragraph [ref=e185]: Oct 2025 – present
+    - generic [ref=e187]:
+      - generic [ref=e190]: ✋
+      - generic [ref=e191]:
+        - heading "Let's Work Together!" [level=2] [ref=e192]
+        - paragraph [ref=e193]: Let's bring your vision to life, build something impactful together.
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - generic [ref=e196]: Name
+            - textbox "Name" [ref=e197]:
+              - /placeholder: Fellow Traveler
+          - generic [ref=e198]:
+            - generic [ref=e199]: Email
+            - textbox "Email" [ref=e200]:
+              - /placeholder: hello@example.com
+        - generic [ref=e201]:
+          - generic [ref=e202]: What Can I Help You...
+          - textbox "What Can I Help You..." [ref=e203]:
+            - /placeholder: Hey, we would like to hire you!
+        - button "Send" [ref=e204]
+    - generic [ref=e206]:
+      - generic [ref=e207]: Portfolio
+      - generic [ref=e208]:
+        - link "Instagram" [ref=e209] [cursor=pointer]:
+          - /url: https://www.instagram.com/valejimenez.cm/
+        - link "LinkedIn" [ref=e210] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/valejimenezc
+        - link "Email" [ref=e211] [cursor=pointer]:
+          - /url: mailto:valejimenezc2003@gmail.com
+      - generic [ref=e212]: © 2026 Valeria Jiménez
+  - button "Open Next.js Dev Tools" [ref=e218] [cursor=pointer]:
+    - img [ref=e219]
+  - alert [ref=e222]
+  - button "v3.0.2 Output Detail Standard React Components Hide Until Restart Marker Color Clear on copy/send Block page interactions Manage MCP & Webhooks Manage MCP & Webhooks MCP Connection MCP connection allows agents to receive and act on annotations. Learn more Webhooks Auto-Send The webhook URL will receive live annotation changes and annotation data." [ref=e224] [cursor=pointer]:
+    - img [ref=e226]
+    - generic:
+      - generic:
+        - button:
+          - img
+      - generic:
+        - button:
+          - img
+      - generic:
+        - button [disabled]:
+          - img
+      - generic:
+        - button [disabled]:
+          - img
+      - generic:
+        - button [disabled]:
+          - img
+      - generic:
+        - button [disabled]:
+          - img
+      - generic:
+        - button:
+          - img
+      - generic:
+        - button:
+          - img
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - link:
+              - /url: https://agentation.com
+              - img
+            - paragraph: v3.0.2
+            - button "Switch to light mode":
+              - generic:
+                - generic:
+                  - img
+          - generic:
+            - generic:
+              - generic:
+                - text: Output Detail
+                - generic:
+                  - img
+              - button "Standard":
+                - generic: Standard
+            - generic:
+              - generic:
+                - text: React Components
+                - generic:
+                  - img
+              - generic:
+                - checkbox [checked]
+            - generic:
+              - generic:
+                - text: Hide Until Restart
+                - generic:
+                  - img
+              - generic:
+                - checkbox
+          - generic:
+            - generic: Marker Color
+            - generic:
+              - button "Indigo"
+              - button "Blue"
+              - button "Cyan"
+              - button "Green"
+              - button "Yellow"
+              - button "Orange"
+              - button "Red"
+          - generic:
+            - generic:
+              - generic:
+                - checkbox "Clear on copy/send"
+                - img
+              - generic: Clear on copy/send
+              - generic:
+                - img
+            - generic:
+              - generic:
+                - checkbox "Block page interactions" [checked]
+                - img
+              - generic: Block page interactions
+          - button "Manage MCP & Webhooks":
+            - generic: Manage MCP & Webhooks
+            - generic:
+              - img
+        - generic:
+          - button "Manage MCP & Webhooks":
+            - img
+            - generic: Manage MCP & Webhooks
+          - generic:
+            - generic:
+              - generic:
+                - text: MCP Connection
+                - generic:
+                  - img
+            - paragraph:
+              - text: MCP connection allows agents to receive and act on annotations.
+              - link "Learn more":
+                - /url: https://agentation.dev/mcp
+          - generic:
+            - generic:
+              - generic:
+                - text: Webhooks
+                - generic:
+                  - img
+              - generic:
+                - generic: Auto-Send
+                - generic:
+                  - checkbox "Auto-Send" [checked] [disabled]
+            - paragraph: The webhook URL will receive live annotation changes and annotation data.
+            - textbox "Webhook URL"

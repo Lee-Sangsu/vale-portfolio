@@ -1,13 +1,12 @@
 import Image from "next/image";
 import type { Locale } from "@/content/types";
 import { aboutLong } from "@/content/about";
-import { encodeAsset } from "@/content/photo-manifest";
 
 const PHOTOS = [
-  "photos/about/My photos/IMG_2260.png",
-  "photos/about/My photos/IMG_4019.png",
-  "photos/about/My photos/IMG_6832.png",
-  "photos/about/My photos/IMG_7142.png",
+  "/figma/about/story-1.webp",
+  "/figma/about/story-2.webp",
+  "/figma/about/story-3.webp",
+  "/figma/about/story-4.webp",
 ];
 
 export function MyStory({ locale }: { locale: Locale }) {
@@ -16,7 +15,10 @@ export function MyStory({ locale }: { locale: Locale }) {
   const intro = `${aboutLong.paragraphs[1][locale]} ${aboutLong.paragraphs[2][locale]}`;
 
   return (
-    <section id="story" className="scroll-mt-24 bg-[#111] px-5 py-20 sm:px-8 sm:py-24">
+    <section
+      id="story"
+      className="scroll-mt-24 bg-[#111] px-5 py-20 sm:px-8 sm:py-24"
+    >
       <div className="mx-auto flex max-w-[1200px] flex-col items-center text-center">
         {/* Dot */}
         <Image
@@ -27,11 +29,11 @@ export function MyStory({ locale }: { locale: Locale }) {
           className="size-[54px] rounded-full"
         />
 
-        <h2 className="mt-6 font-inter text-[28px] font-semibold text-white sm:text-[32px]">
+        <h2 className="font-inter mt-6 text-[28px] font-semibold text-white sm:text-[32px]">
           {es ? "Mi historia" : "My story"}
         </h2>
 
-        <p className="mt-5 max-w-[780px] font-inter text-[17px] leading-[27px] text-[#c9cdd0]">
+        <p className="font-inter mt-5 max-w-[780px] text-[17px] leading-[27px] text-[#c9cdd0]">
           {intro}
         </p>
 
@@ -43,11 +45,11 @@ export function MyStory({ locale }: { locale: Locale }) {
               className="relative aspect-[360/420] overflow-hidden rounded-[14px]"
             >
               <Image
-                src={encodeAsset(p)!}
+                src={p}
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 290px, (min-width: 640px) 45vw, 45vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           ))}
