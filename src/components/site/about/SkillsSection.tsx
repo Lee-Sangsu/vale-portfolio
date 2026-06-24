@@ -46,11 +46,11 @@ export function SkillsSection({ locale }: { locale: Locale }) {
   const es = locale === "es";
 
   return (
-    <section className="bg-white px-5 py-20 sm:px-8 sm:py-24">
-      <div className="mx-auto max-w-[1200px]">
+    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 lg:px-16">
+      <div className="mx-auto max-w-[1080px]">
         <AppSwatchRow className="mb-12 sm:mb-16" />
 
-        <div className="grid items-start gap-14 lg:grid-cols-[1fr_280px]">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,520px)_280px] lg:justify-center lg:gap-12">
           {/* Left: heading + intro + accordion */}
           <div>
             <h2 className="font-inter text-[36px] font-bold leading-tight text-ink2 sm:text-[48px]">
@@ -68,7 +68,7 @@ export function SkillsSection({ locale }: { locale: Locale }) {
           </div>
 
           {/* Right: decorative iPod */}
-          <div className="flex justify-center lg:justify-end lg:pt-6">
+          <div className="flex justify-center">
             <IpodCard locale={locale} />
           </div>
         </div>

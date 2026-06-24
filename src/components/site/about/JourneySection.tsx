@@ -12,7 +12,10 @@ type Role = {
 
 const ROLES: Role[] = [
   {
-    role: { en: "Product · UX/UI Designer", es: "Diseñadora de Producto · UX/UI" },
+    role: {
+      en: "Product · UX/UI Designer",
+      es: "Diseñadora de Producto · UX/UI",
+    },
     company: { en: "NomadHer", es: "NomadHer" },
     href: "/work/nomadher-app",
     date: "Oct 2025 →",
@@ -45,51 +48,53 @@ export function JourneySection({ locale }: { locale: Locale }) {
   const intro = aboutLong.paragraphs[1][locale];
 
   return (
-    <section className="bg-white px-5 py-20 sm:px-8 sm:py-24">
-      <div className="mx-auto grid max-w-[1200px] items-start gap-12 lg:grid-cols-[409px_1fr] lg:gap-20">
+    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 lg:px-16">
+      <div className="mx-auto grid max-w-[1080px] items-start gap-10 lg:grid-cols-[360px_1fr] lg:gap-14">
         {/* Portrait */}
-        <div className="relative mx-auto aspect-[409/494] w-full max-w-[409px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
+        <div className="relative mx-auto aspect-[409/494] w-full max-w-[360px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
           <Image
             src={encodeAsset("photos/about/Val.png")!}
             alt="Valeria Jiménez"
             fill
-            sizes="(min-width: 1024px) 409px, 100vw"
-            className="object-cover"
+            sizes="(min-width: 1024px) 360px, 100vw"
+            className="object-cover object-center"
           />
         </div>
 
         {/* Heading + intro + roles */}
         <div>
-          <h2 className="font-inter text-[40px] font-bold leading-[1.05] text-ink2 sm:text-[60px]">
+          <h2 className="font-inter text-ink2 text-[34px] leading-[1.08] font-bold sm:text-[48px]">
             {es ? "Descubre mi camino" : "Discover My Journey"}
           </h2>
-          <p className="mt-6 max-w-[440px] font-inter text-[17px] leading-[1.6] text-muted">
+          <p className="font-inter text-muted mt-5 max-w-[440px] text-[16px] leading-[1.55]">
             {intro}
           </p>
 
-          <ul className="mt-10 border-t border-win-border">
+          <ul className="border-win-border mt-8 border-t">
             {ROLES.map((r) => (
               <li
                 key={r.role.en}
-                className="flex flex-col gap-1 border-b border-win-border py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                className="border-win-border flex flex-col gap-1 border-b py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-5"
               >
-                <span className="font-inter text-[20px] font-medium text-ink2 sm:text-[24px]">
+                <span className="font-inter text-ink2 text-[18px] font-medium sm:text-[20px]">
                   {r.role[locale]}
                 </span>
                 <span className="flex flex-col sm:items-end">
                   {r.href ? (
                     <a
                       href={r.href}
-                      className="font-inter text-[15px] font-semibold text-green transition-opacity hover:opacity-75"
+                      className="font-inter text-green text-[14px] font-semibold transition-opacity hover:opacity-75"
                     >
                       {r.company[locale]}
                     </a>
                   ) : (
-                    <span className="font-inter text-[15px] font-semibold text-green">
+                    <span className="font-inter text-green text-[14px] font-semibold">
                       {r.company[locale]}
                     </span>
                   )}
-                  <span className="font-inter text-[12px] text-[#999]">{r.date}</span>
+                  <span className="font-inter text-[12px] text-[#999]">
+                    {r.date}
+                  </span>
                 </span>
               </li>
             ))}
