@@ -28,14 +28,98 @@ const CHAPTER_TINT: Record<string, string> = {
   independent: "linear-gradient(135deg,#244736,#3f7a5c)",
 };
 
+const CARRYON_ASSET_BASE = "Assets /Assets Icons cool";
+const carryOnAsset = (file: string) =>
+  encodeAsset(`${CARRYON_ASSET_BASE}/${file}`)!;
+
 const CARRYON_ITEMS = [
-  { emoji: "📷", es: "cámara", en: "camera" },
-  { emoji: "🧳", es: "maleta", en: "carry-on" },
-  { emoji: "✈️", es: "vuelo", en: "flight" },
-  { emoji: "🎧", es: "playlist", en: "playlist" },
-  { emoji: "💻", es: "figma", en: "figma" },
-  { emoji: "📓", es: "notas", en: "notes" },
+  {
+    src: carryOnAsset("camara.svg"),
+    width: 2263,
+    height: 1366,
+    className:
+      "left-[6%] top-[11%] w-[31%] sm:left-[9%] sm:top-[22%] sm:w-[9.5%]",
+    sizes: "(min-width: 640px) 10vw, 31vw",
+  },
+  {
+    src: carryOnAsset("1Object.svg"),
+    width: 848,
+    height: 1194,
+    className:
+      "left-[56%] top-[6%] w-[14%] sm:left-[30%] sm:top-[6%] sm:w-[5.5%]",
+    sizes: "(min-width: 640px) 6vw, 14vw",
+  },
+  {
+    src: carryOnAsset("oveja.svg"),
+    width: 953,
+    height: 772,
+    className:
+      "right-[8%] top-[19%] w-[26%] sm:right-[27%] sm:top-[15%] sm:w-[9%]",
+    sizes: "(min-width: 640px) 9vw, 26vw",
+  },
+  {
+    src: carryOnAsset("nube.svg"),
+    width: 4660,
+    height: 4660,
+    className:
+      "right-[7%] top-[6%] w-[27%] sm:right-[5%] sm:top-[14%] sm:w-[10%]",
+    sizes: "(min-width: 640px) 10vw, 27vw",
+  },
+  {
+    src: carryOnAsset("laptop.svg"),
+    width: 2577,
+    height: 1793,
+    className:
+      "left-[3%] top-[54%] w-[32%] sm:left-[6%] sm:top-[51%] sm:w-[10%]",
+    sizes: "(min-width: 640px) 10vw, 32vw",
+  },
+  {
+    src: carryOnAsset("loto.svg"),
+    width: 2916,
+    height: 2916,
+    className:
+      "left-[10%] top-[35%] w-[30%] sm:left-[20%] sm:top-[39%] sm:w-[9%]",
+    sizes: "(min-width: 640px) 9vw, 30vw",
+  },
+  {
+    src: carryOnAsset("disco.svg"),
+    width: 2131,
+    height: 2557,
+    className:
+      "left-[20%] top-[75%] w-[21%] sm:left-[18%] sm:top-[67%] sm:w-[6.5%]",
+    sizes: "(min-width: 640px) 7vw, 21vw",
+  },
+  {
+    src: carryOnAsset("plane.svg"),
+    width: 3308,
+    height: 2203,
+    className:
+      "left-[47%] top-[80%] w-[38%] sm:left-[27%] sm:top-[74%] sm:w-[13%]",
+    sizes: "(min-width: 640px) 13vw, 38vw",
+  },
+  {
+    src: carryOnAsset("dados.svg"),
+    width: 1552,
+    height: 2002,
+    className:
+      "right-[4%] top-[43%] w-[22%] sm:right-[15%] sm:top-[37%] sm:w-[7%]",
+    sizes: "(min-width: 640px) 7vw, 22vw",
+  },
+  {
+    src: carryOnAsset("audifonos.svg"),
+    width: 2371,
+    height: 2623,
+    className:
+      "right-[5%] top-[77%] w-[25%] sm:right-[6%] sm:top-[66%] sm:w-[8%]",
+    sizes: "(min-width: 640px) 8vw, 25vw",
+  },
 ];
+
+const CARRYON_BAG = {
+  src: carryOnAsset("Bag.svg"),
+  width: 1936,
+  height: 3464,
+};
 
 export default async function ProjectsPage({
   params,
@@ -109,7 +193,7 @@ export default async function ProjectsPage({
               ? "Cada capítulo es una fase: un país, un equipo, una forma de trabajar."
               : "Each chapter is a phase: a country, a team, a way of working."}
           </p>
-          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {chapterCards.map(({ c, cover, href }) => (
               <li key={c.id}>
                 <Link
@@ -213,43 +297,59 @@ export default async function ProjectsPage({
       </section>
 
       {/* ── What's in my carry-on? ── */}
-      <section className="relative overflow-hidden bg-white px-5 py-24 sm:py-32">
-        <div className="mx-auto max-w-[820px] text-center">
-          <div className="pointer-events-none mb-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-            {CARRYON_ITEMS.map((it, i) => (
-              <span
-                key={it.emoji}
-                className="flex flex-col items-center gap-1"
-                style={{ transform: `rotate(${[-8, 6, -4, 7, -6, 4][i]}deg)` }}
-              >
-                <span className="text-[34px] sm:text-[44px]">{it.emoji}</span>
-                <span className="font-inter text-muted text-[11px]">
-                  {es ? it.es : it.en}
-                </span>
-              </span>
-            ))}
+      <section className="relative overflow-hidden bg-white">
+        <div className="relative mx-auto h-[640px] w-full overflow-hidden sm:h-auto sm:min-h-[460px] sm:aspect-[2/1] lg:min-h-0">
+          {CARRYON_ITEMS.map((item) => (
+            <Image
+              key={item.src}
+              src={item.src}
+              alt=""
+              width={item.width}
+              height={item.height}
+              className={`pointer-events-none absolute z-10 h-auto select-none object-contain ${item.className}`}
+              sizes={item.sizes}
+            />
+          ))}
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-[34%] top-[63%] z-10 h-[30vw] max-h-[120px] w-[30vw] max-w-[120px] bg-[#1043d8] sm:right-[22.5%] sm:top-[60%] sm:h-[9.5vw] sm:max-h-none sm:w-[9.5vw] sm:max-w-none"
+          >
+            <span className="absolute top-[20%] left-[18%] h-[28%] w-[24%] rounded-full border-[3px] border-white/90 border-r-transparent border-b-transparent" />
+            <span className="absolute top-[24%] right-[14%] h-[22%] w-[42%] rotate-[-18deg] rounded-full border-t-[4px] border-white/90" />
+            <span className="absolute bottom-[27%] left-[18%] h-[24%] w-[23%] rounded-full border-[3px] border-white/90 border-r-transparent" />
+            <span className="absolute right-[12%] bottom-[24%] h-[23%] w-[44%] rotate-[17deg] rounded-full border-t-[4px] border-white/90" />
           </div>
-          <h2 className="font-heebo text-ink2 text-[32px] font-bold sm:text-[44px]">
-            {es ? "¿Qué llevo en mi maleta?" : "What's in my carry-on?"}
+
+          <Image
+            src={CARRYON_BAG.src}
+            alt=""
+            width={CARRYON_BAG.width}
+            height={CARRYON_BAG.height}
+            className="pointer-events-none absolute top-[49%] left-1/2 z-20 h-auto w-[42%] max-w-[250px] min-w-[205px] -translate-x-1/2 -translate-y-1/2 select-none object-contain sm:w-[13%] sm:min-w-[160px] sm:max-w-[300px]"
+            sizes="(min-width: 640px) 13vw, 42vw"
+          />
+
+          <h2 className="font-heebo pointer-events-none absolute top-[49%] left-1/2 z-30 w-[82%] -translate-x-1/2 -translate-y-1/2 text-center text-[42px] leading-[0.98] font-black tracking-normal text-[#101713]/90 sm:w-[48%] sm:text-[48px] md:text-[58px] lg:text-[64px] xl:text-[72px] 2xl:text-[82px]">
+            {es ? (
+              <>
+                <span className="block">¿Qué llevo</span>
+                <span className="block">en mi maleta?</span>
+              </>
+            ) : (
+              <>
+                <span className="block">{"What's in my"}</span>
+                <span className="block">carry-on?</span>
+              </>
+            )}
           </h2>
-          <div className="font-inter text-muted mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[14px]">
-            <span>
-              <b className="text-ink2">{es ? "Base" : "Based"}:</b>{" "}
-              {carryOn.based}
-            </span>
-            <span>
-              <b className="text-ink2">{es ? "Idiomas" : "Languages"}:</b>{" "}
-              {carryOn.languages}
-            </span>
-            <span>
-              <b className="text-ink2">{es ? "Roles" : "Roles"}:</b>{" "}
-              {carryOn.roles}
-            </span>
-            <span>
-              <b className="text-ink2">{es ? "Disponible" : "Available"}:</b>{" "}
-              {carryOn.available}
-            </span>
-          </div>
+
+          <p className="sr-only">
+            {es ? "Base" : "Based"}: {carryOn.based}.{" "}
+            {es ? "Idiomas" : "Languages"}: {carryOn.languages}.{" "}
+            {es ? "Roles" : "Roles"}: {carryOn.roles}.{" "}
+            {es ? "Disponible" : "Available"}: {carryOn.available}.
+          </p>
         </div>
       </section>
 
