@@ -126,7 +126,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
             <img
               src={encodeAsset(`${MAIN}/Cursos.svg`)}
               alt=""
-              className="absolute left-full bottom-1 h-[44px] w-auto sm:h-[64px]"
+              className="pointer-events-none absolute bottom-[-2px] left-[calc(100%-6px)] h-[44px] w-auto sm:h-[64px]"
             />
           </span>
         </h1>

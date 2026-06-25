@@ -195,7 +195,7 @@ export default async function Home({
             <br />
             <RotatingWord
               words={rotating}
-              className="bg-neon px-2 box-decoration-clone text-black"
+              className="text-black"
             />
           </h2>
         </div>

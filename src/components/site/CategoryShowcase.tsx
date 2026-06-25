@@ -66,11 +66,7 @@ export function CategoryShowcase({
                             on ? "text-ink2" : "text-muted",
                           )}
                         >
-                          {on ? (
-                            <span className="bg-hero-lime px-1 box-decoration-clone">{c.title}</span>
-                          ) : (
-                            c.title
-                          )}
+                          {c.title}
                         </span>
                       </span>
                       <span
