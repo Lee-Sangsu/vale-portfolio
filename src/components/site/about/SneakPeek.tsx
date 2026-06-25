@@ -13,8 +13,6 @@ import { HERO_MANIFEST, encodeAsset } from "@/content/photo-manifest";
 type CardStyle = {
   /** card height on lg+ */
   height: string;
-  /** vertical nudge for the scattered look on lg+ */
-  offset: string;
   /** label background color */
   label: string;
   /** label text color */
@@ -25,31 +23,26 @@ type CardStyle = {
 const STYLES: CardStyle[] = [
   {
     height: "lg:h-[229px]",
-    offset: "lg:mt-10",
     label: "#ff3da0",
     labelText: "#ffffff",
   },
   {
     height: "lg:h-[287px]",
-    offset: "lg:mt-0",
     label: "#111111",
     labelText: "#ffffff",
   },
   {
     height: "lg:h-[263px]",
-    offset: "lg:mt-12",
     label: "#1f4a37",
     labelText: "#ffffff",
   },
   {
     height: "lg:h-[238px]",
-    offset: "lg:mt-4",
     label: "#7a1f3d",
     labelText: "#ffffff",
   },
   {
     height: "lg:h-[277px]",
-    offset: "lg:mt-14",
     label: "#e516b0",
     labelText: "#ffffff",
   },
@@ -65,7 +58,7 @@ export function SneakPeek({ locale }: { locale: Locale }) {
           {es ? "Un vistazo a mi trabajo" : "Sneak peek of my works"}
         </h2>
 
-        <div className="mt-14 flex flex-wrap justify-center gap-5 lg:flex-nowrap lg:items-start">
+        <div className="mt-14 flex snap-x snap-mandatory items-end gap-5 overflow-x-auto overscroll-x-contain scroll-smooth pb-5 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {heroes.map((hero, i) => {
             const style = STYLES[i % STYLES.length];
             const cover = encodeAsset(HERO_MANIFEST[hero.slug]?.cover);
@@ -73,7 +66,7 @@ export function SneakPeek({ locale }: { locale: Locale }) {
               <Link
                 key={hero.slug}
                 href={`/work/${hero.slug}`}
-                className={`group flex w-[46%] flex-col sm:w-[230px] ${style.offset}`}
+                className="group flex w-[72vw] max-w-[230px] shrink-0 snap-center flex-col sm:w-[230px] lg:snap-start"
               >
                 <div
                   className={`relative h-[220px] w-full overflow-hidden rounded-[12px] shadow-[0_6px_14px_rgba(0,0,0,0.12)] ${style.height}`}
@@ -83,7 +76,7 @@ export function SneakPeek({ locale }: { locale: Locale }) {
                       src={cover}
                       alt={hero.title[locale]}
                       fill
-                      sizes="(min-width: 1024px) 230px, 46vw"
+                      sizes="(min-width: 1024px) 230px, 72vw"
                       className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                   )}
@@ -97,7 +90,7 @@ export function SneakPeek({ locale }: { locale: Locale }) {
                     {hero.brand}
                   </span>
                 </div>
-                <p className="font-inter text-ink2 group-hover:text-green mt-3 text-[15px] leading-snug font-medium transition-colors">
+                <p className="font-inter text-ink2 group-hover:text-green mt-3 min-h-[40px] text-[15px] leading-snug font-medium transition-colors">
                   {hero.title[locale]}
                 </p>
                 <p className="font-inter text-muted text-[12px]">
