@@ -114,6 +114,21 @@ const CARRYON_BAG = {
   height: 3464,
 };
 
+const chaptersTravelPhotos = [
+  {
+    src: encodeAsset("pages/projects/figma/chapters-travel-1.jpeg")!,
+    className: "left-[0.5%] top-[21.5%] z-10 h-[52.1%] w-[37.5%] -rotate-[18.79deg]",
+  },
+  {
+    src: encodeAsset("pages/projects/figma/chapters-travel-2.jpeg")!,
+    className: "left-[24.3%] top-[21.5%] z-20 h-[52.1%] w-[37.5%] -rotate-[1.88deg]",
+  },
+  {
+    src: encodeAsset("pages/projects/figma/chapters-travel-3.jpeg")!,
+    className: "left-[49%] top-[27.3%] z-30 h-[52.1%] w-[28.5%] rotate-[9.42deg]",
+  },
+];
+
 export default async function ProjectsPage({
   params,
 }: {
@@ -304,6 +319,44 @@ export default async function ProjectsPage({
       {/* ── Chapters grid ── */}
       <section className="bg-white px-5 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-[1100px]">
+          <div
+            aria-hidden="true"
+            data-projects-chapters="travel-collage"
+            className="relative mx-auto mb-6 aspect-[320/288] w-full max-w-[320px] sm:mb-8"
+          >
+            <p className="absolute inset-x-0 top-0 text-center font-inter text-[15px] text-[#6e726e]">
+              Viajando por el mundo
+            </p>
+            <p className="absolute inset-x-0 top-[7.65%] text-center font-inter text-[15px] font-medium text-[#5b9bd5]">
+              @valejimenez.cm
+            </p>
+            {chaptersTravelPhotos.map((photo) => (
+              <div
+                key={photo.src}
+                className={`absolute overflow-hidden rounded-[8px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.12)] ${photo.className}`}
+              >
+                <Image
+                  src={photo.src}
+                  alt=""
+                  fill
+                  sizes="(max-width: 320px) 38vw, 120px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+            <span className="absolute left-[6%] top-[71.2%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+              I ♥ SK
+            </span>
+            <span className="absolute left-[29%] top-[58%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+              LONDON
+            </span>
+            <span className="absolute left-[51%] top-[74.5%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+              ⛩
+            </span>
+            <span className="absolute left-[66%] top-[28%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+              ⛩
+            </span>
+          </div>
           <h2 className="font-inter text-ink2 text-center text-[32px] font-bold sm:text-[40px]">
             {es ? "Capítulos" : "Chapters"}
           </h2>
