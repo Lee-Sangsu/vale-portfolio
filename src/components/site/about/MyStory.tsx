@@ -88,13 +88,14 @@ export function MyStory({ locale }: { locale: Locale }) {
       </div>
 
       <div className="relative mx-auto hidden w-full max-w-[1710px] lg:aspect-[1710/1219] lg:block">
-        <Image
-          src="/pages/about/figma/story-collage-doodle.svg"
-          alt=""
-          fill
-          sizes="116px"
-          className="pointer-events-none absolute left-[46.61%] top-[5.91%] size-[6.78%]"
-        />
+        <div className="pointer-events-none absolute left-[46.61%] top-[5.91%] size-[6.78%]">
+          <Image
+            src="/pages/about/figma/story-collage-doodle.svg"
+            alt=""
+            fill
+            sizes="116px"
+          />
+        </div>
 
         <h2 className="font-inter absolute left-1/2 top-[19.2%] -translate-x-1/2 text-center text-[clamp(32px,2.81vw,48px)] font-bold leading-none">
           {es ? "Mi historia" : "My story"}
