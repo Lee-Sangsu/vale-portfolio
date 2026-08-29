@@ -263,7 +263,7 @@ export default async function ProjectsPage({
               <div
                 aria-hidden="true"
                 data-projects-folder="back"
-                className="pointer-events-none absolute bottom-[5%] left-1/2 z-0 h-[50%] w-[68%] -translate-x-1/2 rounded-b-[34px] rounded-t-[24px] border border-[#151315] bg-[#737373]/35"
+                className="pointer-events-none absolute bottom-[5%] left-1/2 z-0 h-[50%] w-[68%] -translate-x-1/2 -rotate-[2deg] rounded-b-[34px] rounded-t-[24px] border border-[#151315] bg-[#737373]/35"
               />
               {portfolioPile.map((photo) => (
                 <figure
@@ -284,7 +284,7 @@ export default async function ProjectsPage({
                   )}
                 </figure>
               ))}
-              <div className="pointer-events-none absolute bottom-[3%] left-1/2 z-[45] h-[44%] w-[74%] -translate-x-1/2 perspective-[800px]">
+              <div className="pointer-events-none absolute bottom-[3%] left-1/2 z-[45] h-[44%] w-[74%] -translate-x-1/2 -rotate-[2deg] perspective-[800px]">
                 <div
                   aria-hidden="true"
                   data-projects-folder="flap"
