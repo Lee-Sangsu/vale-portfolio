@@ -5,7 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Agentation } from "agentation";
+import { LocalFeedback } from "@/components/LocalFeedback";
 import "../globals.css";
 
 const quinn = localFont({
@@ -101,7 +101,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
-        {process.env.NODE_ENV === "development" && <Agentation />}
+        <LocalFeedback />
       </body>
     </html>
   );

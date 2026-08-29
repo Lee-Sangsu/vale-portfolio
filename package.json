@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && local-feedbacker-strip-maps",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "verify:assets": "node scripts/verify-public-assets.mjs"
   },
   "dependencies": {
-    "agentation": "^3.0.2",
     "clsx": "^2.1.1",
+    "local-feedbacker": "^0.1.7",
     "motion": "^12.38.0",
     "next": "^16.2.9",
     "next-intl": "^4.11.0",
