@@ -35,6 +35,7 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /from-\[#cf9bac\]/);
   assert.match(projectsPage, /hero-folder\.svg/);
   assert.match(projectsPage, /group-hover:translate-/);
+  assert.equal((projectsPage.match(/group-hover:scale-\[1\.06\]/g) ?? []).length, 8);
   assert.match(projectsPage, /delay-\[\d+ms\]/);
   assert.match(projectsPage, /transition-transform duration-200 ease-in/);
   assert.match(projectsPage, /motion-reduce:transform-none/);
