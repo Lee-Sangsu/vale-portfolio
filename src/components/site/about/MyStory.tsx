@@ -107,37 +107,37 @@ export function MyStory({ locale }: { locale: Locale }) {
           {intro}
         </p>
 
-        <div aria-hidden="true" className="absolute inset-0 -translate-y-[22%]">
+        <div aria-hidden="true" className="absolute inset-0">
           <StoryPhoto
             name="primary"
-            className="absolute bottom-0 left-[58.19%] h-[84.82%] w-[45.32%]"
+            className="absolute bottom-[-5.82%] left-[58.19%] h-[84.82%] w-[45.32%]"
           />
           <StoryPhoto
             name="reflection"
-            className="absolute bottom-0 left-[52.16%] h-[47.25%] w-[25.26%]"
+            className="absolute bottom-[-8.61%] left-[52.16%] h-[47.25%] w-[25.26%]"
             imageClassName="-scale-y-100 rotate-180 object-cover"
           />
           <StoryPhoto
             name="leftPortrait"
-            className="absolute bottom-0 left-0 h-[54.47%] w-[29.06%]"
+            className="absolute left-0 top-[17.15%] h-[54.47%] w-[29.06%]"
           />
           <StoryPhoto
             name="rightPortrait"
-            className="absolute bottom-0 left-[66.49%] h-[62.67%] w-[33.51%]"
+            className="absolute bottom-[-14.52%] left-[66.49%] h-[62.67%] w-[33.51%]"
             imageClassName="-scale-y-100 rotate-180 object-cover"
           />
           <StoryPhoto
             name="centerPhoto"
-            className="absolute bottom-0 left-[17.19%] h-[53.08%] w-[37.6%]"
-            imageClassName="object-cover object-left-top"
+            className="absolute bottom-[-1.31%] left-[17.19%] h-[53.08%] w-[37.6%]"
+            imageClassName="!bottom-auto !right-auto !left-0 !top-[-40.65%] !h-[140.66%] !w-[136.55%] max-w-none"
           />
           <StoryPhoto
             name="leftTilt"
-            className="absolute bottom-[2.95%] left-[-2.16%] h-[66.5%] w-[37.85%] rotate-[6.89deg]"
+            className="absolute bottom-[-6.94%] left-[-2.16%] h-[66.5%] w-[37.85%] rotate-[6.89deg]"
           />
           <StoryPhoto
             name="circle"
-            className="absolute bottom-0 left-[66.49%] size-[9.24%] rounded-full"
+            className="absolute bottom-[32.32%] left-[66.49%] size-[9.24%] rounded-full"
             imageClassName="object-cover object-[36%_50%]"
           />
         </div>
