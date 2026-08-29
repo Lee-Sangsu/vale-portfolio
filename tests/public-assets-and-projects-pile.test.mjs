@@ -32,5 +32,14 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /const portfolioPile = \[/);
   assert.match(projectsPage, /portfolioPile\.map/);
   assert.match(projectsPage, /from-\[#cf9bac\]/);
+  assert.match(projectsPage, /hero-folder\.svg/);
+  assert.match(projectsPage, /group-hover:-translate-y-2/);
+  assert.match(projectsPage, /motion-reduce:transform-none/);
+  assert.equal(
+    existsSync(new URL("../public/pages/projects/hero-folder.svg", import.meta.url)),
+    true,
+    "Figma folder asset is missing",
+  );
+  assert.doesNotMatch(projectsPage, /Proyectos favoritos/);
   assert.doesNotMatch(projectsPage, /hero-pile\.png/);
 });

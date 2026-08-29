@@ -3,7 +3,6 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { routing } from "@/i18n/routing";
-import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/content/types";
 import { chapterIntros, heroes, chapters, getMentionsByChapter } from "@/content";
 import {
@@ -205,30 +204,41 @@ export default async function ProjectsPage({
             </span>
           </h1>
           <div className="group relative z-0 -mt-3 aspect-[11/7] w-full max-w-[920px] sm:-mt-8">
-            <div className="absolute bottom-[7%] left-1/2 z-0 h-[47%] w-[66%] -translate-x-1/2 rounded-t-[48%] border-2 border-[#151315] bg-[#29262a] shadow-[0_18px_28px_rgba(47,30,40,0.3)]" />
-            {portfolioPile.map((photo) => (
-              <figure
-                key={photo.src}
-                className={`absolute overflow-hidden rounded-[10px] border-[7px] border-white bg-white shadow-[0_12px_24px_rgba(47,30,40,0.28)] transition-transform duration-500 ease-out group-hover:scale-[1.02] ${photo.className}`}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  preload
-                  sizes="(max-width: 640px) 34vw, 300px"
-                  className="object-cover"
-                />
-              </figure>
-            ))}
-            <div className="absolute bottom-[4%] left-[7%] z-50 flex size-[92px] flex-col items-center justify-center rounded-full bg-white font-display text-[2.4rem] leading-[0.72] tracking-[-0.08em] text-[#124aa8] shadow-[0_9px_16px_rgba(40,30,34,0.28)] sm:size-[132px] sm:text-[3.75rem]">
-              <span>20</span>
-              <span>26</span>
-            </div>
-            <div className="absolute bottom-[3%] right-[2%] z-50 w-[min(45vw,340px)] rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
-              <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
-              <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
-              <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
+            <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-[1.02] motion-reduce:transform-none">
+              <div className="absolute bottom-[7%] left-1/2 z-0 h-[47%] w-[66%] -translate-x-1/2 rounded-t-[48%] border-2 border-[#151315] bg-[#29262a] shadow-[0_18px_28px_rgba(47,30,40,0.3)]" />
+              {portfolioPile.map((photo) => (
+                <figure
+                  key={photo.src}
+                  className={`absolute overflow-hidden rounded-[10px] border-[7px] border-white bg-white shadow-[0_12px_24px_rgba(47,30,40,0.28)] ${photo.className}`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    preload
+                    sizes="(max-width: 640px) 34vw, 300px"
+                    className="object-cover"
+                  />
+                </figure>
+              ))}
+              <Image
+                src="/pages/projects/hero-folder.svg"
+                alt=""
+                aria-hidden="true"
+                width={583}
+                height={296}
+                sizes="(max-width: 640px) 78vw, 640px"
+                className="pointer-events-none absolute bottom-[3%] left-1/2 z-40 h-auto w-[74%] -translate-x-1/2 select-none drop-shadow-[0_18px_28px_rgba(47,30,40,0.3)]"
+              />
+              <div className="absolute bottom-[4%] left-[7%] z-50 flex size-[92px] flex-col items-center justify-center rounded-full bg-white font-display text-[2.4rem] leading-[0.72] tracking-[-0.08em] text-[#124aa8] shadow-[0_9px_16px_rgba(40,30,34,0.28)] sm:size-[132px] sm:text-[3.75rem]">
+                <span>20</span>
+                <span>26</span>
+              </div>
+              <div className="absolute bottom-[3%] right-[2%] z-50 w-[min(45vw,340px)] rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
+                <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
+                <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
+                <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
+              </div>
             </div>
           </div>
         </div>
@@ -264,55 +274,6 @@ export default async function ProjectsPage({
               projects: c.projects[locale],
             }))}
           />
-        </div>
-      </section>
-
-      {/* ── Fav projects ── */}
-      <section className="bg-white px-5 pb-24 sm:px-8">
-        <div className="mx-auto grid max-w-[1100px] items-center gap-10 md:grid-cols-[0.9fr_1.1fr]">
-          <div className="grid grid-cols-2 gap-4">
-            {heroes.slice(0, 4).map((h) => {
-              const cover = encodeAsset(HERO_MANIFEST[h.slug]?.cover);
-              return (
-                <div
-                  key={h.slug}
-                  className="relative aspect-square overflow-hidden rounded-[14px] shadow-[0_6px_16px_rgba(0,0,0,0.12)]"
-                >
-                  {cover && (
-                    <Image
-                      src={cover}
-                      alt={h.title[locale]}
-                      fill
-                      sizes="240px"
-                      className="object-cover object-center"
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-          <div>
-            <h2 className="font-heebo text-ink2 text-[34px] font-bold sm:text-[44px]">
-              {es ? "Proyectos favoritos" : "Fav projects"}
-            </h2>
-            <ul className="mt-6 border-t border-[#e2e2dc]">
-              {heroes.map((h) => (
-                <li key={h.slug} className="border-b border-[#e2e2dc]">
-                  <Link
-                    href={`/work/${h.slug}`}
-                    className="hover:text-green flex items-baseline justify-between gap-4 py-3 transition-colors"
-                  >
-                    <span className="font-inter text-ink2 text-[16px] font-semibold">
-                      {h.title[locale]}
-                    </span>
-                    <span className="font-inter text-muted shrink-0 text-[12px]">
-                      {h.brand}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 
