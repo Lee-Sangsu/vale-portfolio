@@ -29,6 +29,8 @@ test("My Story renders the responsive Figma collage with local image exports", (
     /<div className="pointer-events-none absolute left-\[46\.61%\] top-\[5\.91%\] size-\[6\.78%\]">/,
   );
   assert.match(component, /overflow-hidden/);
+  assert.doesNotMatch(component, /relative overflow-hidden \$\{className\}/);
+  assert.match(component, /<div className=\{`overflow-hidden \$\{className\}`\}>/);
   assert.match(component, /sm:grid-cols-2/);
   assert.doesNotMatch(component, /lg:grid-cols-4/);
 

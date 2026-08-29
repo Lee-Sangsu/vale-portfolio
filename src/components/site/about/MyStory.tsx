@@ -24,14 +24,16 @@ function StoryPhoto({
   imageClassName?: string;
 }) {
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      <Image
-        src={COLLAGE_PHOTOS[name]}
-        alt=""
-        fill
-        sizes="(min-width: 1024px) 45vw, 50vw"
-        className={imageClassName}
-      />
+    <div className={`overflow-hidden ${className}`}>
+      <div className="relative size-full">
+        <Image
+          src={COLLAGE_PHOTOS[name]}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 45vw, 50vw"
+          className={imageClassName}
+        />
+      </div>
     </div>
   );
 }
