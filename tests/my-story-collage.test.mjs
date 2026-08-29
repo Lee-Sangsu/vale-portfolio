@@ -49,9 +49,30 @@ test("My Story Figma exports are committed locally", () => {
   }
 });
 
-test("My Story lifts the desktop background photos toward the description", () => {
+test("My Story raises the desktop collage to a shared photo baseline", () => {
   assert.match(
     component,
-    /<div aria-hidden="true" className="absolute inset-0 -translate-y-\[10%\]">/,
+    /<div aria-hidden="true" className="absolute inset-0 -translate-y-\[22%\]">/,
+  );
+
+  for (const name of [
+    "primary",
+    "reflection",
+    "leftPortrait",
+    "rightPortrait",
+    "centerPhoto",
+    "circle",
+  ]) {
+    assert.match(
+      component,
+      new RegExp(
+        "<StoryPhoto\\s+name=\"" + name + "\"\\s+className=\"absolute bottom-0",
+      ),
+    );
+  }
+
+  assert.match(
+    component,
+    /name="leftTilt"\s+className="absolute bottom-\[2\.95%\] left-\[-2\.16%\].*rotate-\[6\.89deg\]"/,
   );
 });
