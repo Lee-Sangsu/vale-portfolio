@@ -72,6 +72,7 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /perspective-\[800px\]/);
   assert.match(projectsPage, /origin-bottom/);
   assert.match(projectsPage, /group-hover:rotate-x-\[-14deg\]/);
+  assert.equal((projectsPage.match(/-rotate-\[2deg\]/g) ?? []).length, 2);
   assert.match(projectsPage, /motion-reduce:rotate-x-0/);
   assert.doesNotMatch(projectsPage, /transition-transform duration-500 ease-out/);
   assert.doesNotMatch(projectsPage, /group-hover:rotate-x-\[14deg\]/);
