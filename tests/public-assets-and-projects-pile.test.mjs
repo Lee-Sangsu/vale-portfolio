@@ -29,14 +29,18 @@ test("public assets are grouped by page, project, and shared purpose", () => {
 });
 
 test("projects hero renders a custom pile of project photos", () => {
+  const portfolioPileStart = projectsPage.indexOf("const portfolioPile = [");
+  const portfolioPileEnd = projectsPage.indexOf("// Chapter cards", portfolioPileStart);
+  const portfolioPileSource = projectsPage.slice(portfolioPileStart, portfolioPileEnd);
+
   assert.match(projectsPage, /const portfolioPile = \[/);
   assert.match(projectsPage, /portfolioPile\.map/);
-  assert.equal((projectsPage.match(/hoverClass:/g) ?? []).length, 8);
+  assert.equal((portfolioPileSource.match(/hoverClass:/g) ?? []).length, 8);
   assert.match(projectsPage, /from-\[#cf9bac\]/);
   assert.match(projectsPage, /group-hover:translate-/);
   assert.equal(
     (
-      projectsPage.match(
+      portfolioPileSource.match(
         /className: "left-\[[^"]+\] top-\[[^"]+\] z-(?:20|30|40) h-/g,
       ) ?? []
     ).length,
