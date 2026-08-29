@@ -42,7 +42,7 @@ export default async function AboutPage({
 
       <SneakPeek locale={locale} />
 
-      <WorkTogether photo={encodeAsset("photos/about/Val.png")} />
+      <WorkTogether photo={encodeAsset("shared/portraits/Val.png")} />
       <SiteFooter />
     </main>
   );

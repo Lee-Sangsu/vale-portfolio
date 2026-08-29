@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
  * Mobile: simple wrapping grid.
  */
 
-const RING = "/figma/contact/ring";
+const RING = "/pages/contact/figma/ring";
 
 // Waypoints verbatim from the Figma SVG path
 const WAYPOINTS: [number, number][] = [

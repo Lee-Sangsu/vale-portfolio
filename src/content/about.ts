@@ -57,15 +57,15 @@ export const carryOn = {
 
 /**
  * Tools shown as a visual grid in the Skills + Contact sections.
- * `icon` is the real logo under /public/tools/ (extensions vary by file).
+ * `icon` is the real logo under /public/shared/tool-logos/ (extensions vary by file).
  */
 export const tools: { slug: string; label: string; icon: string }[] = [
-  { slug: "figma", label: "Figma", icon: "/tools/figma.avif" },
-  { slug: "illustrator", label: "Illustrator", icon: "/tools/illustrator.webp" },
-  { slug: "photoshop", label: "Photoshop", icon: "/tools/photoshop.avif" },
-  { slug: "framer", label: "Framer", icon: "/tools/framer.avif" },
-  { slug: "canva", label: "Canva", icon: "/tools/canva.webp" },
-  { slug: "notion", label: "Notion", icon: "/tools/notion.png" },
-  { slug: "capcut", label: "CapCut", icon: "/tools/capcut.avif" },
-  { slug: "manychat", label: "ManyChat", icon: "/tools/manychat.webp" },
+  { slug: "figma", label: "Figma", icon: "/shared/tool-logos/figma.avif" },
+  { slug: "illustrator", label: "Illustrator", icon: "/shared/tool-logos/illustrator.webp" },
+  { slug: "photoshop", label: "Photoshop", icon: "/shared/tool-logos/photoshop.avif" },
+  { slug: "framer", label: "Framer", icon: "/shared/tool-logos/framer.avif" },
+  { slug: "canva", label: "Canva", icon: "/shared/tool-logos/canva.webp" },
+  { slug: "notion", label: "Notion", icon: "/shared/tool-logos/notion.png" },
+  { slug: "capcut", label: "CapCut", icon: "/shared/tool-logos/capcut.avif" },
+  { slug: "manychat", label: "ManyChat", icon: "/shared/tool-logos/manychat.webp" },
 ];

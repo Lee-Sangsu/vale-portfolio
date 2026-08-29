@@ -26,7 +26,7 @@ export function ProjectRosette({
     >
       {/* Pink radial glow behind the ring */}
       <Image
-        src="/figma/project/rosette-glow.svg"
+        src="/pages/work/figma/rosette-glow.svg"
         alt=""
         fill
         sizes="560px"

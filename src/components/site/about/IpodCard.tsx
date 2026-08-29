@@ -86,7 +86,7 @@ export function IpodCard({ locale }: { locale: Locale }) {
           }}
         >
           <Image
-            src="/figma/about/skills-red-star.png"
+            src="/pages/about/figma/skills-red-star.png"
             alt=""
             width={s.size}
             height={s.size}
@@ -130,7 +130,7 @@ export function IpodCard({ locale }: { locale: Locale }) {
         {/* Click wheel */}
         <div className="relative size-[118px]">
           <Image
-            src="/figma/about/ipod-clickwheel-outer.svg"
+            src="/pages/about/figma/ipod-clickwheel-outer.svg"
             alt=""
             fill
             sizes="118px"
@@ -175,7 +175,7 @@ export function IpodCard({ locale }: { locale: Locale }) {
             className="absolute left-1/2 top-1/2 size-[46px] -translate-x-1/2 -translate-y-1/2 rounded-full"
           >
             <Image
-              src="/figma/about/ipod-clickwheel-inner.svg"
+              src="/pages/about/figma/ipod-clickwheel-inner.svg"
               alt=""
               fill
               sizes="46px"

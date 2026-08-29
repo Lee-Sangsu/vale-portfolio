@@ -22,52 +22,52 @@ type Sticker = {
 
 const STICKERS: Sticker[] = [
   {
-    src: "/figma/about/hero-paint-set-cutout.png",
+    src: "/pages/about/figma/hero-paint-set-cutout.png",
     alt: "",
     className: "left-[3%] top-[14%] w-[120px] lg:w-[173px]",
     rotate: 12.4,
     mobile: true,
   },
   {
-    src: "/figma/about/hero-screenshot-sticker.png",
+    src: "/pages/about/figma/hero-screenshot-sticker.png",
     alt: "",
     className: "left-[24%] top-[10%] w-[150px] lg:w-[220px]",
     rotate: -20.61,
   },
   {
-    src: "/figma/about/hero-sticker-black-graphic.png",
+    src: "/pages/about/figma/hero-sticker-black-graphic.png",
     alt: "",
     className: "right-[6%] top-[12%] w-[150px] lg:w-[210px]",
     rotate: 0,
     mobile: true,
   },
   {
-    src: "/figma/about/hero-flowers-cutout.png",
+    src: "/pages/about/figma/hero-flowers-cutout.png",
     alt: "",
     className: "-left-[2%] top-[64%] w-[150px] lg:w-[200px]",
     rotate: 6.26,
   },
   {
-    src: "/figma/about/hero-green-worm.png",
+    src: "/pages/about/figma/hero-green-worm.png",
     alt: "",
     className: "left-[15%] top-[52%] w-[120px] lg:w-[160px]",
     rotate: -8.94,
   },
   {
-    src: "/figma/about/hero-fruit-photo.png",
+    src: "/pages/about/figma/hero-fruit-photo.png",
     alt: "",
     className: "left-[33%] top-[74%] w-[80px] lg:w-[110px]",
     rotate: 11.87,
   },
   {
-    src: "/figma/about/hero-red-plane.png",
+    src: "/pages/about/figma/hero-red-plane.png",
     alt: "",
     className: "right-[14%] top-[66%] w-[200px] lg:w-[280px]",
     rotate: 0,
     mobile: true,
   },
   {
-    src: "/figma/about/hero-phone.png",
+    src: "/pages/about/figma/hero-phone.png",
     alt: "",
     className: "-right-[2%] top-[44%] w-[130px] lg:w-[180px]",
     rotate: -13.64,
@@ -82,7 +82,7 @@ export function AboutHero({ locale }: { locale: Locale }) {
       {/* Cloud-sky background (Figma node 207:563) — the About hero uses a
           fluffy-cloud sky, distinct from the home hero's flower/palace scene. */}
       <Image
-        src="/figma/about/sky-clouds.jpg"
+        src="/pages/about/figma/sky-clouds.jpg"
         alt=""
         fill
         priority

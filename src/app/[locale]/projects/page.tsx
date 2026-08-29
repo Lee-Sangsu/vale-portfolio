@@ -28,7 +28,7 @@ const CHAPTER_TINT: Record<string, string> = {
   independent: "linear-gradient(135deg,#244736,#3f7a5c)",
 };
 
-const CARRYON_ASSET_BASE = "Assets /Assets Icons cool";
+const CARRYON_ASSET_BASE = "shared/carry-on";
 const carryOnAsset = (file: string) =>
   encodeAsset(`${CARRYON_ASSET_BASE}/${file}`)!;
 
@@ -132,6 +132,34 @@ export default async function ProjectsPage({
   const locale = rawLocale as Locale;
   const es = locale === "es";
 
+  const portfolioPile = [
+    {
+      src: encodeAsset(HERO_MANIFEST["global-youth-summit"].cover)!,
+      alt: "Global Youth Summit",
+      className: "left-[10%] top-[18%] z-20 h-[45%] w-[31%] -rotate-[9deg]",
+    },
+    {
+      src: encodeAsset(HERO_MANIFEST["misiones-internacionales"].cover)!,
+      alt: "Misiones Internacionales",
+      className: "left-[35%] top-[7%] z-10 h-[45%] w-[33%] rotate-[7deg]",
+    },
+    {
+      src: encodeAsset(HERO_MANIFEST["sejong-hackathon"].cover)!,
+      alt: "Sejong Hackathon",
+      className: "right-[9%] top-[8%] z-30 h-[50%] w-[32%] rotate-[6deg]",
+    },
+    {
+      src: encodeAsset(HERO_MANIFEST["jal-nomadher"].cover)!,
+      alt: "JAL × NomadHer",
+      className: "left-[28%] bottom-[6%] z-20 h-[42%] w-[34%] -rotate-[2deg]",
+    },
+    {
+      src: encodeAsset(HERO_MANIFEST["nomadher-app"].cover)!,
+      alt: "NomadHer app",
+      className: "right-[16%] bottom-[2%] z-40 h-[39%] w-[31%] rotate-[10deg]",
+    },
+  ];
+
   // chapter cards: cover from the chapter's hero; for chapters without a hero
   // (N9NE, Travelling University, Independent) fall back to the first mention
   // that has a cover photo so every card shows a real image, not a flat tint.
@@ -157,21 +185,44 @@ export default async function ProjectsPage({
 
   return (
     <main>
-      {/* ── Hero — stored Figma pile, with a subtle hover lift/spread ── */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#eef4f8] to-white">
+      {/* ── Hero — custom portfolio photo pile ── */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#cf9bac] via-[#e8c8d1] to-[#fffafa]">
         <SiteNav tone="dark" />
-        <div className="mx-auto flex max-w-[1100px] flex-col items-center px-5 pt-[132px] pb-16 sm:pt-[154px] sm:pb-20">
-          <h1 className="sr-only">{es ? "Trabajo" : "Work"}</h1>
-          <div className="group relative w-full max-w-[920px] overflow-visible">
-            <Image
-              src="/figma/projects/hero-pile.png"
-              alt=""
-              width={701}
-              height={507}
-              className="mx-auto h-auto w-full max-w-[760px] object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035] group-hover:-rotate-1 motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-hover:rotate-0"
-              preload
-              sizes="(min-width: 1024px) 760px, 92vw"
-            />
+        <div className="relative mx-auto flex min-h-[690px] max-w-[1200px] flex-col items-center px-5 pb-10 pt-[128px] sm:min-h-[850px] sm:px-8 sm:pt-[142px]">
+          <h1 className="relative z-10 flex items-baseline text-[#82143f]">
+            <span className="font-display text-[clamp(4.3rem,13vw,10.5rem)] leading-[0.78] tracking-[-0.055em]">
+              PORTA
+            </span>
+            <span className="-ml-[0.02em] font-serif text-[clamp(4.25rem,11.5vw,9rem)] italic leading-none tracking-[-0.08em]">
+              folio
+            </span>
+          </h1>
+          <div className="group relative z-0 -mt-3 aspect-[11/7] w-full max-w-[920px] sm:-mt-8">
+            <div className="absolute bottom-[7%] left-1/2 z-0 h-[47%] w-[66%] -translate-x-1/2 rounded-t-[48%] border-2 border-[#151315] bg-[#29262a] shadow-[0_18px_28px_rgba(47,30,40,0.3)]" />
+            {portfolioPile.map((photo) => (
+              <figure
+                key={photo.src}
+                className={`absolute overflow-hidden rounded-[10px] border-[7px] border-white bg-white shadow-[0_12px_24px_rgba(47,30,40,0.28)] transition-transform duration-500 ease-out group-hover:scale-[1.02] ${photo.className}`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  preload
+                  sizes="(max-width: 640px) 34vw, 300px"
+                  className="object-cover"
+                />
+              </figure>
+            ))}
+            <div className="absolute bottom-[4%] left-[7%] z-50 flex size-[92px] flex-col items-center justify-center rounded-full bg-white font-display text-[2.4rem] leading-[0.72] tracking-[-0.08em] text-[#124aa8] shadow-[0_9px_16px_rgba(40,30,34,0.28)] sm:size-[132px] sm:text-[3.75rem]">
+              <span>20</span>
+              <span>26</span>
+            </div>
+            <div className="absolute bottom-[3%] right-[2%] z-50 w-[min(45vw,340px)] rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
+              <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
+              <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
+              <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
+            </div>
           </div>
         </div>
       </section>
@@ -353,7 +404,7 @@ export default async function ProjectsPage({
         </div>
       </section>
 
-      <WorkTogether photo={encodeAsset("photos/about/Val.png")} />
+      <WorkTogether photo={encodeAsset("shared/portraits/Val.png")} />
       <SiteFooter />
     </main>
   );

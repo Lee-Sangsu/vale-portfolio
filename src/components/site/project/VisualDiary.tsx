@@ -2,9 +2,9 @@ import Image from "next/image";
 import clsx from "clsx";
 
 const STARS = [
-  "/figma/project/star-1.svg",
-  "/figma/project/star-2.svg",
-  "/figma/project/star-3.svg",
+  "/pages/work/figma/star-1.svg",
+  "/pages/work/figma/star-2.svg",
+  "/pages/work/figma/star-3.svg",
 ];
 
 type Tile = { src: string; wide: boolean };

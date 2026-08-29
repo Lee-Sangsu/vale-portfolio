@@ -3,7 +3,7 @@ import { listPhotos } from "@/lib/photos";
 
 /**
  * Auto-scrolling strip of client / partner logos.
- * Server-resolved from /photos/Brand I have work with/.
+ * Server-resolved from /shared/brands/.
  * White-bg tiles with object-contain so logos read clean against the cream page.
  */
 export function LogoMarquee({
@@ -13,7 +13,7 @@ export function LogoMarquee({
   title: string;
   durationSeconds?: number;
 }) {
-  const logos = listPhotos("photos/Brand I have work with ");
+  const logos = listPhotos("shared/brands");
   if (logos.length === 0) return null;
 
   // Duplicate for the seamless CSS marquee loop.

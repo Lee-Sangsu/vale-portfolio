@@ -120,21 +120,23 @@ export function WorkChapters({
         </div>
 
         {/* Changing chapter image */}
-        <motion.div
-          initial={{ opacity: 0, x: 48, scale: 0.97 }}
-          animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
-          transition={{ duration: 0.65, delay: 0.15, ease }}
-          className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-[#f3f2ee] shadow-[0_8px_22px_rgba(0,0,0,0.12)] md:sticky md:top-24"
-        >
-          <Image
-            key={active.image}
-            src={active.image}
-            alt={active.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 440px"
-            className="animate-[fadeIn_0.4s_ease] object-cover"
-          />
-        </motion.div>
+        <div className="md:sticky md:top-24">
+          <motion.div
+            initial={{ opacity: 0, x: 48, scale: 0.97 }}
+            animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+            transition={{ duration: 0.65, delay: 0.15, ease }}
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-[#f3f2ee] shadow-[0_8px_22px_rgba(0,0,0,0.12)]"
+          >
+            <Image
+              key={active.image}
+              src={active.image}
+              alt={active.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 440px"
+              className="animate-[fadeIn_0.4s_ease] object-cover"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

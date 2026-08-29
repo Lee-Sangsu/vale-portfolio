@@ -3,10 +3,10 @@ import type { Locale } from "@/content/types";
 import { aboutLong } from "@/content/about";
 
 const PHOTOS = [
-  "/figma/about/story-1.webp",
-  "/figma/about/story-2.webp",
-  "/figma/about/story-3.webp",
-  "/figma/about/story-4.webp",
+  "/pages/about/figma/story-1.webp",
+  "/pages/about/figma/story-2.webp",
+  "/pages/about/figma/story-3.webp",
+  "/pages/about/figma/story-4.webp",
 ];
 
 export function MyStory({ locale }: { locale: Locale }) {
@@ -22,7 +22,7 @@ export function MyStory({ locale }: { locale: Locale }) {
       <div className="mx-auto flex max-w-[1200px] flex-col items-center text-center">
         {/* Dot */}
         <Image
-          src="/figma/about/mystory-ellipse-dot.svg"
+          src="/pages/about/figma/mystory-ellipse-dot.svg"
           alt=""
           width={54}
           height={54}
