@@ -41,7 +41,7 @@ export function ProjectChapterGrid({
               type="button"
               aria-pressed={activeCategory === category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`shrink-0 rounded-full border px-4 py-2.5 font-inter text-[13px] font-medium transition-colors sm:px-[22px] sm:py-3 sm:text-[16px] ${
+              className={`shrink-0 rounded-full border px-3.5 py-2 font-inter text-[12px] font-medium transition-colors sm:px-4 sm:py-2.5 sm:text-[13px] ${
                 activeCategory === category.id
                   ? "border-[#111] bg-[#111] text-white"
                   : "border-[#d1d1cc] bg-white text-[#474d47] hover:border-[#474d47]"
@@ -53,7 +53,7 @@ export function ProjectChapterGrid({
         </div>
       </div>
 
-      <ul className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 lg:grid-cols-2 lg:gap-8">
+      <ul className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 lg:grid-cols-2 lg:gap-8">
         {filteredCards.map((card) => (
           <li key={card.id}>
             <Link
