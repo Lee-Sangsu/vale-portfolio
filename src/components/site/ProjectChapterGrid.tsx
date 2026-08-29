@@ -33,7 +33,7 @@ export function ProjectChapterGrid({
 
   return (
     <div>
-      <div className="-mx-5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0">
+      <div className="-mx-5 mt-8 overflow-x-auto px-5 pb-2 sm:mt-10 sm:mx-0 sm:px-0">
         <div className="mx-auto flex w-max gap-2 sm:gap-2.5">
           {categories.map((category) => (
             <button
@@ -53,7 +53,7 @@ export function ProjectChapterGrid({
         </div>
       </div>
 
-      <ul className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 lg:grid-cols-2 lg:gap-8">
+      <ul className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 lg:grid-cols-2 lg:gap-8">
         {filteredCards.map((card) => (
           <li key={card.id}>
             <Link

@@ -36,7 +36,10 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /hero-folder\.svg/);
   assert.match(projectsPage, /group-hover:translate-/);
   assert.match(projectsPage, /delay-\[\d+ms\]/);
+  assert.match(projectsPage, /transition-transform duration-200 ease-in/);
   assert.match(projectsPage, /motion-reduce:transform-none/);
+  assert.doesNotMatch(projectsPage, /transition-transform duration-500 ease-out/);
+  assert.doesNotMatch(projectsPage, /delay-\[[2-9]\d{2}ms\]/);
   assert.doesNotMatch(projectsPage, /group-hover:-translate-y-2/);
   assert.equal(
     existsSync(new URL("../public/pages/projects/hero-folder.svg", import.meta.url)),

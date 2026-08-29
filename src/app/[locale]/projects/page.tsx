@@ -131,7 +131,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[15%] top-[27%] z-20 h-[61%] w-[21%] -rotate-[9deg]",
       hoverClass:
-        "delay-[60ms] group-hover:-translate-x-7 group-hover:-translate-y-9 group-hover:-rotate-[14deg]",
+        "delay-[20ms] group-hover:-translate-x-7 group-hover:-translate-y-9 group-hover:-rotate-[14deg]",
       accent: false,
     },
     {
@@ -139,7 +139,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[30%] top-[17%] z-10 h-[37%] w-[19%] rotate-[9deg]",
       hoverClass:
-        "delay-[120ms] group-hover:-translate-x-4 group-hover:-translate-y-12 group-hover:rotate-[13deg]",
+        "delay-[40ms] group-hover:-translate-x-4 group-hover:-translate-y-12 group-hover:rotate-[13deg]",
       accent: false,
     },
     {
@@ -147,7 +147,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[43%] top-[30%] z-30 h-[22%] w-[14%] -rotate-[4deg]",
       hoverClass:
-        "delay-[180ms] group-hover:translate-x-2 group-hover:-translate-y-8 group-hover:rotate-[2deg]",
+        "delay-[60ms] group-hover:translate-x-2 group-hover:-translate-y-8 group-hover:rotate-[2deg]",
       accent: false,
     },
     {
@@ -155,7 +155,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[32%] top-[50%] z-20 h-[37%] w-[19%] rotate-[1deg]",
       hoverClass:
-        "delay-[240ms] group-hover:-translate-x-6 group-hover:translate-y-4 group-hover:-rotate-[4deg]",
+        "delay-[80ms] group-hover:-translate-x-6 group-hover:translate-y-4 group-hover:-rotate-[4deg]",
       accent: false,
     },
     {
@@ -163,7 +163,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[45%] top-[46%] z-40 h-[41%] w-[20%] rotate-[10deg]",
       hoverClass:
-        "delay-[300ms] group-hover:translate-x-4 group-hover:translate-y-5 group-hover:rotate-[14deg]",
+        "delay-[100ms] group-hover:translate-x-4 group-hover:translate-y-5 group-hover:rotate-[14deg]",
       accent: false,
     },
     {
@@ -171,7 +171,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[50%] top-[20%] z-30 h-[31%] w-[18%] -rotate-[10deg]",
       hoverClass:
-        "delay-[360ms] group-hover:translate-x-4 group-hover:-translate-y-10 group-hover:-rotate-[14deg]",
+        "delay-[120ms] group-hover:translate-x-4 group-hover:-translate-y-10 group-hover:-rotate-[14deg]",
       accent: false,
     },
     {
@@ -179,7 +179,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[64%] top-[17%] z-30 h-[62%] w-[22%] rotate-[5deg]",
       hoverClass:
-        "delay-[420ms] group-hover:translate-x-8 group-hover:-translate-y-11 group-hover:rotate-[10deg]",
+        "delay-[140ms] group-hover:translate-x-8 group-hover:-translate-y-11 group-hover:rotate-[10deg]",
       accent: false,
     },
     {
@@ -187,7 +187,7 @@ export default async function ProjectsPage({
       alt: "",
       className: "left-[61%] top-[54%] z-40 h-[36%] w-[15%] -rotate-[9deg]",
       hoverClass:
-        "delay-[480ms] group-hover:translate-x-10 group-hover:translate-y-4 group-hover:-rotate-[13deg]",
+        "delay-[160ms] group-hover:translate-x-10 group-hover:translate-y-4 group-hover:-rotate-[13deg]",
       accent: true,
     },
   ];
@@ -248,7 +248,7 @@ export default async function ProjectsPage({
               {portfolioPile.map((photo) => (
                 <figure
                   key={`${photo.src ?? "accent"}-${photo.className}`}
-                  className={`absolute overflow-hidden rounded-[10px] border-[7px] border-white bg-white shadow-[0_12px_24px_rgba(47,30,40,0.28)] transition-transform duration-500 ease-out motion-reduce:transform-none motion-reduce:transition-none ${photo.className} ${photo.hoverClass}`}
+                  className={`absolute overflow-hidden rounded-[10px] border-[7px] border-white bg-white shadow-[0_12px_24px_rgba(47,30,40,0.28)] transition-transform duration-200 ease-in motion-reduce:transform-none motion-reduce:transition-none ${photo.className} ${photo.hoverClass}`}
                 >
                   {photo.accent ? (
                     <div className="size-full bg-[#1fa463]" aria-hidden="true" />
