@@ -31,6 +31,7 @@ export function getNeighbors(slug: HeroSlug | string) {
 }
 
 export { chapters, chapterIntros, getChapter } from "./chapters";
+export { chapterDetails, getChapterDetail } from "./chapter-details";
 export { mentions, getMentionsByChapter } from "./mentions";
 export type { Mention } from "./mentions";
 export * from "./about";

@@ -26,7 +26,13 @@ export type Quote = {
   author: LocalizedString;
 };
 
-export type ChapterId = "n9ne" | "travelling-university" | "independent" | "boost-lab" | "nomadher";
+export type ChapterId =
+  | "nomadher"
+  | "boost-lab"
+  | "independent"
+  | "n9ne"
+  | "ironhack"
+  | "travelling-university";
 
 export type HeroSlug =
   | "global-youth-summit"
@@ -78,4 +84,33 @@ export type Chapter = {
   location: LocalizedString;
   projects: LocalizedList;
   starred?: boolean;
+};
+
+export type ChapterImpact = {
+  value: string;
+  label: LocalizedString;
+};
+
+export type ChapterResponsibility = {
+  title: LocalizedString;
+  body: LocalizedString;
+};
+
+export type ChapterProject = {
+  title: LocalizedString;
+  label: LocalizedString;
+  description: LocalizedString;
+  href?: `/work/${string}`;
+  image?: string;
+};
+
+export type ChapterDetail = {
+  id: ChapterId;
+  role: LocalizedString;
+  intro: LocalizedString;
+  accent: string;
+  cover?: string;
+  impact: ChapterImpact[];
+  responsibilities: ChapterResponsibility[];
+  projects: ChapterProject[];
 };
