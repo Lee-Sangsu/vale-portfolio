@@ -31,10 +31,13 @@ test("public assets are grouped by page, project, and shared purpose", () => {
 test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /const portfolioPile = \[/);
   assert.match(projectsPage, /portfolioPile\.map/);
+  assert.equal((projectsPage.match(/hoverClass:/g) ?? []).length, 8);
   assert.match(projectsPage, /from-\[#cf9bac\]/);
   assert.match(projectsPage, /hero-folder\.svg/);
-  assert.match(projectsPage, /group-hover:-translate-y-2/);
+  assert.match(projectsPage, /group-hover:translate-/);
+  assert.match(projectsPage, /delay-\[\d+ms\]/);
   assert.match(projectsPage, /motion-reduce:transform-none/);
+  assert.doesNotMatch(projectsPage, /group-hover:-translate-y-2/);
   assert.equal(
     existsSync(new URL("../public/pages/projects/hero-folder.svg", import.meta.url)),
     true,

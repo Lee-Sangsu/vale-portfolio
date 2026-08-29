@@ -16,4 +16,6 @@ test("project grid is a client component with accessible category controls", asy
   assert.match(component, /aria-pressed=\{activeCategory === category\.id\}/);
   assert.match(component, /filterProjectCards\(cards, activeCategory\)/);
   assert.match(component, /<Link\s+href=\{card\.href\}/);
+  assert.match(component, /px-3\.5 py-2 font-inter text-\[12px\]/);
+  assert.match(component, /<ul className="mt-6/);
 });
