@@ -52,6 +52,7 @@ export default async function ChapterPage({
   const es = locale === "es";
   const firstProjectImage = detail.projects.find((project) => project.image)?.image;
   const cover = encodeAsset(detail.cover ?? firstProjectImage);
+  const contactPhoto = cover ?? encodeAsset("shared/portraits/Val.png")!;
   const pageStyle = { "--chapter-accent": detail.accent } as CSSProperties;
 
   return (
@@ -157,7 +158,7 @@ export default async function ChapterPage({
 
       <ChapterProjectRail projects={detail.projects} locale={locale} accent={detail.accent} />
 
-      <WorkTogether photo={cover ?? undefined} />
+      <WorkTogether photo={contactPhoto} />
       <SiteFooter />
     </main>
   );

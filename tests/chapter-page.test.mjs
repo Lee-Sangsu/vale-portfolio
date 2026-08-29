@@ -24,5 +24,7 @@ test("chapter pages use the Figma hierarchy and preserve dynamic route safeguard
   assert.match(page, /<ChapterProjectRail/);
   assert.match(page, /Mis responsabilidades/);
   assert.match(page, /bg-\[var\(--chapter-accent\)\]/);
+  assert.match(page, /const contactPhoto = cover \?\? encodeAsset\("shared\/portraits\/Val\.png"\)!;/);
+  assert.match(page, /<WorkTogether photo=\{contactPhoto\} \/>/);
   assert.match(nav, /light \? "text-white" : "text-black"/);
 });
