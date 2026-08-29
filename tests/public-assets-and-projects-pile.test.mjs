@@ -60,7 +60,10 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /data-projects-folder="flap"[\s\S]{0,700}data-projects-folder="tab"/);
   assert.doesNotMatch(projectsPage, /data-projects-folder="back"[\s\S]{0,600}data-projects-folder="tab"/);
   assert.match(projectsPage, /data-projects-folder="tab"[\s\S]{0,220}border border-b-0 border-\[#090809\] bg-\[#737373\]\/35/);
-  assert.match(projectsPage, /data-projects-folder="flap"[\s\S]{0,420}border border-\[#090809\] bg-\[#737373\]\/35/);
+  assert.match(projectsPage, /data-projects-folder="flap"[\s\S]{0,420}border-x border-b border-\[#090809\] bg-\[#737373\]\/35/);
+  assert.doesNotMatch(projectsPage, /data-projects-folder="flap"[\s\S]{0,420}border border-\[#090809\] bg-\[#737373\]\/35/);
+  assert.match(projectsPage, /data-projects-folder="top-outline-left"/);
+  assert.match(projectsPage, /data-projects-folder="top-outline-right"/);
   assert.equal((projectsPage.match(/bg-\[#737373\]\/35/g) ?? []).length, 3);
   assert.match(projectsPage, /group relative -mt-3 aspect-\[11\/7\]/);
   assert.doesNotMatch(projectsPage, /group relative z-0 -mt-3 aspect-\[11\/7\]/);
