@@ -134,28 +134,28 @@ export default async function ProjectsPage({
 
   const portfolioPile = [
     {
-      src: encodeAsset(HERO_MANIFEST["global-youth-summit"].cover)!,
-      alt: "Global Youth Summit",
+      src: encodeAsset("pages/projects/hero-photos/IMG_2567.png")!,
+      alt: "Portfolio photo collage",
       className: "left-[10%] top-[18%] z-20 h-[45%] w-[31%] -rotate-[9deg]",
     },
     {
-      src: encodeAsset(HERO_MANIFEST["misiones-internacionales"].cover)!,
-      alt: "Misiones Internacionales",
+      src: encodeAsset("pages/projects/hero-photos/IMG_2012.png")!,
+      alt: "Portfolio photo collage",
       className: "left-[35%] top-[7%] z-10 h-[45%] w-[33%] rotate-[7deg]",
     },
     {
-      src: encodeAsset(HERO_MANIFEST["sejong-hackathon"].cover)!,
-      alt: "Sejong Hackathon",
+      src: encodeAsset("pages/projects/hero-photos/IMG_9109_VSCO.png")!,
+      alt: "Portfolio photo collage",
       className: "right-[9%] top-[8%] z-30 h-[50%] w-[32%] rotate-[6deg]",
     },
     {
-      src: encodeAsset(HERO_MANIFEST["jal-nomadher"].cover)!,
-      alt: "JAL × NomadHer",
+      src: encodeAsset("pages/projects/hero-photos/IMG_0742_VSCO.png")!,
+      alt: "Portfolio photo collage",
       className: "left-[28%] bottom-[6%] z-20 h-[42%] w-[34%] -rotate-[2deg]",
     },
     {
-      src: encodeAsset(HERO_MANIFEST["nomadher-app"].cover)!,
-      alt: "NomadHer app",
+      src: encodeAsset("pages/projects/hero-photos/IMG_0621.png")!,
+      alt: "Portfolio photo collage",
       className: "right-[16%] bottom-[2%] z-40 h-[39%] w-[31%] rotate-[10deg]",
     },
   ];

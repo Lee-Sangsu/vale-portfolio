@@ -41,10 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 # large media files — host on CDN/Vercel Blob instead
-public/photos/**
-!public/photos/about/
-!public/photos/about/Val.jpg
-!public/photos/about/Val.png
+# Tracked page and work assets remain available; newly added raw media stays local.
+public/pages/**
+public/work/**
+public/shared/brands/**
 *.mov
 *.MOV
 *.mp4
