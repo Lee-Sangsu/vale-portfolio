@@ -35,7 +35,7 @@ const COPY = {
  * accent + a mailto form. Appears at the bottom of every page in the Figma.
  */
 export function WorkTogether({
-  photo = "/figma/home/portrait.jpg",
+  photo = "/pages/home/figma/portrait.jpg",
 }: {
   photo?: string;
 }) {

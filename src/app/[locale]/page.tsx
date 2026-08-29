@@ -46,9 +46,9 @@ export default async function Home({
     };
   };
 
-  // ── What I can do · 4 categories (photos from /photos/1. Main /), 3 projects each ──
+  // ── What I can do · 4 categories (page-owned home assets), 3 projects each ──
   const M = (cat: string, file: string) =>
-    encodeAsset(`photos/1. Main /What Can I do for you/${cat}/${file}`)!;
+    encodeAsset(`pages/home/content/What Can I do for you/${cat}/${file}`)!;
 
   const cat = (folder: string, cards: string[]): ShowcaseProject[] =>
     cards.map((c) => ({ title: folder, href: "/projects", img: M(folder, c) }));
@@ -109,7 +109,7 @@ export default async function Home({
   ];
 
   // ── Work chapters · accordion drives the image + a view button ──
-  const WC = "photos/1. Main /Work chapters";
+  const WC = "pages/home/content/Work chapters";
   const chapterImg: Record<string, string> = {
     n9ne: encodeAsset(`${WC}/N9NE.png`)!,
     "travelling-university": encodeAsset(`${WC}/New Folder With Items/Travelling University.png`)!,
@@ -205,7 +205,7 @@ export default async function Home({
         title={es ? "Marcas con las que he trabajado" : "Brands I've worked with"}
       />
 
-      <WorkTogether photo="/photos/about/Val.jpg" />
+      <WorkTogether photo="/shared/portraits/Val.jpg" />
       <SiteFooter />
     </main>
   );

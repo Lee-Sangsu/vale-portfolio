@@ -5,7 +5,7 @@ import { SiteNav } from "./SiteNav";
 import { WindowCard } from "./WindowCard";
 import { FolderSticker } from "./FolderSticker";
 
-const MAIN = "photos/1. Main ";
+const MAIN = "pages/home/content";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const es = locale === "es";
@@ -70,7 +70,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
           The wide 1710×952 source covers the hero vertically, so the bright sky
           stays up top and the flowers sit along the bottom edge as in the design. */}
       <Image
-        src="/figma/home/sky.jpg"
+        src="/pages/home/figma/sky.jpg"
         alt=""
         fill
         priority

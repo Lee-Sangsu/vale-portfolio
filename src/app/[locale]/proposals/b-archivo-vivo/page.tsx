@@ -79,7 +79,7 @@ export default async function ArchivoVivoPage({
         {/* Center MacWindow */}
         <div className="relative max-w-md mx-auto">
           <MacWindow
-            src="/photos/about/Val.jpg"
+            src="/shared/portraits/Val.jpg"
             alt="Valeria Jiménez"
             title="aloha_valeria"
             maxHeightVh={60}

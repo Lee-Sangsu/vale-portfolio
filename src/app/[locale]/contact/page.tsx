@@ -27,7 +27,7 @@ export default async function ContactPage({
   const locale = rawLocale as Locale;
   const es = locale === "es";
 
-  const portrait = encodeAsset("photos/about/Val.png")!;
+  const portrait = encodeAsset("shared/portraits/Val.png")!;
   const bio = [aboutLong.paragraphs[1], aboutLong.paragraphs[2]];
 
   return (
@@ -76,7 +76,7 @@ export default async function ContactPage({
               className="mt-8 inline-flex transition-opacity hover:opacity-70"
             >
               <Image
-                src="/figma/contact/instagram-icon.svg"
+                src="/pages/contact/figma/instagram-icon.svg"
                 alt="Instagram"
                 width={28}
                 height={28}

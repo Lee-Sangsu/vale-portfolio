@@ -53,7 +53,7 @@ export function JourneySection({ locale }: { locale: Locale }) {
         {/* Portrait */}
         <div className="relative mx-auto aspect-[409/494] w-full max-w-[360px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
           <Image
-            src={encodeAsset("photos/about/Val.png")!}
+            src={encodeAsset("shared/portraits/Val.png")!}
             alt="Valeria Jiménez"
             fill
             sizes="(min-width: 1024px) 360px, 100vw"

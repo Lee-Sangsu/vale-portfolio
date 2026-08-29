@@ -33,28 +33,28 @@ export type ProjectManifest = {
   decks?: DeckEntry[];
 };
 
-const PUBLIC_PHOTOS = "photos";
+const WORK_ASSETS = "work";
 
 // ── HEROES ────────────────────────────────────────────────────────────
 export const HERO_MANIFEST: Record<string, ProjectManifest> = {
   "global-youth-summit": {
-    cover: `${PUBLIC_PHOTOS}/Favorite projects/global-youth-summit/_MG_3552.png`,
+    cover: `${WORK_ASSETS}/global-youth-summit/_MG_3552.png`,
   },
 
   "misiones-internacionales": {
-    cover: `${PUBLIC_PHOTOS}/Favorite projects/misiones-internacionales/IMG_9755.png`,
+    cover: `${WORK_ASSETS}/misiones-internacionales/IMG_9755.png`,
   },
 
   "sejong-hackathon": {
-    cover: `${PUBLIC_PHOTOS}/Favorite projects/sejong-hackathon/IMG_3845.png`,
+    cover: `${WORK_ASSETS}/sejong-hackathon/IMG_3845.png`,
   },
 
   "jal-nomadher": {
-    cover: `${PUBLIC_PHOTOS}/Favorite projects/jal-nomadher/Banner.png`,
+    cover: `${WORK_ASSETS}/jal-nomadher/Banner.png`,
   },
 
   "nomadher-app": {
-    cover: `${PUBLIC_PHOTOS}/Favorite projects/nomadher-app/03 iPhone Mockups.png`,
+    cover: `${WORK_ASSETS}/nomadher-app/03 iPhone Mockups.png`,
   },
 };
 
@@ -62,31 +62,31 @@ export const HERO_MANIFEST: Record<string, ProjectManifest> = {
 export const MENTION_MANIFEST: Record<string, ProjectManifest> = {
   // BOOST LAB
   "women-entrepreneur-summit-seoul": {
-    cover: `${PUBLIC_PHOTOS}/BOOST LAB/women-entrepreneur-summit-seoul/Group 2864.png`,
+    cover: `${WORK_ASSETS}/boost-lab/women-entrepreneur-summit-seoul/Group 2864.png`,
     mainCarousel: [
-      `${PUBLIC_PHOTOS}/BOOST LAB/women-entrepreneur-summit-seoul/Group 2864.png`,
+      `${WORK_ASSETS}/boost-lab/women-entrepreneur-summit-seoul/Group 2864.png`,
     ],
   },
 
   // N9NE
   "nobled-coffee": {
-    cover: `${PUBLIC_PHOTOS}/N9NE/nobled-coffee/IMG_3839.png`,
+    cover: `${WORK_ASSETS}/n9ne/nobled-coffee/IMG_3839.png`,
     mainCarousel: [
-      `${PUBLIC_PHOTOS}/N9NE/nobled-coffee/IMG_3839.png`,
+      `${WORK_ASSETS}/n9ne/nobled-coffee/IMG_3839.png`,
     ],
   },
 
   // Independent
   "brujula-etica": {
-    cover: `${PUBLIC_PHOTOS}/Independent/brujula-etica/Poster 1.png`,
+    cover: `${WORK_ASSETS}/independent/brujula-etica/Poster 1.png`,
   },
   "opuesto-sas": {
-    cover: `${PUBLIC_PHOTOS}/Independent/opuesto-sas/Group 2412.png`,
+    cover: `${WORK_ASSETS}/independent/opuesto-sas/Group 2412.png`,
   },
 
   // Travelling University
   "mentes-sin-fronteras": {
-    cover: `${PUBLIC_PHOTOS}/Travelling University/mentes-sin-fronteras/2. Overview + Vision.png`,
+    cover: `${WORK_ASSETS}/travelling-university/mentes-sin-fronteras/2. Overview + Vision.png`,
   },
 };
 

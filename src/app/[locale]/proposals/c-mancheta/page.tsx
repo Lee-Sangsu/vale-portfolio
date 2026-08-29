@@ -60,7 +60,7 @@ export default async function ManchetaPage({
         <div className="grid-editorial items-start gap-y-10">
           <div className="col-span-12 lg:col-span-7">
             <NaturalPhoto
-              src="/photos/about/Val.jpg"
+              src="/shared/portraits/Val.jpg"
               alt="Valeria Jiménez"
               maxHeightVh={75}
               rounded="rounded-none"
