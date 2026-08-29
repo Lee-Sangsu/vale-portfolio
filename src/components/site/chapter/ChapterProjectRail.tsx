@@ -4,20 +4,23 @@ import Image from "next/image";
 import { useRef } from "react";
 import { Link } from "@/i18n/navigation";
 import { encodeAsset } from "@/content/photo-manifest";
-import type { ChapterProject, Locale } from "@/content/types";
+import type { ChapterId, ChapterProject, Locale } from "@/content/types";
 
 type ChapterProjectRailProps = {
   projects: ChapterProject[];
   locale: Locale;
   accent: string;
+  chapterId: ChapterId;
 };
 
 export function ChapterProjectRail({
   projects,
   locale,
   accent,
+  chapterId,
 }: ChapterProjectRailProps) {
   const railRef = useRef<HTMLDivElement>(null);
+  const isNomadHer = chapterId === "nomadher";
 
   const scrollBy = (direction: -1 | 1) => {
     const rail = railRef.current;
@@ -69,8 +72,54 @@ export function ChapterProjectRail({
         ref={railRef}
         className="mt-9 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:mt-11 sm:gap-6 sm:px-8 lg:px-[96px] [&::-webkit-scrollbar]:hidden"
       >
-        {projects.map((project) => {
+        {projects.map((project, index) => {
           const image = encodeAsset(project.image);
+          const nomadHerCard = (
+            <>
+              <div
+                className="flex min-h-[244px] flex-col gap-4 px-[22px] pb-6 pt-[22px]"
+                style={{ backgroundColor: index === 0 ? "#d9f25a" : "#ecece7" }}
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="rounded-full border border-transparent bg-white px-[14px] py-[7px] font-inter text-[13px] font-medium leading-none text-[#212621]">
+                    {project.label[locale]}
+                  </span>
+                  {project.date ? (
+                    <span className="rounded-full border border-[#dadad5] bg-white px-[14px] py-[7px] font-inter text-[13px] font-medium leading-none text-[#212621]">
+                      {project.date[locale]}
+                    </span>
+                  ) : null}
+                </div>
+                <h3 className="font-inter text-[30px] font-bold leading-[0.98] tracking-[-0.02em] text-black sm:text-[36px]">
+                  {project.title[locale]}
+                </h3>
+                <p className="font-inter text-[15px] leading-[1.45] text-[#293021]">
+                  {project.description[locale]}
+                </p>
+              </div>
+              <div className="relative min-h-[296px] flex-1 px-3 pb-3 pt-0">
+                <div className="relative size-full overflow-hidden rounded-[12px]">
+                  {image ? (
+                    <Image
+                      src={image}
+                      alt=""
+                      fill
+                      sizes="(min-width: 640px) 400px, 82vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                    />
+                  ) : (
+                    <div aria-hidden="true" className="size-full" style={{ backgroundColor: accent }} />
+                  )}
+                </div>
+              </div>
+              <span className="absolute bottom-[31px] left-[31px] inline-flex items-center gap-2.5 rounded-full bg-white py-[9px] pl-[18px] pr-[9px] font-inter text-[14px] font-medium text-black shadow-sm">
+                {locale === "es" ? "Ver más" : "See more"}
+                <span className="grid size-[26px] place-items-center rounded-full bg-[#111] text-[12px] text-white">
+                  →
+                </span>
+              </span>
+            </>
+          );
           const card = (
             <>
               <div className="relative h-[58%] min-h-[280px] overflow-hidden">
@@ -118,11 +167,11 @@ export function ChapterProjectRail({
 
           return project.href ? (
             <Link key={project.title[locale]} href={project.href} className={className}>
-              {card}
+              {isNomadHer ? nomadHerCard : card}
             </Link>
           ) : (
             <article key={project.title[locale]} className={className}>
-              {card}
+              {isNomadHer ? nomadHerCard : card}
             </article>
           );
         })}
