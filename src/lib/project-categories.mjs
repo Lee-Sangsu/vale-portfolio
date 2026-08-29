@@ -13,6 +13,7 @@ export const CHAPTER_CATEGORIES = {
   independent: ["design", "marketing-content", "strategy"],
   "boost-lab": ["events", "marketing-content", "strategy"],
   nomadher: ["ux-ui", "marketing-content", "strategy"],
+  ironhack: ["ux-ui", "events", "strategy"],
 };
 
 export function filterProjectCards(cards, category) {
