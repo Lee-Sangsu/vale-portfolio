@@ -5,7 +5,7 @@ import Image from "next/image";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/content/types";
-import { heroes, chapters, getMentionsByChapter } from "@/content";
+import { chapterIntros, heroes, chapters, getMentionsByChapter } from "@/content";
 import {
   HERO_MANIFEST,
   MENTION_MANIFEST,
@@ -16,17 +16,11 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { CommunityStrip } from "@/components/site/CommunityStrip";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { ProjectChapterGrid } from "@/components/site/ProjectChapterGrid";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
-
-// gradient tops for chapters without a photo cover
-const CHAPTER_TINT: Record<string, string> = {
-  n9ne: "linear-gradient(135deg,#9AA3AD,#c7ced4)",
-  "travelling-university": "linear-gradient(135deg,#8AC6E8,#cfe8f5)",
-  independent: "linear-gradient(135deg,#244736,#3f7a5c)",
-};
 
 const CARRYON_ASSET_BASE = "shared/carry-on";
 const carryOnAsset = (file: string) =>
@@ -170,6 +164,7 @@ export default async function ProjectsPage({
         c,
         cover: encodeAsset(HERO_MANIFEST[hero.slug]?.cover),
         href: `/work/${hero.slug}`,
+        description: chapterIntros[c.id][locale],
       };
     }
     const chapterMentions = getMentionsByChapter(c.id);
@@ -180,8 +175,20 @@ export default async function ProjectsPage({
       ? encodeAsset(MENTION_MANIFEST[featured.id]?.cover)
       : undefined;
     const href = featured ? `/work/${featured.id}` : "/projects";
-    return { c, cover, href };
+    return { c, cover, href, description: chapterIntros[c.id][locale] };
   });
+
+  const projectCategories = [
+    { id: "chapters", label: es ? "Capítulos" : "Chapters" },
+    { id: "design", label: es ? "Diseño gráfico" : "Graphic design" },
+    { id: "ux-ui", label: "UX/UI" },
+    { id: "events", label: es ? "Eventos" : "Events" },
+    {
+      id: "marketing-content",
+      label: es ? "Marketing y contenido" : "Marketing & content",
+    },
+    { id: "strategy", label: es ? "Estrategia" : "Strategy" },
+  ];
 
   return (
     <main>
@@ -244,57 +251,19 @@ export default async function ProjectsPage({
               ? "Cada capítulo es una fase: un país, un equipo, una forma de trabajar."
               : "Each chapter is a phase: a country, a team, a way of working."}
           </p>
-          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {chapterCards.map(({ c, cover, href }) => (
-              <li key={c.id}>
-                <Link
-                  href={href}
-                  className="group flex h-full flex-col overflow-hidden rounded-[16px] border border-[#ececea] bg-[#faf9f6] shadow-[0_8px_22px_rgba(0,0,0,0.06)] transition-transform hover:-translate-y-1"
-                >
-                  <div
-                    className="relative h-[180px] w-full overflow-hidden"
-                    style={{ background: CHAPTER_TINT[c.id] ?? "#eee" }}
-                  >
-                    {cover && (
-                      <Image
-                        src={cover}
-                        alt={c.title[locale]}
-                        fill
-                        sizes="360px"
-                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      />
-                    )}
-                    <span className="bg-green font-inter absolute top-3 left-3 rounded-full px-3 py-1 text-[11px] font-semibold text-white">
-                      {c.dateRange}
-                    </span>
-                    {c.starred && (
-                      <span className="text-hero-lime absolute top-3 right-3 text-[18px] drop-shadow">
-                        ★
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-inter text-ink2 text-[19px] font-bold">
-                      {c.title[locale]}
-                    </h3>
-                    <p className="font-inter text-muted mt-1 text-[13px]">
-                      {c.location[locale]}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {c.projects[locale].slice(0, 3).map((p) => (
-                        <span
-                          key={p}
-                          className="bg-ink2 font-inter rounded-full px-3 py-1 text-[11px] font-medium text-white"
-                        >
-                          {p}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ProjectChapterGrid
+            categories={projectCategories}
+            cards={chapterCards.map(({ c, cover, href, description }) => ({
+              id: c.id,
+              href,
+              cover,
+              title: c.title[locale],
+              dateRange: c.dateRange,
+              location: c.location[locale],
+              description,
+              projects: c.projects[locale],
+            }))}
+          />
         </div>
       </section>
 
