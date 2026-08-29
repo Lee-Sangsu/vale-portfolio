@@ -65,7 +65,7 @@ export const tools: { slug: string; label: string; icon: string }[] = [
   { slug: "photoshop", label: "Photoshop", icon: "/shared/tool-logos/photoshop.avif" },
   { slug: "framer", label: "Framer", icon: "/shared/tool-logos/framer.avif" },
   { slug: "canva", label: "Canva", icon: "/shared/tool-logos/canva.webp" },
-  { slug: "notion", label: "Notion", icon: "/shared/tool-logos/notion.png" },
+  { slug: "notion", label: "Notion", icon: "/shared/tool-logos/notion.svg" },
   { slug: "capcut", label: "CapCut", icon: "/shared/tool-logos/capcut.avif" },
   { slug: "manychat", label: "ManyChat", icon: "/shared/tool-logos/manychat.webp" },
 ];
