@@ -288,11 +288,21 @@ export default async function ProjectsPage({
                 <div
                   aria-hidden="true"
                   data-projects-folder="flap"
-                  className="absolute inset-0 origin-bottom transform-gpu rounded-b-[34px] rounded-t-[24px] border border-[#090809] bg-[#737373]/35 transition-transform duration-200 ease-in group-hover:rotate-x-[-14deg] motion-reduce:rotate-x-0 motion-reduce:transform-none motion-reduce:transition-none"
+                  className="absolute inset-0 origin-bottom transform-gpu rounded-b-[34px] rounded-t-[24px] border-x border-b border-[#090809] bg-[#737373]/35 transition-transform duration-200 ease-in group-hover:rotate-x-[-14deg] motion-reduce:rotate-x-0 motion-reduce:transform-none motion-reduce:transition-none"
                 >
+                  <span
+                    aria-hidden="true"
+                    data-projects-folder="top-outline-left"
+                    className="absolute left-[24px] top-0 h-px w-[calc(9%-24px)] bg-[#090809]"
+                  />
                   <div
                     data-projects-folder="tab"
-                    className="absolute -top-[15%] left-[9%] h-[18%] w-[34%] rounded-t-[20px] border border-b-0 border-[#090809] bg-[#737373]/35"
+                    className="absolute z-10 -top-[15%] left-[9%] h-[18%] w-[34%] rounded-t-[20px] border border-b-0 border-[#090809] bg-[#737373]/35"
+                  />
+                  <span
+                    aria-hidden="true"
+                    data-projects-folder="top-outline-right"
+                    className="absolute left-[43%] right-[24px] top-0 h-px bg-[#090809]"
                   />
                 </div>
               </div>
