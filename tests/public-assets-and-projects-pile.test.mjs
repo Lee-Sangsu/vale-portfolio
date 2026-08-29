@@ -37,6 +37,8 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /group-hover:translate-/);
   assert.equal((projectsPage.match(/group-hover:scale-\[1\.06\]/g) ?? []).length, 8);
   assert.equal((projectsPage.match(/group-hover:-translate-y-32/g) ?? []).length, 2);
+  assert.match(projectsPage, /group-hover:-translate-x-16/);
+  assert.match(projectsPage, /group-hover:translate-x-20/);
   assert.match(projectsPage, /delay-\[\d+ms\]/);
   assert.match(projectsPage, /transition-transform duration-200 ease-in/);
   assert.match(projectsPage, /motion-reduce:transform-none/);
