@@ -99,6 +99,7 @@ export type ChapterResponsibility = {
 export type ChapterProject = {
   title: LocalizedString;
   label: LocalizedString;
+  date?: LocalizedString;
   description: LocalizedString;
   href?: `/work/${string}`;
   image?: string;

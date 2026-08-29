@@ -52,13 +52,39 @@ export default async function ChapterPage({
   const es = locale === "es";
   const firstProjectImage = detail.projects.find((project) => project.image)?.image;
   const cover = encodeAsset(detail.cover ?? firstProjectImage);
+  const nomadHerHero =
+    slug === "nomadher"
+      ? {
+          base: encodeAsset("pages/chapters/nomadher-hero-base.png")!,
+          overlay: encodeAsset("pages/chapters/nomadher-hero-overlay.png")!,
+        }
+      : undefined;
   const contactPhoto = cover ?? encodeAsset("shared/portraits/Val.png")!;
   const pageStyle = { "--chapter-accent": detail.accent } as CSSProperties;
 
   return (
     <main style={pageStyle}>
       <section className="relative isolate min-h-[680px] overflow-hidden bg-[#111] sm:min-h-[760px] lg:min-h-[900px]">
-        {cover ? (
+        {nomadHerHero ? (
+          <div aria-hidden="true" className="absolute inset-0 -z-20">
+            <Image
+              src={nomadHerHero.base}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <Image
+              src={nomadHerHero.overlay}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        ) : cover ? (
           <Image
             src={cover}
             alt=""
@@ -156,7 +182,12 @@ export default async function ChapterPage({
         </div>
       </section>
 
-      <ChapterProjectRail projects={detail.projects} locale={locale} accent={detail.accent} />
+      <ChapterProjectRail
+        projects={detail.projects}
+        locale={locale}
+        accent={detail.accent}
+        chapterId={chapter.id}
+      />
 
       <WorkTogether photo={contactPhoto} />
       <SiteFooter />
