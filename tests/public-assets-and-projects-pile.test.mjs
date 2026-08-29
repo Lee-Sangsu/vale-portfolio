@@ -34,6 +34,14 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.equal((projectsPage.match(/hoverClass:/g) ?? []).length, 8);
   assert.match(projectsPage, /from-\[#cf9bac\]/);
   assert.match(projectsPage, /group-hover:translate-/);
+  assert.equal(
+    (
+      projectsPage.match(
+        /className: "left-\[[^"]+\] top-\[[^"]+\] z-(?:20|30|40) h-/g,
+      ) ?? []
+    ).length,
+    8,
+  );
   assert.equal((projectsPage.match(/group-hover:scale-\[1\.06\]/g) ?? []).length, 8);
   assert.equal((projectsPage.match(/group-hover:-translate-y-32/g) ?? []).length, 2);
   assert.match(projectsPage, /group-hover:-translate-x-16/);
@@ -44,10 +52,13 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /data-projects-folder="back"/);
   assert.match(projectsPage, /data-projects-folder="tab"/);
   assert.match(projectsPage, /data-projects-folder="flap"/);
-  assert.match(projectsPage, /data-projects-folder="back"[\s\S]{0,320}border border-\[#151315\] bg-transparent/);
-  assert.match(projectsPage, /data-projects-folder="tab"[\s\S]{0,220}border border-b-0 border-\[#151315\] bg-transparent/);
-  assert.match(projectsPage, /data-projects-folder="flap"[\s\S]{0,420}border border-\[#090809\] bg-transparent/);
-  assert.equal((projectsPage.match(/bg-transparent/g) ?? []).length, 3);
+  assert.match(projectsPage, /data-projects-folder="back"[\s\S]{0,320}border border-\[#151315\] bg-\[#737373\]\/35/);
+  assert.match(projectsPage, /data-projects-folder="tab"[\s\S]{0,220}border border-b-0 border-\[#151315\] bg-\[#737373\]\/35/);
+  assert.match(projectsPage, /data-projects-folder="flap"[\s\S]{0,420}border border-\[#090809\] bg-\[#737373\]\/35/);
+  assert.equal((projectsPage.match(/bg-\[#737373\]\/35/g) ?? []).length, 3);
+  assert.match(projectsPage, /group relative -mt-3 aspect-\[11\/7\]/);
+  assert.doesNotMatch(projectsPage, /group relative z-0 -mt-3 aspect-\[11\/7\]/);
+  assert.match(projectsPage, /z-10 h-\[44%\] w-\[74%\].*perspective-\[800px\]/);
   assert.match(projectsPage, /perspective-\[800px\]/);
   assert.match(projectsPage, /origin-bottom/);
   assert.match(projectsPage, /group-hover:rotate-x-\[-14deg\]/);

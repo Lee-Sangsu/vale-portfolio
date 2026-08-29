@@ -137,7 +137,7 @@ export default async function ProjectsPage({
     {
       src: encodeAsset("pages/projects/hero-photos/IMG_2012.png")!,
       alt: "Portfolio photo collage",
-      className: "left-[30%] top-[17%] z-10 h-[37%] w-[19%] rotate-[9deg]",
+      className: "left-[30%] top-[17%] z-20 h-[37%] w-[19%] rotate-[9deg]",
       hoverClass:
         "delay-[40ms] group-hover:-translate-x-4 group-hover:-translate-y-32 group-hover:scale-[1.06] group-hover:rotate-[16deg]",
       accent: false,
@@ -243,16 +243,16 @@ export default async function ProjectsPage({
               folio
             </span>
           </h1>
-          <div className="group relative z-0 -mt-3 aspect-[11/7] w-full max-w-[920px] sm:-mt-8">
+          <div className="group relative -mt-3 aspect-[11/7] w-full max-w-[920px] sm:-mt-8">
             <div className="absolute inset-0">
               <div
                 aria-hidden="true"
                 data-projects-folder="back"
-                className="pointer-events-none absolute bottom-[5%] left-1/2 z-0 h-[50%] w-[68%] -translate-x-1/2 rounded-b-[34px] rounded-t-[24px] border border-[#151315] bg-transparent"
+                className="pointer-events-none absolute bottom-[5%] left-1/2 z-0 h-[50%] w-[68%] -translate-x-1/2 rounded-b-[34px] rounded-t-[24px] border border-[#151315] bg-[#737373]/35"
               >
                 <div
                   data-projects-folder="tab"
-                  className="absolute -top-[15%] left-[9%] h-[18%] w-[34%] rounded-t-[20px] border border-b-0 border-[#151315] bg-transparent"
+                  className="absolute -top-[15%] left-[9%] h-[18%] w-[34%] rounded-t-[20px] border border-b-0 border-[#151315] bg-[#737373]/35"
                 />
               </div>
               {portfolioPile.map((photo) => (
@@ -274,11 +274,11 @@ export default async function ProjectsPage({
                   )}
                 </figure>
               ))}
-              <div className="pointer-events-none absolute bottom-[3%] left-1/2 z-40 h-[44%] w-[74%] -translate-x-1/2 perspective-[800px]">
+              <div className="pointer-events-none absolute bottom-[3%] left-1/2 z-10 h-[44%] w-[74%] -translate-x-1/2 perspective-[800px]">
                 <div
                   aria-hidden="true"
                   data-projects-folder="flap"
-                  className="absolute inset-0 origin-bottom transform-gpu rounded-b-[34px] rounded-t-[24px] border border-[#090809] bg-transparent transition-transform duration-200 ease-in group-hover:rotate-x-[-14deg] motion-reduce:rotate-x-0 motion-reduce:transform-none motion-reduce:transition-none"
+                  className="absolute inset-0 origin-bottom transform-gpu rounded-b-[34px] rounded-t-[24px] border border-[#090809] bg-[#737373]/35 transition-transform duration-200 ease-in group-hover:rotate-x-[-14deg] motion-reduce:rotate-x-0 motion-reduce:transform-none motion-reduce:transition-none"
                 />
               </div>
               <div className="absolute bottom-[4%] left-[7%] z-50 flex size-[92px] flex-col items-center justify-center rounded-full bg-white font-display text-[2.4rem] leading-[0.72] tracking-[-0.08em] text-[#124aa8] shadow-[0_9px_16px_rgba(40,30,34,0.28)] sm:size-[132px] sm:text-[3.75rem]">
