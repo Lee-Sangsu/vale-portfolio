@@ -22,7 +22,7 @@ const figmaPhotoFiles = [
 test("My Story renders the responsive Figma collage with local image exports", () => {
   assert.match(component, /id="story"/);
   assert.match(component, /const es = locale === "es"/);
-  assert.match(component, /lg:aspect-\[1710\/1219\]/);
+  assert.match(component, /lg:aspect-\[1710\/1000\]/);
   assert.match(component, /max-w-\[1710px\]/);
   assert.match(
     component,

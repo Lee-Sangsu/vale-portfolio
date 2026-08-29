@@ -89,7 +89,7 @@ export function MyStory({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <div className="relative mx-auto hidden w-full max-w-[1710px] lg:aspect-[1710/1219] lg:block">
+      <div className="relative mx-auto hidden w-full max-w-[1710px] lg:aspect-[1710/1000] lg:block">
         <div className="pointer-events-none absolute left-[46.61%] top-[5.91%] z-10 size-[6.78%]">
           <Image
             src="/pages/about/figma/story-collage-doodle.svg"
