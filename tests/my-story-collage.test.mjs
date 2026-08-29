@@ -26,7 +26,7 @@ test("My Story renders the responsive Figma collage with local image exports", (
   assert.match(component, /max-w-\[1710px\]/);
   assert.match(
     component,
-    /<div className="pointer-events-none absolute left-\[46\.61%\] top-\[5\.91%\] size-\[6\.78%\]">/,
+    /<div className="pointer-events-none absolute left-\[46\.61%\] top-\[5\.91%\] z-10 size-\[6\.78%\]">/,
   );
   assert.match(component, /overflow-hidden/);
   assert.doesNotMatch(component, /relative overflow-hidden \$\{className\}/);
@@ -47,4 +47,11 @@ test("My Story Figma exports are committed locally", () => {
       `${file} is missing`,
     );
   }
+});
+
+test("My Story lifts the desktop background photos toward the description", () => {
+  assert.match(
+    component,
+    /<div aria-hidden="true" className="absolute inset-0 -translate-y-\[10%\]">/,
+  );
 });
