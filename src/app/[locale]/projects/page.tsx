@@ -155,7 +155,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[32%] top-[50%] z-20 h-[37%] w-[19%] rotate-[1deg]",
       hoverClass:
-        "delay-[80ms] group-hover:-translate-x-6 group-hover:-translate-y-16 group-hover:scale-[1.06] group-hover:-rotate-[6deg]",
+        "delay-[80ms] group-hover:-translate-x-16 group-hover:-translate-y-16 group-hover:scale-[1.06] group-hover:-rotate-[6deg]",
       accent: false,
     },
     {
@@ -163,7 +163,7 @@ export default async function ProjectsPage({
       alt: "Portfolio photo collage",
       className: "left-[45%] top-[46%] z-40 h-[41%] w-[20%] rotate-[10deg]",
       hoverClass:
-        "delay-[100ms] group-hover:translate-x-4 group-hover:-translate-y-14 group-hover:scale-[1.06] group-hover:rotate-[17deg]",
+        "delay-[100ms] group-hover:translate-x-14 group-hover:-translate-y-14 group-hover:scale-[1.06] group-hover:rotate-[17deg]",
       accent: false,
     },
     {
@@ -187,7 +187,7 @@ export default async function ProjectsPage({
       alt: "",
       className: "left-[61%] top-[54%] z-40 h-[36%] w-[15%] -rotate-[9deg]",
       hoverClass:
-        "delay-[160ms] group-hover:translate-x-10 group-hover:-translate-y-16 group-hover:scale-[1.06] group-hover:-rotate-[16deg]",
+        "delay-[160ms] group-hover:translate-x-20 group-hover:-translate-y-16 group-hover:scale-[1.06] group-hover:-rotate-[16deg]",
       accent: true,
     },
   ];
