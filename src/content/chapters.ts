@@ -2,29 +2,28 @@ import type { Chapter, LocalizedString } from "./types";
 
 export const chapters: Chapter[] = [
   {
-    id: "n9ne",
+    id: "nomadher",
     number: "01",
-    title: { en: "N9NE", es: "N9NE" },
-    dateRange: "2021–2024",
-    location: { en: "Spain · Germany · Korea", es: "España · Alemania · Corea" },
+    title: { en: "NomadHer", es: "NomadHer" },
+    dateRange: "Oct 2025–present",
+    location: { en: "Seoul · Global", es: "Seúl · Global" },
     projects: {
-      en: ["NOBLED Coffee", "Eat's Real", "Hola Guesthouse Jeju"],
-      es: ["NOBLED Coffee", "Eat's Real", "Hola Guesthouse Jeju"],
+      en: ["App redesign", "Visual system", "Japan Airlines", "Community"],
+      es: ["Rediseño de la app", "Sistema visual", "Japan Airlines", "Comunidad"],
     },
+    starred: true,
   },
   {
-    id: "travelling-university",
+    id: "boost-lab",
     number: "02",
-    title: {
-      en: "Travelling University",
-      es: "Travelling University",
-    },
-    dateRange: "Feb–Sep 2025",
-    location: { en: "LATAM × Korea", es: "LATAM × Corea" },
+    title: { en: "BOOST LAB", es: "BOOST LAB" },
+    dateRange: "2024–present",
+    location: { en: "Korea ↔ Colombia", es: "Corea ↔ Colombia" },
     projects: {
-      en: ["Mentes Sin Fronteras", "Talent Scouting LATAM × Korea"],
-      es: ["Mentes Sin Fronteras", "Talent Scouting LATAM × Corea"],
+      en: ["Global Youth", "Summits", "Sejong", "International Missions"],
+      es: ["Global Youth", "Summits", "Sejong", "Misiones Internacionales"],
     },
+    starred: true,
   },
   {
     id: "independent",
@@ -34,70 +33,74 @@ export const chapters: Chapter[] = [
       es: "Diseño independiente",
     },
     dateRange: "2025–2026",
-    location: { en: "Bogotá · Seoul", es: "Bogotá · Seúl" },
+    location: { en: "Colombia · Korea · Spain", es: "Colombia · Corea · España" },
     projects: {
-      en: [
-        "Serema Hotel",
-        "Opuesto SAS",
-        "Brújula Ética",
-        "팀프러너십",
-        "Santa Juliana",
-      ],
-      es: [
-        "Serema Hotel",
-        "Opuesto SAS",
-        "Brújula Ética",
-        "팀프러너십",
-        "Santa Juliana",
-      ],
+      en: ["Serema Hotel", "Opuesto SAS", "Brújula Ética", "Santa Juliana"],
+      es: ["Serema Hotel", "Opuesto SAS", "Brújula Ética", "Santa Juliana"],
     },
   },
   {
-    id: "boost-lab",
+    id: "n9ne",
     number: "04",
-    title: { en: "BOOST LAB", es: "BOOST LAB" },
-    dateRange: "2024–present",
-    location: { en: "Seoul ↔ LATAM", es: "Seúl ↔ LATAM" },
+    title: { en: "N9NE", es: "N9NE" },
+    dateRange: "2021–2024",
+    location: { en: "Spain · Germany · Korea", es: "España · Alemania · Corea" },
     projects: {
-      en: ["Misiones", "Sejong Hackathon", "Bogotá Summit", "+ 4 events"],
-      es: ["Misiones", "Sejong Hackathon", "Bogotá Summit", "+ 4 eventos"],
+      en: ["NOBLED Coffee", "Eat's Real", "Hola Guesthouse Jeju"],
+      es: ["NOBLED Coffee", "Eat's Real", "Hola Guesthouse Jeju"],
     },
-    starred: true,
   },
   {
-    id: "nomadher",
+    id: "ironhack",
     number: "05",
-    title: { en: "NomadHer", es: "NomadHer" },
-    dateRange: "Oct 2025–present",
-    location: { en: "Seoul · Global", es: "Seúl · Global" },
+    title: { en: "Ironhack", es: "Ironhack" },
+    dateRange: "Mar–Sep 2023",
+    location: { en: "Berlin · Germany", es: "Berlín · Alemania" },
     projects: {
-      en: ["App", "Japan Airlines"],
-      es: ["App", "Japan Airlines"],
+      en: ["Student experience", "Internal tools", "Campus events"],
+      es: ["Experiencia estudiantil", "Herramientas internas", "Eventos de campus"],
     },
-    starred: true,
+  },
+  {
+    id: "travelling-university",
+    number: "06",
+    title: {
+      en: "Travelling University",
+      es: "Travelling University",
+    },
+    dateRange: "Feb–Sep 2025",
+    location: { en: "LATAM × Korea", es: "LATAM × Corea" },
+    projects: {
+      en: ["Talent Scouting LATAM × Korea", "Mentes Sin Fronteras"],
+      es: ["Talent Scouting LATAM × Corea", "Mentes Sin Fronteras"],
+    },
   },
 ];
 
 export const chapterIntros: Record<Chapter["id"], LocalizedString> = {
+  nomadher: {
+    en: "NomadHer is a travel community app where women find travel buddies, join experiences, and build community across cities.",
+    es: "NomadHer es una app donde mujeres que viajan encuentran travel buddies, se unen a experiencias y construyen comunidad entre ciudades.",
+  },
+  "boost-lab": {
+    en: "BOOST LAB was born in Seoul in 2024 to design and execute innovation experiences for entrepreneurs, companies, and institutions across Korea and Latin America.",
+    es: "BOOST LAB nació en Seúl en 2024 para diseñar y ejecutar experiencias de innovación para emprendedores, empresas e instituciones entre Corea y Latinoamérica.",
+  },
+  independent: {
+    en: "Branding, websites, and content strategy for clients across three countries. The work turns a client’s context into a tangible brand, system, or strategy.",
+    es: "Branding, websites y estrategia de contenido para clientes en tres países. El trabajo convierte el contexto del cliente en una marca, sistema o estrategia tangible.",
+  },
   n9ne: {
     en: "N9NE was a company I co-founded with 8 other members from different parts of the world. It started in Bilbao in 2021. In 2022 we moved to Berlin, and in 2023 to Seoul, where I led the team for a year. We worked across diverse industries: fashion, sustainability, visual systems, strategy, education, technology. This is where my way of working with international teams and projects that move with you across countries was built.",
     es: "N9NE fue una compañía de la que fui co-fundadora, junto con otros 8 miembros de distintas partes del mundo. Empezó en Bilbao en 2021. En 2022 nos movimos a Berlín, y en 2023 a Seúl, donde fui líder de equipo durante un año. Trabajamos en industrias diversas: moda, sostenibilidad, sistemas visuales, estrategia, educación, tecnología. Aquí se construyó mi forma de trabajar con equipos internacionales y proyectos que se mueven con uno entre países.",
   },
+  ironhack: {
+    en: "At Ironhack I improved a live student experience: support, feedback, internal tools, and campus events inside an intensive technology bootcamp.",
+    es: "En Ironhack mejoré una experiencia estudiantil ya en marcha: acompañamiento, feedback, herramientas internas y eventos de campus dentro de un bootcamp intensivo de tecnología.",
+  },
   "travelling-university": {
-    en: "I was part of Travelling University as Talent Scout and ambassador in Latin America. The role focused on marketing strategy for LATAM and talent scouting in both Latin America and Korea. The work: closing the gap between high-potential talent and global entrepreneurial education. Workshops, institute visits, fairs, one-on-one calls, spaces where future changemakers discover new possibilities.",
-    es: "Fui parte de Travelling University como Talent Scout y embajadora en Latinoamérica. Mi rol se enfocó en estrategia de marketing para LATAM y talent scouting tanto en Latinoamérica como en Corea. El trabajo: cerrar la brecha entre talento de alto potencial y educación emprendedora global. Workshops, visitas a institutos, ferias, llamadas uno a uno, espacios donde futuros changemakers descubren nuevas posibilidades.",
-  },
-  independent: {
-    en: "Branding, websites, social media strategy. The work is getting into the client's head and walking out with something tangible: a brand, a system, a strategy. Here I also operate as a consultant.",
-    es: "Branding, websites, estrategia de redes. El trabajo es entrar a la cabeza del cliente y salir con algo tangible: una marca, un sistema, una estrategia. Aquí también opero como consultora.",
-  },
-  "boost-lab": {
-    en: "BOOST LAB is an innovation and expansion lab. We design routes, experiences, events and communities so that entrepreneurs, companies and institutions grow with clarity, creativity and global vision. We work in lines like innovation routes, international missions, and growth tools for entrepreneurs. Born in Seoul in 2024.",
-    es: "BOOST LAB es un laboratorio de innovación y expansión. Diseñamos rutas, experiencias, eventos y comunidades para que emprendedores, empresas e instituciones crezcan con claridad, creatividad y visión global. Trabajamos en líneas como rutas de innovación, misiones internacionales, y herramientas de crecimiento para emprendedores. Nació en Seúl en 2024.",
-  },
-  nomadher: {
-    en: "NomadHer is a women-only travel community app. My role focuses on design and product: the app, the visual system, the campaigns and content that hold the community across versions. The work moves between Figma, marketing, and direct conversation with users.",
-    es: "NomadHer es una app de comunidad de viaje para mujeres. Mi rol se enfoca en diseño y producto: la app, el sistema visual, las campañas y los contenidos que sostienen la comunidad entre versiones. El trabajo se mueve entre Figma, marketing y conversación directa con usuarias.",
+    en: "Travelling University connects high-potential talent with global entrepreneurial education through Latin American marketing strategy and talent scouting across two continents.",
+    es: "Travelling University conecta talento de alto potencial con educación emprendedora global a través de estrategia de marketing para Latinoamérica y talent scouting entre dos continentes.",
   },
 };
 

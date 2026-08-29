@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/content/types";
-import { chapterIntros, heroes, chapters, getMentionsByChapter } from "@/content";
+import { getChapterDetail, heroes, chapters, getMentionsByChapter } from "@/content";
 import {
   HERO_MANIFEST,
   MENTION_MANIFEST,
@@ -192,28 +192,29 @@ export default async function ProjectsPage({
     },
   ];
 
-  // chapter cards: cover from the chapter's hero; for chapters without a hero
-  // (N9NE, Travelling University, Independent) fall back to the first mention
-  // that has a cover photo so every card shows a real image, not a flat tint.
+  // Chapter cards are the top level of the portfolio. They lead to chapter
+  // details, while individual case studies keep their existing /work URLs.
   const chapterCards = chapters.map((c) => {
+    const detail = getChapterDetail(c.id)!;
     const hero = heroes.find((h) => h.chapter === c.id);
-    if (hero) {
-      return {
-        c,
-        cover: encodeAsset(HERO_MANIFEST[hero.slug]?.cover),
-        href: `/work/${hero.slug}`,
-        description: chapterIntros[c.id][locale],
-      };
-    }
     const chapterMentions = getMentionsByChapter(c.id);
     const featured =
       chapterMentions.find((m) => MENTION_MANIFEST[m.id]?.cover) ??
       chapterMentions[0];
-    const cover = featured
-      ? encodeAsset(MENTION_MANIFEST[featured.id]?.cover)
-      : undefined;
-    const href = featured ? `/work/${featured.id}` : "/projects";
-    return { c, cover, href, description: chapterIntros[c.id][locale] };
+    const fallbackProjectImage = detail.projects.find((project) => project.image)?.image;
+    const cover = encodeAsset(
+      HERO_MANIFEST[hero?.slug ?? ""]?.cover ??
+        MENTION_MANIFEST[featured?.id ?? ""]?.cover ??
+        detail.cover ??
+        fallbackProjectImage,
+    );
+
+    return {
+      c,
+      cover,
+      href: `/chapters/${c.id}`,
+      description: detail.intro[locale],
+    };
   });
 
   const projectCategories = [
