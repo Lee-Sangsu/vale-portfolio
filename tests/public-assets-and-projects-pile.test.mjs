@@ -58,13 +58,16 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.equal((projectsPage.match(/bg-\[#737373\]\/35/g) ?? []).length, 3);
   assert.match(projectsPage, /group relative -mt-3 aspect-\[11\/7\]/);
   assert.doesNotMatch(projectsPage, /group relative z-0 -mt-3 aspect-\[11\/7\]/);
-  assert.match(projectsPage, /z-10 h-\[44%\] w-\[74%\].*perspective-\[800px\]/);
+  assert.match(projectsPage, /z-\[45\] h-\[44%\] w-\[74%\].*perspective-\[800px\]/);
+  assert.match(projectsPage, /absolute bottom-\[3%\] right-\[2%\] z-50 w-fit/);
   assert.match(projectsPage, /perspective-\[800px\]/);
   assert.match(projectsPage, /origin-bottom/);
   assert.match(projectsPage, /group-hover:rotate-x-\[-14deg\]/);
   assert.match(projectsPage, /motion-reduce:rotate-x-0/);
   assert.doesNotMatch(projectsPage, /transition-transform duration-500 ease-out/);
   assert.doesNotMatch(projectsPage, /group-hover:rotate-x-\[14deg\]/);
+  assert.doesNotMatch(projectsPage, /z-10 h-\[44%\] w-\[74%\].*perspective-\[800px\]/);
+  assert.doesNotMatch(projectsPage, /w-\[min\(45vw,340px\)\]/);
   assert.doesNotMatch(projectsPage, /bg-\[linear-gradient\(145deg,#3a363b/);
   assert.doesNotMatch(projectsPage, /shadow-\[0_18px_28px_rgba\(47,30,40,0\.3\)\]/);
   assert.doesNotMatch(projectsPage, /delay-\[[2-9]\d{2}ms\]/);
