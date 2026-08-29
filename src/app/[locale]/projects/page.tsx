@@ -274,7 +274,7 @@ export default async function ProjectsPage({
                   )}
                 </figure>
               ))}
-              <div className="pointer-events-none absolute bottom-[3%] left-1/2 z-10 h-[44%] w-[74%] -translate-x-1/2 perspective-[800px]">
+              <div className="pointer-events-none absolute bottom-[3%] left-1/2 z-[45] h-[44%] w-[74%] -translate-x-1/2 perspective-[800px]">
                 <div
                   aria-hidden="true"
                   data-projects-folder="flap"
@@ -285,7 +285,7 @@ export default async function ProjectsPage({
                 <span>20</span>
                 <span>26</span>
               </div>
-              <div className="absolute bottom-[3%] right-[2%] z-50 w-[min(45vw,340px)] rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
+              <div className="absolute bottom-[3%] right-[2%] z-50 w-fit rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
                 <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
                 <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
                 <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
