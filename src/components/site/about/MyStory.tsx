@@ -90,7 +90,7 @@ export function MyStory({ locale }: { locale: Locale }) {
       </div>
 
       <div className="relative mx-auto hidden w-full max-w-[1710px] lg:aspect-[1710/1219] lg:block">
-        <div className="pointer-events-none absolute left-[46.61%] top-[5.91%] size-[6.78%]">
+        <div className="pointer-events-none absolute left-[46.61%] top-[5.91%] z-10 size-[6.78%]">
           <Image
             src="/pages/about/figma/story-collage-doodle.svg"
             alt=""
@@ -99,46 +99,48 @@ export function MyStory({ locale }: { locale: Locale }) {
           />
         </div>
 
-        <h2 className="font-inter absolute left-1/2 top-[19.2%] -translate-x-1/2 text-center text-[clamp(32px,2.81vw,48px)] font-bold leading-none">
+        <h2 className="font-inter absolute left-1/2 top-[19.2%] z-10 -translate-x-1/2 text-center text-[clamp(32px,2.81vw,48px)] font-bold leading-none">
           {es ? "Mi historia" : "My story"}
         </h2>
 
-        <p className="font-inter absolute left-1/2 top-[25.76%] w-[50.35%] -translate-x-1/2 text-center text-[clamp(15px,1.05vw,18px)] leading-[1.5] text-[#c9cdd0]">
+        <p className="font-inter absolute left-1/2 top-[25.76%] z-10 w-[50.35%] -translate-x-1/2 text-center text-[clamp(15px,1.05vw,18px)] leading-[1.5] text-[#c9cdd0]">
           {intro}
         </p>
 
-        <StoryPhoto
-          name="primary"
-          className="absolute bottom-[-5.82%] left-[58.19%] h-[84.82%] w-[45.32%]"
-        />
-        <StoryPhoto
-          name="reflection"
-          className="absolute bottom-[-8.61%] left-[52.16%] h-[47.25%] w-[25.26%]"
-          imageClassName="-scale-y-100 rotate-180 object-cover"
-        />
-        <StoryPhoto
-          name="leftPortrait"
-          className="absolute left-0 top-[17.15%] h-[54.47%] w-[29.06%]"
-        />
-        <StoryPhoto
-          name="rightPortrait"
-          className="absolute bottom-[-14.52%] left-[66.49%] h-[62.67%] w-[33.51%]"
-          imageClassName="-scale-y-100 rotate-180 object-cover"
-        />
-        <StoryPhoto
-          name="centerPhoto"
-          className="absolute bottom-[-1.31%] left-[17.19%] h-[53.08%] w-[37.6%]"
-          imageClassName="object-cover object-left-top"
-        />
-        <StoryPhoto
-          name="leftTilt"
-          className="absolute bottom-[-6.94%] left-[-2.16%] h-[66.5%] w-[37.85%] rotate-[6.89deg]"
-        />
-        <StoryPhoto
-          name="circle"
-          className="absolute bottom-[32.32%] left-[66.49%] size-[9.24%] rounded-full"
-          imageClassName="object-cover object-[36%_50%]"
-        />
+        <div aria-hidden="true" className="absolute inset-0 -translate-y-[10%]">
+          <StoryPhoto
+            name="primary"
+            className="absolute bottom-[-5.82%] left-[58.19%] h-[84.82%] w-[45.32%]"
+          />
+          <StoryPhoto
+            name="reflection"
+            className="absolute bottom-[-8.61%] left-[52.16%] h-[47.25%] w-[25.26%]"
+            imageClassName="-scale-y-100 rotate-180 object-cover"
+          />
+          <StoryPhoto
+            name="leftPortrait"
+            className="absolute left-0 top-[17.15%] h-[54.47%] w-[29.06%]"
+          />
+          <StoryPhoto
+            name="rightPortrait"
+            className="absolute bottom-[-14.52%] left-[66.49%] h-[62.67%] w-[33.51%]"
+            imageClassName="-scale-y-100 rotate-180 object-cover"
+          />
+          <StoryPhoto
+            name="centerPhoto"
+            className="absolute bottom-[-1.31%] left-[17.19%] h-[53.08%] w-[37.6%]"
+            imageClassName="object-cover object-left-top"
+          />
+          <StoryPhoto
+            name="leftTilt"
+            className="absolute bottom-[-6.94%] left-[-2.16%] h-[66.5%] w-[37.85%] rotate-[6.89deg]"
+          />
+          <StoryPhoto
+            name="circle"
+            className="absolute bottom-[32.32%] left-[66.49%] size-[9.24%] rounded-full"
+            imageClassName="object-cover object-[36%_50%]"
+          />
+        </div>
       </div>
     </section>
   );
