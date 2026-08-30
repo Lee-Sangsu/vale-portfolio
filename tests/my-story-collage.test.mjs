@@ -54,7 +54,10 @@ test("My Story matches the Figma desktop collage geometry", () => {
     component,
     /<section id="story" className="scroll-mt-24 overflow-hidden bg-\[#111\] text-white">/,
   );
-  assert.match(component, /<div aria-hidden="true" className="absolute inset-0">/);
+  assert.match(
+    component,
+    /<div aria-hidden="true" className="absolute inset-x-0 bottom-0 aspect-\[1710\/1219\]">/,
+  );
   assert.doesNotMatch(component, /aria-hidden="true" className="[^"]*-translate-y/);
 
   for (const frame of [

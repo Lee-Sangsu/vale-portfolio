@@ -107,7 +107,7 @@ export function MyStory({ locale }: { locale: Locale }) {
           {intro}
         </p>
 
-        <div aria-hidden="true" className="absolute inset-0">
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 aspect-[1710/1219]">
           <StoryPhoto
             name="primary"
             className="absolute bottom-[-5.82%] left-[58.19%] h-[84.82%] w-[45.32%]"
