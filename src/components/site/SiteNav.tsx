@@ -40,10 +40,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
         {/* Logo */}
         <Link
           href="/"
-          className={clsx(
-            "font-display text-[28px] leading-none tracking-[0.02em] transition-opacity hover:opacity-70 sm:text-[34px]",
-            light ? "text-white" : "text-black",
-          )}
+          className="font-display text-[28px] leading-none tracking-[0.02em] text-black transition-opacity hover:opacity-70 sm:text-[34px]"
         >
           Portfolio
         </Link>
