@@ -2,6 +2,54 @@ import Image from "next/image";
 import { contact } from "@/content/about";
 import type { Locale } from "@/content/types";
 
+function InstagramIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="size-[17px]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="size-[16px]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="size-[17px]"
+      fill="currentColor"
+    >
+      <path d="M6.5 8.4H3.3V19h3.2V8.4ZM4.9 3A1.9 1.9 0 1 0 5 6.8 1.9 1.9 0 0 0 4.9 3ZM20.7 13.1c0-3.2-1.7-4.9-4.1-4.9a3.6 3.6 0 0 0-3.3 1.8V8.4h-3.2V19h3.2v-5.2c0-1.4.3-2.8 2.1-2.8s1.9 1.6 1.9 2.9V19h3.3l.1-5.9Z" />
+    </svg>
+  );
+}
+
 export function HomeAboutHero({ locale }: { locale: Locale }) {
   const es = locale === "es";
 
@@ -16,7 +64,7 @@ export function HomeAboutHero({ locale }: { locale: Locale }) {
       ];
 
   return (
-    <section className="bg-white px-6 py-24 sm:px-8 sm:py-32 lg:py-[180px]">
+    <section className="bg-white px-6 pt-24 pb-0 sm:px-8 sm:pt-32 lg:pt-[180px]">
       <div className="mx-auto grid max-w-[1250px] items-start gap-14 lg:grid-cols-[minmax(0,671px)_372px] lg:justify-between lg:gap-20">
         <div>
           <h2 className="font-inter text-[44px] leading-[1.04] font-bold text-[#2a2a2a] sm:text-[56px] lg:text-[64px]">
@@ -35,25 +83,25 @@ export function HomeAboutHero({ locale }: { locale: Locale }) {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="grid size-7 place-items-center rounded-md bg-[#2a2a2a] text-[11px] font-bold text-white transition-transform hover:-translate-y-0.5"
+              className="grid size-7 place-items-center rounded-md bg-[#2a2a2a] text-white transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[#2a2a2a] focus-visible:ring-offset-2 focus-visible:outline-none"
             >
-              IG
+              <InstagramIcon />
             </a>
             <a
               href={`mailto:${contact.email}`}
               aria-label="Email"
-              className="grid size-7 place-items-center rounded-full bg-[#25d368] text-[14px] font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="grid size-7 place-items-center rounded-full bg-[#25d368] text-white transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[#25d368] focus-visible:ring-offset-2 focus-visible:outline-none"
             >
-              @
+              <MailIcon />
             </a>
             <a
               href={contact.linkedin}
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="font-inter grid size-7 place-items-center rounded-[6px] bg-[#0a66c2] text-[15px] font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="grid size-7 place-items-center rounded-[6px] bg-[#0a66c2] text-white transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[#0a66c2] focus-visible:ring-offset-2 focus-visible:outline-none"
             >
-              in
+              <LinkedInIcon />
             </a>
           </div>
         </div>

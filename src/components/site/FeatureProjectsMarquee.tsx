@@ -21,10 +21,10 @@ export function FeatureProjectsMarquee({
 
   return (
     <section className="bg-white py-16 sm:py-20">
-      <div className="mx-auto mb-8 max-w-[1040px] px-6 sm:px-8">
-        <p className="font-inter text-[13px] font-semibold uppercase tracking-[0.16em] text-green-soft">
+      <div className="mx-auto mb-7 max-w-[1460px] px-6 sm:px-8">
+        <h2 className="font-inter text-[34px] leading-none font-bold text-[#2a2a2a] sm:text-[48px]">
           {label}
-        </p>
+        </h2>
       </div>
 
       <div
@@ -39,19 +39,26 @@ export function FeatureProjectsMarquee({
           } as React.CSSProperties
         }
       >
-        <ul className="marquee-track flex w-max items-stretch gap-4 will-change-transform">
+        <ul className="marquee-track flex w-max items-stretch gap-[22px] will-change-transform">
           {strip.map((p, i) => (
-            <li key={`${p.href}-${i}`} className="shrink-0" aria-hidden={i >= items.length}>
-              <Link href={p.href} className="group block">
-                <div className="relative h-[200px] w-[290px] overflow-hidden rounded-[14px] bg-[#f3f2ee] shadow-[0_6px_18px_rgba(0,0,0,0.12)]">
+            <li
+              key={`${p.href}-${i}`}
+              className="shrink-0"
+              aria-hidden={i >= items.length}
+            >
+              <Link
+                href={p.href}
+                className="group block rounded-[12px] focus-visible:ring-2 focus-visible:ring-[#2a2a2a] focus-visible:ring-offset-2 focus-visible:outline-none"
+              >
+                <div className="relative h-[172px] w-[210px] overflow-hidden rounded-[12px] bg-[#f3f2ee] sm:h-[192px] sm:w-[234px]">
                   <Image
                     src={p.img}
                     alt={p.title}
                     fill
-                    sizes="290px"
+                    sizes="(max-width: 639px) 210px, 234px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-3 font-inter text-[13px] font-semibold text-white">
+                  <span className="font-inter absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent px-3.5 pt-10 pb-3 text-[14px] leading-tight font-bold text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.45)] sm:text-[16px]">
                     {p.title}
                   </span>
                 </div>
