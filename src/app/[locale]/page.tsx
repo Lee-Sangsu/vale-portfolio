@@ -5,12 +5,27 @@ import { routing } from "@/i18n/routing";
 import type { Locale } from "@/content/types";
 import { heroes, chapters, chapterIntros } from "@/content";
 import { mentions } from "@/content/mentions";
-import { HERO_MANIFEST, MENTION_MANIFEST, encodeAsset } from "@/content/photo-manifest";
+import {
+  HERO_MANIFEST,
+  MENTION_MANIFEST,
+  encodeAsset,
+} from "@/content/photo-manifest";
 import { HomeHero } from "@/components/site/HomeHero";
+import { HomeAboutHero } from "@/components/site/HomeAboutHero";
 import { CommunityStrip } from "@/components/site/CommunityStrip";
-import { CategoryShowcase, type ShowcaseCategory, type ShowcaseProject } from "@/components/site/CategoryShowcase";
-import { WorkChapters, type ChapterEntry } from "@/components/site/WorkChapters";
-import { FeatureProjectsMarquee, type FeatureItem } from "@/components/site/FeatureProjectsMarquee";
+import {
+  CategoryShowcase,
+  type ShowcaseCategory,
+  type ShowcaseProject,
+} from "@/components/site/CategoryShowcase";
+import {
+  WorkChapters,
+  type ChapterEntry,
+} from "@/components/site/WorkChapters";
+import {
+  FeatureProjectsMarquee,
+  type FeatureItem,
+} from "@/components/site/FeatureProjectsMarquee";
 import { RotatingWord } from "@/components/RotatingWord";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WorkTogether } from "@/components/site/WorkTogether";
@@ -55,37 +70,13 @@ export default async function Home({
 
   const categories: ShowcaseCategory[] = [
     {
-      key: "brand",
-      title: "Brand & Marketing",
-      desc: es
-        ? "Identidad, estrategia y producción de contenido: branding, IG, newsletter."
-        : "Identity, strategy and content production: branding, IG, newsletter.",
-      image: M("Brand & Marketing", "image-2.png"),
-      projects: cat("Brand & Marketing", [
-        "place-card-2.png",
-        "place-card-6.png",
-        "place-card-10.png",
-      ]),
-    },
-    {
-      key: "events",
-      title: "Events & production",
-      desc: es
-        ? "Producción de eventos, summits y comunidades, de la idea al escenario."
-        : "Producing events, summits and communities, from idea to stage.",
-      image: M("Events & production", "image.png"),
-      projects: cat("Events & production", [
-        "place-card.png",
-        "place-card-4.png",
-        "place-card-8.png",
-      ]),
-    },
-    {
       key: "innovation",
-      title: "Innovation & Business strategy",
+      title: es
+        ? "Innovación y estrategia de negocio"
+        : "Innovation & business strategy",
       desc: es
-        ? "User research, estrategia de producto y misiones internacionales."
-        : "User research, product strategy and international missions.",
+        ? "Posicionamiento, propuesta de valor y consultoría para ventures early-stage."
+        : "Positioning, value propositions and consulting for early-stage ventures.",
       image: M("Innovation & Bussines strategy", "image-1.png"),
       projects: cat("Innovation & Bussines strategy", [
         "place-card-3.png",
@@ -95,15 +86,41 @@ export default async function Home({
     },
     {
       key: "product",
-      title: "Product & UX/UI Design",
+      title: es ? "Producto y UX/UI" : "Product & UX/UI",
       desc: es
-        ? "App, flujos y design systems. De research a producto vivo."
-        : "App, flows and design systems. From research to shipped product.",
+        ? "Diseño de producto para mobile y web: flujos, sistemas y experiencias."
+        : "Product design for mobile and web: flows, systems and experiences.",
       image: M("Product & UX:UI Design ", "image-3.png"),
       projects: cat("Product & UX:UI Design ", [
         "place-card-1.png",
         "place-card-5.png",
         "place-card-9.png",
+      ]),
+    },
+    {
+      key: "brand",
+      title: es ? "Branding y redes" : "Branding & social media",
+      desc: es
+        ? "Identidad, sistemas visuales y contenido que mantienen una marca viva en redes."
+        : "Identity, visual systems and content that keep a brand alive on social media.",
+      image: M("Brand & Marketing", "image-2.png"),
+      projects: cat("Brand & Marketing", [
+        "place-card-2.png",
+        "place-card-6.png",
+        "place-card-10.png",
+      ]),
+    },
+    {
+      key: "events",
+      title: es ? "Eventos y comunidad" : "Events & community",
+      desc: es
+        ? "De la concepción al día D: experiencias de 80 a 400+ personas."
+        : "From concept to event day: experiences for 80 to 400+ people.",
+      image: M("Events & production", "image.png"),
+      projects: cat("Events & production", [
+        "place-card.png",
+        "place-card-4.png",
+        "place-card-8.png",
       ]),
     },
   ];
@@ -112,7 +129,9 @@ export default async function Home({
   const WC = "pages/home/content/Work chapters";
   const chapterImg: Record<string, string> = {
     n9ne: encodeAsset(`${WC}/N9NE.png`)!,
-    "travelling-university": encodeAsset(`${WC}/New Folder With Items/Travelling University.png`)!,
+    "travelling-university": encodeAsset(
+      `${WC}/New Folder With Items/Travelling University.png`,
+    )!,
     independent: encodeAsset(`${WC}/Idependent design .png`)!,
     "boost-lab": encodeAsset(`${WC}/BOOST LAB.png`)!,
     nomadher: encodeAsset(`${WC}/NomadHer.png`)!,
@@ -164,11 +183,19 @@ export default async function Home({
           : "Design, product and strategy · 5 years between Bilbao, Berlin, Bogotá and Seoul"}
       </CommunityStrip>
 
+      <HomeAboutHero locale={locale} />
+
       <CategoryShowcase
         categories={categories}
-        heading={es ? "Lo que puedo hacer por ti" : "What I Can Do For You"}
-        projectsLabel={es ? "Proyectos en esta categoría" : "Projects in this category"}
-        allLabel={es ? "Ver portafolio completo" : "See full portfolio"}
+        heading={es ? "Qué disfruto hacer" : "What I enjoy doing"}
+        intro={
+          es
+            ? "Práctica, creativa y enfocada en que las cosas pasen: así me gusta trabajar."
+            : "Practical, creative and focused on making things happen: that's how I like to work."
+        }
+        allLabel={
+          es ? "Ver proyectos de esta área" : "See projects in this area"
+        }
       />
 
       <WorkChapters
@@ -190,19 +217,18 @@ export default async function Home({
       {/* ── Designing for [rotating] ── */}
       <section className="bg-white px-6 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-[1040px]">
-          <h2 className="font-inter text-[40px] font-bold leading-[1.1] text-ink2 sm:text-[68px]">
+          <h2 className="font-inter text-ink2 text-[40px] leading-[1.1] font-bold sm:text-[68px]">
             {es ? "Diseño para" : "I design for"}
             <br />
-            <RotatingWord
-              words={rotating}
-              className="text-black"
-            />
+            <RotatingWord words={rotating} className="text-black" />
           </h2>
         </div>
       </section>
 
       <LogoMarquee
-        title={es ? "Marcas con las que he trabajado" : "Brands I've worked with"}
+        title={
+          es ? "Marcas con las que he trabajado" : "Brands I've worked with"
+        }
       />
 
       <WorkTogether photo="/shared/portraits/Val.jpg" />

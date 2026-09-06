@@ -13,6 +13,7 @@
 ### Task 1: Add regression coverage
 
 **Files:**
+
 - Create: `tests/homepage-figma-refresh.test.mjs`
 
 1. Assert the requested English hero copy, light-blue title color, lime collaboration folder, and wider folder positions.
@@ -24,6 +25,7 @@
 ### Task 2: Implement hero updates
 
 **Files:**
+
 - Modify: `src/components/site/HomeHero.tsx`
 
 1. Preserve the current responsive heading sizing already present in the user's checkout.
@@ -34,6 +36,7 @@
 ### Task 3: Add the about section
 
 **Files:**
+
 - Create: `src/components/site/HomeAboutHero.tsx`
 - Add: `public/pages/home/figma/about-portrait.png`
 - Modify: `src/app/[locale]/page.tsx`
@@ -46,6 +49,7 @@
 ### Task 4: Restyle the category showcase
 
 **Files:**
+
 - Modify: `src/components/site/CategoryShowcase.tsx`
 
 1. Render the Figma heading/intro/list/CTA hierarchy responsively.
@@ -57,6 +61,7 @@
 ### Task 5: Verify the page
 
 **Files:**
+
 - Modify only if verification finds a scoped issue.
 
 1. Run `node --test tests/*.test.mjs`.

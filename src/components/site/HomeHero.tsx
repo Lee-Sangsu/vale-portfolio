@@ -10,8 +10,8 @@ const MAIN = "pages/home/content";
 export function HomeHero({ locale }: { locale: Locale }) {
   const es = locale === "es";
   const bio = es
-    ? "Soy Valeria, diseñadora en movimiento. Me gusta que las cosas se vuelvan reales, que no se queden en el papel."
-    : "I'm Valeria, a designer in motion. I like things to become real, not stay on paper.";
+    ? "Diseño marcas, productos y eventos que salen del papel. Aquí vas a encontrar branding, eventos, campañas y producto digital, llevados de la mano de la creatividad y el trabajo en equipo."
+    : "I design brands, products and events that make it off the page. Here you'll find branding, events, campaigns and digital products, driven by creativity and teamwork.";
 
   const contactHref = `/${locale}/contact`;
   const projectsHref = `/${locale}/projects`;
@@ -38,17 +38,17 @@ export function HomeHero({ locale }: { locale: Locale }) {
       label: es ? "Servicios creativos" : "Creative Services",
       color: "#043c9f",
       textColor: "#fff",
-      pos: "left-[23%] top-[47%]",
+      pos: "left-[18%] top-[47%]",
       rotate: 5,
       href: projectsHref,
     },
     {
-      // light blue folder (Folder 1-1 = #ACD7E8) — upper right
-      src: encodeAsset(`${MAIN}/files/Folder 1-1.svg`)!,
+      // lime folder (Figma node 507:133) — upper right
+      src: "/pages/home/figma/folder-collab-lime.svg",
       label: es ? "Colaboremos" : "Let's Collab",
-      color: "#acd7e8",
+      color: "#c9f24d",
       textColor: "#000",
-      pos: "left-[67%] top-[17%]",
+      pos: "left-[72%] top-[17%]",
       rotate: 4,
       href: contactHref,
     },
@@ -101,7 +101,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
       </div>
 
       {/* Center stack */}
-      <div className="relative z-10 mx-auto flex max-w-[900px] flex-col items-center px-5 pb-16 pt-[120px] sm:pt-[150px]">
+      <div className="relative z-10 mx-auto flex max-w-[900px] flex-col items-center px-5 pt-[120px] pb-16 sm:pt-[150px]">
         {/* Browser window with portrait */}
         <WindowCard
           title="valejimenez.com"
@@ -119,21 +119,21 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </WindowCard>
 
         {/* Name highlight + blinking text cursor */}
-        <h1 className="relative mt-7 flex items-start justify-center font-heebo text-[44px] font-bold leading-none text-black sm:text-[64px]">
-          <span className="relative bg-hero-lime px-2 box-decoration-clone">
-            Valeria Jiménez
+        <h1 className="font-heebo relative mt-7 flex items-start justify-center text-[clamp(34px,11vw,44px)] leading-none font-bold text-black sm:text-[64px]">
+          <span className="relative bg-[#acd7e8] box-decoration-clone px-2">
+            {es ? "Hola, soy Valeria" : "Hi I'm Valeria"}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={encodeAsset(`${MAIN}/Cursos.svg`)}
               alt=""
-              className="pointer-events-none absolute bottom-[-2px] left-[calc(100%-6px)] h-[44px] w-auto sm:h-[64px]"
+              className="pointer-events-none absolute bottom-[-2px] left-[calc(100%-6px)] h-[1em] w-auto"
             />
           </span>
         </h1>
 
         {/* Bio window */}
         <div className="mt-7 w-full max-w-[720px] overflow-hidden rounded-[10px] border-[0.6px] border-[#6e726e] bg-white shadow-[0_8px_24px_rgba(0,0,0,0.1)]">
-          <div className="flex items-center gap-2 bg-titlebar px-3 py-[10px]">
+          <div className="bg-titlebar flex items-center gap-2 px-3 py-[10px]">
             <span className="flex gap-[6px]">
               <span className="size-[11px] rounded-full bg-[#ff5f57]" />
               <span className="size-[11px] rounded-full bg-[#febc2e]" />
@@ -141,7 +141,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
             </span>
             <span className="w-[45px]" />
           </div>
-          <p className="px-6 py-5 text-center font-inter text-[15px] leading-[23px] text-[#333] sm:text-[18px]">
+          <p className="font-inter px-6 py-5 text-center text-[15px] leading-[23px] text-[#333] sm:text-[18px]">
             {bio}
           </p>
         </div>
@@ -150,7 +150,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
             plain button to the contact page. */}
         <a
           href={contactHref}
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#043c9f] px-7 py-3 font-inter text-[14px] font-semibold text-white shadow-[0_8px_20px_rgba(4,60,159,0.35)] transition-transform hover:-translate-y-0.5 md:hidden"
+          className="font-inter mt-8 inline-flex items-center gap-2 rounded-full bg-[#043c9f] px-7 py-3 text-[14px] font-semibold text-white shadow-[0_8px_20px_rgba(4,60,159,0.35)] transition-transform hover:-translate-y-0.5 md:hidden"
         >
           {es ? "Colaboremos" : "Let's Collab"} <span aria-hidden>→</span>
         </a>
