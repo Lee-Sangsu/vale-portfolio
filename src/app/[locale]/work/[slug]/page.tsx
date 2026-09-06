@@ -301,7 +301,7 @@ function HeroProjectPage({
       ) : null}
 
       {/* ── Contact + footer ── */}
-      <WorkTogether photo={cover ?? undefined} />
+      <WorkTogether />
       <SiteFooter />
     </main>
   );

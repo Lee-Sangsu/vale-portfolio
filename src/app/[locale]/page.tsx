@@ -231,7 +231,7 @@ export default async function Home({
         }
       />
 
-      <WorkTogether photo="/shared/portraits/Val.jpg" />
+      <WorkTogether />
       <SiteFooter />
     </main>
   );

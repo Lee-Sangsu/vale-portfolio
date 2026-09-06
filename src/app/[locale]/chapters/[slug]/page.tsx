@@ -61,7 +61,6 @@ export default async function ChapterPage({
           overlay: encodeAsset("pages/chapters/nomadher-hero-overlay.png")!,
         }
       : undefined;
-  const contactPhoto = cover ?? encodeAsset("shared/portraits/Val.png")!;
   const pageStyle = { "--chapter-accent": detail.accent } as CSSProperties;
 
   return (
@@ -198,7 +197,7 @@ export default async function ChapterPage({
         chapterId={chapter.id}
       />
 
-      <WorkTogether photo={contactPhoto} />
+      <WorkTogether />
       <SiteFooter />
     </main>
   );
