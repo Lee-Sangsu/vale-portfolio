@@ -34,7 +34,7 @@ export const professionalSkills: Localized<string[]> = {
 
 type JourneyRole = {
   role: LocalizedString;
-  company: string;
+  company: LocalizedString;
   date: LocalizedString;
   href?: `/work/${string}`;
 };
@@ -42,7 +42,7 @@ type JourneyRole = {
 export const journeyRoles: JourneyRole[] = [
   {
     role: { en: "Founding Designer", es: "Founding Designer" },
-    company: "NomadHer",
+    company: { en: "NomadHer", es: "NomadHer" },
     date: { en: "Oct 2025–Present", es: "Oct 2025–Presente" },
     href: "/work/nomadher-app",
   },
@@ -51,40 +51,40 @@ export const journeyRoles: JourneyRole[] = [
       en: "Creative Lead · Innovation, design & international expansion",
       es: "Liderazgo creativo · Innovación, diseño y expansión internacional",
     },
-    company: "BOOST LAB",
+    company: { en: "BOOST LAB", es: "BOOST LAB" },
     date: { en: "Jan 2024–Present", es: "Ene 2024–Presente" },
     href: "/work/global-youth-summit",
-  },
-  {
-    role: {
-      en: "Independent Designer · Brand, web & content strategy",
-      es: "Diseño independiente · Marca, web y estrategia de contenido",
-    },
-    company: "Independent",
-    date: { en: "2025–2026", es: "2025–2026" },
-  },
-  {
-    role: {
-      en: "Marketing Strategy & Talent Scouting",
-      es: "Estrategia de marketing y scouting de talento",
-    },
-    company: "Travelling University",
-    date: { en: "Feb–Sep 2025", es: "Feb–Sep 2025" },
   },
   {
     role: {
       en: "Co-founder & Team Lead",
       es: "Cofundadora y Team Lead",
     },
-    company: "N9NE Team Company",
+    company: { en: "N9NE Team Company", es: "N9NE Team Company" },
     date: { en: "2021–Sep 2024", es: "2021–Sep 2024" },
+  },
+  {
+    role: {
+      en: "Marketing Strategy & Talent Scouting",
+      es: "Estrategia de marketing y scouting de talento",
+    },
+    company: { en: "Travelling University", es: "Travelling University" },
+    date: { en: "Feb–Sep 2025", es: "Feb–Sep 2025" },
+  },
+  {
+    role: {
+      en: "Independent Designer · Brand, web & content strategy",
+      es: "Diseño independiente · Marca, web y estrategia de contenido",
+    },
+    company: { en: "Independent", es: "Independiente" },
+    date: { en: "2025–2026", es: "2025–2026" },
   },
   {
     role: {
       en: "Program Manager Assistant",
       es: "Program Manager Assistant",
     },
-    company: "Ironhack",
+    company: { en: "Ironhack", es: "Ironhack" },
     date: { en: "Mar–Sep 2023", es: "Mar–Sep 2023" },
   },
 ];

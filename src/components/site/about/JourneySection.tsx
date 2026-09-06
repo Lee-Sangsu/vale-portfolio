@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Locale } from "@/content/types";
 import { aboutLong, journeyRoles } from "@/content/about";
 import { encodeAsset } from "@/content/photo-manifest";
+import { Link } from "@/i18n/navigation";
 
 export function JourneySection({ locale }: { locale: Locale }) {
   const es = locale === "es";
@@ -41,15 +42,15 @@ export function JourneySection({ locale }: { locale: Locale }) {
                 </span>
                 <span className="flex flex-col sm:items-end">
                   {r.href ? (
-                    <a
+                    <Link
                       href={r.href}
                       className="font-inter text-green text-[14px] font-semibold transition-opacity hover:opacity-75"
                     >
-                      {r.company}
-                    </a>
+                      {r.company[locale]}
+                    </Link>
                   ) : (
                     <span className="font-inter text-green text-[14px] font-semibold">
-                      {r.company}
+                      {r.company[locale]}
                     </span>
                   )}
                   <span className="font-inter text-[12px] text-[#999]">

@@ -130,7 +130,40 @@ git add tests/cv-content-sync.test.mjs src/components/site/about/CredentialsSect
 git commit -m "feat: add responsive portfolio credentials"
 ```
 
-### Task 4: Verify responsive and production behavior
+### Task 4: Localize professional chapter details precisely
+
+**Files:**
+- Modify: `tests/chapter-details.test.mjs`
+- Modify: `src/content/chapter-details.ts`
+
+**Step 1: Write the failing test**
+
+Assert that chapter-detail content uses explicit Spanish and English values instead of copying Spanish into both locales. Cover the current Figma role titles, dates, and representative metrics for all six professional chapters.
+
+**Step 2: Run the test to verify it fails**
+
+Run: `node --test tests/chapter-details.test.mjs`
+
+Expected: FAIL because the current `copy` helper assigns Spanish text to both locales.
+
+**Step 3: Write the minimal implementation**
+
+Replace the single-language helper with an explicit `bilingual(es, en)` helper and translate every chapter intro, role, impact label, responsibility, and project label/description. Preserve project routes, images, accents, metrics, and content structure.
+
+**Step 4: Run the test to verify it passes**
+
+Run: `node --test tests/chapter-details.test.mjs`
+
+Expected: PASS.
+
+**Step 5: Commit**
+
+```bash
+git add tests/chapter-details.test.mjs src/content/chapter-details.ts
+git commit -m "content: localize professional chapter details"
+```
+
+### Task 5: Verify responsive and production behavior
 
 **Files:**
 - Modify only if verification exposes a defect in the files above.

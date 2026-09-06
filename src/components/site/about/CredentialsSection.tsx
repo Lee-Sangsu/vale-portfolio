@@ -9,7 +9,7 @@ function DetailList({ items }: { items: string[] }) {
           key={item}
           className="border-win-border grid grid-cols-[8px_1fr] gap-3 border-b pb-3 font-inter text-[14px] leading-[1.5] text-muted sm:text-[15px]"
         >
-          <span className="mt-[7px] size-2 rounded-full bg-blue" aria-hidden="true" />
+          <span className="mt-[7px] size-2 rounded-full bg-green" aria-hidden="true" />
           <span>{item}</span>
         </li>
       ))}
@@ -39,7 +39,7 @@ export function CredentialsSection({ locale }: { locale: Locale }) {
   return (
     <section id="credentials" className="bg-cream px-6 py-20 sm:px-12 sm:py-24 lg:px-16">
       <div className="mx-auto max-w-[1080px]">
-        <p className="font-inter text-[12px] font-bold uppercase tracking-[0.14em] text-blue">
+        <p className="font-inter text-[12px] font-bold uppercase tracking-[0.14em] text-green">
           {es ? "Experiencia, formación y herramientas" : "Experience, education & tools"}
         </p>
         <h2 className="mt-3 max-w-[760px] font-inter text-[36px] font-bold leading-[1.05] text-ink2 sm:text-[48px]">
