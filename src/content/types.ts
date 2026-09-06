@@ -87,7 +87,7 @@ export type Chapter = {
 };
 
 export type ChapterImpact = {
-  value: string;
+  value: string | LocalizedString;
   label: LocalizedString;
 };
 
