@@ -103,7 +103,7 @@ export default async function ContactPage({
       </section>
 
       {/* ── Recurring contact block + footer ────────────────────── */}
-      <WorkTogether photo={portrait} />
+      <WorkTogether />
       <SiteFooter />
     </main>
   );

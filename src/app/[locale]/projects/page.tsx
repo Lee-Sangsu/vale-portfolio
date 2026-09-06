@@ -448,7 +448,7 @@ export default async function ProjectsPage({
         </div>
       </section>
 
-      <WorkTogether photo={encodeAsset("shared/portraits/Val.png")} />
+      <WorkTogether />
       <SiteFooter />
     </main>
   );

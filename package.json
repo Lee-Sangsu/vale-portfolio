@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "test:work-together": "node --test tests/work-together.test.mjs",
     "verify:assets": "node scripts/verify-public-assets.mjs"
   },
   "dependencies": {

@@ -34,11 +34,7 @@ const COPY = {
  * Recurring "Let's Work Together!" contact block — photo + green hand
  * accent + a mailto form. Appears at the bottom of every page in the Figma.
  */
-export function WorkTogether({
-  photo = "/pages/home/figma/portrait.jpg",
-}: {
-  photo?: string;
-}) {
+export function WorkTogether() {
   const locale = useLocale();
   const t = COPY[locale === "en" ? "en" : "es"];
   const [name, setName] = useState("");
@@ -61,14 +57,14 @@ export function WorkTogether({
         <div className="relative shrink-0">
           <div className="relative h-[360px] w-[266px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] sm:h-[390px] sm:w-[286px]">
             <Image
-              src={photo}
+              src="/shared/portraits/work-together.png"
               alt=""
               fill
               sizes="286px"
               className="object-cover object-center"
             />
           </div>
-          <div className="bg-green absolute -bottom-5 -left-5 flex size-[72px] items-center justify-center rounded-full text-[28px] shadow-lg sm:size-[83px] sm:text-[30px]">
+          <div className="bg-green absolute -right-5 -bottom-5 flex size-[72px] items-center justify-center rounded-full text-[28px] shadow-lg sm:size-[83px] sm:text-[30px]">
             ✋
           </div>
         </div>

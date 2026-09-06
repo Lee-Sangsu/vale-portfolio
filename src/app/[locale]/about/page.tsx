@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/content/types";
 import { subhead } from "@/content/about";
-import { encodeAsset } from "@/content/photo-manifest";
 import { CommunityStrip } from "@/components/site/CommunityStrip";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -45,7 +44,7 @@ export default async function AboutPage({
 
       <SneakPeek locale={locale} />
 
-      <WorkTogether photo={encodeAsset("shared/portraits/Val.png")} />
+      <WorkTogether />
       <SiteFooter />
     </main>
   );
