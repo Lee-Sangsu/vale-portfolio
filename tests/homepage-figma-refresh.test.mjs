@@ -45,6 +45,17 @@ test("the localized about section is inserted before CategoryShowcase", () => {
   assert.match(about, /contact\.linkedin/);
 });
 
+test("WorkChapters follows the I design for section", () => {
+  const featureProjectsIndex = page.indexOf("<FeatureProjectsMarquee");
+  const designingForIndex = page.indexOf("{/* ── Designing for [rotating] ── */}");
+  const workChaptersIndex = page.indexOf("<WorkChapters");
+  const logoMarqueeIndex = page.indexOf("<LogoMarquee");
+
+  assert.ok(featureProjectsIndex < designingForIndex);
+  assert.ok(designingForIndex < workChaptersIndex);
+  assert.ok(workChaptersIndex < logoMarqueeIndex);
+});
+
 test("the about portrait is stored locally", () => {
   assert.equal(
     existsSync(
