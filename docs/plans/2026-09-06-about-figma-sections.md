@@ -13,6 +13,7 @@
 ### Task 1: Add exact-content regression coverage
 
 **Files:**
+
 - Create: `tests/about-figma-sections.test.mjs`
 
 1. Write assertions for the exact Skills heading, intro, four titles/descriptions, and language footer.
@@ -23,6 +24,7 @@
 ### Task 2: Implement the Skills node
 
 **Files:**
+
 - Modify: `src/components/site/about/SkillsSection.tsx`
 
 1. Replace the accordion data and decorative components with localized static display data.
@@ -33,6 +35,7 @@
 ### Task 3: Implement the Journey node and portrait
 
 **Files:**
+
 - Modify: `src/components/site/about/JourneySection.tsx`
 - Create: `public/pages/about/figma/journey-portrait.jpg`
 
@@ -45,6 +48,7 @@
 ### Task 4: Verify the page
 
 **Files:**
+
 - Verify: `src/components/site/about/SkillsSection.tsx`
 - Verify: `src/components/site/about/JourneySection.tsx`
 
