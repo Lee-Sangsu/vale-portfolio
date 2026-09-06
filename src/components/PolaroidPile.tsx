@@ -37,7 +37,7 @@ export async function PolaroidPile({
   return (
     <div
       className={`relative w-full ${className}`}
-      style={{ minHeight: size * 2.2 }}
+      style={{ minHeight: `min(${size * 2.2}px, 110vw)` }}
     >
       {slice.map((src, i) => {
         const meta = metas[i];
@@ -52,14 +52,16 @@ export async function PolaroidPile({
             key={src}
             className="absolute bg-white p-2 pb-6 rounded-[6px] shadow-[0_20px_40px_-18px_rgba(0,0,0,0.35),0_6px_14px_-6px_rgba(0,0,0,0.2)]"
             style={{
-              width: w + 16,
+              /* Cap at 58vw so the farthest pose (translate 55% of own width)
+                 stays inside a ~375px viewport; on desktop min() picks the px. */
+              width: `min(${w + 16}px, 58vw)`,
               transform: `translate(${pose.x}, ${pose.y}) rotate(${pose.rotate}deg)`,
               zIndex: pose.z,
             }}
           >
             <div
-              className="relative overflow-hidden rounded-[3px] bg-cream-deep"
-              style={{ width: w, height: h }}
+              className="relative w-full overflow-hidden rounded-[3px] bg-cream-deep"
+              style={{ aspectRatio: `${w} / ${h}` }}
             >
               <Image
                 src={src}

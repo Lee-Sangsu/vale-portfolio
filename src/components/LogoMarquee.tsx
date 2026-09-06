@@ -53,7 +53,7 @@ export function LogoMarquee({
                   alt=""
                   width={160}
                   height={80}
-                  className="max-h-full w-auto object-contain opacity-90"
+                  className="min-h-0 h-full w-full object-contain opacity-90"
                 />
               </figure>
             </li>

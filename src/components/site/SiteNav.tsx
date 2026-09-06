@@ -105,7 +105,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
               key={item.href}
               href={item.href}
               className={clsx(
-                "font-inter text-[13px] font-medium",
+                "px-1 py-2 font-inter text-[13px] font-medium",
                 light ? "text-white/90" : active ? "text-nav" : "text-nav-dim",
               )}
             >

@@ -13,6 +13,7 @@ import { WorkTogether } from "@/components/site/WorkTogether";
 import { AppSwatchRow } from "@/components/site/AppSwatchRow";
 import { ProjectRosette } from "@/components/site/project/ProjectRosette";
 import { VisualDiary } from "@/components/site/project/VisualDiary";
+import { getProjectTemplate } from "@/lib/project-template.mjs";
 import type { Hero, Locale } from "@/content/types";
 import type { Metadata } from "next";
 
@@ -101,27 +102,25 @@ function HeroProjectPage({
 }) {
   const manifest = HERO_MANIFEST[hero.slug] ?? {};
   const cover = encodeAsset(manifest.cover);
-  const spotlight = encodeAsset(manifest.spotlight) ?? cover;
+  const template = getProjectTemplate(hero.slug);
 
-  // Photo pools for the rosette + diary.
-  const rosettePhotos = [
-    ...(manifest.mosaic ?? []),
-    ...(manifest.mainCarousel ?? []),
-  ]
-    .map((p) => encodeAsset(p)!)
-    .filter(Boolean);
-
-  const diaryPhotos = [
+  // Project manifests can contain a single cover only. Repeat that cover as a
+  // visual fallback so every Figma composition keeps its media rhythm.
+  const discoveredPhotos = [
     ...(manifest.mosaic ?? []),
     ...(manifest.mainCarousel ?? []),
     ...(hero.gallery ?? []),
   ]
     .map((p) => encodeAsset(p)!)
     .filter(Boolean);
+  const diaryPhotos = discoveredPhotos.length
+    ? discoveredPhotos
+    : cover
+      ? Array.from({ length: 7 }, () => cover)
+      : [];
 
   // Tags / labels.
   const t = {
-    myRole: es ? "Mi rol" : "My role",
     diary: es ? "Diario visual" : "Visual Diary",
     diarySub: es
       ? "Esta sección reúne fotografía y video originales que capturé, creados sobre todo para contenido de viaje propio y, de vez en cuando, para clientes."
@@ -137,26 +136,6 @@ function HeroProjectPage({
     visualB: es ? "visual" : "Identity",
     coreBenefits: es ? "BENEFICIOS CLAVE" : "CORE BENEFITS",
   };
-
-  // ── My role list ──────────────────────────────────────────────────
-  const roleItems: { label: string; value: string }[] = hero.role
-    ? hero.role[locale].map((r) => {
-        // Split "Label · detail" or "Label, detail" into name/role pairs.
-        const sep = r.includes(" · ") ? " · " : r.includes(": ") ? ": " : null;
-        if (sep) {
-          const [label, ...rest] = r.split(sep);
-          return { label, value: rest.join(sep) };
-        }
-        return { label: r, value: "" };
-      })
-    : [
-        { label: hero.brand, value: es ? "Marca" : "Brand" },
-        { label: hero.location, value: es ? "Rol" : "Role" },
-        {
-          label: hero.date[locale],
-          value: es ? "Periodo" : "Timeline",
-        },
-      ];
 
   // ── Overview meta + cards ─────────────────────────────────────────
   const chapter = chapters.find((c) => c.id === hero.chapter);
@@ -198,68 +177,15 @@ function HeroProjectPage({
 
   return (
     <main>
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-white">
-        <SiteNav tone="dark" />
-        <div className="mx-auto flex max-w-[900px] flex-col items-center px-5 pb-12 pt-[150px] text-center sm:px-8 sm:pt-[200px]">
-          <h1 className="font-inter text-[36px] font-bold leading-tight text-[#111] sm:text-[56px]">
-            {hero.title[locale]}
-          </h1>
-          <p className="mx-auto mt-5 max-w-[680px] font-inter text-[15px] leading-[23px] text-muted">
-            {hero.tagline[locale]}
-          </p>
-
-          <div className="mt-12 sm:mt-16">
-            <ProjectRosette photos={rosettePhotos} title={hero.title[locale]} />
-          </div>
-        </div>
-      </section>
-
-      {/* ── My role ── */}
-      <section className="bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
-          <h2 className="font-heebo text-[40px] font-bold leading-tight text-ink2 sm:text-[64px]">
-            {t.myRole}
-          </h2>
-
-          <div className="mt-10 grid items-start gap-10 md:mt-14 md:grid-cols-[minmax(0,460px)_1fr] md:gap-16">
-            {/* Credits list */}
-            <dl className="w-full">
-              {roleItems.map((it, i) => (
-                <div
-                  key={`${it.label}-${i}`}
-                  className="flex items-baseline justify-between gap-6 border-b border-[#e2e2dc] py-4"
-                >
-                  <dt className="font-inter text-[16px] font-semibold text-[#111] sm:text-[18px]">
-                    {it.label}
-                  </dt>
-                  {it.value ? (
-                    <dd className="text-right font-inter text-[14px] text-muted sm:text-[16px]">
-                      {it.value}
-                    </dd>
-                  ) : null}
-                </div>
-              ))}
-            </dl>
-
-            {/* Project photo */}
-            {spotlight ? (
-              <div className="relative aspect-[385/256] w-full overflow-hidden rounded-[8px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] md:max-w-[460px] md:justify-self-end">
-                <Image
-                  src={spotlight}
-                  alt={hero.title[locale]}
-                  fill
-                  sizes="(min-width: 768px) 460px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Visual Diary ── */}
-      <VisualDiary heading={t.diary} subtitle={t.diarySub} photos={diaryPhotos} />
+      <ProjectHero
+        template={template}
+        title={hero.title[locale]}
+        description={hero.context[locale]}
+        tagline={hero.tagline[locale]}
+        cover={cover}
+        photos={diaryPhotos}
+        locale={locale}
+      />
 
       {/* ── Overview ── */}
       <section className="bg-white py-16 sm:py-24">
@@ -310,8 +236,16 @@ function HeroProjectPage({
         </div>
       </section>
 
-      {/* ── Visual Identity (dark green panel) ── */}
-      <section className="bg-white py-12 sm:py-20">
+      {template === "ux-ui" ? (
+        <DeviceGallery title={hero.title[locale]} photos={diaryPhotos} />
+      ) : null}
+
+      {template === "marketing-social" ? (
+        <SocialMediaShowcase photos={diaryPhotos} locale={locale} />
+      ) : null}
+
+      {/* ── Visual Identity (campaign / brand template) ── */}
+      {template === "campaign-brand" ? <section className="bg-white py-12 sm:py-20">
         <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
           <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_320px]">
             {/* Green panel */}
@@ -360,11 +294,166 @@ function HeroProjectPage({
             ) : null}
           </div>
         </div>
-      </section>
+      </section> : null}
+
+      {template === "campaign-brand" ? (
+        <VisualDiary heading={t.diary} subtitle={t.diarySub} photos={diaryPhotos} />
+      ) : null}
 
       {/* ── Contact + footer ── */}
       <WorkTogether photo={cover ?? undefined} />
       <SiteFooter />
     </main>
+  );
+}
+
+function ProjectHero({
+  template,
+  title,
+  description,
+  tagline,
+  cover,
+  photos,
+  locale,
+}: {
+  template: string;
+  title: string;
+  description: string;
+  tagline: string;
+  cover?: string;
+  photos: string[];
+  locale: Locale;
+}) {
+  if (template === "ux-ui") {
+    return (
+      <section className="relative overflow-hidden bg-white">
+        <SiteNav tone="dark" />
+        <div className="mx-auto grid max-w-[1280px] items-center gap-10 px-5 pb-20 pt-[150px] sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:pt-[180px]">
+          <div className="relative mx-auto h-[360px] w-full max-w-[500px] sm:h-[520px]">
+            {cover ? (
+              <Image
+                src={cover}
+                alt=""
+                fill
+                priority
+                sizes="(min-width: 768px) 520px, 100vw"
+                className="object-contain drop-shadow-[0_16px_16px_rgba(0,0,0,0.18)]"
+              />
+            ) : null}
+          </div>
+          <div className="max-w-[640px]">
+            <h1 className="font-inter text-[44px] font-bold leading-none text-ink2 sm:text-[72px]">
+              {title}
+            </h1>
+            <p className="mt-6 line-clamp-6 font-inter text-[16px] leading-[23px] text-muted sm:text-[17px]">
+              {description}
+            </p>
+            <div className="mt-8 rounded-[28px] bg-[#f4f4f4] px-7 py-6 sm:px-10">
+              <span className="font-inter text-[13px] text-muted">
+                {locale === "es" ? "Propósito" : "Purpose"}
+              </span>
+              <div className="mt-3 grid grid-cols-3 divide-x divide-[#9a9a9a]">
+                {["Research", "System", "Shipped"].map((item) => (
+                  <span key={item} className="px-3 text-center font-inter text-[15px] font-bold text-ink2 sm:text-[20px]">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (template === "campaign-brand") {
+    const cards = photos.slice(0, 3);
+    return (
+      <section className="relative overflow-hidden bg-white">
+        <SiteNav tone="dark" />
+        <div className="mx-auto grid max-w-[1420px] items-center gap-10 px-5 pb-20 pt-[140px] sm:px-8 md:grid-cols-[1.08fr_0.92fr] md:pt-[170px]">
+          <div className="grid h-[280px] grid-cols-3 gap-3 sm:h-[420px]">
+            {cards.map((photo, index) => (
+              <div key={`${photo}-${index}`} className="relative overflow-hidden rounded-[2px] bg-[#dedede]">
+                <Image src={photo} alt="" fill priority={index === 0} sizes="30vw" className="object-cover" />
+              </div>
+            ))}
+          </div>
+          <div className="max-w-[500px]">
+            <h1 className="font-inter text-[40px] font-bold leading-none text-ink2 sm:text-[60px]">
+              {title}
+            </h1>
+            <p className="mt-7 font-inter text-[16px] leading-[23px] text-muted sm:text-[17px]">
+              {tagline}
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="relative overflow-hidden bg-white">
+      <SiteNav tone="dark" />
+      <div className="mx-auto flex max-w-[900px] flex-col items-center px-5 pb-12 pt-[150px] text-center sm:px-8 sm:pt-[200px]">
+        <h1 className="font-inter text-[36px] font-bold leading-tight text-[#111] sm:text-[56px]">
+          {title}
+        </h1>
+        <p className="mx-auto mt-5 max-w-[680px] font-inter text-[15px] leading-[23px] text-muted">
+          {tagline}
+        </p>
+        <div className="mt-12 sm:mt-16">
+          <ProjectRosette photos={photos} title={title} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DeviceGallery({ title, photos }: { title: string; photos: string[] }) {
+  const screens = photos.slice(0, 7);
+  if (!screens.length) return null;
+  return (
+    <section className="overflow-hidden bg-[#f7f7f7] py-20 sm:py-28">
+      <div className="mx-auto flex max-w-[1500px] items-end justify-center px-5 sm:px-8">
+        {screens.map((photo, index) => (
+          <div
+            key={`${photo}-${index}`}
+            className="relative -mx-5 h-[230px] w-[130px] overflow-hidden rounded-[18px] border-[3px] border-[#161616] bg-[#f3bad2] shadow-[0_10px_18px_rgba(0,0,0,0.16)] sm:-mx-8 sm:h-[390px] sm:w-[220px]"
+            style={{ zIndex: index, transform: `translateY(${Math.abs(index - 3) * 18}px)` }}
+          >
+            <Image src={photo} alt="" fill sizes="220px" className="object-cover" />
+          </div>
+        ))}
+      </div>
+      <p className="mt-8 text-center font-inter text-[14px] text-muted">{title}</p>
+    </section>
+  );
+}
+
+function SocialMediaShowcase({ photos, locale }: { photos: string[]; locale: Locale }) {
+  const [feature, ...stack] = photos;
+  if (!feature) return null;
+  return (
+    <section className="bg-white py-20 sm:py-28">
+      <div className="mx-auto max-w-[960px] px-5 sm:px-8">
+        <div className="text-center">
+          <h2 className="font-inter text-[30px] font-bold text-ink2 sm:text-[42px]">Social Media Carousel</h2>
+          <p className="mt-2 font-inter text-[13px] text-green-soft">{locale === "es" ? "9 piezas" : "9 slides"}</p>
+        </div>
+        <div className="mt-10 grid items-center gap-8 md:grid-cols-2">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-[9px] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
+            <Image src={feature} alt="" fill sizes="340px" className="object-cover" />
+          </div>
+          <div className="relative mx-auto h-[300px] w-full max-w-[370px]">
+            {stack.slice(0, 5).map((photo, index) => (
+              <div key={`${photo}-${index}`} className="absolute inset-y-0 w-[72%] overflow-hidden rounded-[9px] shadow-[0_8px_16px_rgba(0,0,0,0.14)]" style={{ left: `${index * 7}%`, zIndex: index }}>
+                <Image src={photo} alt="" fill sizes="280px" className="object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

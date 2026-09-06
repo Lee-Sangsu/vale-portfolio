@@ -92,6 +92,10 @@
   }
 
   html {
+    /* Guard against horizontal scroll from decorative overflow (pre-animation
+       translates, scattered polaroids). Must live on <html>: clip on <body>
+       alone still lets the layout overflow propagate to the viewport. */
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;

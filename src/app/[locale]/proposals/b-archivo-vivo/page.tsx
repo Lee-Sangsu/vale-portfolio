@@ -112,7 +112,9 @@ export default async function ArchivoVivoPage({
 
       {/* ── What can I do for you — accordion-ish list + polaroid stack ── */}
       <section className="container-page py-20 sm:py-28 border-t border-ink/15">
-        <div className="grid grid-cols-12 gap-10 items-start">
+        {/* gap-x must stay small on mobile: 11 column gaps × 40px would exceed
+            the viewport and force col-span-12 items wider than the screen. */}
+        <div className="grid grid-cols-12 gap-y-10 gap-x-4 lg:gap-x-10 items-start">
           <div className="col-span-12 lg:col-span-7">
             <div className="flex items-center gap-3 mb-3">
               <Decoration src={DECO.star} size={24} className="text-pink" />

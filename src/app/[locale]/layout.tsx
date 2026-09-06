@@ -97,7 +97,7 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${quinn.variable} ${montserrat.variable} ${geist.variable} ${instrumentSerif.variable} ${inter.variable} ${heebo.variable} h-full bg-white`}
     >
-      <body className="min-h-full flex flex-col bg-white text-ink antialiased">
+      <body className="min-h-full flex flex-col overflow-x-clip bg-white text-ink antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

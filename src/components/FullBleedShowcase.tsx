@@ -78,7 +78,7 @@ export function FullBleedShowcase({
       {/* Notes overlay */}
       {notesOverlay && (
         <div
-          className="absolute z-10 max-w-sm"
+          className="absolute z-10 max-w-[min(24rem,86vw)]"
           style={{
             top: "50%",
             transform: "translateY(-50%)",
