@@ -198,17 +198,6 @@ export default async function Home({
         }
       />
 
-      <WorkChapters
-        chapters={chapterEntries}
-        heading={es ? "Capítulos de trabajo" : "Work chapters"}
-        intro={
-          es
-            ? "El portafolio leído como una historia: cinco capítulos, un país y una forma de trabajar cada uno."
-            : "The portfolio read as a story: five chapters, each a country and a way of working."
-        }
-        viewLabel={es ? "Ver capítulo" : "View chapter"}
-      />
-
       <FeatureProjectsMarquee
         items={featureItems}
         label={es ? "Proyectos destacados" : "Feature projects"}
@@ -224,6 +213,17 @@ export default async function Home({
           </h2>
         </div>
       </section>
+
+      <WorkChapters
+        chapters={chapterEntries}
+        heading={es ? "Capítulos de trabajo" : "Work chapters"}
+        intro={
+          es
+            ? "El portafolio leído como una historia: cinco capítulos, un país y una forma de trabajar cada uno."
+            : "The portfolio read as a story: five chapters, each a country and a way of working."
+        }
+        viewLabel={es ? "Ver capítulo" : "View chapter"}
+      />
 
       <LogoMarquee
         title={
