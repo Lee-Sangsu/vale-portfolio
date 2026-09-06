@@ -185,6 +185,11 @@ export default async function Home({
 
       <HomeAboutHero locale={locale} />
 
+      <FeatureProjectsMarquee
+        items={featureItems}
+        label={es ? "Proyectos destacados" : "Feature projects"}
+      />
+
       <CategoryShowcase
         categories={categories}
         heading={es ? "Qué disfruto hacer" : "What I enjoy doing"}
@@ -207,11 +212,6 @@ export default async function Home({
             : "The portfolio read as a story: five chapters, each a country and a way of working."
         }
         viewLabel={es ? "Ver capítulo" : "View chapter"}
-      />
-
-      <FeatureProjectsMarquee
-        items={featureItems}
-        label={es ? "Proyectos destacados" : "Feature projects"}
       />
 
       {/* ── Designing for [rotating] ── */}
