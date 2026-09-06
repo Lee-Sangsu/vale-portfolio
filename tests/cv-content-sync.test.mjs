@@ -3,6 +3,18 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const aboutContentUrl = new URL("../src/content/about.ts", import.meta.url);
+const aboutHeroUrl = new URL(
+  "../src/components/site/about/AboutHero.tsx",
+  import.meta.url,
+);
+const skillsSectionUrl = new URL(
+  "../src/components/site/about/SkillsSection.tsx",
+  import.meta.url,
+);
+const journeySectionUrl = new URL(
+  "../src/components/site/about/JourneySection.tsx",
+  import.meta.url,
+);
 
 test("about content captures the latest bilingual CV facts", async () => {
   const source = await readFile(aboutContentUrl, "utf8");
@@ -36,4 +48,22 @@ test("about content includes CV credentials and methods", async () => {
   assert.match(source, /Korean: basic/);
   assert.match(source, /Mailjet/);
   assert.match(source, /AI prototyping/);
+});
+
+test("existing About sections consume the shared CV content responsively", async () => {
+  const [hero, skills, journey] = await Promise.all([
+    readFile(aboutHeroUrl, "utf8"),
+    readFile(skillsSectionUrl, "utf8"),
+    readFile(journeySectionUrl, "utf8"),
+  ]);
+
+  assert.match(hero, /professionalPositioning/);
+  assert.match(hero, /professionalPositioning\[locale\]/);
+  assert.match(skills, /professionalSkills/);
+  assert.match(skills, /professionalSkills\[locale\]/);
+  assert.match(journey, /journeyRoles/);
+  assert.doesNotMatch(journey, /const ROLES/);
+  assert.match(journey, /flex-col/);
+  assert.match(journey, /sm:flex-row/);
+  assert.match(journey, /r\.date\[locale\]/);
 });

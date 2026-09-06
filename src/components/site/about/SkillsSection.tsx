@@ -1,46 +1,20 @@
 import type { Locale } from "@/content/types";
+import { professionalSkills } from "@/content/about";
 import { AppSwatchRow } from "@/components/site/AppSwatchRow";
 import { NumberedAccordion, type AccordionItem } from "@/components/site/NumberedAccordion";
 import { IpodCard } from "./IpodCard";
 
-const SKILLS: Record<Locale, AccordionItem[]> = {
-  es: [
-    {
-      title: "Estrategia & Marca",
-      body: "Branding, voz, sistemas visuales y dirección creativa para marcas y founders.",
-    },
-    {
-      title: "Producto & UX/UI",
-      body: "Diseño de app y web, research y sistemas de producto (NomadHer).",
-    },
-    {
-      title: "Contenido & Redes",
-      body: "Campañas, contenido editorial y social que sostiene la comunidad.",
-    },
-    {
-      title: "Eventos & Comunidad",
-      body: "Producción de eventos y comunidades con BOOST LAB.",
-    },
-  ],
-  en: [
-    {
-      title: "Strategy & Brand",
-      body: "Branding, voice, visual systems and creative direction for brands and founders.",
-    },
-    {
-      title: "Product & UX/UI",
-      body: "App and web design, research and product systems (NomadHer).",
-    },
-    {
-      title: "Content & Social",
-      body: "Campaigns, editorial and social content that keeps the community alive.",
-    },
-    {
-      title: "Events & Community",
-      body: "Event and community production with BOOST LAB.",
-    },
-  ],
+const SKILL_TITLES: Record<Locale, string[]> = {
+  es: ["Estrategia & Marca", "Producto & UX/UI", "AI & Ejecución", "Equipos Globales"],
+  en: ["Strategy & Brand", "Product & UX/UI", "AI & Delivery", "Global Teams"],
 };
+
+function getSkills(locale: Locale): AccordionItem[] {
+  return SKILL_TITLES[locale].map((title, index) => ({
+    title,
+    body: professionalSkills[locale][index],
+  }));
+}
 
 export function SkillsSection({ locale }: { locale: Locale }) {
   const es = locale === "es";
@@ -63,7 +37,7 @@ export function SkillsSection({ locale }: { locale: Locale }) {
             </p>
 
             <div className="mt-10 max-w-[520px]">
-              <NumberedAccordion items={SKILLS[locale]} defaultOpen={0} />
+              <NumberedAccordion items={getSkills(locale)} defaultOpen={0} />
             </div>
           </div>
 

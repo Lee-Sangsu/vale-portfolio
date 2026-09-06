@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Locale } from "@/content/types";
+import { professionalPositioning } from "@/content/about";
 import { SiteNav } from "@/components/site/SiteNav";
 
 /**
@@ -132,10 +133,8 @@ export function AboutHero({ locale }: { locale: Locale }) {
           {es ? "Sobre mí" : "About me"}
         </h1>
 
-        <p className="mt-7 max-w-[520px] font-inter text-[17px] font-bold leading-snug text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:text-[22px]">
-          {es
-            ? "Soy Valeria, diseñadora en movimiento."
-            : "I'm Valeria, a designer in motion."}
+        <p className="mt-7 max-w-[620px] px-3 font-inter text-[15px] font-bold leading-snug text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:text-[20px]">
+          {professionalPositioning[locale]}
         </p>
 
         <a

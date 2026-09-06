@@ -1,47 +1,7 @@
 import Image from "next/image";
 import type { Locale } from "@/content/types";
-import { aboutLong } from "@/content/about";
+import { aboutLong, journeyRoles } from "@/content/about";
 import { encodeAsset } from "@/content/photo-manifest";
-
-type Role = {
-  role: { en: string; es: string };
-  company: { en: string; es: string };
-  href?: string;
-  date: string;
-};
-
-const ROLES: Role[] = [
-  {
-    role: {
-      en: "Product · UX/UI Designer",
-      es: "Diseñadora de Producto · UX/UI",
-    },
-    company: { en: "NomadHer", es: "NomadHer" },
-    href: "/work/nomadher-app",
-    date: "Oct 2025 →",
-  },
-  {
-    role: { en: "Innovation Lead", es: "Innovation Lead" },
-    company: { en: "BOOST LAB", es: "BOOST LAB" },
-    href: "/work/global-youth-summit",
-    date: "2024 →",
-  },
-  {
-    role: { en: "Designer & Consultant", es: "Diseñadora & Consultora" },
-    company: { en: "Independent", es: "Independiente" },
-    date: "2025 → 2026",
-  },
-  {
-    role: { en: "Talent Scout & Ambassador", es: "Talent Scout & Ambassador" },
-    company: { en: "Travelling University", es: "Travelling University" },
-    date: "2025",
-  },
-  {
-    role: { en: "Co-founder & Team Lead", es: "Co-fundadora & Team Lead" },
-    company: { en: "N9NE", es: "N9NE" },
-    date: "2021 → 2024",
-  },
-];
 
 export function JourneySection({ locale }: { locale: Locale }) {
   const es = locale === "es";
@@ -71,7 +31,7 @@ export function JourneySection({ locale }: { locale: Locale }) {
           </p>
 
           <ul className="border-win-border mt-8 border-t">
-            {ROLES.map((r) => (
+            {journeyRoles.map((r) => (
               <li
                 key={r.role.en}
                 className="border-win-border flex flex-col gap-1 border-b py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-5"
@@ -85,15 +45,15 @@ export function JourneySection({ locale }: { locale: Locale }) {
                       href={r.href}
                       className="font-inter text-green text-[14px] font-semibold transition-opacity hover:opacity-75"
                     >
-                      {r.company[locale]}
+                      {r.company}
                     </a>
                   ) : (
                     <span className="font-inter text-green text-[14px] font-semibold">
-                      {r.company[locale]}
+                      {r.company}
                     </span>
                   )}
                   <span className="font-inter text-[12px] text-[#999]">
-                    {r.date}
+                    {r.date[locale]}
                   </span>
                 </span>
               </li>
