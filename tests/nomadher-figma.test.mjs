@@ -45,7 +45,7 @@ test("NomadHer chapter uses its local Figma hero and six-card rail variant", asy
   const nomadHerStart = details.indexOf('id: "nomadher"');
   const boostLabStart = details.indexOf('id: "boost-lab"', nomadHerStart);
   const nomadHer = details.slice(nomadHerStart, boostLabStart);
-  assert.equal((nomadHer.match(/title: copy\(/g) ?? []).length, 12);
+  assert.equal((nomadHer.match(/title: bilingual\(/g) ?? []).length, 12);
   assert.match(nomadHer, /Automatización ManyChat/);
   assert.match(nomadHer, /Análisis de contenido/);
 
