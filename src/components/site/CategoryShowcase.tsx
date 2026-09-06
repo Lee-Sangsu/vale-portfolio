@@ -33,7 +33,7 @@ export function CategoryShowcase({
   const cat = categories[active];
 
   return (
-    <section className="overflow-hidden bg-white px-6 py-24 sm:px-8 sm:py-32 lg:py-[180px]">
+    <section className="overflow-hidden bg-white px-6 py-12 sm:px-8 sm:py-16 lg:py-[90px]">
       <div className="mx-auto grid max-w-[1250px] items-center gap-16 lg:grid-cols-[642px_minmax(0,1fr)] lg:gap-14">
         <div>
           <h2 className="font-inter text-[44px] leading-[1.04] font-bold text-[#2a2a2a] sm:text-[56px] lg:text-[64px]">
@@ -53,6 +53,8 @@ export function CategoryShowcase({
                 >
                   <button
                     type="button"
+                    onMouseEnter={() => setActive(i)}
+                    onFocus={() => setActive(i)}
                     onClick={() => setActive(i)}
                     aria-pressed={on}
                     className="group w-full py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2a2a2a]"
@@ -92,10 +94,12 @@ export function CategoryShowcase({
               href={project.href}
               aria-label={`${project.title} ${i + 1}`}
               className={clsx(
-                "group relative aspect-[372/565] w-[54%] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f2ee] shadow-[0_8px_22px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:-translate-y-2 focus-visible:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2a2a2a]",
+                "group relative aspect-[372/565] w-[54%] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f2ee] shadow-[0_8px_22px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:z-10 hover:-translate-y-2 focus-visible:z-10 focus-visible:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2a2a2a]",
+                i === 0 && "z-[1]",
+                i === 1 && "z-[2]",
+                i === 2 && "z-[3]",
                 i > 0 && "-ml-[28%]",
               )}
-              style={{ zIndex: i + 1 }}
             >
               <Image
                 src={project.img}

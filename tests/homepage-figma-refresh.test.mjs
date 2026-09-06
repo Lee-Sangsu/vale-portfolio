@@ -45,7 +45,7 @@ test("the localized about section is inserted before CategoryShowcase", () => {
   assert.match(about, /contact\.linkedin/);
 });
 
-test("WorkChapters follows the I design for section", () => {
+test("WorkChapters follows the Designing for section", () => {
   const featureProjectsIndex = page.indexOf("<FeatureProjectsMarquee");
   const designingForIndex = page.indexOf("{/* ── Designing for [rotating] ── */}");
   const workChaptersIndex = page.indexOf("<WorkChapters");

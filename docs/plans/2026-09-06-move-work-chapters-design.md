@@ -2,7 +2,7 @@
 
 ## Goal
 
-Move the existing Work Chapters section below the “I design for” section on the localized homepage.
+Move the existing Work Chapters section below the “Designing for” section on the localized homepage.
 
 ## Structure
 

@@ -167,7 +167,7 @@ export const aboutLong: { paragraphs: LocalizedString[] } = {
       es: "Soy Valeria, diseñadora en movimiento.",
     },
     {
-      en: "Over 5 years I've built brands, products and communities across Bilbao, Berlin, Bogotá and Seoul, moving between product design, strategy and business growth.",
+      en: "Over 5 years I've built brands, products and communities across Bilbao, Berlin, Bogotá and Seoul, moving between product design, strategy and business growth. I like things to become real, not stay on paper. If it can be automated, good. If it can ship today, better.",
       es: "En 5 años he construido marcas, productos y comunidades entre Bilbao, Berlín, Bogotá y Seúl, moviéndome entre diseño de producto, estrategia y business growth.",
     },
     {

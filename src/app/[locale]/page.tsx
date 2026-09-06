@@ -3,7 +3,7 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/content/types";
-import { heroes, chapters, chapterIntros } from "@/content";
+import { heroes } from "@/content";
 import { mentions } from "@/content/mentions";
 import {
   HERO_MANIFEST,
@@ -19,15 +19,10 @@ import {
   type ShowcaseProject,
 } from "@/components/site/CategoryShowcase";
 import {
-  WorkChapters,
-  type ChapterEntry,
-} from "@/components/site/WorkChapters";
-import {
   FeatureProjectsMarquee,
   type FeatureItem,
 } from "@/components/site/FeatureProjectsMarquee";
 import { RotatingWord } from "@/components/RotatingWord";
-import { LogoMarquee } from "@/components/LogoMarquee";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
@@ -125,35 +120,7 @@ export default async function Home({
     },
   ];
 
-  // ── Work chapters · accordion drives the image + a view button ──
-  const WC = "pages/home/content/Work chapters";
-  const chapterImg: Record<string, string> = {
-    n9ne: encodeAsset(`${WC}/N9NE.png`)!,
-    "travelling-university": encodeAsset(
-      `${WC}/New Folder With Items/Travelling University.png`,
-    )!,
-    independent: encodeAsset(`${WC}/Idependent design .png`)!,
-    "boost-lab": encodeAsset(`${WC}/BOOST LAB.png`)!,
-    nomadher: encodeAsset(`${WC}/NomadHer.png`)!,
-  };
-  const chapterHref: Record<string, string> = {
-    n9ne: "/work/nobled-coffee",
-    "travelling-university": "/work/mentes-sin-fronteras",
-    independent: "/work/brujula-etica",
-    "boost-lab": "/work/global-youth-summit",
-    nomadher: "/work/nomadher-app",
-  };
-  const chapterEntries: ChapterEntry[] = chapters.map((c) => ({
-    id: c.id,
-    title: c.title[locale],
-    meta: `${c.dateRange} · ${c.location[locale]}`,
-    intro: chapterIntros[c.id][locale],
-    image: chapterImg[c.id],
-    href: chapterHref[c.id],
-    starred: c.starred,
-  }));
-
-  // ── Feature projects marquee ──
+  // ── Brands I work with marquee ──
   const featureItems = [
     "global-youth-summit",
     "nomadher-app",
@@ -187,7 +154,7 @@ export default async function Home({
 
       <FeatureProjectsMarquee
         items={featureItems}
-        label={es ? "Proyectos destacados" : "Feature projects"}
+        label={es ? "Proyectos destacados" : "Brands I work with"}
       />
 
       <CategoryShowcase
@@ -207,29 +174,12 @@ export default async function Home({
       <section className="bg-white px-6 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-[1040px]">
           <h2 className="font-inter text-ink2 text-[40px] leading-[1.1] font-bold sm:text-[68px]">
-            {es ? "Diseño para" : "I design for"}
+            {es ? "Diseño para" : "Designing for"}
             <br />
             <RotatingWord words={rotating} className="text-black" />
           </h2>
         </div>
       </section>
-
-      <WorkChapters
-        chapters={chapterEntries}
-        heading={es ? "Capítulos de trabajo" : "Work chapters"}
-        intro={
-          es
-            ? "El portafolio leído como una historia: cinco capítulos, un país y una forma de trabajar cada uno."
-            : "The portfolio read as a story: five chapters, each a country and a way of working."
-        }
-        viewLabel={es ? "Ver capítulo" : "View chapter"}
-      />
-
-      <LogoMarquee
-        title={
-          es ? "Marcas con las que he trabajado" : "Brands I've worked with"
-        }
-      />
 
       <WorkTogether />
       <SiteFooter />

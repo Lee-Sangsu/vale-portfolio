@@ -106,7 +106,7 @@ export function HomeAboutHero({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="relative mx-auto aspect-[372/508] w-full max-w-[372px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] lg:mx-0">
+        <div className="relative mx-auto aspect-[372/508] w-full max-w-[372px] lg:mx-0">
           <Image
             src="/pages/home/figma/about-portrait.png"
             alt="Valeria Jiménez"

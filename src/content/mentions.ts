@@ -381,7 +381,7 @@ export const mentions: Mention[] = [
     myRole: { en: "Lead designer y UX.", es: "Lead designer y UX." },
     roleItems: {
       en: [
-        "UI design for the website: clear, visual-first, designed for non-Korean speakers",
+        "UDesigning for the website: clear, visual-first, designed for non-Korean speakers",
         "UX flow design for both students and restaurant owners",
         "Brand identity contribution: marketing materials and color palette",
       ],

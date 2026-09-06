@@ -2,7 +2,7 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Render Work Chapters immediately below the localized “I design for” homepage section.
+**Goal:** Render Work Chapters immediately below the localized “Designing for” homepage section.
 
 **Architecture:** Preserve the existing server-page composition and the interactive `WorkChapters` client component. Change only sibling JSX order in the localized homepage and protect that order with a source-level regression test.
 
@@ -13,6 +13,7 @@
 ### Task 1: Protect and update homepage section order
 
 **Files:**
+
 - Modify: `tests/homepage-figma-refresh.test.mjs`
 - Modify: `src/app/[locale]/page.tsx`
 
@@ -45,7 +46,7 @@ Expected: all commands exit successfully.
 
 **Step 5: Verify in the browser**
 
-Open `/en` and confirm the visible order is Feature projects, I design for, Work chapters, then Brands I've worked with at desktop and mobile widths.
+Open `/en` and confirm the visible order is Brands I work with, Designing for, Work chapters, then Brands I've worked with at desktop and mobile widths.
 
 **Step 6: Commit**
 

@@ -18,8 +18,8 @@ const COPY = {
     send: "Enviar",
   },
   en: {
-    title: "Let's Work Together!",
-    sub: "Let's bring your vision to life, build something impactful together.",
+    title: "Let's grab a coffee",
+    sub: "Let's talk ideas, projects, or working together: if something here resonated, I'd love to hear from you.",
     name: "Name",
     namePh: "Fellow Traveler",
     email: "Email",
@@ -31,7 +31,7 @@ const COPY = {
 } as const;
 
 /**
- * Recurring "Let's Work Together!" contact block — photo + green hand
+ * Recurring "Let's grab a coffee" contact block — photo + green hand
  * accent + a mailto form. Appears at the bottom of every page in the Figma.
  */
 export function WorkTogether() {
@@ -61,6 +61,7 @@ export function WorkTogether() {
               alt=""
               fill
               sizes="286px"
+              preload
               className="object-cover object-center"
             />
           </div>
@@ -80,18 +81,18 @@ export function WorkTogether() {
 
           <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <label className="flex flex-1 flex-col gap-[6px]">
-              <span className="font-inter text-green-soft text-[13px] font-medium">
+              <span className="font-inter text-[#722F37] text-[13px] font-medium">
                 {t.name}
               </span>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t.namePh}
-                className="bg-field font-inter text-ink2 placeholder:text-field-text focus:ring-green/40 h-[46px] rounded-[8px] px-[14px] text-[14px] outline-none focus:ring-2"
+                className="bg-field font-inter text-ink2 placeholder:text-field-text h-[46px] rounded-[8px] px-[14px] text-[14px] outline-none focus:ring-2 focus:ring-[#722F37]/40"
               />
             </label>
             <label className="flex flex-1 flex-col gap-[6px]">
-              <span className="font-inter text-green-soft text-[13px] font-medium">
+              <span className="font-inter text-[#722F37] text-[13px] font-medium">
                 {t.email}
               </span>
               <input
@@ -99,7 +100,7 @@ export function WorkTogether() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t.emailPh}
-                className="bg-field font-inter text-ink2 placeholder:text-field-text focus:ring-green/40 h-[46px] rounded-[8px] px-[14px] text-[14px] outline-none focus:ring-2"
+                className="bg-field font-inter text-ink2 placeholder:text-field-text h-[46px] rounded-[8px] px-[14px] text-[14px] outline-none focus:ring-2 focus:ring-[#722F37]/40"
               />
             </label>
           </div>
@@ -113,13 +114,13 @@ export function WorkTogether() {
               onChange={(e) => setMsg(e.target.value)}
               placeholder={t.msgPh}
               rows={4}
-              className="bg-field font-inter text-ink2 placeholder:text-field-text focus:ring-green/40 rounded-[8px] px-[14px] py-3 text-[14px] outline-none focus:ring-2"
+              className="bg-field font-inter text-ink2 placeholder:text-field-text rounded-[8px] px-[14px] py-3 text-[14px] outline-none focus:ring-2 focus:ring-[#722F37]/40"
             />
           </label>
 
           <button
             type="submit"
-            className="border-green font-inter text-green hover:bg-green mt-5 rounded-full border-[1.5px] px-[28px] py-[11px] text-[15px] font-semibold transition-colors hover:text-white"
+            className="border-[#722F37] font-inter text-[#722F37] hover:bg-[#722F37] mt-5 rounded-full border-[1.5px] px-[28px] py-[11px] text-[15px] font-semibold transition-colors hover:text-white"
           >
             {t.send}
           </button>

@@ -47,13 +47,13 @@ export function LogoMarquee({
               className="shrink-0"
               aria-hidden={i >= logos.length}
             >
-              <figure className="h-20 sm:h-24 w-40 sm:w-48 grid place-items-center bg-cream-deep rounded-2xl p-2 shadow-[0_10px_24px_-14px_rgba(40,49,50,0.18)]">
+              <figure className="relative h-20 sm:h-24 w-40 sm:w-48 grid place-items-center bg-cream-deep rounded-2xl p-2 shadow-[0_10px_24px_-14px_rgba(40,49,50,0.18)]">
                 <Image
                   src={src}
                   alt=""
-                  width={160}
-                  height={80}
-                  className="min-h-0 h-full w-full object-contain opacity-90"
+                  fill
+                  sizes="(min-width: 640px) 192px, 160px"
+                  className="object-contain opacity-90"
                 />
               </figure>
             </li>
