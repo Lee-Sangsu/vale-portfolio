@@ -11,6 +11,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { AboutHero } from "@/components/site/about/AboutHero";
 import { SkillsSection } from "@/components/site/about/SkillsSection";
 import { JourneySection } from "@/components/site/about/JourneySection";
+import { CredentialsSection } from "@/components/site/about/CredentialsSection";
 import { MyStory } from "@/components/site/about/MyStory";
 import { SneakPeek } from "@/components/site/about/SneakPeek";
 
@@ -37,6 +38,8 @@ export default async function AboutPage({
       <SkillsSection locale={locale} />
 
       <JourneySection locale={locale} />
+
+      <CredentialsSection locale={locale} />
 
       <MyStory locale={locale} />
 

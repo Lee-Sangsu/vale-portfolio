@@ -15,6 +15,14 @@ const journeySectionUrl = new URL(
   "../src/components/site/about/JourneySection.tsx",
   import.meta.url,
 );
+const credentialsSectionUrl = new URL(
+  "../src/components/site/about/CredentialsSection.tsx",
+  import.meta.url,
+);
+const aboutPageUrl = new URL(
+  "../src/app/[locale]/about/page.tsx",
+  import.meta.url,
+);
 
 test("about content captures the latest bilingual CV facts", async () => {
   const source = await readFile(aboutContentUrl, "utf8");
@@ -66,4 +74,22 @@ test("existing About sections consume the shared CV content responsively", async
   assert.match(journey, /flex-col/);
   assert.match(journey, /sm:flex-row/);
   assert.match(journey, /r\.date\[locale\]/);
+});
+
+test("About page renders semantic credentials without fixed mobile heights", async () => {
+  const [credentialsSection, aboutPage] = await Promise.all([
+    readFile(credentialsSectionUrl, "utf8").catch(() => ""),
+    readFile(aboutPageUrl, "utf8"),
+  ]);
+
+  assert.match(credentialsSection, /credentials/);
+  assert.match(credentialsSection, /profileMetrics/);
+  assert.match(credentialsSection, /<section/);
+  assert.match(credentialsSection, /<h2/);
+  assert.match(credentialsSection, /<h3/);
+  assert.match(credentialsSection, /<ul/);
+  assert.match(credentialsSection, /lg:grid-cols-2/);
+  assert.doesNotMatch(credentialsSection, /(?:^|\s)h-\[/);
+  assert.match(aboutPage, /import \{ CredentialsSection \}/);
+  assert.match(aboutPage, /<JourneySection[\s\S]*<CredentialsSection/);
 });
