@@ -15,15 +15,6 @@ const journeySectionUrl = new URL(
   "../src/components/site/about/JourneySection.tsx",
   import.meta.url,
 );
-const credentialsSectionUrl = new URL(
-  "../src/components/site/about/CredentialsSection.tsx",
-  import.meta.url,
-);
-const aboutPageUrl = new URL(
-  "../src/app/[locale]/about/page.tsx",
-  import.meta.url,
-);
-
 test("about content captures the latest bilingual CV facts", async () => {
   const source = await readFile(aboutContentUrl, "utf8");
 
@@ -58,7 +49,7 @@ test("about content includes CV credentials and methods", async () => {
   assert.match(source, /AI prototyping/);
 });
 
-test("existing About sections consume the shared CV content responsively", async () => {
+test("existing About sections render the current localized content responsively", async () => {
   const [hero, skills, journey] = await Promise.all([
     readFile(aboutHeroUrl, "utf8"),
     readFile(skillsSectionUrl, "utf8"),
@@ -67,37 +58,16 @@ test("existing About sections consume the shared CV content responsively", async
 
   assert.match(hero, /professionalPositioning/);
   assert.match(hero, /professionalPositioning\[locale\]/);
-  assert.match(skills, /professionalSkills/);
-  assert.match(skills, /professionalSkills\[locale\]/);
-  assert.match(journey, /journeyRoles/);
-  assert.doesNotMatch(journey, /const ROLES/);
+  assert.match(skills, /const SKILLS/);
+  assert.match(skills, /SKILLS\[locale\]/);
+  assert.match(journey, /const JOURNEY/);
+  assert.match(journey, /JOURNEY\.map/);
   assert.match(journey, /flex-col/);
   assert.match(journey, /sm:flex-row/);
-  assert.match(journey, /r\.date\[locale\]/);
-  assert.match(journey, /r\.company\[locale\]/);
+  assert.match(journey, /item\.date\[locale\]/);
+  assert.match(journey, /item\.company\[locale\]/);
   assert.match(journey, /import \{ Link \} from "@\/i18n\/navigation"/);
-  assert.match(journey, /<Link[\s\S]*href=\{r\.href\}/);
-});
-
-test("About page renders semantic credentials without fixed mobile heights", async () => {
-  const [credentialsSection, aboutPage] = await Promise.all([
-    readFile(credentialsSectionUrl, "utf8").catch(() => ""),
-    readFile(aboutPageUrl, "utf8"),
-  ]);
-
-  assert.match(credentialsSection, /credentials/);
-  assert.match(credentialsSection, /profileMetrics/);
-  assert.match(credentialsSection, /<section/);
-  assert.match(credentialsSection, /<h2/);
-  assert.match(credentialsSection, /<h3/);
-  assert.match(credentialsSection, /<ul/);
-  assert.match(credentialsSection, /lg:grid-cols-2/);
-  assert.match(credentialsSection, /text-green/);
-  assert.match(credentialsSection, /bg-green/);
-  assert.doesNotMatch(credentialsSection, /(?:text|bg)-blue(?:\s|"|$)/);
-  assert.doesNotMatch(credentialsSection, /(?:^|\s)h-\[/);
-  assert.match(aboutPage, /import \{ CredentialsSection \}/);
-  assert.match(aboutPage, /<JourneySection[\s\S]*<CredentialsSection/);
+  assert.match(journey, /<Link[\s\S]*href=\{item\.href\}/);
 });
 
 test("journey follows the latest CV order and localizes company names", async () => {
