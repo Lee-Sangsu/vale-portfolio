@@ -25,6 +25,7 @@ import {
 import { RotatingWord } from "@/components/RotatingWord";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { FavoriteProjects } from "@/components/site/FavoriteProjects";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -181,6 +182,7 @@ export default async function Home({
         </div>
       </section>
 
+      <FavoriteProjects locale={locale} />
       <WorkTogether />
       <SiteFooter />
     </main>

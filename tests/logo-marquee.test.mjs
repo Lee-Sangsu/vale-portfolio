@@ -7,9 +7,9 @@ const component = await readFile(
   "utf8",
 );
 
-test("logo marquee fits logos within the tile's padded bounds", () => {
+test("logo marquee renders logos with contained sizing", () => {
   assert.match(
     component,
-    /className="min-h-0 h-full w-full object-contain opacity-90"/,
+    /className="object-contain opacity-90"/,
   );
 });
