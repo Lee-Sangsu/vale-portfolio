@@ -31,7 +31,7 @@ const COPY = {
 } as const;
 
 /**
- * Recurring "Let's grab a coffee" contact block — photo + green hand
+ * Recurring "Let's grab a coffee" contact block — photo + black hand
  * accent + a mailto form. Appears at the bottom of every page in the Figma.
  */
 export function WorkTogether() {

@@ -40,6 +40,14 @@ test("CategoryShowcase photos are static while the projects CTA remains a link",
   assert.ok(projectCards, "expected to find the mapped project cards");
   assert.match(projectCards[1], /^\s*<div\b/);
   assert.doesNotMatch(projectCards[1], /<Link\b/);
+  assert.doesNotMatch(projectCards[1], /<a\b/i);
+  assert.doesNotMatch(projectCards[1], /href\s*=/);
+  assert.doesNotMatch(projectCards[1], /role\s*=\s*["']link["']/);
+  assert.doesNotMatch(projectCards[1], /onClick\s*=/);
+  assert.doesNotMatch(projectCards[1], /aria-label\s*=/);
+  assert.doesNotMatch(projectCards[1], /["\s]group(?=[\s"])/);
+  assert.doesNotMatch(projectCards[1], /hover:/);
+  assert.doesNotMatch(projectCards[1], /focus-visible:/);
   assert.match(
     categoryShowcase,
     /<Link\s+href="\/projects"[\s\S]*?\{allLabel\}[\s\S]*?<\/Link>/,
