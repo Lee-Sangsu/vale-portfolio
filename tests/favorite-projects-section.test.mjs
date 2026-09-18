@@ -35,7 +35,7 @@ test("FavoriteProjects renders the Figma labels after the Designing for section"
   }
 
   for (const label of [
-    "Global Youth: Cumbre de Emprendimiento Femenino",
+    "Cumbre de Emprendimiento Femenino",
     "Misiones Internacionales",
     "Hackathon Global de Ideas Sejong",
     "Japan Airlines × NomadHer",
@@ -66,4 +66,67 @@ test("FavoriteProjects renders the Figma labels after the Designing for section"
     /return\s*\([\s\S]*?<section\b[\s\S]*?(?:Fav projects|Proyectos favoritos|\{[^}]+\})/,
     "a Figma label must be rendered in the returned section markup",
   );
+});
+
+test("FavoriteProjects links the complete localized Global Youth title only", () => {
+  const component = readFileSync(componentPath, "utf8");
+
+  assert.match(
+    component,
+    /import\s+\{\s*Link\s*\}\s+from\s+["']@\/i18n\/navigation["'];/,
+    "the project link must use locale-aware navigation",
+  );
+  assert.equal(
+    (component.match(/\/work\/global-youth-summit/g) ?? []).length,
+    1,
+    "the Global Youth destination must appear exactly once",
+  );
+
+  for (const line of [
+    "Global Youth:",
+    "Women's Entrepreneurship Summit",
+    "Cumbre de Emprendimiento Femenino",
+  ]) {
+    assert.ok(component.includes(line), `missing localized link line: ${line}`);
+  }
+
+  const globalYouthLink = component.match(
+    /<Link\s+href="\/work\/global-youth-summit"([\s\S]*?)<\/Link>/,
+  );
+  assert.ok(globalYouthLink, "expected one link for the complete Global Youth title");
+  assert.equal(
+    (globalYouthLink[0].match(/<span\s+className="block">/g) ?? []).length,
+    2,
+    "the linked title must render as exactly two block lines",
+  );
+  assert.match(globalYouthLink[0], /\{globalYouth\.firstLine\}/);
+  assert.match(globalYouthLink[0], /\{globalYouth\.secondLine\}/);
+  assert.match(globalYouthLink[1], /hover:underline/);
+  assert.match(globalYouthLink[1], /hover:opacity-/);
+  assert.match(globalYouthLink[1], /focus-visible:ring-/);
+  assert.match(globalYouthLink[1], /focus-visible:outline-none/);
+
+  assert.equal(
+    (component.match(/\bhref=/g) ?? []).length,
+    1,
+    "no other favorite project may become a link",
+  );
+
+  const staticProjects = component.match(
+    /\{PROJECTS\[locale\]\.map\(\(project\) => \(([\s\S]*?)\)\)\}/,
+  );
+  assert.ok(staticProjects, "expected the remaining projects to stay in the list");
+  assert.match(staticProjects[1], /^\s*<p\b/);
+  assert.doesNotMatch(staticProjects[1], /<Link\b|href=/);
+
+  for (const label of [
+    "Misiones Internacionales",
+    "Sejong Global Idea Hackathon",
+    "Hackathon Global de Ideas Sejong",
+    "Japan Airlines × NomadHer",
+    "NomadHer app",
+    "App NomadHer",
+  ]) {
+    assert.ok(component.includes(label), `missing static project label: ${label}`);
+  }
 });
