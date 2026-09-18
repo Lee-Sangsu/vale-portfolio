@@ -36,18 +36,28 @@ test("CategoryShowcase photos are static while the projects CTA remains a link",
   const projectCards = categoryShowcase.match(
     /\{cat\.projects\.slice\(0, 3\)\.map\(\(project, i\) => \(([\s\S]*?)\)\)\}/,
   );
+  const photoFanMarker = categoryShowcase.indexOf('aria-live="polite"');
+  const photoFanStart = categoryShowcase.lastIndexOf("<div", photoFanMarker);
+  const photoFanEnd = categoryShowcase.indexOf("</section>", photoFanMarker);
 
   assert.ok(projectCards, "expected to find the mapped project cards");
+  assert.ok(photoFanMarker >= 0, "expected to find the photo-fan live region");
+  assert.ok(photoFanStart >= 0, "expected to find the photo-fan container");
+  assert.ok(photoFanEnd > photoFanMarker, "expected to find the photo-fan end");
+
+  const photoFan = categoryShowcase.slice(photoFanStart, photoFanEnd);
+
   assert.match(projectCards[1], /^\s*<div\b/);
-  assert.doesNotMatch(projectCards[1], /<Link\b/);
-  assert.doesNotMatch(projectCards[1], /<a\b/i);
-  assert.doesNotMatch(projectCards[1], /href\s*=/);
-  assert.doesNotMatch(projectCards[1], /role\s*=\s*["']link["']/);
-  assert.doesNotMatch(projectCards[1], /onClick\s*=/);
-  assert.doesNotMatch(projectCards[1], /aria-label\s*=/);
-  assert.doesNotMatch(projectCards[1], /["\s]group(?=[\s"])/);
-  assert.doesNotMatch(projectCards[1], /hover:/);
-  assert.doesNotMatch(projectCards[1], /focus-visible:/);
+  assert.match(photoFan, /aria-live="polite"/);
+  assert.doesNotMatch(photoFan, /<Link\b/);
+  assert.doesNotMatch(photoFan, /<a\b/i);
+  assert.doesNotMatch(photoFan, /href\s*=/);
+  assert.doesNotMatch(photoFan, /role\s*=\s*["']link["']/);
+  assert.doesNotMatch(photoFan, /onClick\s*=/);
+  assert.doesNotMatch(photoFan, /aria-label\s*=/);
+  assert.doesNotMatch(photoFan, /["\s]group(?=[\s"])/);
+  assert.doesNotMatch(photoFan, /hover:/);
+  assert.doesNotMatch(photoFan, /focus-visible:/);
   assert.match(
     categoryShowcase,
     /<Link\s+href="\/projects"[\s\S]*?\{allLabel\}[\s\S]*?<\/Link>/,
