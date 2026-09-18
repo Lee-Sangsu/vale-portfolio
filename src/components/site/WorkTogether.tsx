@@ -31,7 +31,7 @@ const COPY = {
 } as const;
 
 /**
- * Recurring "Let's grab a coffee" contact block — photo + green hand
+ * Recurring "Let's grab a coffee" contact block — photo + burgundy hand
  * accent + a mailto form. Appears at the bottom of every page in the Figma.
  */
 export function WorkTogether() {
@@ -65,7 +65,7 @@ export function WorkTogether() {
               className="object-cover object-center"
             />
           </div>
-          <div className="bg-green absolute bottom-0 left-0 flex size-[72px] -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full text-[28px] shadow-lg sm:size-[83px] sm:text-[30px]">
+          <div className="bg-[#7B173B] absolute bottom-0 left-0 flex size-[72px] -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full text-[28px] shadow-lg sm:size-[83px] sm:text-[30px]">
             ✋
           </div>
         </div>

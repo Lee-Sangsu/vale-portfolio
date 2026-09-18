@@ -89,12 +89,10 @@ export function CategoryShowcase({
           aria-live="polite"
         >
           {cat.projects.slice(0, 3).map((project, i) => (
-            <Link
+            <div
               key={`${cat.key}-${project.img}`}
-              href={project.href}
-              aria-label={`${project.title} ${i + 1}`}
               className={clsx(
-                "group relative aspect-[372/565] w-[54%] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f2ee] shadow-[0_8px_22px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:z-10 hover:-translate-y-2 focus-visible:z-10 focus-visible:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2a2a2a]",
+                "relative aspect-[372/565] w-[54%] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f2ee] shadow-[0_8px_22px_rgba(0,0,0,0.12)]",
                 i === 0 && "z-[1]",
                 i === 1 && "z-[2]",
                 i === 2 && "z-[3]",
@@ -106,9 +104,9 @@ export function CategoryShowcase({
                 alt=""
                 fill
                 sizes="(max-width: 1023px) 50vw, 372px"
-                className="animate-[fadeIn_0.4s_ease] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="animate-[fadeIn_0.4s_ease] object-cover"
               />
-            </Link>
+            </div>
           ))}
         </div>
       </div>
