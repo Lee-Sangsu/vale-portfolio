@@ -1,10 +1,10 @@
 import Image from "next/image";
-import type { Locale } from "@/content/types";
+import type { HeroSlug, Locale } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 
 // Approved Spanish project name: Global Youth: Cumbre de Emprendimiento Femenino
 const PROJECTS: Array<{
-  href: `/work/${string}`;
+  href: `/work/${HeroSlug}`;
   lines: Record<Locale, string[]>;
 }> = [
   {
@@ -82,7 +82,7 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
             <Link
               key={href}
               href={href}
-              className="block uppercase underline decoration-transparent decoration-2 underline-offset-4 transition-[opacity,text-decoration-color] duration-200 hover:opacity-70 hover:decoration-current focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2a2a2a]"
+              className="block space-y-2 uppercase underline decoration-transparent decoration-2 underline-offset-4 transition-[opacity,text-decoration-color] duration-200 hover:opacity-70 hover:decoration-current focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2a2a2a] lg:space-y-3"
             >
               {lines[locale].map((line) => (
                 <span key={line} className="block">

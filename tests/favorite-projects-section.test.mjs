@@ -103,6 +103,7 @@ test("FavoriteProjects links each project through locale-aware navigation", () =
 
 test("FavoriteProjects keeps the Global Youth title in one two-line link", () => {
   const component = readFileSync(componentPath, "utf8");
+  const linkClass = component.match(/<Link[\s\S]*?className=["']([^"']+)["']/)?.[1];
 
   assert.match(
     component,
@@ -117,6 +118,19 @@ test("FavoriteProjects keeps the Global Youth title in one two-line link", () =>
     /lines\[locale\]\.map\([\s\S]*?<span\b[^>]*className=["'][^"']*\bblock\b[^"']*["']/,
     "localized title lines must render as block spans inside the mapped link",
   );
+  assert.ok(linkClass, "project Link is missing a className");
+  assert.match(linkClass, /\bspace-y-2\b/);
+  assert.match(linkClass, /\blg:space-y-3\b/);
+});
+
+test("FavoriteProjects restricts project hrefs to known hero slugs", () => {
+  const component = readFileSync(componentPath, "utf8");
+
+  assert.match(
+    component,
+    /import\s+type\s+\{[^}]*\bHeroSlug\b[^}]*\}\s+from\s+["']@\/content\/types["'];/,
+  );
+  assert.match(component, /href:\s*`\/work\/\$\{HeroSlug\}`/);
 });
 
 test("FavoriteProjects links have consistent hover and keyboard focus feedback", () => {
