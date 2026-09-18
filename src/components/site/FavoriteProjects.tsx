@@ -26,7 +26,7 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white px-6 py-24 sm:px-8 sm:py-32 lg:py-[180px]">
-      <div className="mx-auto grid max-w-[1250px] gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-start lg:gap-20">
+      <div className="mx-auto grid max-w-[1250px] gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:gap-20">
         <div>
           <h2 className="font-inter text-[48px] leading-[0.98] font-bold tracking-[-0.045em] text-[#2a2a2a] sm:text-[56px] lg:text-[64px]">
             {isSpanish ? "Proyectos favoritos" : "Fav projects"}
@@ -54,7 +54,7 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="font-inter space-y-2 text-right text-[18px] leading-[1.1] font-semibold tracking-[-0.025em] text-[#2a2a2a] sm:text-[25px] lg:mt-3 lg:space-y-3 lg:text-[30px]">
+        <div className="font-inter space-y-4 text-right text-[18px] leading-[1.1] font-semibold tracking-[-0.025em] text-[#2a2a2a] sm:text-[25px] lg:mt-3 lg:space-y-6 lg:text-[30px]">
           {PROJECTS[locale].map((project) => (
             <p key={project} className="uppercase">
               {project}
