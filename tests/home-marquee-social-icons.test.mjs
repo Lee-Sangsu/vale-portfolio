@@ -29,14 +29,16 @@ test("the marquee translates the Figma 507:174 presentation", () => {
   assert.match(marquee, /sm:w-\[234px\]/);
   assert.match(marquee, /rounded-\[12px\]/);
   assert.match(marquee, /gap-\[22px\]/);
-  assert.match(marquee, /sm:text-\[16px\]/);
+  assert.match(marquee, /maskImage/);
+  assert.match(marquee, /WebkitMaskImage/);
 });
 
-test("the marquee preserves project links and duplicate accessibility", () => {
-  assert.match(marquee, /const strip = \[\.\.\.items, \.\.\.items\]/);
-  assert.match(marquee, /<Link[\s\S]*?href=\{p\.href\}/);
-  assert.match(marquee, /alt=\{p\.title\}/);
-  assert.match(marquee, /aria-hidden=\{i >= items\.length\}/);
+test("the marquee renders decorative brand logos with duplicate accessibility", () => {
+  assert.match(marquee, /listPhotos\("shared\/brands"\)/);
+  assert.match(marquee, /const strip = \[\.\.\.logos, \.\.\.logos\]/);
+  assert.match(marquee, /alt=""/);
+  assert.match(marquee, /object-contain/);
+  assert.match(marquee, /aria-hidden=\{i >= logos\.length\}/);
   assert.match(marquee, /marquee-pause/);
   assert.match(marquee, /--marquee-duration/);
 });
