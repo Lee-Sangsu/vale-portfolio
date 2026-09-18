@@ -17,6 +17,7 @@ export function FeatureProjectsMarquee({
   durationSeconds?: number;
 }) {
   const logos = listPhotos("shared/brands");
+
   if (logos.length === 0) return null;
 
   const strip = [...logos, ...logos];
@@ -45,19 +46,19 @@ export function FeatureProjectsMarquee({
           className="marquee-track flex w-max items-stretch gap-[22px] will-change-transform"
           aria-hidden="true"
         >
-          {strip.map((src, i) => (
+          {strip.map((logo, i) => (
             <li
-              key={`${src}-${i}`}
+              key={`${logo}-${i}`}
               className="shrink-0"
               aria-hidden={i >= logos.length}
             >
               <div className="relative h-[172px] w-[210px] overflow-hidden rounded-[12px] bg-[#f3f2ee] sm:h-[192px] sm:w-[234px]">
                 <Image
-                  src={src}
+                  src={logo}
                   alt=""
                   fill
                   sizes="(max-width: 639px) 210px, 234px"
-                  className="object-contain"
+                  className="object-contain p-5 sm:p-6"
                 />
               </div>
             </li>

@@ -1,51 +1,39 @@
 import Image from "next/image";
-import type { HeroSlug, Locale } from "@/content/types";
+import type { Locale } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 
-// Approved Spanish project name: Global Youth: Cumbre de Emprendimiento Femenino
-const PROJECTS: Array<{
-  href: `/work/${HeroSlug}`;
-  lines: Record<Locale, string[]>;
-}> = [
-  {
-    href: "/work/global-youth-summit",
-    lines: {
-      en: ["Global Youth:", "Women's Entrepreneurship Summit"],
-      es: ["Global Youth:", "Cumbre de Emprendimiento Femenino"],
-    },
+const GLOBAL_YOUTH: Record<
+  Locale,
+  { firstLine: string; secondLine: string }
+> = {
+  en: {
+    firstLine: "Global Youth:",
+    secondLine: "Women's Entrepreneurship Summit",
   },
-  {
-    href: "/work/misiones-internacionales",
-    lines: {
-      en: ["Misiones Internacionales"],
-      es: ["Misiones Internacionales"],
-    },
+  es: {
+    firstLine: "Global Youth:",
+    secondLine: "Cumbre de Emprendimiento Femenino",
   },
-  {
-    href: "/work/sejong-hackathon",
-    lines: {
-      en: ["Sejong Global Idea Hackathon"],
-      es: ["Hackathon Global de Ideas Sejong"],
-    },
-  },
-  {
-    href: "/work/jal-nomadher",
-    lines: {
-      en: ["Japan Airlines × NomadHer"],
-      es: ["Japan Airlines × NomadHer"],
-    },
-  },
-  {
-    href: "/work/nomadher-app",
-    lines: {
-      en: ["NomadHer app"],
-      es: ["App NomadHer"],
-    },
-  },
-];
+};
+
+const PROJECTS: Record<Locale, string[]> = {
+  en: [
+    "Misiones Internacionales",
+    "Sejong Global Idea Hackathon",
+    "Japan Airlines × NomadHer",
+    "NomadHer app",
+  ],
+  es: [
+    "Misiones Internacionales",
+    "Hackathon Global de Ideas Sejong",
+    "Japan Airlines × NomadHer",
+    "App NomadHer",
+  ],
+};
 
 export function FavoriteProjects({ locale }: { locale: Locale }) {
   const isSpanish = locale === "es";
+  const globalYouth = GLOBAL_YOUTH[locale];
 
   return (
     <section className="bg-white px-6 py-24 sm:px-8 sm:py-32 lg:py-[180px]">
@@ -78,18 +66,17 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
         </div>
 
         <div className="font-inter space-y-4 text-right text-[18px] leading-[1.1] font-semibold tracking-[-0.025em] text-[#2a2a2a] sm:text-[25px] lg:mt-3 lg:space-y-6 lg:text-[30px]">
-          {PROJECTS.map(({ href, lines }) => (
-            <Link
-              key={href}
-              href={href}
-              className="block space-y-2 uppercase underline decoration-transparent decoration-2 underline-offset-4 transition-[opacity,text-decoration-color] duration-200 hover:opacity-70 hover:decoration-current focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2a2a2a] lg:space-y-3"
-            >
-              {lines[locale].map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </Link>
+          <Link
+            href="/work/global-youth-summit"
+            className="ml-auto block w-fit rounded-sm uppercase underline-offset-4 transition-opacity hover:opacity-70 hover:underline focus-visible:ring-2 focus-visible:ring-[#2a2a2a] focus-visible:ring-offset-4 focus-visible:outline-none"
+          >
+            <span className="block">{globalYouth.firstLine}</span>
+            <span className="block">{globalYouth.secondLine}</span>
+          </Link>
+          {PROJECTS[locale].map((project) => (
+            <p key={project} className="uppercase">
+              {project}
+            </p>
           ))}
         </div>
       </div>

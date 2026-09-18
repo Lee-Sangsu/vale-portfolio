@@ -35,7 +35,6 @@ test("FavoriteProjects renders the Figma labels after the Designing for section"
   }
 
   for (const label of [
-    "Global Youth:",
     "Cumbre de Emprendimiento Femenino",
     "Misiones Internacionales",
     "Hackathon Global de Ideas Sejong",
@@ -69,77 +68,65 @@ test("FavoriteProjects renders the Figma labels after the Designing for section"
   );
 });
 
-test("FavoriteProjects links each project through locale-aware navigation", () => {
+test("FavoriteProjects links the complete localized Global Youth title only", () => {
   const component = readFileSync(componentPath, "utf8");
 
   assert.match(
     component,
     /import\s+\{\s*Link\s*\}\s+from\s+["']@\/i18n\/navigation["'];/,
-    "project links must preserve the active locale",
-  );
-
-  const routes = [...component.matchAll(/href:\s*["']([^"']+)["']/g)].map(
-    ([, route]) => route,
-  );
-  assert.deepEqual(routes, [
-    "/work/global-youth-summit",
-    "/work/misiones-internacionales",
-    "/work/sejong-hackathon",
-    "/work/jal-nomadher",
-    "/work/nomadher-app",
-  ]);
-
-  assert.match(
-    component,
-    /PROJECTS\.map\([\s\S]*?<Link\b[\s\S]*?href=\{href\}/,
-    "each project record must render as a Link",
+    "the project link must use locale-aware navigation",
   );
   assert.equal(
-    (component.match(/<Link\b/g) ?? []).length,
+    (component.match(/\/work\/global-youth-summit/g) ?? []).length,
     1,
-    "the mapped project record should create exactly one link",
+    "the Global Youth destination must appear exactly once",
   );
-});
 
-test("FavoriteProjects keeps the Global Youth title in one two-line link", () => {
-  const component = readFileSync(componentPath, "utf8");
-  const linkClass = component.match(/<Link[\s\S]*?className=["']([^"']+)["']/)?.[1];
+  for (const line of [
+    "Global Youth:",
+    "Women's Entrepreneurship Summit",
+    "Cumbre de Emprendimiento Femenino",
+  ]) {
+    assert.ok(component.includes(line), `missing localized link line: ${line}`);
+  }
 
-  assert.match(
-    component,
-    /en:\s*\[\s*["']Global Youth:["'],\s*["']Women's Entrepreneurship Summit["']\s*\]/,
+  const globalYouthLink = component.match(
+    /<Link\s+href="\/work\/global-youth-summit"([\s\S]*?)<\/Link>/,
   );
-  assert.match(
-    component,
-    /es:\s*\[\s*["']Global Youth:["'],\s*["']Cumbre de Emprendimiento Femenino["']\s*\]/,
+  assert.ok(globalYouthLink, "expected one link for the complete Global Youth title");
+  assert.equal(
+    (globalYouthLink[0].match(/<span\s+className="block">/g) ?? []).length,
+    2,
+    "the linked title must render as exactly two block lines",
   );
-  assert.match(
-    component,
-    /lines\[locale\]\.map\([\s\S]*?<span\b[^>]*className=["'][^"']*\bblock\b[^"']*["']/,
-    "localized title lines must render as block spans inside the mapped link",
+  assert.match(globalYouthLink[0], /\{globalYouth\.firstLine\}/);
+  assert.match(globalYouthLink[0], /\{globalYouth\.secondLine\}/);
+  assert.match(globalYouthLink[1], /hover:underline/);
+  assert.match(globalYouthLink[1], /hover:opacity-/);
+  assert.match(globalYouthLink[1], /focus-visible:ring-/);
+  assert.match(globalYouthLink[1], /focus-visible:outline-none/);
+
+  assert.equal(
+    (component.match(/\bhref=/g) ?? []).length,
+    1,
+    "no other favorite project may become a link",
   );
-  assert.ok(linkClass, "project Link is missing a className");
-  assert.match(linkClass, /\bspace-y-2\b/);
-  assert.match(linkClass, /\blg:space-y-3\b/);
-});
 
-test("FavoriteProjects restricts project hrefs to known hero slugs", () => {
-  const component = readFileSync(componentPath, "utf8");
-
-  assert.match(
-    component,
-    /import\s+type\s+\{[^}]*\bHeroSlug\b[^}]*\}\s+from\s+["']@\/content\/types["'];/,
+  const staticProjects = component.match(
+    /\{PROJECTS\[locale\]\.map\(\(project\) => \(([\s\S]*?)\)\)\}/,
   );
-  assert.match(component, /href:\s*`\/work\/\$\{HeroSlug\}`/);
-});
+  assert.ok(staticProjects, "expected the remaining projects to stay in the list");
+  assert.match(staticProjects[1], /^\s*<p\b/);
+  assert.doesNotMatch(staticProjects[1], /<Link\b|href=/);
 
-test("FavoriteProjects links have consistent hover and keyboard focus feedback", () => {
-  const component = readFileSync(componentPath, "utf8");
-  const linkClass = component.match(/<Link[\s\S]*?className=["']([^"']+)["']/)?.[1];
-
-  assert.ok(linkClass, "project Link is missing a className");
-  assert.match(linkClass, /\btransition-/);
-  assert.match(linkClass, /\bhover:opacity-/);
-  assert.match(linkClass, /\bhover:decoration-/);
-  assert.match(linkClass, /\bfocus-visible:outline-/);
+  for (const label of [
+    "Misiones Internacionales",
+    "Sejong Global Idea Hackathon",
+    "Hackathon Global de Ideas Sejong",
+    "Japan Airlines × NomadHer",
+    "NomadHer app",
+    "App NomadHer",
+  ]) {
+    assert.ok(component.includes(label), `missing static project label: ${label}`);
+  }
 });

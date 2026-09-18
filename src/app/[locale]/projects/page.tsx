@@ -310,10 +310,20 @@ export default async function ProjectsPage({
                 <span>20</span>
                 <span>26</span>
               </div>
-              <div className="absolute bottom-[3%] right-[2%] z-50 w-fit rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
-                <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
-                <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
-                <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
+              <div
+                data-projects-folder="meta"
+                className="absolute bottom-[3%] right-[2%] z-50 w-fit rotate-[2deg]"
+              >
+                <div
+                  aria-hidden="true"
+                  data-projects-folder="meta-tab"
+                  className="pointer-events-none absolute -top-3 right-4 z-0 h-6 w-16 rounded-t-[12px] bg-[#86143e] sm:-top-5 sm:right-6 sm:h-10 sm:w-24"
+                />
+                <div className="relative z-10 rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
+                  <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
+                  <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
+                  <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
+                </div>
               </div>
             </div>
           </div>
