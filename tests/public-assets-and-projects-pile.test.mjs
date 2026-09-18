@@ -32,6 +32,12 @@ test("projects hero renders a custom pile of project photos", () => {
   const portfolioPileStart = projectsPage.indexOf("const portfolioPile = [");
   const portfolioPileEnd = projectsPage.indexOf("// Chapter cards", portfolioPileStart);
   const portfolioPileSource = projectsPage.slice(portfolioPileStart, portfolioPileEnd);
+  const flapClassMatch = projectsPage.match(
+    /data-projects-folder="flap"\s+className="([^"]+)"/,
+  );
+
+  assert.ok(flapClassMatch, "projects folder flap className is missing");
+  const flapClassName = flapClassMatch[1];
 
   assert.match(projectsPage, /const portfolioPile = \[/);
   assert.match(projectsPage, /portfolioPile\.map/);
@@ -54,17 +60,19 @@ test("projects hero renders a custom pile of project photos", () => {
   assert.match(projectsPage, /transition-transform duration-200 ease-in/);
   assert.match(projectsPage, /motion-reduce:transform-none/);
   assert.match(projectsPage, /data-projects-folder="back"/);
-  assert.match(projectsPage, /data-projects-folder="tab"/);
   assert.match(projectsPage, /data-projects-folder="flap"/);
-  assert.match(projectsPage, /data-projects-folder="back"[\s\S]{0,320}border border-\[#151315\] bg-\[#737373\]\/35/);
-  assert.match(projectsPage, /data-projects-folder="flap"[\s\S]{0,700}data-projects-folder="tab"/);
-  assert.doesNotMatch(projectsPage, /data-projects-folder="back"[\s\S]{0,600}data-projects-folder="tab"/);
-  assert.match(projectsPage, /data-projects-folder="tab"[\s\S]{0,220}border border-b-0 border-\[#090809\] bg-\[#737373\]\/35/);
-  assert.match(projectsPage, /data-projects-folder="flap"[\s\S]{0,420}border-x border-b border-\[#090809\] bg-\[#737373\]\/35/);
-  assert.doesNotMatch(projectsPage, /data-projects-folder="flap"[\s\S]{0,420}border border-\[#090809\] bg-\[#737373\]\/35/);
-  assert.match(projectsPage, /data-projects-folder="top-outline-left"/);
-  assert.match(projectsPage, /data-projects-folder="top-outline-right"/);
-  assert.equal((projectsPage.match(/bg-\[#737373\]\/35/g) ?? []).length, 3);
+  assert.match(projectsPage, /data-projects-folder="back"[\s\S]{0,320}border border-\[#151315\] bg-\[#525252\]\/45/);
+  assert.match(flapClassName, /(?:^|\s)border(?:\s|$)/);
+  assert.match(flapClassName, /(?:^|\s)border-\[#090809\](?:\s|$)/);
+  assert.match(flapClassName, /(?:^|\s)bg-\[#525252\]\/45(?:\s|$)/);
+  assert.doesNotMatch(
+    flapClassName,
+    /(?:^|\s)border-(?:t|r|b|l|x|y)(?:-\S+)?(?=\s|$)/,
+  );
+  assert.doesNotMatch(projectsPage, /data-projects-folder="tab"/);
+  assert.doesNotMatch(projectsPage, /data-projects-folder="top-outline-left"/);
+  assert.doesNotMatch(projectsPage, /data-projects-folder="top-outline-right"/);
+  assert.equal((projectsPage.match(/bg-\[#525252\]\/45/g) ?? []).length, 2);
   assert.match(projectsPage, /group relative -mt-3 aspect-\[11\/7\]/);
   assert.doesNotMatch(projectsPage, /group relative z-0 -mt-3 aspect-\[11\/7\]/);
   assert.match(projectsPage, /z-\[45\] h-\[44%\] w-\[74%\].*perspective-\[800px\]/);
