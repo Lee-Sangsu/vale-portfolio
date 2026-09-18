@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const readSource = (path) =>
@@ -10,6 +10,9 @@ const [about, marquee, page] = await Promise.all([
   readSource("../src/components/site/FeatureProjectsMarquee.tsx"),
   readSource("../src/app/[locale]/page.tsx"),
 ]);
+const brandFiles = await readdir(
+  new URL("../public/shared/brands", import.meta.url),
+).catch(() => []);
 
 test("the featured-project marquee follows the about hero", () => {
   assert.match(
@@ -29,16 +32,27 @@ test("the marquee translates the Figma 507:174 presentation", () => {
   assert.match(marquee, /sm:w-\[234px\]/);
   assert.match(marquee, /rounded-\[12px\]/);
   assert.match(marquee, /gap-\[22px\]/);
-  assert.match(marquee, /sm:text-\[16px\]/);
+  assert.match(marquee, /maskImage/);
+  assert.match(marquee, /WebkitMaskImage/);
 });
 
-test("the marquee preserves project links and duplicate accessibility", () => {
-  assert.match(marquee, /const strip = \[\.\.\.items, \.\.\.items\]/);
-  assert.match(marquee, /<Link[\s\S]*?href=\{p\.href\}/);
-  assert.match(marquee, /alt=\{p\.title\}/);
-  assert.match(marquee, /aria-hidden=\{i >= items\.length\}/);
+test("the marquee renders decorative brand logos without project links", () => {
+  assert.match(marquee, /listPhotos\("shared\/brands"\)/);
+  assert.match(marquee, /const strip = \[\.\.\.logos, \.\.\.logos\]/);
+  assert.match(marquee, /alt=""/);
+  assert.match(marquee, /object-contain/);
+  assert.doesNotMatch(marquee, /<Link/);
+  assert.doesNotMatch(marquee, /<span/);
+  assert.match(marquee, /<ul[\s\S]*?aria-hidden="true"/);
+  assert.match(marquee, /aria-hidden=\{i >= logos\.length\}/);
   assert.match(marquee, /marquee-pause/);
   assert.match(marquee, /--marquee-duration/);
+});
+
+test("the brand marquee ships at least one supported raster logo", () => {
+  assert.ok(
+    brandFiles.some((file) => /\.(?:png|jpe?g|webp|gif|avif)$/i.test(file)),
+  );
 });
 
 test("the about hero renders recognizable accessible social icons", () => {
