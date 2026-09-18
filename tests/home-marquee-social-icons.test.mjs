@@ -37,16 +37,29 @@ test("the marquee translates the Figma 507:174 presentation", () => {
 });
 
 test("the marquee renders decorative brand logos without project links", () => {
+  assert.match(marquee, /import Image from "next\/image";/);
   assert.match(marquee, /listPhotos\("shared\/brands"\)/);
+  assert.match(marquee, /if \(logos\.length === 0\) return null;/);
   assert.match(marquee, /const strip = \[\.\.\.logos, \.\.\.logos\]/);
   assert.match(marquee, /alt=""/);
   assert.match(marquee, /object-contain/);
+  assert.match(marquee, /bg-\[#f3f2ee\]/);
   assert.doesNotMatch(marquee, /<Link/);
   assert.doesNotMatch(marquee, /<span/);
   assert.match(marquee, /<ul[\s\S]*?aria-hidden="true"/);
   assert.match(marquee, /aria-hidden=\{i >= logos\.length\}/);
   assert.match(marquee, /marquee-pause/);
   assert.match(marquee, /--marquee-duration/);
+});
+
+test("the marquee keeps its call-site contract without using project items", () => {
+  assert.match(marquee, /items: FeatureItem\[\];/);
+
+  const signature = marquee.match(
+    /export function FeatureProjectsMarquee\(\{([\s\S]*?)\}: \{/,
+  );
+  assert.ok(signature);
+  assert.doesNotMatch(signature[1], /\bitems\b/);
 });
 
 test("the brand marquee ships at least one supported raster logo", () => {
