@@ -24,12 +24,12 @@ test("FavoriteProjects vertically centers its columns and spaces project names",
   );
 });
 
-test("WorkTogether uses the approved burgundy hand badge", () => {
+test("WorkTogether uses the approved black hand badge", () => {
   const handBadge = workTogether.match(/<div className="([^"]+)">\s*✋/s);
 
   assert.ok(handBadge, "expected to find the hand badge");
-  assert.match(handBadge[1], /(?:^|\s)bg-\[#7B173B\](?:\s|$)/);
-  assert.doesNotMatch(handBadge[1], /(?:^|\s)bg-black(?:\s|$)/);
+  assert.match(handBadge[1], /(?:^|\s)bg-black(?:\s|$)/);
+  assert.doesNotMatch(handBadge[1], /(?:^|\s)bg-\[#7B173B\](?:\s|$)/);
   assert.doesNotMatch(handBadge[1], /(?:^|\s)bg-green(?:\s|$)/);
 });
 
