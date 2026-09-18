@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const readSource = (path) =>
@@ -10,6 +10,16 @@ const [about, marquee, page] = await Promise.all([
   readSource("../src/components/site/FeatureProjectsMarquee.tsx"),
   readSource("../src/app/[locale]/page.tsx"),
 ]);
+
+const brandLogos = await readdir(
+  new URL("../public/shared/brands/", import.meta.url),
+).catch(() => []);
+
+test("the brand marquee ships at least one supported raster logo", () => {
+  assert.ok(
+    brandLogos.some((name) => /\.(?:png|jpe?g|webp|gif|avif)$/i.test(name)),
+  );
+});
 
 test("the featured-project marquee follows the about hero", () => {
   assert.match(
@@ -41,6 +51,10 @@ test("the marquee renders decorative brand logos with duplicate accessibility", 
   assert.match(marquee, /aria-hidden=\{i >= logos\.length\}/);
   assert.match(marquee, /marquee-pause/);
   assert.match(marquee, /--marquee-duration/);
+});
+
+test("the marquee hides the decorative logo strip from assistive technology", () => {
+  assert.match(marquee, /<ul[^>]*aria-hidden="true"[^>]*>/);
 });
 
 test("the about hero renders recognizable accessible social icons", () => {

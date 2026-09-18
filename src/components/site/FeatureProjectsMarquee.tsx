@@ -41,7 +41,10 @@ export function FeatureProjectsMarquee({
           } as React.CSSProperties
         }
       >
-        <ul className="marquee-track flex w-max items-stretch gap-[22px] will-change-transform">
+        <ul
+          className="marquee-track flex w-max items-stretch gap-[22px] will-change-transform"
+          aria-hidden="true"
+        >
           {strip.map((src, i) => (
             <li
               key={`${src}-${i}`}
