@@ -38,6 +38,7 @@ test("NomadHer chapter uses its local Figma hero and six-card rail variant", asy
 
   assert.match(rail, /chapterId: ChapterId/);
   assert.match(rail, /chapterId === "nomadher"/);
+  assert.match(rail, /"relative group flex min-h-\[540px\]/);
   assert.match(rail, /rounded-\[18px\]/);
   assert.match(rail, /Ver más/);
   assert.match(rail, /project\.date/);
