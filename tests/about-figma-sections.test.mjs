@@ -27,7 +27,8 @@ test("SkillsSection contains the exact approved Figma content", async () => {
   }
 
   assert.match(source, /SkillsLogoMarquee/);
-  assert.match(source, /lg:mt-\[73px\]/);
+  assert.match(source, /max-w-\[1140px\][^\"]*lg:pt-\[73px\]/);
+  assert.doesNotMatch(source, /lg:mt-\[73px\]/);
   assert.match(source, /lg:mt-\[107px\]/);
   assert.doesNotMatch(source, /NumberedAccordion|IpodCard|AppSwatchRow/);
 });

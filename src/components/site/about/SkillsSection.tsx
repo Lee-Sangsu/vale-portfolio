@@ -60,10 +60,8 @@ export function SkillsSection({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 lg:min-h-[920px] lg:px-16 lg:py-0">
-      <div className="mx-auto max-w-[1140px]">
-        <div className="lg:mt-[73px]">
-          <SkillsLogoMarquee />
-        </div>
+      <div className="mx-auto max-w-[1140px] lg:pt-[73px]">
+        <SkillsLogoMarquee />
 
         <div className="mt-14 max-w-[560px] sm:mt-16 lg:hidden">
           <h2 className="font-inter text-ink2 text-[36px] leading-[normal] font-bold sm:text-[48px]">
