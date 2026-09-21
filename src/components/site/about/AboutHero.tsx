@@ -136,13 +136,6 @@ export function AboutHero({ locale }: { locale: Locale }) {
         <p className="mt-7 max-w-[620px] px-3 font-inter text-[15px] font-bold leading-snug text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:text-[20px]">
           {aboutHeroTagline[locale]}
         </p>
-
-        <a
-          href="#story"
-          className="mt-8 rounded-full bg-[#111] px-7 py-3 font-inter text-[15px] font-semibold text-white shadow-[0_8px_22px_rgba(0,0,0,0.2)] transition-opacity hover:opacity-85"
-        >
-          {es ? "Ver mi historia" : "See journey"}
-        </a>
       </div>
     </section>
   );
