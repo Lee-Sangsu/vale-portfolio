@@ -163,7 +163,7 @@ export function ChapterProjectRail({
           );
 
           const className =
-            "group flex min-h-[540px] w-[min(82vw,400px)] shrink-0 snap-start flex-col overflow-hidden rounded-[18px] border border-[#e2e2dd] bg-[#fafaf5] transition-transform duration-300 hover:-translate-y-1 sm:min-h-[620px]";
+            "relative group flex min-h-[540px] w-[min(82vw,400px)] shrink-0 snap-start flex-col overflow-hidden rounded-[18px] border border-[#e2e2dd] bg-[#fafaf5] transition-transform duration-300 hover:-translate-y-1 sm:min-h-[620px]";
 
           return project.href ? (
             <Link key={project.title[locale]} href={project.href} className={className}>
