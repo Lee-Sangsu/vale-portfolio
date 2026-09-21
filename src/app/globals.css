@@ -349,13 +349,13 @@
     to   { transform: translateX(-50%); }
   }
   .skills-logo-viewport { overflow-x: hidden; }
-  .skills-logo-viewport[data-paused="true"] .skills-logo-track {
-    animation-play-state: paused;
-  }
   @media (max-width: 1023px) {
     .skills-logo-track {
       animation: skills-logo-marquee 24s linear infinite;
       will-change: transform;
+    }
+    .skills-logo-viewport[data-paused="true"] .skills-logo-track {
+      animation-play-state: paused;
     }
   }
   @media (prefers-reduced-motion: reduce) {

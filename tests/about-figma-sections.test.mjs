@@ -101,6 +101,11 @@ test("SkillsLogoMarquee offers a localized mobile pause control", async () => {
     styles,
     /\[data-paused="true"\][^}]*animation-play-state:\s*paused/s,
   );
+  assert.ok(
+    styles.indexOf('[data-paused="true"]') >
+      styles.indexOf("animation: skills-logo-marquee"),
+    "paused play-state must follow the mobile animation shorthand in the cascade",
+  );
   assert.match(
     styles,
     /@media \(prefers-reduced-motion: reduce\)[\s\S]*\.skills-logo-toggle\s*\{[^}]*display:\s*none/s,
