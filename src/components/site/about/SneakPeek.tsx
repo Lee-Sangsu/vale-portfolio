@@ -5,42 +5,42 @@ const GALLERY_IMAGES = [
   {
     src: "/pages/about/figma/sneak-peek-01.png",
     frame:
-      "aspect-[288/293] w-[72vw] max-w-[288px] lg:h-[293px] lg:w-[288px] lg:max-w-none",
+      "aspect-[288/293] w-[72vw] max-w-[288px] lg:w-auto lg:max-w-none",
     image: "!h-[211.21%] !top-[-78.68%] object-cover",
     sizes: "(min-width: 1024px) 288px, 72vw",
   },
   {
     src: "/pages/about/figma/sneak-peek-02.png",
     frame:
-      "aspect-[286/373] w-[72vw] max-w-[286px] lg:h-[373px] lg:w-[286px] lg:max-w-none",
+      "aspect-[286/373] w-[72vw] max-w-[286px] lg:w-auto lg:max-w-none",
     image: "object-cover object-bottom",
     sizes: "(min-width: 1024px) 286px, 72vw",
   },
   {
     src: "/pages/about/figma/sneak-peek-03.png",
     frame:
-      "aspect-[259/364] w-[68vw] max-w-[259px] lg:h-[364px] lg:w-[259px] lg:max-w-none",
+      "aspect-[259/364] w-[68vw] max-w-[259px] lg:w-auto lg:max-w-none",
     image: "object-cover",
     sizes: "(min-width: 1024px) 259px, 68vw",
   },
   {
     src: "/pages/about/figma/sneak-peek-04.png",
     frame:
-      "aspect-[227/302] w-[62vw] max-w-[227px] lg:h-[302px] lg:w-[227px] lg:max-w-none",
+      "aspect-[227/302] w-[62vw] max-w-[227px] lg:w-auto lg:max-w-none",
     image: "object-cover",
     sizes: "(min-width: 1024px) 227px, 62vw",
   },
   {
     src: "/pages/about/figma/sneak-peek-05.png",
     frame:
-      "aspect-[339/315] w-[78vw] max-w-[339px] lg:h-[315px] lg:w-[339px] lg:max-w-none",
+      "aspect-[339/315] w-[78vw] max-w-[339px] lg:w-auto lg:max-w-none",
     image: "object-cover",
     sizes: "(min-width: 1024px) 339px, 78vw",
   },
   {
     src: "/pages/about/figma/sneak-peek-06.png",
     frame:
-      "aspect-[236/300] w-[64vw] max-w-[236px] lg:h-[300px] lg:w-[236px] lg:max-w-none",
+      "aspect-[236/300] w-[64vw] max-w-[236px] lg:w-auto lg:max-w-none",
     image: "object-cover object-bottom",
     sizes: "(min-width: 1024px) 236px, 64vw",
   },
@@ -56,7 +56,14 @@ export function SneakPeek({ locale }: { locale: Locale }) {
           {es ? "Un adelanto de mi trabajo" : "Sneak peek of my works"}
         </h2>
 
-        <div className="mt-14 flex snap-x snap-mandatory items-end gap-[23px] overflow-x-auto overscroll-x-contain scroll-smooth pb-5 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          role="region"
+          aria-label={
+            es ? "Galería visual de trabajos" : "Visual work gallery"
+          }
+          tabIndex={0}
+          className="mt-14 flex snap-x snap-mandatory items-end gap-[23px] overflow-x-auto overscroll-x-contain scroll-smooth pb-5 [scrollbar-color:#6e726e_transparent] [scrollbar-width:thin] [-webkit-overflow-scrolling:touch] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6e726e] lg:-ml-5 lg:grid lg:w-[calc(100%+40px)] lg:snap-none lg:grid-cols-[288fr_286fr_259fr_227fr_339fr_236fr] lg:gap-[calc(100%*23/1750)] lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6e726e] [&::-webkit-scrollbar-track]:bg-transparent"
+        >
           {GALLERY_IMAGES.map(({ src, frame, image, sizes }) => (
             <div
               key={src}
