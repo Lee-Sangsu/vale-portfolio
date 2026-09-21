@@ -55,7 +55,7 @@ test("SkillsLogoMarquee matches the approved logo order and desktop layout", asy
     previousIndex = index;
   }
 
-  assert.match(source, /aria-label="Design tools"/);
+  assert.match(source, /Design tools/);
   assert.match(source, /aria-hidden="true"/);
   assert.match(source, /lg:w-\[954px\]/);
   assert.match(source, /lg:gap-\[54px\]/);
@@ -75,6 +75,36 @@ test("SkillsLogoMarquee animates only below desktop and supports reduced motion"
   );
   assert.match(source, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(source, /\.skills-logo-viewport\s*\{[^}]*overflow-x:\s*auto/s);
+});
+
+test("SkillsLogoMarquee offers a localized mobile pause control", async () => {
+  const component = await readSource(
+    "src/components/site/about/SkillsLogoMarquee.tsx",
+  );
+  const styles = await readSource("src/app/globals.css");
+  const section = await readSource(
+    "src/components/site/about/SkillsSection.tsx",
+  );
+
+  assert.match(component, /^"use client";/);
+  assert.match(component, /useState\(false\)/);
+  assert.match(component, /aria-pressed=\{isPaused\}/);
+  assert.match(component, /Pause logo animation/);
+  assert.match(component, /Resume logo animation/);
+  assert.match(component, /Pausar animación de logos/);
+  assert.match(component, /Reanudar animación de logos/);
+  assert.match(component, /Herramientas de diseño/);
+  assert.match(component, /skills-logo-toggle[^\"]*lg:hidden/);
+  assert.match(component, /data-paused=\{isPaused\}/);
+  assert.match(section, /<SkillsLogoMarquee locale=\{locale\} \/>/);
+  assert.match(
+    styles,
+    /\[data-paused="true"\][^}]*animation-play-state:\s*paused/s,
+  );
+  assert.match(
+    styles,
+    /@media \(prefers-reduced-motion: reduce\)[\s\S]*\.skills-logo-toggle\s*\{[^}]*display:\s*none/s,
+  );
 });
 
 test("JourneySection contains the exact approved Figma content and asset", async () => {
