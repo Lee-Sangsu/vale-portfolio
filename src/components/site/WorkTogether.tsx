@@ -7,7 +7,8 @@ import { contact } from "@/content/about";
 
 const COPY = {
   es: {
-    title: "¡Trabajemos juntas!",
+    coffeeTitle: "Tomémonos un café",
+    detailTitle: "¡Trabajemos juntas!",
     sub: "Demos vida a tu visión, construyamos algo con impacto.",
     name: "Nombre",
     namePh: "Compañera de viaje",
@@ -18,7 +19,8 @@ const COPY = {
     send: "Enviar",
   },
   en: {
-    title: "Let's grab a coffee",
+    coffeeTitle: "Let's grab a coffee",
+    detailTitle: "Let's work together",
     sub: "Let's talk ideas, projects, or working together: if something here resonated, I'd love to hear from you.",
     name: "Name",
     namePh: "Fellow Traveler",
@@ -30,13 +32,18 @@ const COPY = {
   },
 } as const;
 
+type WorkTogetherProps = {
+  variant?: "coffee" | "detail";
+};
+
 /**
  * Recurring "Let's grab a coffee" contact block — photo + burgundy hand
  * accent + a mailto form. Appears at the bottom of every page in the Figma.
  */
-export function WorkTogether() {
+export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
   const locale = useLocale();
   const t = COPY[locale === "en" ? "en" : "es"];
+  const title = variant === "detail" ? t.detailTitle : t.coffeeTitle;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
@@ -73,7 +80,7 @@ export function WorkTogether() {
         {/* Form */}
         <form onSubmit={submit} className="w-full max-w-[520px]">
           <h2 className="font-inter text-ink2 text-[34px] leading-tight font-bold sm:text-[48px]">
-            {t.title}
+            {title}
           </h2>
           <p className="font-inter text-muted mt-3 max-w-[400px] text-[16px] leading-[24px] sm:text-[17px]">
             {t.sub}

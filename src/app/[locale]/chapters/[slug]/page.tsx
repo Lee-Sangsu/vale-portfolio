@@ -197,7 +197,7 @@ export default async function ChapterPage({
         chapterId={chapter.id}
       />
 
-      <WorkTogether />
+      <WorkTogether variant="detail" />
       <SiteFooter />
     </main>
   );
