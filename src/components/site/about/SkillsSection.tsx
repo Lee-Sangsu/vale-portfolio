@@ -64,17 +64,17 @@ export function SkillsSection({ locale }: { locale: Locale }) {
       <div className="relative mx-auto max-w-[1076px] xl:h-full xl:pt-[73px]">
         <SkillsLogoMarquee locale={locale} />
 
-        <div className="mt-14 max-w-[642px] sm:mt-16 xl:absolute xl:top-[252px] xl:left-0 xl:mt-0 xl:h-[597px] xl:w-[642px]">
+        <div className="mt-14 max-w-[642px] sm:mt-16 xl:absolute xl:top-[252px] xl:left-0 xl:mt-0 xl:h-[668px] xl:w-[642px]">
           <h2 className="font-inter text-ink2 text-[36px] leading-[normal] font-bold sm:text-[48px] xl:text-[64px]">
             {locale === "es" ? "Habilidades" : "Skills"}
           </h2>
-          <p className="font-inter mt-5 max-w-[400px] text-[18px] leading-[normal] text-[#6e726e] xl:absolute xl:top-[86px] xl:left-0 xl:mt-0">
+          <p className="font-inter mt-5 max-w-[400px] text-[18px] leading-[normal] text-[#6e726e] xl:absolute xl:top-[104px] xl:left-0 xl:mt-0">
             {INTRO[locale]}
           </p>
 
           <ol className="mt-10 sm:mt-[41px] xl:mt-0">
             {skills.map((skill, index) => {
-              const top = [189, 294, 399, 487][index];
+              const top = [222, 327, 432, 520][index];
 
               return (
                 <li
@@ -93,16 +93,16 @@ export function SkillsSection({ locale }: { locale: Locale }) {
             })}
           </ol>
 
-          {[274, 379, 430, 467].map((top) => (
+          {[307, 412, 500].map((top) => (
             <div
               key={top}
               aria-hidden="true"
-              className="absolute left-0 hidden h-px w-[492px] bg-[#e2e2dc] xl:block"
+              className="absolute left-0 hidden h-px w-[538px] bg-[#e2e2dc] xl:block"
               style={{ top }}
             />
           ))}
 
-          <p className="font-inter mt-5 text-[14px] leading-[normal] text-[#111] xl:absolute xl:top-[579px] xl:left-0 xl:mt-0 xl:whitespace-nowrap">
+          <p className="font-inter mt-5 text-[14px] leading-[normal] text-[#111] xl:absolute xl:top-[648px] xl:left-0 xl:mt-0 xl:whitespace-nowrap">
             {LANGUAGES[locale]}
           </p>
         </div>

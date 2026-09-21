@@ -109,6 +109,12 @@ test("SkillsSection contains the exact approved Figma content", async () => {
   assert.match(source, /(?:xl|2xl):pt-\[73px\]/);
   assert.match(source, /(?:xl|2xl):text-\[64px\]/);
   assert.match(source, /(?:xl|2xl):top-\[252px\]/);
+  assert.match(source, /xl:top-\[104px\]/);
+  assert.match(source, /const top = \[222, 327, 432, 520\]\[index\]/);
+  assert.match(source, /\{\[307, 412, 500\]\.map\(\(top\) =>/);
+  assert.match(source, /w-\[538px\]/);
+  assert.match(source, /xl:top-\[648px\]/);
+  assert.doesNotMatch(source, /\[274, 379, 430, 467\]/);
   assert.match(
     source,
     /(?:xl|2xl):absolute[^\"]*(?:(?:xl|2xl):top-\[463px\][^\"]*(?:xl|2xl):left-\[885px\]|(?:xl|2xl):left-\[885px\][^\"]*(?:xl|2xl):top-\[463px\])[^>]*>[\s\S]*<IpodCard locale=\{locale\} \/>/,
