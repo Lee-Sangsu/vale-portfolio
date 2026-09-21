@@ -5,6 +5,71 @@ import test from "node:test";
 const readSource = (path) =>
   readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
+function readBalanced(source, openingBrace) {
+  let depth = 0;
+
+  for (let index = openingBrace; index < source.length; index += 1) {
+    if (source[index] === "{") depth += 1;
+    if (source[index] === "}") depth -= 1;
+    if (depth === 0) return source.slice(openingBrace + 1, index);
+  }
+
+  assert.fail("unterminated JSX expression");
+}
+
+function readOnClick(button) {
+  const start = button.indexOf("onClick={");
+  assert.notEqual(start, -1, "click-wheel control must have an onClick handler");
+  return readBalanced(button, start + "onClick=".length).trim();
+}
+
+function readHandlerBody(source, handlerExpression) {
+  if (/setActive\s*\(/.test(handlerExpression)) return handlerExpression;
+
+  const reference = handlerExpression.match(/^([\w.]+)$/)?.[1];
+  assert.ok(reference, `unsupported click handler: ${handlerExpression}`);
+  const name = reference.split(".").at(-1);
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const definitions = [
+    new RegExp(`\\b${escapedName}\\s*:\\s*\\(\\)\\s*=>\\s*`),
+    new RegExp(`\\bconst\\s+${escapedName}\\s*=\\s*\\(\\)\\s*=>\\s*`),
+    new RegExp(`\\bfunction\\s+${escapedName}\\s*\\(\\)\\s*`),
+  ];
+
+  for (const definition of definitions) {
+    const match = definition.exec(source);
+    if (!match) continue;
+
+    const bodyStart = match.index + match[0].length;
+    if (source[bodyStart] === "{") {
+      return readBalanced(source, bodyStart);
+    }
+
+    let depth = 0;
+    for (let index = bodyStart; index < source.length; index += 1) {
+      const character = source[index];
+      if ("([{".includes(character)) depth += 1;
+      if (")]}".includes(character)) depth -= 1;
+      if (depth === 0 && (character === "," || character === ";" || character === "\n")) {
+        return source.slice(bodyStart, index).trim();
+      }
+    }
+  }
+
+  assert.fail(`could not resolve click handler: ${handlerExpression}`);
+}
+
+function findControl(clickWheel, ...labels) {
+  const controls = [...clickWheel.matchAll(/<button[\s\S]*?<\/button>/g)].map(
+    ([button]) => button,
+  );
+  const control = controls.find((button) =>
+    labels.every((label) => button.includes(label)),
+  );
+  assert.ok(control, `missing click-wheel control: ${labels.join(" / ")}`);
+  return control;
+}
+
 test("SkillsSection contains the exact approved Figma content", async () => {
   const source = await readSource(
     "src/components/site/about/SkillsSection.tsx",
@@ -57,33 +122,39 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
   );
 
   assert.match(source, /const \[active, setActive\] = useState\(0\)/);
-  assert.match(source, /setActive\(\(current\) =>/);
-  assert.match(source, /setActive\(0\)/);
+  const wheelStart = source.indexOf("{/* Click wheel */}");
+  const wheelEnd = source.indexOf("<p className=", wheelStart);
+  assert.ok(wheelStart >= 0 && wheelEnd > wheelStart, "missing click-wheel region");
+  const clickWheel = source.slice(wheelStart, wheelEnd);
+  const wheelButtons = [...clickWheel.matchAll(/<button[\s\S]*?<\/button>/g)];
+  assert.equal(wheelButtons.length, 5, "the click wheel must contain five controls");
 
-  const labeledControls = [...source.matchAll(/<button[\s\S]*?<\/button>/g)]
-    .map(([button]) => button)
-    .filter((button) => button.includes("aria-label="));
-  assert.equal(
-    labeledControls.length,
-    5,
-    "the click wheel must expose five accessible controls",
+  const menu = findControl(clickWheel, "Volver al inicio", "Back to menu");
+  const previous = findControl(clickWheel, "Canción anterior", "Previous track");
+  const next = findControl(clickWheel, "Siguiente canción", "Next track");
+  const play = findControl(clickWheel, "Reproducir selección", "Play selection");
+  const center = findControl(clickWheel, "Cambiar selección", "Change selection");
+
+  assert.match(
+    readHandlerBody(source, readOnClick(menu)),
+    /setActive\s*\(\s*0\s*\)/,
+    "menu must reset the selection to the first track",
   );
-  for (const control of labeledControls) {
-    assert.match(control, /onClick=/, "each labeled control must be interactive");
-  }
-  for (const label of [
-    "Volver al inicio",
-    "Back to menu",
-    "Canción anterior",
-    "Previous track",
-    "Siguiente canción",
-    "Next track",
-    "Reproducir selección",
-    "Play selection",
-    "Cambiar selección",
-    "Change selection",
+  assert.match(
+    readHandlerBody(source, readOnClick(previous)),
+    /setActive[\s\S]*current\s*-\s*1[\s\S]*%\s*TRACKS\.length/,
+    "previous must decrement and wrap the selection",
+  );
+  for (const [name, control] of [
+    ["next", next],
+    ["play", play],
+    ["center", center],
   ]) {
-    assert.ok(source.includes(label), `missing accessible control label: ${label}`);
+    assert.match(
+      readHandlerBody(source, readOnClick(control)),
+      /setActive[\s\S]*current\s*\+\s*1[\s\S]*%\s*TRACKS\.length/,
+      `${name} must advance and wrap the selection`,
+    );
   }
 
   assert.match(source, /h-\[311px\]/);
