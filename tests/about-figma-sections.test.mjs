@@ -26,7 +26,90 @@ test("SkillsSection contains the exact approved Figma content", async () => {
     assert.ok(source.includes(text), `missing Skills Figma text: ${text}`);
   }
 
+  assert.match(source, /SkillsLogoMarquee/);
+  assert.match(source, /max-w-\[1140px\][^\"]*lg:pt-\[73px\]/);
+  assert.doesNotMatch(source, /lg:mt-\[73px\]/);
+  assert.match(source, /lg:mt-\[107px\]/);
   assert.doesNotMatch(source, /NumberedAccordion|IpodCard|AppSwatchRow/);
+});
+
+test("SkillsLogoMarquee matches the approved logo order and desktop layout", async () => {
+  const source = await readSource(
+    "src/components/site/about/SkillsLogoMarquee.tsx",
+  );
+  const approvedOrder = [
+    '"figma"',
+    '"manychat"',
+    '"photoshop"',
+    '"capcut"',
+    '"framer"',
+    '"illustrator"',
+    '"canva"',
+    '"notion"',
+  ];
+
+  let previousIndex = -1;
+  for (const slug of approvedOrder) {
+    const index = source.indexOf(slug);
+    assert.ok(index > previousIndex, `logo is out of order: ${slug}`);
+    previousIndex = index;
+  }
+
+  assert.match(source, /Design tools/);
+  assert.match(source, /aria-hidden="true"/);
+  assert.match(source, /lg:w-\[954px\]/);
+  assert.match(source, /lg:gap-\[54px\]/);
+  assert.match(source, /size-\[72px\]/);
+  assert.match(source, /rounded-\[18px\]/);
+  assert.match(source, /lg:hidden/);
+});
+
+test("SkillsLogoMarquee animates only below desktop and supports reduced motion", async () => {
+  const source = await readSource("src/app/globals.css");
+
+  assert.match(source, /@keyframes skills-logo-marquee/);
+  assert.match(source, /@media \(max-width: 1023px\)/);
+  assert.match(
+    source,
+    /\.skills-logo-track\s*\{[^}]*animation:\s*skills-logo-marquee/s,
+  );
+  assert.match(source, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(source, /\.skills-logo-viewport\s*\{[^}]*overflow-x:\s*auto/s);
+});
+
+test("SkillsLogoMarquee offers a localized mobile pause control", async () => {
+  const component = await readSource(
+    "src/components/site/about/SkillsLogoMarquee.tsx",
+  );
+  const styles = await readSource("src/app/globals.css");
+  const section = await readSource(
+    "src/components/site/about/SkillsSection.tsx",
+  );
+
+  assert.match(component, /^"use client";/);
+  assert.match(component, /useState\(false\)/);
+  assert.match(component, /aria-pressed=\{isPaused\}/);
+  assert.match(component, /Pause logo animation/);
+  assert.match(component, /Resume logo animation/);
+  assert.match(component, /Pausar animación de logos/);
+  assert.match(component, /Reanudar animación de logos/);
+  assert.match(component, /Herramientas de diseño/);
+  assert.match(component, /skills-logo-toggle[^\"]*lg:hidden/);
+  assert.match(component, /data-paused=\{isPaused\}/);
+  assert.match(section, /<SkillsLogoMarquee locale=\{locale\} \/>/);
+  assert.match(
+    styles,
+    /\[data-paused="true"\][^}]*animation-play-state:\s*paused/s,
+  );
+  assert.ok(
+    styles.indexOf('[data-paused="true"]') >
+      styles.indexOf("animation: skills-logo-marquee"),
+    "paused play-state must follow the mobile animation shorthand in the cascade",
+  );
+  assert.match(
+    styles,
+    /@media \(prefers-reduced-motion: reduce\)[\s\S]*\.skills-logo-toggle\s*\{[^}]*display:\s*none/s,
+  );
 });
 
 test("JourneySection contains the exact approved Figma content and asset", async () => {
