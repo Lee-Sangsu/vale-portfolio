@@ -1,6 +1,65 @@
 import Image from "next/image";
 import type { Locale } from "@/content/types";
-import { aboutLong } from "@/content/about";
+
+const STORY_COPY = {
+  en: [
+    <>
+      What has always driven me is one question:{" "}
+      <strong className="font-semibold text-white">
+        what can I build that does not exist yet, and whose life can it change?
+      </strong>{" "}
+      That curiosity has defined the career I chose, the teams I have joined, and
+      the way I work to this day.
+    </>,
+    <>
+      That path has led me to very different things: co-founding companies,
+      connecting talent between Latin America and Korea, setting up an innovation
+      lab in Seoul, creating brands for Colombian coffee growers in Berlin, and
+      designing products for a global community of women travelers. The contexts
+      could not be more different, yet the pattern has always been the same:{" "}
+      <strong className="font-semibold text-white">
+        understand quickly, propose, and execute
+      </strong>
+      .
+    </>,
+    <>
+      <strong className="font-semibold text-white">
+        Along the way, I found what truly drives me: creating.
+      </strong>{" "}
+      Every new proposal and every idea that starts from scratch fascinates me.
+      Because to me, a project does not end when it is delivered; it ends when it
+      changes something.
+    </>,
+  ],
+  es: [
+    <>
+      Lo que siempre me ha movido es una pregunta:{" "}
+      <strong className="font-semibold text-white">
+        qué puedo construir que todavía no existe, y a quién puede cambiarle algo.
+      </strong>{" "}
+      Esa inquietud definió la carrera que escogí, los equipos a los que me he unido
+      y la manera en que trabajo hasta hoy.
+    </>,
+    <>
+      Por esa puerta entraron cosas muy distintas: co-fundar compañías, conectar
+      talento entre Latinoamérica y Corea, montar un laboratorio de innovación en
+      Seúl, crear marcas para cafeteros colombianos en Berlín y diseñar producto
+      para una comunidad global de viajeras. Contextos que no se parecen en nada, y
+      en todos el mismo patrón:{" "}
+      <strong className="font-semibold text-white">
+        entender rápido, proponer y ejecutar
+      </strong>
+      .
+    </>,
+    <>
+      <strong className="font-semibold text-white">
+        En el camino encontré lo que me mueve de verdad: crear.
+      </strong>{" "}
+      Cada propuesta nueva, cada idea que arranca de cero, me fascina. Porque para
+      mí un proyecto no termina cuando se entrega; termina cuando cambia algo.
+    </>,
+  ],
+} as const;
 
 const COLLAGE_PHOTOS = {
   primary: "/pages/about/figma/story-collage-primary.png",
@@ -13,6 +72,14 @@ const COLLAGE_PHOTOS = {
 } as const;
 
 type StoryPhotoName = keyof typeof COLLAGE_PHOTOS;
+
+function StoryParagraphs({ locale }: { locale: Locale }) {
+  return STORY_COPY[locale].map((paragraph, index) => (
+    <p key={index} className={index === 0 ? undefined : "mt-4"}>
+      {paragraph}
+    </p>
+  ));
+}
 
 function StoryPhoto({
   name,
@@ -40,7 +107,6 @@ function StoryPhoto({
 
 export function MyStory({ locale }: { locale: Locale }) {
   const es = locale === "es";
-  const intro = `${aboutLong.paragraphs[1][locale]} ${aboutLong.paragraphs[2][locale]}`;
 
   return (
     <section id="story" className="scroll-mt-24 overflow-hidden bg-[#111] text-white">
@@ -57,9 +123,9 @@ export function MyStory({ locale }: { locale: Locale }) {
           {es ? "Mi historia" : "My story"}
         </h2>
 
-        <p className="font-inter mt-5 text-[17px] leading-[27px] text-[#c9cdd0] sm:text-[18px] sm:leading-[29px]">
-          {intro}
-        </p>
+        <div className="font-inter mt-5 text-[17px] leading-[27px] text-[#c9cdd0] sm:text-[18px] sm:leading-[29px]">
+          <StoryParagraphs locale={locale} />
+        </div>
 
         <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4">
           <StoryPhoto
@@ -103,9 +169,9 @@ export function MyStory({ locale }: { locale: Locale }) {
           {es ? "Mi historia" : "My story"}
         </h2>
 
-        <p className="font-inter absolute left-1/2 top-[25.76%] z-10 w-[50.35%] -translate-x-1/2 text-center text-[clamp(15px,1.05vw,18px)] leading-[1.5] text-[#c9cdd0]">
-          {intro}
-        </p>
+        <div className="font-inter absolute left-1/2 top-[25.76%] z-10 w-[50.35%] -translate-x-1/2 text-center text-[clamp(12px,1.053vw,18px)] leading-[1.5] text-[#c9cdd0]">
+          <StoryParagraphs locale={locale} />
+        </div>
 
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 aspect-[1710/1219]">
           <StoryPhoto
