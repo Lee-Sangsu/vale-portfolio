@@ -7,6 +7,10 @@ const aboutHeroUrl = new URL(
   "../src/components/site/about/AboutHero.tsx",
   import.meta.url,
 );
+const aboutPageUrl = new URL(
+  "../src/app/[locale]/about/page.tsx",
+  import.meta.url,
+);
 const skillsSectionUrl = new URL(
   "../src/components/site/about/SkillsSection.tsx",
   import.meta.url,
@@ -49,6 +53,33 @@ test("about content includes CV credentials and methods", async () => {
   assert.match(source, /AI prototyping/);
 });
 
+test("About hero renders the approved localized tagline", async () => {
+  const [content, hero] = await Promise.all([
+    readFile(aboutContentUrl, "utf8"),
+    readFile(aboutHeroUrl, "utf8"),
+  ]);
+
+  assert.match(content, /export const aboutHeroTagline/);
+  assert.match(content, /Innovation, creativity and action/);
+  assert.match(content, /Innovación, creatividad y acción/);
+  assert.match(hero, /aboutHeroTagline/);
+  assert.match(hero, /aboutHeroTagline\[locale\]/);
+  assert.doesNotMatch(hero, /professionalPositioning/);
+});
+
+test("About page uses the long positioning copy as localized metadata", async () => {
+  const page = await readFile(aboutPageUrl, "utf8");
+
+  assert.match(page, /import type \{ Metadata \} from "next"/);
+  assert.match(page, /professionalPositioning/);
+  assert.match(page, /export async function generateMetadata/);
+  assert.match(page, /description:\s*professionalPositioning\[locale\]/);
+  assert.match(
+    page,
+    /openGraph:\s*\{[\s\S]*description:\s*professionalPositioning\[locale\]/,
+  );
+});
+
 test("existing About sections render the current localized content responsively", async () => {
   const [hero, skills, journey] = await Promise.all([
     readFile(aboutHeroUrl, "utf8"),
@@ -56,8 +87,8 @@ test("existing About sections render the current localized content responsively"
     readFile(journeySectionUrl, "utf8"),
   ]);
 
-  assert.match(hero, /professionalPositioning/);
-  assert.match(hero, /professionalPositioning\[locale\]/);
+  assert.match(hero, /aboutHeroTagline/);
+  assert.match(hero, /aboutHeroTagline\[locale\]/);
   assert.match(skills, /const SKILLS/);
   assert.match(skills, /SKILLS\[locale\]/);
   assert.match(journey, /const JOURNEY/);

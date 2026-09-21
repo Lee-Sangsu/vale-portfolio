@@ -17,6 +17,11 @@ export const aboutShort: LocalizedString = {
 
 export const professionalPositioning: LocalizedString = aboutShort;
 
+export const aboutHeroTagline: LocalizedString = {
+  en: "Innovation, creativity and action",
+  es: "Innovación, creatividad y acción",
+};
+
 export const professionalSkills: Localized<string[]> = {
   en: [
     "I combine strategic thinking and visual sensibility to design brands, digital products and experiences aligned with real business goals.",

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Locale } from "@/content/types";
-import { professionalPositioning } from "@/content/about";
+import { aboutHeroTagline } from "@/content/about";
 import { SiteNav } from "@/components/site/SiteNav";
 
 /**
@@ -134,7 +134,7 @@ export function AboutHero({ locale }: { locale: Locale }) {
         </h1>
 
         <p className="mt-7 max-w-[620px] px-3 font-inter text-[15px] font-bold leading-snug text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:text-[20px]">
-          {professionalPositioning[locale]}
+          {aboutHeroTagline[locale]}
         </p>
 
         <a
