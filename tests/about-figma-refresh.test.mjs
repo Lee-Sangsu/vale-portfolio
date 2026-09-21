@@ -97,6 +97,16 @@ test("My Story contains the approved localized narrative with explicit emphasis"
   assert.doesNotMatch(source, /const\s+intro\s*=\s*`/);
 });
 
+test("My Story maps the current locale's narrative into rendered paragraphs", async () => {
+  const source = await readSource("src/components/site/about/MyStory.tsx");
+
+  assert.match(
+    source,
+    /STORY_COPY\s*\[\s*locale\s*\]\s*\.map\s*\(/,
+    "rendered story paragraphs must be mapped from STORY_COPY[locale]",
+  );
+});
+
 test("Sneak Peek renders the six local Figma images instead of linked project cards", async () => {
   const source = await readSource("src/components/site/about/SneakPeek.tsx");
 
