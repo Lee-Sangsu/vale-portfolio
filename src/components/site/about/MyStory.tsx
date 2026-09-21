@@ -169,7 +169,7 @@ export function MyStory({ locale }: { locale: Locale }) {
           {es ? "Mi historia" : "My story"}
         </h2>
 
-        <div className="font-inter absolute left-1/2 top-[25.76%] z-10 w-[50.35%] -translate-x-1/2 text-center text-[18px] leading-[1.5] text-[#c9cdd0]">
+        <div className="font-inter absolute left-1/2 top-[25.76%] z-10 w-[50.35%] -translate-x-1/2 text-center text-[clamp(12px,1.053vw,18px)] leading-[1.5] text-[#c9cdd0]">
           <StoryParagraphs locale={locale} />
         </div>
 
