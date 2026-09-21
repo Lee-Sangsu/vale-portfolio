@@ -135,6 +135,20 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
   const play = findControl(clickWheel, "Reproducir selección", "Play selection");
   const center = findControl(clickWheel, "Cambiar selección", "Change selection");
 
+  for (const [name, control] of [
+    ["menu", menu],
+    ["previous", previous],
+    ["next", next],
+    ["play", play],
+    ["center", center],
+  ]) {
+    const targetSize = Number(control.match(/size-\[(\d+)px\]/)?.[1]);
+    assert.ok(
+      targetSize >= 24,
+      `${name} must provide at least a 24px square touch target`,
+    );
+  }
+
   assert.match(
     readHandlerBody(source, readOnClick(menu)),
     /setActive\s*\(\s*0\s*\)/,
@@ -187,6 +201,20 @@ test("IpodCard renders five chrome stars and honors reduced motion", async () =>
     stars.match(/className:/g)?.length,
     5,
     "the Figma composition contains exactly five chrome stars",
+  );
+  for (const offset of [
+    "2xl:left-[317px] 2xl:top-[-86px]",
+    "2xl:left-[189px] 2xl:top-[-32px]",
+    "2xl:left-[-91px] 2xl:top-[-134px]",
+    "2xl:left-[250px] 2xl:top-[169px]",
+    "2xl:left-[-124px] 2xl:top-[160px]",
+  ]) {
+    assert.ok(stars.includes(offset), `missing 1536px star offset: ${offset}`);
+  }
+  assert.doesNotMatch(
+    stars,
+    /(?:^|\s)xl:(?:left|top)-/,
+    "the full Figma star spread must not activate below 1536px",
   );
   assert.match(source, /skills-red-star\.png/);
   const reducedMotionName = source.match(

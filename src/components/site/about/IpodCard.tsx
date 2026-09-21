@@ -19,31 +19,31 @@ type Track = { en: string; es: string; metaEn: string; metaEs: string };
 
 const STARS: Star[] = [
   {
-    className: "left-[159px] top-[-43px] xl:left-[317px] xl:top-[-86px]",
+    className: "left-[159px] top-[-43px] 2xl:left-[317px] 2xl:top-[-86px]",
     width: 40,
     height: 37,
     rotate: 0,
   },
   {
-    className: "left-[95px] top-[-16px] xl:left-[189px] xl:top-[-32px]",
+    className: "left-[95px] top-[-16px] 2xl:left-[189px] 2xl:top-[-32px]",
     width: 65,
     height: 61,
     rotate: 0,
   },
   {
-    className: "left-[-46px] top-[-67px] xl:left-[-91px] xl:top-[-134px]",
+    className: "left-[-46px] top-[-67px] 2xl:left-[-91px] 2xl:top-[-134px]",
     width: 28,
     height: 26,
     rotate: 0,
   },
   {
-    className: "left-[125px] top-[85px] xl:left-[250px] xl:top-[169px]",
+    className: "left-[125px] top-[85px] 2xl:left-[250px] 2xl:top-[169px]",
     width: 36,
     height: 34,
     rotate: 0,
   },
   {
-    className: "left-[-62px] top-[80px] xl:left-[-124px] xl:top-[160px]",
+    className: "left-[-62px] top-[80px] 2xl:left-[-124px] 2xl:top-[160px]",
     width: 61,
     height: 58,
     rotate: 0,
@@ -170,33 +170,47 @@ export function IpodCard({ locale }: { locale: Locale }) {
             type="button"
             onClick={controls.menu}
             aria-label={es ? "Volver al inicio" : "Back to menu"}
-            className="absolute top-[11px] left-1/2 -translate-x-1/2 text-[9px] font-semibold tracking-wide text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
+            className="absolute top-0 left-[44px] size-[28px] rounded-full text-[9px] font-semibold tracking-wide text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            MENU
+            <span aria-hidden="true" className="absolute top-[11px] left-px">
+              MENU
+            </span>
           </button>
           <button
             type="button"
             onClick={controls.previous}
             aria-label={es ? "Canción anterior" : "Previous track"}
-            className="absolute top-[52px] left-[12px] text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
+            className="absolute top-[40px] left-0 size-[28px] rounded-full text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            ◄◄
+            <span
+              aria-hidden="true"
+              className="absolute top-[12px] left-[12px]"
+            >
+              ◄◄
+            </span>
           </button>
           <button
             type="button"
             onClick={controls.next}
             aria-label={es ? "Siguiente canción" : "Next track"}
-            className="absolute top-[52px] left-[85px] text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
+            className="absolute top-[40px] left-[82px] size-[28px] rounded-full text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            ►►
+            <span aria-hidden="true" className="absolute top-[12px] left-[3px]">
+              ►►
+            </span>
           </button>
           <button
             type="button"
             onClick={controls.next}
             aria-label={es ? "Reproducir selección" : "Play selection"}
-            className="absolute top-[90px] left-[53.5px] text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
+            className="absolute top-[82px] left-[46px] size-[28px] rounded-full text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            ►
+            <span
+              aria-hidden="true"
+              className="absolute top-[8px] left-[7.5px]"
+            >
+              ►
+            </span>
           </button>
           <button
             type="button"
