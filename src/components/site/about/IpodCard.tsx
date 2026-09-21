@@ -2,22 +2,52 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import type { Locale } from "@/content/types";
 
 /**
  * iPod card for the Skills section. The screen behaves like a tiny playlist,
  * controlled by the click wheel below it.
  */
-type Star = { className: string; size: number; rotate: number };
+type Star = {
+  className: string;
+  width: number;
+  height: number;
+  rotate: number;
+};
 type Track = { en: string; es: string; metaEn: string; metaEs: string };
 
 const STARS: Star[] = [
-  { className: "-left-7 top-2", size: 58, rotate: -12 },
-  { className: "-right-8 top-10", size: 65, rotate: 14 },
-  { className: "-left-4 bottom-8", size: 36, rotate: 8 },
-  { className: "-right-5 bottom-2", size: 48, rotate: -18 },
-  { className: "left-[87px] -top-7", size: 26, rotate: 6 },
+  {
+    className: "left-[159px] top-[-43px] 2xl:left-[317px] 2xl:top-[-86px]",
+    width: 40,
+    height: 37,
+    rotate: 0,
+  },
+  {
+    className: "left-[95px] top-[-16px] 2xl:left-[189px] 2xl:top-[-32px]",
+    width: 65,
+    height: 61,
+    rotate: 0,
+  },
+  {
+    className: "left-[-46px] top-[-67px] 2xl:left-[-91px] 2xl:top-[-134px]",
+    width: 28,
+    height: 26,
+    rotate: 0,
+  },
+  {
+    className: "left-[125px] top-[85px] 2xl:left-[250px] 2xl:top-[169px]",
+    width: 36,
+    height: 34,
+    rotate: 0,
+  },
+  {
+    className: "left-[-62px] top-[80px] 2xl:left-[-124px] 2xl:top-[160px]",
+    width: 61,
+    height: 58,
+    rotate: 0,
+  },
 ];
 
 const TRACKS: Track[] = [
@@ -50,6 +80,7 @@ const TRACKS: Track[] = [
 export function IpodCard({ locale }: { locale: Locale }) {
   const es = locale === "es";
   const [active, setActive] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
   const activeTrack = TRACKS[active];
 
   const controls = useMemo(
@@ -63,7 +94,7 @@ export function IpodCard({ locale }: { locale: Locale }) {
   );
 
   return (
-    <div className="relative w-[200px]">
+    <div className="relative h-[365px] w-[160px] overflow-visible">
       {/* Chrome stars */}
       {STARS.map((s, i) => (
         <motion.div
@@ -74,61 +105,60 @@ export function IpodCard({ locale }: { locale: Locale }) {
           dragElastic={0.14}
           dragMomentum={false}
           initial={{ rotate: s.rotate }}
-          animate={{ rotate: s.rotate + 360 }}
+          animate={{
+            rotate: shouldReduceMotion ? s.rotate : s.rotate + 360,
+          }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.94 }}
           transition={{
             rotate: {
               duration: 9 + i * 1.4,
               ease: "linear",
-              repeat: Infinity,
+              repeat: shouldReduceMotion ? 0 : Infinity,
             },
           }}
+          style={{ width: s.width, height: s.height }}
         >
           <Image
             src="/pages/about/figma/skills-red-star.png"
             alt=""
-            width={s.size}
-            height={s.size}
+            fill
+            sizes="65px"
             draggable={false}
-            className="h-auto select-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)]"
-            style={{ width: s.size }}
+            className="object-fill drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)] select-none"
           />
         </motion.div>
       ))}
 
       {/* iPod body */}
-      <div className="relative flex flex-col items-center gap-5 rounded-[18px] border border-[#e0e0da] bg-[#fafaf8] px-5 pb-6 pt-5 shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
+      <div className="relative h-[311px] w-[160px] rounded-[18px] border border-[#e0e0da] bg-[#fafaf8] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
         {/* Screen */}
-        <div className="flex h-[150px] w-full flex-col rounded-[6px] bg-[#8e9590] p-2 text-white/90">
-          <div className="flex items-center justify-between text-[9px] font-semibold tracking-wide text-white/70">
-            <span>{es ? "Música" : "MENU"}</span>
-            <span aria-hidden="true">▶</span>
+        <div className="absolute top-[13px] left-[12px] flex h-[82px] w-[134px] flex-col rounded-[6px] bg-[#8e9590] px-[7px] py-[6px] text-white/90">
+          <div className="flex items-center justify-between text-[7px] font-semibold tracking-[0.08em] text-white/70 uppercase">
+            <span>{es ? "Música" : "Music"}</span>
+            <span aria-hidden="true">▰</span>
           </div>
-          <div className="mt-2 flex flex-1 flex-col justify-center gap-[6px] px-1">
-            {TRACKS.map((track, i) => (
-              <button
-                key={track.en}
-                type="button"
-                onClick={() => setActive(i)}
-                className={
-                  "truncate rounded-[3px] px-1 text-left text-[10px] transition-colors " +
-                  (i === active
-                    ? "bg-white/85 font-semibold text-[#3c423e]"
-                    : "text-white/85 hover:bg-white/15")
-                }
-              >
-                {track[locale]}
-              </button>
-            ))}
+          <div
+            aria-live="polite"
+            className="flex min-h-0 flex-1 flex-col justify-center"
+          >
+            <p className="truncate text-[10px] leading-tight font-semibold text-white">
+              {activeTrack[locale]}
+            </p>
+            <p className="mt-1 truncate text-[8px] leading-none text-white/70">
+              {es ? activeTrack.metaEs : activeTrack.metaEn}
+            </p>
           </div>
-          <div className="mt-1 min-h-[18px] rounded-[4px] bg-black/10 px-1.5 py-1 text-[9px] font-medium leading-none text-white/80">
-            {es ? activeTrack.metaEs : activeTrack.metaEn}
+          <div className="h-[2px] overflow-hidden rounded-full bg-black/15">
+            <div
+              className="h-full bg-white/70 transition-[width]"
+              style={{ width: `${((active + 1) / TRACKS.length) * 100}%` }}
+            />
           </div>
         </div>
 
         {/* Click wheel */}
-        <div className="relative size-[118px]">
+        <div className="absolute top-[139px] left-[20px] size-[118px]">
           <Image
             src="/pages/about/figma/ipod-clickwheel-outer.svg"
             alt=""
@@ -140,39 +170,53 @@ export function IpodCard({ locale }: { locale: Locale }) {
             type="button"
             onClick={controls.menu}
             aria-label={es ? "Volver al inicio" : "Back to menu"}
-            className="absolute left-1/2 top-2 -translate-x-1/2 text-[9px] font-semibold tracking-wide text-[#888] transition-colors hover:text-[#333]"
+            className="absolute top-0 left-[44px] size-[28px] rounded-full text-[9px] font-semibold tracking-wide text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            MENU
+            <span aria-hidden="true" className="absolute top-[11px] left-px">
+              MENU
+            </span>
           </button>
           <button
             type="button"
             onClick={controls.previous}
             aria-label={es ? "Canción anterior" : "Previous track"}
-            className="absolute left-2 top-1/2 -translate-y-1/2 text-[11px] text-[#888] transition-colors hover:text-[#333]"
+            className="absolute top-[40px] left-0 size-[28px] rounded-full text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            ◄◄
+            <span
+              aria-hidden="true"
+              className="absolute top-[12px] left-[12px]"
+            >
+              ◄◄
+            </span>
           </button>
           <button
             type="button"
             onClick={controls.next}
             aria-label={es ? "Siguiente canción" : "Next track"}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-[11px] text-[#888] transition-colors hover:text-[#333]"
+            className="absolute top-[40px] left-[82px] size-[28px] rounded-full text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            ►►
+            <span aria-hidden="true" className="absolute top-[12px] left-[3px]">
+              ►►
+            </span>
           </button>
           <button
             type="button"
             onClick={controls.next}
             aria-label={es ? "Reproducir selección" : "Play selection"}
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[11px] text-[#888] transition-colors hover:text-[#333]"
+            className="absolute top-[82px] left-[46px] size-[28px] rounded-full text-[11px] leading-none text-[#888] transition-colors hover:text-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
-            ►
+            <span
+              aria-hidden="true"
+              className="absolute top-[8px] left-[7.5px]"
+            >
+              ►
+            </span>
           </button>
           <button
             type="button"
             onClick={controls.next}
             aria-label={es ? "Cambiar selección" : "Change selection"}
-            className="absolute left-1/2 top-1/2 size-[46px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+            className="absolute top-[36px] left-[36px] size-[46px] rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
           >
             <Image
               src="/pages/about/figma/ipod-clickwheel-inner.svg"
@@ -185,8 +229,20 @@ export function IpodCard({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <p className="mt-3 text-center font-inter text-[13px] text-muted">
-        {es ? "El iPod de Val · portfolio mix" : "Val's iPod · portfolio mix"}
+      <p className="font-inter text-muted absolute top-[325px] left-1/2 w-[240px] -translate-x-1/2 text-center text-[14px] leading-[1.3]">
+        {es ? (
+          <>
+            Empecemos con música,
+            <br />
+            dale click a una canción ·.°☆
+          </>
+        ) : (
+          <>
+            Let&apos;s start with music,
+            <br />
+            click a song ·.°☆
+          </>
+        )}
       </p>
     </div>
   );

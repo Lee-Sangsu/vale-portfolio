@@ -27,7 +27,7 @@ const orderedTools = TOOL_ORDER.map((slug) => {
 });
 
 const groupClassName =
-  "flex shrink-0 gap-6 pr-6 lg:w-[954px] lg:gap-[54px] lg:pr-0";
+  "flex shrink-0 gap-6 pr-6 xl:w-[954px] xl:gap-[54px] xl:pr-0";
 
 const LABELS: Record<Locale, { list: string; pause: string; resume: string }> =
   {
@@ -72,17 +72,17 @@ export function SkillsLogoMarquee({ locale }: { locale: Locale }) {
   return (
     <div>
       <div
-        className="skills-logo-viewport lg:overflow-visible"
+        className="skills-logo-viewport xl:overflow-visible"
         data-paused={isPaused}
       >
-        <div className="skills-logo-track flex w-max lg:w-full lg:justify-center">
+        <div className="skills-logo-track flex w-max xl:w-full xl:justify-center">
           <ul aria-label={LABELS[locale].list} className={groupClassName}>
             {orderedTools.map((tool) => (
               <LogoChip key={tool.slug} {...tool} />
             ))}
           </ul>
 
-          <ul aria-hidden="true" className={`${groupClassName} lg:hidden`}>
+          <ul aria-hidden="true" className={`${groupClassName} xl:hidden`}>
             {orderedTools.map((tool) => (
               <LogoChip key={tool.slug} {...tool} decorative />
             ))}
@@ -96,7 +96,7 @@ export function SkillsLogoMarquee({ locale }: { locale: Locale }) {
         aria-pressed={isPaused}
         title={controlLabel}
         onClick={() => setIsPaused((paused) => !paused)}
-        className="skills-logo-toggle text-ink2 mt-2 ml-auto flex size-9 items-center justify-center rounded-full border border-[#d6d6d0] bg-white text-[14px] shadow-sm lg:hidden"
+        className="skills-logo-toggle text-ink2 mt-2 ml-auto flex size-9 items-center justify-center rounded-full border border-[#d6d6d0] bg-white text-[14px] shadow-sm xl:hidden"
       >
         <span aria-hidden="true">{isPaused ? "▶" : "Ⅱ"}</span>
       </button>
