@@ -223,6 +223,16 @@ test("IpodCard renders five chrome stars and honors reduced motion", async () =>
     "the full Figma star spread must not activate below 1536px",
   );
   assert.match(source, /skills-red-star\.png/);
+  assert.match(
+    source,
+    /<motion\.div[\s\S]*?style=\{\{ width: s\.width, height: s\.height \}\}[\s\S]*?<Image[\s\S]*?skills-red-star\.png[\s\S]*?\bfill\b[\s\S]*?object-fill/,
+    "star geometry must live on the motion wrapper around a fill image",
+  );
+  assert.doesNotMatch(
+    source,
+    /(?:width|height)=\{s\.(?:width|height)\}/,
+    "dynamic image dimensions trigger a Next aspect-ratio warning",
+  );
   const reducedMotionName = source.match(
     /const\s+(\w+)\s*=\s*useReducedMotion\(\)/,
   )?.[1];

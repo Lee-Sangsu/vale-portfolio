@@ -117,15 +117,15 @@ export function IpodCard({ locale }: { locale: Locale }) {
               repeat: shouldReduceMotion ? 0 : Infinity,
             },
           }}
+          style={{ width: s.width, height: s.height }}
         >
           <Image
             src="/pages/about/figma/skills-red-star.png"
             alt=""
-            width={s.width}
-            height={s.height}
+            fill
+            sizes="65px"
             draggable={false}
-            className="drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)] select-none"
-            style={{ width: s.width, height: s.height }}
+            className="object-fill drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)] select-none"
           />
         </motion.div>
       ))}
