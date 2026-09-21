@@ -5,6 +5,9 @@ import test from "node:test";
 const readSource = (path) =>
   readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
+const escapeRegExp = (value) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 test("My Story contains the approved localized narrative with explicit emphasis", async () => {
   const source = await readSource("src/components/site/about/MyStory.tsx");
   const approvedCopy = [
@@ -28,7 +31,23 @@ test("My Story contains the approved localized narrative with explicit emphasis"
     assert.ok(source.includes(fragment), `missing approved story copy: ${fragment}`);
   }
 
-  assert.match(source, /<strong\b[^>]*>/, "story emphasis must use semantic strong elements");
+  const emphasizedCopy = [
+    "qué puedo construir que todavía no existe, y a quién puede cambiarle algo.",
+    "entender rápido, proponer y ejecutar",
+    "En el camino encontré lo que me mueve de verdad: crear.",
+    "what can I build that does not exist yet, and whose life can it change?",
+    "understand quickly, propose, and execute",
+    "Along the way, I found what truly drives me: creating.",
+  ];
+
+  for (const phrase of emphasizedCopy) {
+    assert.match(
+      source,
+      new RegExp(`<strong\\b[^>]*>\\s*${escapeRegExp(phrase)}\\s*</strong>`),
+      `approved story emphasis must be wrapped in <strong>: ${phrase}`,
+    );
+  }
+
   assert.doesNotMatch(source, /\baboutLong\b/);
   assert.doesNotMatch(source, /const\s+intro\s*=\s*`/);
 });
@@ -45,9 +64,8 @@ test("Sneak Peek renders the six local Figma images instead of linked project ca
   }
 
   assert.match(source, /<Image\b/, "the gallery must render Next Image elements");
-  assert.doesNotMatch(source, /import\s+Link\s+from\s+["']next\/link["']/);
-  assert.doesNotMatch(source, /import\s+\{[^}]*\bheroes\b[^}]*\}\s+from/);
+  assert.doesNotMatch(source, /\bLink\b/);
+  assert.doesNotMatch(source, /\bheroes\b/);
   assert.doesNotMatch(source, /\bHERO_MANIFEST\b/);
-  assert.doesNotMatch(source, /<Link\b/);
-  assert.doesNotMatch(source, /href=\{?`?\/work\//);
+  assert.doesNotMatch(source, /\/work\//);
 });
