@@ -26,7 +26,54 @@ test("SkillsSection contains the exact approved Figma content", async () => {
     assert.ok(source.includes(text), `missing Skills Figma text: ${text}`);
   }
 
+  assert.match(source, /SkillsLogoMarquee/);
+  assert.match(source, /lg:mt-\[73px\]/);
+  assert.match(source, /lg:mt-\[107px\]/);
   assert.doesNotMatch(source, /NumberedAccordion|IpodCard|AppSwatchRow/);
+});
+
+test("SkillsLogoMarquee matches the approved logo order and desktop layout", async () => {
+  const source = await readSource(
+    "src/components/site/about/SkillsLogoMarquee.tsx",
+  );
+  const approvedOrder = [
+    '"figma"',
+    '"manychat"',
+    '"photoshop"',
+    '"capcut"',
+    '"framer"',
+    '"illustrator"',
+    '"canva"',
+    '"notion"',
+  ];
+
+  let previousIndex = -1;
+  for (const slug of approvedOrder) {
+    const index = source.indexOf(slug);
+    assert.ok(index > previousIndex, `logo is out of order: ${slug}`);
+    previousIndex = index;
+  }
+
+  assert.match(source, /aria-label="Design tools"/);
+  assert.match(source, /aria-hidden="true"/);
+  assert.match(source, /lg:w-\[954px\]/);
+  assert.match(source, /lg:gap-\[54px\]/);
+  assert.match(source, /size-\[72px\]/);
+  assert.match(source, /rounded-\[18px\]/);
+  assert.match(source, /lg:hidden/);
+});
+
+test("SkillsLogoMarquee animates only below desktop and supports reduced motion", async () => {
+  const source = await readSource("src/app/globals.css");
+
+  assert.match(source, /@keyframes skills-logo-marquee/);
+  assert.match(source, /@media \(max-width: 1023px\)/);
+  assert.match(
+    source,
+    /\.skills-logo-track\s*\{[^}]*animation:\s*skills-logo-marquee/s,
+  );
+  assert.match(source, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(source, /\.skills-logo-viewport\s*\{[^}]*overflow-x:\s*auto/s);
 });
 
 test("JourneySection contains the exact approved Figma content and asset", async () => {

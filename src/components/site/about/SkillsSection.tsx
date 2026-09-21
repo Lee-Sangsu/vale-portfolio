@@ -1,4 +1,5 @@
 import type { Locale } from "@/content/types";
+import { SkillsLogoMarquee } from "./SkillsLogoMarquee";
 
 type Skill = {
   title: string;
@@ -59,8 +60,12 @@ export function SkillsSection({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 lg:min-h-[920px] lg:px-16 lg:py-0">
-      <div className="mx-auto max-w-[1140px] lg:pt-[252px]">
-        <div className="max-w-[560px] lg:hidden">
+      <div className="mx-auto max-w-[1140px]">
+        <div className="lg:mt-[73px]">
+          <SkillsLogoMarquee />
+        </div>
+
+        <div className="mt-14 max-w-[560px] sm:mt-16 lg:hidden">
           <h2 className="font-inter text-ink2 text-[36px] leading-[normal] font-bold sm:text-[48px]">
             {locale === "es" ? "Habilidades" : "Skills"}
           </h2>
@@ -89,7 +94,7 @@ export function SkillsSection({ locale }: { locale: Locale }) {
           </p>
         </div>
 
-        <div className="relative hidden h-[597px] w-[560px] lg:block">
+        <div className="relative hidden h-[597px] w-[560px] lg:mt-[107px] lg:block">
           <h2 className="font-inter text-ink2 absolute top-0 left-0 text-[48px] leading-[normal] font-bold">
             {locale === "es" ? "Habilidades" : "Skills"}
           </h2>

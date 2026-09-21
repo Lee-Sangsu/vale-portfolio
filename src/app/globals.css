@@ -343,6 +343,23 @@
     .marquee-track { animation: none; }
   }
 
+  /* Skills tool logos: a marquee on compact screens, a fixed Figma row on desktop. */
+  @keyframes skills-logo-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .skills-logo-viewport { overflow-x: hidden; }
+  @media (max-width: 1023px) {
+    .skills-logo-track {
+      animation: skills-logo-marquee 24s linear infinite;
+      will-change: transform;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skills-logo-track { animation: none; }
+    .skills-logo-viewport { overflow-x: auto; }
+  }
+
   /* === Grid === */
   .grid-editorial {
     display: grid;
