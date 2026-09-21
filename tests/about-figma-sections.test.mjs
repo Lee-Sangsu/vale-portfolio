@@ -161,8 +161,19 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
   assert.match(source, /w-\[160px\]/);
   assert.match(source, /h-\[82px\]/);
   assert.match(source, /size-\[118px\]/);
-  assert.match(source, /Empecemos con música, dale click a una canción ·\.°☆/);
-  assert.match(source, /Let's start with music, click a song ·\.°☆/);
+  assert.match(source, /rounded-\[18px\]/);
+  assert.match(source, /border-\[#e0e0da\]/);
+  assert.match(source, /bg-\[#fafaf8\]/);
+  assert.match(source, /h-\[82px\][^\"]*rounded-\[6px\]/);
+  assert.match(source, /top-\[325px\][^\"]*w-\[240px\][^\"]*text-\[14px\]/);
+  assert.match(
+    source,
+    /Empecemos con música,\s*<br \/>\s*dale click a una canción ·\.°☆/,
+  );
+  assert.match(
+    source,
+    /Let(?:&apos;|')s start with music,\s*<br \/>\s*click a song ·\.°☆/,
+  );
 });
 
 test("IpodCard renders five chrome stars and honors reduced motion", async () => {

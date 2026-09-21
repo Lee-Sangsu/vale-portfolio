@@ -131,9 +131,9 @@ export function IpodCard({ locale }: { locale: Locale }) {
       ))}
 
       {/* iPod body */}
-      <div className="relative h-[311px] w-[160px] rounded-[8px] border border-[#deded9] bg-[#f7f7f4] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
+      <div className="relative h-[311px] w-[160px] rounded-[18px] border border-[#e0e0da] bg-[#fafaf8] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
         {/* Screen */}
-        <div className="absolute top-[13px] left-[12px] flex h-[82px] w-[134px] flex-col rounded-[3px] bg-[#8e9590] px-[7px] py-[6px] text-white/90">
+        <div className="absolute top-[13px] left-[12px] flex h-[82px] w-[134px] flex-col rounded-[6px] bg-[#8e9590] px-[7px] py-[6px] text-white/90">
           <div className="flex items-center justify-between text-[7px] font-semibold tracking-[0.08em] text-white/70 uppercase">
             <span>{es ? "Música" : "Music"}</span>
             <span aria-hidden="true">▰</span>
@@ -215,10 +215,20 @@ export function IpodCard({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <p className="font-inter text-muted absolute top-[325px] left-1/2 w-[240px] -translate-x-1/2 text-center text-[13px] leading-[1.3]">
-        {es
-          ? "Empecemos con música, dale click a una canción ·.°☆"
-          : "Let's start with music, click a song ·.°☆"}
+      <p className="font-inter text-muted absolute top-[325px] left-1/2 w-[240px] -translate-x-1/2 text-center text-[14px] leading-[1.3]">
+        {es ? (
+          <>
+            Empecemos con música,
+            <br />
+            dale click a una canción ·.°☆
+          </>
+        ) : (
+          <>
+            Let&apos;s start with music,
+            <br />
+            click a song ·.°☆
+          </>
+        )}
       </p>
     </div>
   );
