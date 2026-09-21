@@ -70,13 +70,15 @@ test("About hero renders the approved localized tagline", async () => {
 test("About page uses the long positioning copy as localized metadata", async () => {
   const page = await readFile(aboutPageUrl, "utf8");
 
-  assert.match(page, /import type \{ Metadata \} from "next"/);
+  assert.match(page, /import type \{ Metadata, ResolvingMetadata \} from "next"/);
   assert.match(page, /professionalPositioning/);
   assert.match(page, /export async function generateMetadata/);
+  assert.match(page, /parent:\s*ResolvingMetadata/);
+  assert.match(page, /const previousOpenGraph = \(await parent\)\.openGraph/);
   assert.match(page, /description:\s*professionalPositioning\[locale\]/);
   assert.match(
     page,
-    /openGraph:\s*\{[\s\S]*description:\s*professionalPositioning\[locale\]/,
+    /openGraph:\s*\{\s*\.\.\.previousOpenGraph,[\s\S]*description:\s*professionalPositioning\[locale\]/,
   );
 });
 

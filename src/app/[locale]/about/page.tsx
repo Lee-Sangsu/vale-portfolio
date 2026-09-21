@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -22,16 +22,19 @@ type AboutPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({
-  params,
-}: AboutPageProps): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: AboutPageProps,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   if (!hasLocale(routing.locales, rawLocale)) notFound();
   const locale = rawLocale as Locale;
+  const previousOpenGraph = (await parent).openGraph;
 
   return {
     description: professionalPositioning[locale],
     openGraph: {
+      ...previousOpenGraph,
       description: professionalPositioning[locale],
     },
   };
