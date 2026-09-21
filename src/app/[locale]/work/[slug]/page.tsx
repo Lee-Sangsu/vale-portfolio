@@ -78,7 +78,7 @@ export default async function WorkPage({
         <main>
           <MentionDetail mention={mention} locale={locale} />
         </main>
-        <WorkTogether />
+        <WorkTogether variant="detail" />
         <SiteFooter />
       </>
     );
@@ -301,7 +301,7 @@ function HeroProjectPage({
       ) : null}
 
       {/* ── Contact + footer ── */}
-      <WorkTogether />
+      <WorkTogether variant="detail" />
       <SiteFooter />
     </main>
   );

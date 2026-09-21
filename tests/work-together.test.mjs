@@ -3,14 +3,17 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const componentPath = "src/components/site/WorkTogether.tsx";
-const callSitePaths = [
+const generalCallSitePaths = [
   "src/app/[locale]/about/page.tsx",
   "src/app/[locale]/projects/page.tsx",
   "src/app/[locale]/contact/page.tsx",
-  "src/app/[locale]/work/[slug]/page.tsx",
-  "src/app/[locale]/chapters/[slug]/page.tsx",
   "src/app/[locale]/page.tsx",
 ];
+const detailCallSitePaths = [
+  "src/app/[locale]/work/[slug]/page.tsx",
+  "src/app/[locale]/chapters/[slug]/page.tsx",
+];
+const callSitePaths = [...generalCallSitePaths, ...detailCallSitePaths];
 
 const component = readFileSync(componentPath, "utf8");
 
@@ -47,4 +50,50 @@ test("WorkTogether call sites cannot override the shared photo", () => {
       `unexpected photo override in ${path}`,
     );
   }
+});
+
+test("WorkTogether defines the approved localized coffee and detail headings", () => {
+  assert.match(component, /coffeeTitle:\s*"Tomémonos un café"/);
+  assert.match(component, /detailTitle:\s*"¡Trabajemos juntas!"/);
+  assert.match(component, /coffeeTitle:\s*"Let's grab a coffee"/);
+  assert.match(component, /detailTitle:\s*"Let's work together"/);
+});
+
+test("WorkTogether defaults to the coffee heading and selects the detail heading by variant", () => {
+  assert.match(
+    component,
+    /variant\s*=\s*"coffee"[\s\S]*variant\s*===\s*"detail"\s*\?\s*t\.detailTitle\s*:\s*t\.coffeeTitle/,
+  );
+  assert.match(component, /variant\?:\s*"coffee"\s*\|\s*"detail"/);
+});
+
+test("general pages use the default coffee CTA", () => {
+  for (const path of generalCallSitePaths) {
+    const callSite = readFileSync(path, "utf8");
+    assert.match(callSite, /<WorkTogether\s*\/>/, `missing default CTA in ${path}`);
+    assert.doesNotMatch(
+      callSite,
+      /<WorkTogether\s+variant="detail"\s*\/>/,
+      `unexpected detail CTA in ${path}`,
+    );
+  }
+});
+
+test("project and chapter detail pages use the detail CTA", () => {
+  const workDetail = readFileSync(detailCallSitePaths[0], "utf8");
+  const chapterDetail = readFileSync(detailCallSitePaths[1], "utf8");
+
+  assert.equal(
+    [...workDetail.matchAll(/<WorkTogether\s+variant="detail"\s*\/>/g)].length,
+    2,
+    "expected both work detail CTA placements to use the detail variant",
+  );
+  assert.doesNotMatch(workDetail, /<WorkTogether\s*\/>/);
+  assert.equal(
+    [...chapterDetail.matchAll(/<WorkTogether\s+variant="detail"\s*\/>/g)]
+      .length,
+    1,
+    "expected the chapter detail CTA to use the detail variant",
+  );
+  assert.doesNotMatch(chapterDetail, /<WorkTogether\s*\/>/);
 });
