@@ -43,9 +43,10 @@ test("SkillsSection contains the exact approved Figma content", async () => {
   assert.match(source, /(?:xl|2xl):h-\[1000px\]/);
   assert.match(source, /(?:xl|2xl):pt-\[73px\]/);
   assert.match(source, /(?:xl|2xl):text-\[64px\]/);
+  assert.match(source, /(?:xl|2xl):top-\[252px\]/);
   assert.match(
     source,
-    /(?:xl|2xl):absolute[^\"]*(?:xl|2xl):right-[^\"]*[^>]*>[\s\S]*<IpodCard locale=\{locale\} \/>/,
+    /(?:xl|2xl):absolute[^\"]*(?:(?:xl|2xl):top-\[463px\][^\"]*(?:xl|2xl):left-\[885px\]|(?:xl|2xl):left-\[885px\][^\"]*(?:xl|2xl):top-\[463px\])[^>]*>[\s\S]*<IpodCard locale=\{locale\} \/>/,
   );
   assert.doesNotMatch(source, /NumberedAccordion|AppSwatchRow/);
 });
@@ -55,16 +56,35 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
     "src/components/site/about/IpodCard.tsx",
   );
 
-  assert.match(source, /useState\(0\)/);
-  assert.match(source, /previous:\s*\(\)\s*=>/);
-  assert.match(source, /next:\s*\(\)\s*=>/);
-  assert.match(source, /menu:\s*\(\)\s*=>\s*setActive\(0\)/);
-  assert.match(source, /onClick=\{controls\.menu\}/);
-  assert.match(source, /onClick=\{controls\.previous\}/);
-  assert.ok(
-    source.match(/onClick=\{controls\.next\}/g)?.length >= 3,
-    "next, play, and center controls must all advance the active track",
+  assert.match(source, /const \[active, setActive\] = useState\(0\)/);
+  assert.match(source, /setActive\(\(current\) =>/);
+  assert.match(source, /setActive\(0\)/);
+
+  const labeledControls = [...source.matchAll(/<button[\s\S]*?<\/button>/g)]
+    .map(([button]) => button)
+    .filter((button) => button.includes("aria-label="));
+  assert.equal(
+    labeledControls.length,
+    5,
+    "the click wheel must expose five accessible controls",
   );
+  for (const control of labeledControls) {
+    assert.match(control, /onClick=/, "each labeled control must be interactive");
+  }
+  for (const label of [
+    "Volver al inicio",
+    "Back to menu",
+    "Canción anterior",
+    "Previous track",
+    "Siguiente canción",
+    "Next track",
+    "Reproducir selección",
+    "Play selection",
+    "Cambiar selección",
+    "Change selection",
+  ]) {
+    assert.ok(source.includes(label), `missing accessible control label: ${label}`);
+  }
 
   assert.match(source, /h-\[311px\]/);
   assert.match(source, /w-\[160px\]/);
@@ -87,8 +107,24 @@ test("IpodCard renders five chrome stars and honors reduced motion", async () =>
     "the Figma composition contains exactly five chrome stars",
   );
   assert.match(source, /skills-red-star\.png/);
-  assert.match(source, /useReducedMotion/);
-  assert.match(source, /useReducedMotion\(\)/);
+  const reducedMotionName = source.match(
+    /const\s+(\w+)\s*=\s*useReducedMotion\(\)/,
+  )?.[1];
+  assert.ok(reducedMotionName, "star animation must read reduced-motion preference");
+  assert.match(
+    source,
+    new RegExp(
+      `${reducedMotionName}\\s*\\?\\s*s\\.rotate\\s*:\\s*s\\.rotate\\s*\\+\\s*360`,
+    ),
+    "reduced motion must prevent star rotation",
+  );
+  assert.match(
+    source,
+    new RegExp(
+      `repeat:\\s*${reducedMotionName}\\s*\\?\\s*0\\s*:\\s*Infinity`,
+    ),
+    "reduced motion must prevent repeating star animation",
+  );
 });
 
 test("SkillsLogoMarquee matches the approved logo order and desktop layout", async () => {
