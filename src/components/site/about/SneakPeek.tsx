@@ -55,7 +55,7 @@ export function SneakPeek({ locale }: { locale: Locale }) {
     <section className="bg-white px-5 py-20 sm:px-8 sm:py-24">
       <div className="mx-auto max-w-[1280px]">
         <h2 className="font-inter text-ink2 text-center text-[28px] font-semibold sm:text-[34px]">
-          {es ? "Un vistazo a mi trabajo" : "Sneak peek of my works"}
+          {es ? "Un adelanto de mi trabajo" : "Sneak peek of my works"}
         </h2>
 
         <div className="mt-14 flex snap-x snap-mandatory items-end gap-5 overflow-x-auto overscroll-x-contain scroll-smooth pb-5 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

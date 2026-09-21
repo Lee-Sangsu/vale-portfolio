@@ -8,7 +8,11 @@ import { MacWindow } from "@/components/MacWindow";
 import { NaturalPhoto } from "@/components/NaturalPhoto";
 import { PolaroidPile } from "@/components/PolaroidPile";
 import { SneakPeek, type SneakPeekItem } from "@/components/SneakPeek";
-import { HERO_MANIFEST, MENTION_MANIFEST, encodeAsset } from "@/content/photo-manifest";
+import {
+  HERO_MANIFEST,
+  MENTION_MANIFEST,
+  encodeAsset,
+} from "@/content/photo-manifest";
 import { Decoration, DECO } from "@/components/Decoration";
 
 export function generateStaticParams() {
@@ -26,21 +30,60 @@ export default async function DiarioEditorialPage({
   const locale = rawLocale as Locale;
 
   const sneak: SneakPeekItem[] = [
-    { src: encodeAsset(HERO_MANIFEST["nomadher-app"].cover)!, label: "NomadHer App", sublabel: "Product · 2024", variant: "lime" },
-    { src: encodeAsset(HERO_MANIFEST["jal-nomadher"].cover)!, label: "JAL × NomadHer", sublabel: "Brand partnership", variant: "cream" },
-    { src: encodeAsset(HERO_MANIFEST["global-youth-summit"].cover)!, label: "Global Youth Summit", sublabel: "Seoul · 2024", variant: "pink" },
-    { src: encodeAsset(HERO_MANIFEST["sejong-hackathon"].cover)!, label: "Sejong Hackathon", sublabel: "Seoul · 2024", variant: "cream" },
-    { src: encodeAsset(MENTION_MANIFEST["nobled-coffee"].cover)!, label: "NOBLED Coffee", sublabel: "Berlin · 2023", variant: "ink" },
-    { src: encodeAsset(MENTION_MANIFEST["brujula-etica"].cover)!, label: "Brújula Ética", sublabel: "Javeriana × Loyola", variant: "lime" },
-    { src: encodeAsset(MENTION_MANIFEST["women-entrepreneur-summit-seoul"].cover)!, label: "Women Summit", sublabel: "BOOST LAB · 2024", variant: "pink" },
+    {
+      src: encodeAsset(HERO_MANIFEST["nomadher-app"].cover)!,
+      label: "NomadHer App",
+      sublabel: "Product · 2024",
+      variant: "lime",
+    },
+    {
+      src: encodeAsset(HERO_MANIFEST["jal-nomadher"].cover)!,
+      label: "JAL × NomadHer",
+      sublabel: "Brand partnership",
+      variant: "cream",
+    },
+    {
+      src: encodeAsset(HERO_MANIFEST["global-youth-summit"].cover)!,
+      label: "Global Youth Summit",
+      sublabel: "Seoul · 2024",
+      variant: "pink",
+    },
+    {
+      src: encodeAsset(HERO_MANIFEST["sejong-hackathon"].cover)!,
+      label: "Sejong Hackathon",
+      sublabel: "Seoul · 2024",
+      variant: "cream",
+    },
+    {
+      src: encodeAsset(MENTION_MANIFEST["nobled-coffee"].cover)!,
+      label: "NOBLED Coffee",
+      sublabel: "Berlin · 2023",
+      variant: "ink",
+    },
+    {
+      src: encodeAsset(MENTION_MANIFEST["brujula-etica"].cover)!,
+      label: "Brújula Ética",
+      sublabel: "Javeriana × Loyola",
+      variant: "lime",
+    },
+    {
+      src: encodeAsset(
+        MENTION_MANIFEST["women-entrepreneur-summit-seoul"].cover,
+      )!,
+      label: "Women Summit",
+      sublabel: "BOOST LAB · 2024",
+      variant: "pink",
+    },
   ];
 
-  const polaroidPhotos = (HERO_MANIFEST["global-youth-summit"].polaroid ?? []).map((p) => encodeAsset(p)!);
+  const polaroidPhotos = (
+    HERO_MANIFEST["global-youth-summit"].polaroid ?? []
+  ).map((p) => encodeAsset(p)!);
 
   return (
     <main className="bg-cream">
       {/* Top label bar */}
-      <div className="container-page pt-6 pb-2 flex items-center justify-between text-ink">
+      <div className="container-page text-ink flex items-center justify-between pt-6 pb-2">
         <Link href="/proposals" className="kicker underline-soft">
           ← {locale === "es" ? "Propuestas" : "Proposals"}
         </Link>
@@ -51,16 +94,24 @@ export default async function DiarioEditorialPage({
       <section className="container-page pt-10 pb-24 sm:pt-16 sm:pb-32">
         <div className="grid-editorial items-center gap-y-12">
           <div className="col-span-12 lg:col-span-7">
-            <span className="kicker text-ink-soft">Portfolio · 2021 / 2026</span>
+            <span className="kicker text-ink-soft">
+              Portfolio · 2021 / 2026
+            </span>
             <h1
-              className="display-2xl text-ink leading-[0.92] mt-6"
+              className="display-2xl text-ink mt-6 leading-[0.92]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="italic font-normal" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+              <span
+                className="font-normal italic"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              >
                 Diseño
               </span>{" "}
               <span className="block">para personas</span>
-              <span className="block italic font-normal" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+              <span
+                className="block font-normal italic"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              >
                 que viajan.
               </span>
             </h1>
@@ -72,9 +123,10 @@ export default async function DiarioEditorialPage({
             <div className="mt-10 flex items-center gap-5">
               <a
                 href="mailto:hola@valeria.archive"
-                className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-6 py-3 text-sm font-semibold tracking-[0.16em] uppercase hover:translate-y-[-2px] transition-transform"
+                className="bg-ink text-cream inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-[0.16em] uppercase transition-transform hover:translate-y-[-2px]"
               >
-                {locale === "es" ? "Hablemos" : "Let's talk"} <span aria-hidden>→</span>
+                {locale === "es" ? "Hablemos" : "Let's talk"}{" "}
+                <span aria-hidden>→</span>
               </a>
               <Link href="/projects" className="kicker text-ink underline-soft">
                 {locale === "es" ? "Ver trabajo" : "See work"}
@@ -83,7 +135,7 @@ export default async function DiarioEditorialPage({
           </div>
 
           <div className="col-span-12 lg:col-span-5">
-            <div className="max-w-md ml-auto">
+            <div className="ml-auto max-w-md">
               <MacWindow
                 src="/shared/portraits/Val.jpg"
                 alt="Valeria Jiménez"
@@ -98,12 +150,16 @@ export default async function DiarioEditorialPage({
 
       {/* ── Sneak peek ── */}
       <SneakPeek
-        title={locale === "es" ? "Un vistazo a mi trabajo" : "Sneak peek of my work"}
+        title={
+          locale === "es"
+            ? "Un adelanto de mi trabajo"
+            : "Sneak peek of my work"
+        }
         items={sneak}
       />
 
       {/* ── Project preview — Adriana's project page layout ── */}
-      <section className="container-page py-24 sm:py-32 border-t border-ink/15">
+      <section className="container-page border-ink/15 border-t py-24 sm:py-32">
         <div className="grid-editorial mb-12">
           <div className="col-span-12 sm:col-span-3">
             <span className="kicker-muted inline-flex items-center gap-2">
@@ -111,7 +167,7 @@ export default async function DiarioEditorialPage({
               <Decoration src={DECO.star} size={14} className="opacity-70" />
             </span>
           </div>
-          <h2 className="col-span-12 sm:col-span-9 display-xl font-display text-ink">
+          <h2 className="display-xl font-display text-ink col-span-12 sm:col-span-9">
             Global Youth Summit
           </h2>
         </div>
@@ -127,24 +183,40 @@ export default async function DiarioEditorialPage({
         </div>
 
         {/* Overview row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-16 pb-12 border-b border-ink/15">
+        <div className="border-ink/15 mb-16 grid grid-cols-2 gap-6 border-b pb-12 sm:grid-cols-4">
           {[
-            { kicker: locale === "es" ? "Cliente" : "Client", value: "BOOST LAB" },
-            { kicker: locale === "es" ? "Tipo" : "Type", value: locale === "es" ? "Summit + Branding" : "Summit + Branding" },
-            { kicker: locale === "es" ? "Rol" : "Role", value: locale === "es" ? "Diseñadora líder" : "Lead designer" },
-            { kicker: locale === "es" ? "Entregables" : "Deliverables", value: locale === "es" ? "Marca · Producción · Materiales" : "Brand · Production · Materials" },
+            {
+              kicker: locale === "es" ? "Cliente" : "Client",
+              value: "BOOST LAB",
+            },
+            {
+              kicker: locale === "es" ? "Tipo" : "Type",
+              value:
+                locale === "es" ? "Summit + Branding" : "Summit + Branding",
+            },
+            {
+              kicker: locale === "es" ? "Rol" : "Role",
+              value: locale === "es" ? "Diseñadora líder" : "Lead designer",
+            },
+            {
+              kicker: locale === "es" ? "Entregables" : "Deliverables",
+              value:
+                locale === "es"
+                  ? "Marca · Producción · Materiales"
+                  : "Brand · Production · Materials",
+            },
           ].map((it) => (
             <div key={it.kicker}>
-              <span className="kicker-muted block mb-2">{it.kicker}</span>
+              <span className="kicker-muted mb-2 block">{it.kicker}</span>
               <span className="display-sm text-ink block">{it.value}</span>
             </div>
           ))}
         </div>
 
         {/* Spotlight + context */}
-        <div className="grid-editorial items-start gap-y-10 mb-16">
+        <div className="grid-editorial mb-16 items-start gap-y-10">
           <div className="col-span-12 sm:col-span-7">
-            <span className="kicker-muted block mb-3">
+            <span className="kicker-muted mb-3 block">
               {locale === "es" ? "Contexto" : "Context"}
             </span>
             <p className="prose-editorial body-lg leading-relaxed">
@@ -155,10 +227,12 @@ export default async function DiarioEditorialPage({
           </div>
           <div className="col-span-12 sm:col-span-5">
             <NaturalPhoto
-              src={encodeAsset(
-                HERO_MANIFEST["global-youth-summit"].spotlight ??
-                  HERO_MANIFEST["global-youth-summit"].cover,
-              )!}
+              src={
+                encodeAsset(
+                  HERO_MANIFEST["global-youth-summit"].spotlight ??
+                    HERO_MANIFEST["global-youth-summit"].cover,
+                )!
+              }
               alt="Global Youth Summit — spotlight"
               maxHeightVh={55}
               rounded="rounded-2xl"
@@ -175,7 +249,11 @@ export default async function DiarioEditorialPage({
             </span>
           </div>
           <div className="col-span-12 sm:col-span-9">
-            <PolaroidPile photos={polaroidPhotos} alt="Global Youth Summit" size={220} />
+            <PolaroidPile
+              photos={polaroidPhotos}
+              alt="Global Youth Summit"
+              size={220}
+            />
           </div>
         </div>
       </section>
@@ -188,11 +266,13 @@ export default async function DiarioEditorialPage({
 
 function PickFooter({ slug, locale }: { slug: string; locale: Locale }) {
   return (
-    <section className="container-page py-20 border-t border-ink/15">
+    <section className="container-page border-ink/15 border-t py-20">
       <div className="grid-editorial items-end">
         <div className="col-span-12 sm:col-span-9">
           <h3 className="display-lg font-display text-ink">
-            {locale === "es" ? "¿Esta es la dirección?" : "Is this the direction?"}
+            {locale === "es"
+              ? "¿Esta es la dirección?"
+              : "Is this the direction?"}
           </h3>
           <p className="body-lg text-ink mt-3 max-w-xl">
             {locale === "es"
