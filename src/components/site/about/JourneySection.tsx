@@ -57,21 +57,21 @@ const JOURNEY: JourneyItem[] = [
 
 export function JourneySection({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 lg:h-[900px] lg:px-16 lg:py-0">
-      <div className="relative mx-auto max-w-[1140px] lg:h-full">
-        <div className="lg:absolute lg:top-[146px] lg:left-0 lg:w-[642px]">
-          <h2 className="font-inter text-ink2 text-[38px] leading-[normal] font-bold sm:text-[48px] lg:text-[64px] lg:whitespace-nowrap">
+    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 xl:h-[900px] xl:px-16 xl:py-0">
+      <div className="relative mx-auto max-w-[1076px] xl:h-full">
+        <div className="xl:absolute xl:top-[146px] xl:left-0 xl:w-[642px]">
+          <h2 className="font-inter text-ink2 text-[38px] leading-[normal] font-bold sm:text-[48px] xl:text-[64px] xl:whitespace-nowrap">
             {locale === "es" ? "Descubre mi camino" : "Discover My Journey"}
           </h2>
-          <p className="font-inter mt-4 max-w-[617px] text-[18px] leading-[normal] text-[#6e726e] lg:mt-[27px]">
+          <p className="font-inter mt-4 max-w-[617px] text-[18px] leading-[normal] text-[#6e726e] xl:mt-[27px]">
             {INTRO[locale]}
           </p>
 
-          <ul className="mt-14 lg:mt-[105px]">
+          <ul className="mt-14 xl:mt-[105px]">
             {JOURNEY.map((item) => (
               <li
                 key={item.role.en}
-                className="flex min-h-[74px] flex-col items-start gap-1 border-b border-[#e2e2dc] py-4 last:border-0 sm:flex-row sm:justify-between sm:gap-6 lg:py-0"
+                className="flex min-h-[74px] flex-col items-start gap-1 border-b border-[#e2e2dc] py-4 last:border-0 sm:flex-row sm:justify-between sm:gap-6 xl:py-0"
               >
                 <span className="font-inter text-ink2 max-w-[407px] text-[21px] leading-[normal] font-medium sm:text-[24px]">
                   {item.role[locale]}
@@ -98,7 +98,7 @@ export function JourneySection({ locale }: { locale: Locale }) {
           </ul>
         </div>
 
-        <div className="relative mx-auto mt-14 aspect-[372/493] w-full max-w-[372px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] lg:absolute lg:top-[240px] lg:right-[-94px] lg:mt-0 lg:aspect-auto lg:h-[493px] lg:w-[372px]">
+        <div className="relative mx-auto mt-14 aspect-[372/493] w-full max-w-[372px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] xl:absolute xl:top-[240px] xl:right-0 xl:mt-0 xl:aspect-auto xl:h-[493px] xl:w-[372px] 2xl:right-[-158px]">
           <Image
             src="/pages/about/figma/journey-portrait.jpg"
             alt="Valeria Jiménez traveling"

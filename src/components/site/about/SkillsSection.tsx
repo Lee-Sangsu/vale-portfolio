@@ -1,4 +1,5 @@
 import type { Locale } from "@/content/types";
+import { IpodCard } from "./IpodCard";
 import { SkillsLogoMarquee } from "./SkillsLogoMarquee";
 
 type Skill = {
@@ -7,8 +8,8 @@ type Skill = {
 };
 
 const INTRO: Record<Locale, string> = {
-  en: "A multidisciplinary designer working across strategy, product, and content to turn ideas into real things",
-  es: "Diseñadora multidisciplinar que trabaja entre estrategia, producto y contenido para convertir ideas en cosas reales",
+  en: "What isn't taught in a classroom and supports everything else.",
+  es: "Lo que no se enseña en una clase y sostiene todo lo demás",
 };
 
 const SKILLS: Record<Locale, Skill[]> = {
@@ -59,61 +60,32 @@ export function SkillsSection({ locale }: { locale: Locale }) {
   const skills = SKILLS[locale];
 
   return (
-    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 lg:min-h-[920px] lg:px-16 lg:py-0">
-      <div className="mx-auto max-w-[1140px] lg:pt-[73px]">
+    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 xl:h-[1000px] xl:px-16 xl:py-0">
+      <div className="relative mx-auto max-w-[1076px] xl:h-full xl:pt-[73px]">
         <SkillsLogoMarquee locale={locale} />
 
-        <div className="mt-14 max-w-[560px] sm:mt-16 lg:hidden">
-          <h2 className="font-inter text-ink2 text-[36px] leading-[normal] font-bold sm:text-[48px]">
+        <div className="mt-14 max-w-[642px] sm:mt-16 xl:absolute xl:top-[252px] xl:left-0 xl:mt-0 xl:h-[597px] xl:w-[642px]">
+          <h2 className="font-inter text-ink2 text-[36px] leading-[normal] font-bold sm:text-[48px] xl:text-[64px]">
             {locale === "es" ? "Habilidades" : "Skills"}
           </h2>
-          <p className="font-inter mt-5 max-w-[400px] text-[18px] leading-[normal] text-[#6e726e]">
+          <p className="font-inter mt-5 max-w-[400px] text-[18px] leading-[normal] text-[#6e726e] xl:absolute xl:top-[86px] xl:left-0 xl:mt-0">
             {INTRO[locale]}
           </p>
 
-          <ol className="mt-10 sm:mt-[41px]">
-            {skills.map((skill, index) => (
-              <li
-                key={skill.title}
-                className="border-b border-[#e2e2dc] py-5 first:pt-0 last:border-0"
-              >
-                <h3 className="font-inter text-ink2 text-[21px] leading-[normal] font-medium sm:text-[24px]">
-                  {index + 1}. {skill.title}
-                </h3>
-                <p className="font-inter mt-1 max-w-[560px] text-[14px] leading-[normal] text-[#6e736e]">
-                  {skill.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-
-          <p className="font-inter mt-5 text-[14px] leading-[normal] text-[#111]">
-            {LANGUAGES[locale]}
-          </p>
-        </div>
-
-        <div className="relative hidden h-[597px] w-[560px] lg:mt-[107px] lg:block">
-          <h2 className="font-inter text-ink2 absolute top-0 left-0 text-[48px] leading-[normal] font-bold">
-            {locale === "es" ? "Habilidades" : "Skills"}
-          </h2>
-          <p className="font-inter absolute top-[78px] left-0 w-[400px] text-[18px] leading-[normal] text-[#6e726e]">
-            {INTRO[locale]}
-          </p>
-
-          <ol>
+          <ol className="mt-10 sm:mt-[41px] xl:mt-0">
             {skills.map((skill, index) => {
               const top = [189, 294, 399, 487][index];
 
               return (
                 <li
                   key={skill.title}
-                  className="absolute left-0 w-[560px]"
+                  className="border-b border-[#e2e2dc] py-5 first:pt-0 last:border-0 xl:absolute xl:left-0 xl:w-[642px] xl:border-0 xl:py-0"
                   style={{ top }}
                 >
-                  <h3 className="font-inter text-ink2 text-[24px] leading-[normal] font-medium whitespace-nowrap">
+                  <h3 className="font-inter text-ink2 text-[21px] leading-[normal] font-medium sm:text-[24px] xl:whitespace-nowrap">
                     {index + 1}. {skill.title}
                   </h3>
-                  <p className="font-inter mt-1 w-[560px] text-[14px] leading-[normal] text-[#6e736e]">
+                  <p className="font-inter mt-1 max-w-[560px] text-[14px] leading-[normal] text-[#6e736e] xl:w-[560px]">
                     {skill.body}
                   </p>
                 </li>
@@ -125,14 +97,18 @@ export function SkillsSection({ locale }: { locale: Locale }) {
             <div
               key={top}
               aria-hidden="true"
-              className="absolute left-0 h-px w-[492px] bg-[#e2e2dc]"
+              className="absolute left-0 hidden h-px w-[492px] bg-[#e2e2dc] xl:block"
               style={{ top }}
             />
           ))}
 
-          <p className="font-inter absolute top-[579px] left-0 text-[14px] leading-[normal] whitespace-nowrap text-[#111]">
+          <p className="font-inter mt-5 text-[14px] leading-[normal] text-[#111] xl:absolute xl:top-[579px] xl:left-0 xl:mt-0 xl:whitespace-nowrap">
             {LANGUAGES[locale]}
           </p>
+        </div>
+
+        <div className="mx-auto mt-28 flex w-full justify-center pb-8 xl:absolute xl:top-[463px] xl:left-[756px] xl:mt-0 xl:w-[160px] xl:pb-0 2xl:left-[885px]">
+          <IpodCard locale={locale} />
         </div>
       </div>
     </section>

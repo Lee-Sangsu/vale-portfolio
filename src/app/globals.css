@@ -349,7 +349,7 @@
     to   { transform: translateX(-50%); }
   }
   .skills-logo-viewport { overflow-x: hidden; }
-  @media (max-width: 1023px) {
+  @media (max-width: 1279px) {
     .skills-logo-track {
       animation: skills-logo-marquee 24s linear infinite;
       will-change: transform;
