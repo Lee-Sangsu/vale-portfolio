@@ -10,16 +10,26 @@ test("SkillsSection contains the exact approved Figma content", async () => {
     "src/components/site/about/SkillsSection.tsx",
   );
   const expected = [
-    "A multidisciplinary designer working across strategy, product, and content to turn ideas into real things",
+    "What isn't taught in a classroom and supports everything else.",
+    "Lo que no se enseña en una clase y sostiene todo lo demás",
     "Leadership & project management",
+    "Liderazgo y gestión de proyectos",
     "Cross-cultural teams, international coordination and end-to-end ownership, equally comfortable leading a team or carrying a project solo.",
+    "Equipos interculturales, coordinación internacional y responsabilidad de principio a fin, tanto liderando un equipo como llevando un proyecto en solitario.",
     "Adaptability",
+    "Adaptabilidad",
     "Switching industries, countries and languages without losing pace: every new context becomes familiar ground fast.",
+    "Cambio de industria, país e idioma sin perder el ritmo: cada contexto nuevo se convierte rápido en terreno familiar.",
     "Creativity & design",
+    "Creatividad y diseño",
     "Design as a native language: from concept and art to pieces that work.",
+    "El diseño como lenguaje nativo: del concepto y el arte a piezas que funcionan.",
     "Innovation & entrepreneurship",
+    "Innovación y emprendimiento",
     "Founder mindset: spotting gaps and building from zero to launch.",
+    "Mentalidad fundadora: detectar oportunidades y construir desde cero hasta el lanzamiento.",
     "Languages: Native Spanish · Fluent English · Basic Korean",
+    "Idiomas: Español nativo · Inglés fluido · Coreano básico",
   ];
 
   for (const text of expected) {
@@ -27,10 +37,58 @@ test("SkillsSection contains the exact approved Figma content", async () => {
   }
 
   assert.match(source, /SkillsLogoMarquee/);
-  assert.match(source, /max-w-\[1140px\][^\"]*lg:pt-\[73px\]/);
-  assert.doesNotMatch(source, /lg:mt-\[73px\]/);
-  assert.match(source, /lg:mt-\[107px\]/);
-  assert.doesNotMatch(source, /NumberedAccordion|IpodCard|AppSwatchRow/);
+  assert.match(source, /import \{ IpodCard \} from "\.\/IpodCard"/);
+  assert.match(source, /<IpodCard locale=\{locale\} \/>/);
+  assert.match(source, /max-w-\[1076px\]/);
+  assert.match(source, /(?:xl|2xl):h-\[1000px\]/);
+  assert.match(source, /(?:xl|2xl):pt-\[73px\]/);
+  assert.match(source, /(?:xl|2xl):text-\[64px\]/);
+  assert.match(
+    source,
+    /(?:xl|2xl):absolute[^\"]*(?:xl|2xl):right-[^\"]*[^>]*>[\s\S]*<IpodCard locale=\{locale\} \/>/,
+  );
+  assert.doesNotMatch(source, /NumberedAccordion|AppSwatchRow/);
+});
+
+test("IpodCard preserves its controls in the compact Figma composition", async () => {
+  const source = await readSource(
+    "src/components/site/about/IpodCard.tsx",
+  );
+
+  assert.match(source, /useState\(0\)/);
+  assert.match(source, /previous:\s*\(\)\s*=>/);
+  assert.match(source, /next:\s*\(\)\s*=>/);
+  assert.match(source, /menu:\s*\(\)\s*=>\s*setActive\(0\)/);
+  assert.match(source, /onClick=\{controls\.menu\}/);
+  assert.match(source, /onClick=\{controls\.previous\}/);
+  assert.ok(
+    source.match(/onClick=\{controls\.next\}/g)?.length >= 3,
+    "next, play, and center controls must all advance the active track",
+  );
+
+  assert.match(source, /h-\[311px\]/);
+  assert.match(source, /w-\[160px\]/);
+  assert.match(source, /h-\[82px\]/);
+  assert.match(source, /size-\[118px\]/);
+  assert.match(source, /Empecemos con música, dale click a una canción ·\.°☆/);
+  assert.match(source, /Let's start with music, click a song ·\.°☆/);
+});
+
+test("IpodCard renders five chrome stars and honors reduced motion", async () => {
+  const source = await readSource(
+    "src/components/site/about/IpodCard.tsx",
+  );
+  const stars = source.match(/const STARS:[\s\S]*?= \[([\s\S]*?)\];/)?.[1];
+
+  assert.ok(stars, "STARS configuration must remain explicit");
+  assert.equal(
+    stars.match(/className:/g)?.length,
+    5,
+    "the Figma composition contains exactly five chrome stars",
+  );
+  assert.match(source, /skills-red-star\.png/);
+  assert.match(source, /useReducedMotion/);
+  assert.match(source, /useReducedMotion\(\)/);
 });
 
 test("SkillsLogoMarquee matches the approved logo order and desktop layout", async () => {
@@ -57,18 +115,18 @@ test("SkillsLogoMarquee matches the approved logo order and desktop layout", asy
 
   assert.match(source, /Design tools/);
   assert.match(source, /aria-hidden="true"/);
-  assert.match(source, /lg:w-\[954px\]/);
-  assert.match(source, /lg:gap-\[54px\]/);
+  assert.match(source, /xl:w-\[954px\]/);
+  assert.match(source, /xl:gap-\[54px\]/);
   assert.match(source, /size-\[72px\]/);
   assert.match(source, /rounded-\[18px\]/);
-  assert.match(source, /lg:hidden/);
+  assert.match(source, /xl:hidden/);
 });
 
 test("SkillsLogoMarquee animates only below desktop and supports reduced motion", async () => {
   const source = await readSource("src/app/globals.css");
 
   assert.match(source, /@keyframes skills-logo-marquee/);
-  assert.match(source, /@media \(max-width: 1023px\)/);
+  assert.match(source, /@media \(max-width: 1279px\)/);
   assert.match(
     source,
     /\.skills-logo-track\s*\{[^}]*animation:\s*skills-logo-marquee/s,
@@ -94,7 +152,7 @@ test("SkillsLogoMarquee offers a localized mobile pause control", async () => {
   assert.match(component, /Pausar animación de logos/);
   assert.match(component, /Reanudar animación de logos/);
   assert.match(component, /Herramientas de diseño/);
-  assert.match(component, /skills-logo-toggle[^\"]*lg:hidden/);
+  assert.match(component, /skills-logo-toggle[^\"]*xl:hidden/);
   assert.match(component, /data-paused=\{isPaused\}/);
   assert.match(section, /<SkillsLogoMarquee locale=\{locale\} \/>/);
   assert.match(
@@ -143,4 +201,7 @@ test("JourneySection contains the exact approved Figma content and asset", async
   for (const text of expected) {
     assert.ok(source.includes(text), `missing Journey Figma text: ${text}`);
   }
+
+  assert.match(source, /max-w-\[1076px\]/);
+  assert.doesNotMatch(source, /max-w-\[1140px\]/);
 });
