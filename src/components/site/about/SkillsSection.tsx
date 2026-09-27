@@ -108,7 +108,10 @@ export function SkillsSection({ locale }: { locale: Locale }) {
         </div>
 
         <div className="mx-auto mt-28 flex w-full justify-center pb-8 xl:absolute xl:top-[463px] xl:left-[756px] xl:mt-0 xl:w-[160px] xl:pb-0 2xl:left-[885px]">
-          <IpodCard locale={locale} />
+          <IpodCard
+            locale={locale}
+            tracks={skills.map((skill) => skill.title)}
+          />
         </div>
       </div>
     </section>

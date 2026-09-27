@@ -103,7 +103,7 @@ test("SkillsSection contains the exact approved Figma content", async () => {
 
   assert.match(source, /SkillsLogoMarquee/);
   assert.match(source, /import \{ IpodCard \} from "\.\/IpodCard"/);
-  assert.match(source, /<IpodCard locale=\{locale\} \/>/);
+  assert.match(source, /<IpodCard\s+locale=\{locale\}\s+tracks=\{skills\.map\(\(skill\) => skill\.title\)\}\s+\/>/);
   assert.match(source, /max-w-\[1076px\]/);
   assert.match(source, /(?:xl|2xl):h-\[1000px\]/);
   assert.match(source, /(?:xl|2xl):pt-\[73px\]/);
@@ -117,7 +117,7 @@ test("SkillsSection contains the exact approved Figma content", async () => {
   assert.doesNotMatch(source, /\[274, 379, 430, 467\]/);
   assert.match(
     source,
-    /(?:xl|2xl):absolute[^\"]*(?:(?:xl|2xl):top-\[463px\][^\"]*(?:xl|2xl):left-\[885px\]|(?:xl|2xl):left-\[885px\][^\"]*(?:xl|2xl):top-\[463px\])[^>]*>[\s\S]*<IpodCard locale=\{locale\} \/>/,
+    /(?:xl|2xl):absolute[^\"]*(?:(?:xl|2xl):top-\[463px\][^\"]*(?:xl|2xl):left-\[885px\]|(?:xl|2xl):left-\[885px\][^\"]*(?:xl|2xl):top-\[463px\])[^>]*>[\s\S]*<IpodCard\s+locale=\{locale\}\s+tracks=\{skills\.map\(\(skill\) => skill\.title\)\}\s+\/>/,
   );
   assert.doesNotMatch(source, /NumberedAccordion|AppSwatchRow/);
 });
@@ -162,7 +162,7 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
   );
   assert.match(
     readHandlerBody(source, readOnClick(previous)),
-    /setActive[\s\S]*current\s*-\s*1[\s\S]*%\s*TRACKS\.length/,
+    /setActive[\s\S]*current\s*-\s*1[\s\S]*%\s*tracks\.length/,
     "previous must decrement and wrap the selection",
   );
   for (const [name, control] of [
@@ -172,7 +172,7 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
   ]) {
     assert.match(
       readHandlerBody(source, readOnClick(control)),
-      /setActive[\s\S]*current\s*\+\s*1[\s\S]*%\s*TRACKS\.length/,
+      /setActive[\s\S]*current\s*\+\s*1[\s\S]*%\s*tracks\.length/,
       `${name} must advance and wrap the selection`,
     );
   }
