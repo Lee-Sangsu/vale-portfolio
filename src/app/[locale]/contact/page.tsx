@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/content/types";
 import { SiteNav } from "@/components/site/SiteNav";
-import { AppSwatchRow } from "@/components/site/AppSwatchRow";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PhotoRing } from "@/components/site/contact/PhotoRing";
@@ -95,11 +94,6 @@ export default async function ContactPage({
             />
           </div>
         </div>
-      </section>
-
-      {/* ── Tool swatch row ─────────────────────────────────────── */}
-      <section className="px-5 pb-16 sm:px-8 md:pb-24">
-        <AppSwatchRow className="mx-auto max-w-[960px]" />
       </section>
 
       {/* ── Recurring contact block + footer ────────────────────── */}
