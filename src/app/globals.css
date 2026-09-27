@@ -56,6 +56,7 @@
 
   /* === Fonts === */
   --font-display: var(--font-quinn), "Arial Black", system-ui, sans-serif;
+  --font-quinn: var(--font-quinn), "Arial Black", system-ui, sans-serif;
   --font-subtitle: var(--font-geist), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, sans-serif;
   --font-sans: var(--font-inter), var(--font-montserrat), ui-sans-serif,

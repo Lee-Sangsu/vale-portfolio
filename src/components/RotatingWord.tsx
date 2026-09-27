@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 export function RotatingWord({
   words,
-  intervalMs = 2400,
+  intervalMs = 1400,
   className,
 }: {
   words: string[];
@@ -42,7 +42,7 @@ export function RotatingWord({
           initial={reduce ? false : { y: "0.5em", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={reduce ? { opacity: 0 } : { y: "-0.5em", opacity: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           style={{ display: "inline-block" }}
         >
           {current}

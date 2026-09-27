@@ -3,7 +3,6 @@
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import Image from "next/image";
-import { contact } from "@/content/about";
 
 const COPY = {
   es: {
@@ -17,6 +16,9 @@ const COPY = {
     msg: "¿En qué te puedo ayudar...?",
     msgPh: "Hola, nos gustaría trabajar contigo.",
     send: "Enviar",
+    sending: "Enviando...",
+    sent: "¡Mensaje enviado!",
+    error: "No se pudo enviar. Inténtalo de nuevo.",
   },
   en: {
     coffeeTitle: "Let's grab a coffee",
@@ -29,6 +31,9 @@ const COPY = {
     msg: "What Can I Help You...",
     msgPh: "Hey, we would like to hire you!",
     send: "Send",
+    sending: "Sending...",
+    sent: "Message sent!",
+    error: "Couldn't send it. Please try again.",
   },
 } as const;
 
@@ -38,7 +43,8 @@ type WorkTogetherProps = {
 
 /**
  * Recurring "Let's grab a coffee" contact block — photo + burgundy hand
- * accent + a mailto form. Appears at the bottom of every page in the Figma.
+ * accent + a contact form that emails the site owner via /api/contact.
+ * Appears at the bottom of every page in the Figma.
  */
 export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
   const locale = useLocale();
@@ -47,14 +53,27 @@ export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio · ${name || "Hola"}`);
-    const body = encodeURIComponent(
-      `${msg}\n\n${name}${email ? ` (${email})` : ""}`,
-    );
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, msg }),
+      });
+      if (!res.ok) throw new Error("request failed");
+      setStatus("sent");
+      setName("");
+      setEmail("");
+      setMsg("");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -72,7 +91,7 @@ export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
               className="object-cover object-center"
             />
           </div>
-          <div className="absolute bottom-0 left-0 flex size-[72px] -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-black text-[28px] shadow-lg sm:size-[83px] sm:text-[30px]">
+          <div className="absolute bottom-0 left-0 flex size-[72px] -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-[#7B173B] text-[28px] shadow-lg sm:size-[83px] sm:text-[30px]">
             ✋
           </div>
         </div>
@@ -113,7 +132,7 @@ export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
           </div>
 
           <label className="mt-4 flex flex-col gap-[6px]">
-            <span className="font-inter text-green-soft text-[13px] font-medium">
+            <span className="font-inter text-[#7B173B] text-[13px] font-medium">
               {t.msg}
             </span>
             <textarea
@@ -127,10 +146,21 @@ export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
 
           <button
             type="submit"
-            className="border-[#722F37] font-inter text-[#722F37] hover:bg-[#722F37] mt-5 rounded-full border-[1.5px] px-[28px] py-[11px] text-[15px] font-semibold transition-colors hover:text-white"
+            disabled={status === "sending"}
+            className="border-[#722F37] font-inter text-[#722F37] hover:bg-[#722F37] mt-5 rounded-full border-[1.5px] px-[28px] py-[11px] text-[15px] font-semibold transition-colors hover:text-white disabled:opacity-60"
           >
-            {t.send}
+            {status === "sending" ? t.sending : t.send}
           </button>
+          {status === "sent" && (
+            <p className="font-inter mt-3 text-[14px] text-[#7B173B]">
+              {t.sent}
+            </p>
+          )}
+          {status === "error" && (
+            <p className="font-inter mt-3 text-[14px] text-red-600">
+              {t.error}
+            </p>
+          )}
         </form>
       </div>
     </section>

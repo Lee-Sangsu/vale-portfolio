@@ -314,7 +314,7 @@ export default async function ProjectsPage({
               <div
                 aria-hidden="true"
                 data-projects-folder="back"
-                className="pointer-events-none absolute bottom-[5%] left-1/2 z-0 h-[50%] w-[68%] -translate-x-1/2 -rotate-[2deg] rounded-b-[34px] rounded-t-[24px] border border-[#151315] bg-[#525252]/45"
+                className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[55%] w-[68%] -translate-x-1/2 -rotate-[2deg] rounded-b-[34px] rounded-t-[24px] border border-[#151315] bg-[#525252]/45"
               />
               {portfolioPile.map((photo) => (
                 <figure
@@ -353,9 +353,9 @@ export default async function ProjectsPage({
                 <div
                   aria-hidden="true"
                   data-projects-folder="meta-tab"
-                  className="pointer-events-none absolute -top-3 right-4 z-0 h-6 w-16 rounded-t-[12px] bg-[#86143e] sm:-top-5 sm:right-6 sm:h-10 sm:w-24"
+                  className="pointer-events-none absolute -top-3 right-4 z-0 h-6 w-16 rounded-t-[12px] bg-[#5D102C] sm:-top-5 sm:right-6 sm:h-10 sm:w-24"
                 />
-                <div className="relative z-10 rounded-[20px] bg-[#86143e] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
+                <div className="relative z-10 rounded-[20px] bg-[#7B173B] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
                   <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
                   <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
                   <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
@@ -476,7 +476,7 @@ export default async function ProjectsPage({
             sizes="(min-width: 640px) 13vw, 42vw"
           />
 
-          <h2 className="font-heebo pointer-events-none absolute top-[49%] left-1/2 z-30 w-[82%] -translate-x-1/2 -translate-y-1/2 text-center text-[42px] leading-[0.98] font-black tracking-normal text-[#101713]/90 sm:w-[48%] sm:text-[48px] md:text-[58px] lg:text-[64px] xl:text-[72px] 2xl:text-[82px]">
+          <h2 className="font-quinn pointer-events-none absolute top-[49%] left-1/2 z-30 w-[82%] -translate-x-1/2 -translate-y-1/2 text-center text-[42px] leading-[0.98] font-bold tracking-normal text-[#101713]/90 sm:w-[48%] sm:text-[48px] md:text-[58px] lg:text-[64px] xl:text-[72px] 2xl:text-[82px]">
             {es ? (
               <>
                 <span className="block">¿Qué llevo</span>

@@ -45,7 +45,7 @@ test("FavoriteProjects renders the Figma labels after the Designing for section"
   }
 
   const designingForIndex = homePage.indexOf(
-    '{es ? "Diseño para" : "Designing for"}',
+    '{es ? "Diseñando para" : "Designing for"}',
   );
   const designingForSectionEnd = homePage.indexOf("</section>", designingForIndex);
   const favoriteProjectsIndex = homePage.indexOf(

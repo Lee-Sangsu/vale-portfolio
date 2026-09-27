@@ -175,7 +175,7 @@ export default async function Home({
       <section className="bg-white px-6 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-[1040px]">
           <h2 className="font-inter text-ink2 text-[40px] leading-[1.1] font-bold sm:text-[68px]">
-            {es ? "Diseño para" : "Designing for"}
+            {es ? "Diseñando para" : "Designing for"}
             <br />
             <RotatingWord words={rotating} className="text-black" />
           </h2>

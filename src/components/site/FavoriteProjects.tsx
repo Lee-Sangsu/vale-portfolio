@@ -65,7 +65,7 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="font-inter space-y-4 text-right text-[18px] leading-[1.1] font-semibold tracking-[-0.025em] text-[#2a2a2a] sm:text-[25px] lg:mt-3 lg:space-y-6 lg:text-[30px]">
+        <div className="font-inter space-y-6 text-right text-[18px] leading-[1.1] font-bold tracking-[-0.025em] text-[#2a2a2a] sm:text-[25px] lg:mt-3 lg:space-y-9 lg:text-[30px]">
           <Link
             href="/work/global-youth-summit"
             className="ml-auto block w-fit rounded-sm uppercase underline-offset-4 transition-opacity hover:opacity-70 hover:underline focus-visible:ring-2 focus-visible:ring-[#2a2a2a] focus-visible:ring-offset-4 focus-visible:outline-none"
