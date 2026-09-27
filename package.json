@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && local-feedbacker-strip-maps",
+    "build": "next build --webpack && local-feedbacker-strip-maps",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
