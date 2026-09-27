@@ -1,13 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import type { Locale } from "@/content/types";
 
 /**
- * iPod card for the Skills section. The screen behaves like a tiny playlist,
- * controlled by the click wheel below it.
+ * iPod card for the Skills section. The screen behaves like a tiny playlist of
+ * the skills listed beside it, controlled by the click wheel below it.
  */
 type Star = {
   className: string;
@@ -15,7 +21,6 @@ type Star = {
   height: number;
   rotate: number;
 };
-type Track = { en: string; es: string; metaEn: string; metaEs: string };
 
 const STARS: Star[] = [
   {
@@ -50,58 +55,91 @@ const STARS: Star[] = [
   },
 ];
 
-const TRACKS: Track[] = [
-  {
-    en: "Strategy & Brand",
-    es: "Estrategia & Marca",
-    metaEn: "Visual systems",
-    metaEs: "Sistemas visuales",
-  },
-  {
-    en: "Product · UX",
-    es: "Producto · UX",
-    metaEn: "Apps and web",
-    metaEs: "Apps y web",
-  },
-  {
-    en: "Content & Social",
-    es: "Contenido & Redes",
-    metaEn: "Campaign rhythm",
-    metaEs: "Ritmo de campaña",
-  },
-  {
-    en: "Events",
-    es: "Eventos",
-    metaEn: "Community moments",
-    metaEs: "Momentos comunidad",
-  },
+// Placeholder soundtrack: each skill gets a Shakira song, shuffled per visit.
+const SHAKIRA_SONGS = [
+  "Hips Don't Lie",
+  "Whenever, Wherever",
+  "Waka Waka",
+  "La Tortura",
+  "Ojos Así",
+  "Estoy Aquí",
+  "Suerte",
+  "She Wolf",
+  "Te Felicito",
+  "Chantaje",
+  "Pies Descalzos",
+  "Loca",
+  "La Bicicleta",
+  "Día de Enero",
+  "Inevitable",
+  "Antología",
 ];
 
-export function IpodCard({ locale }: { locale: Locale }) {
+let shuffledSongs: string[] | null = null;
+
+// Shuffled once per page load on the client; the server renders the list as-is.
+function getShuffledSongs() {
+  if (!shuffledSongs) {
+    shuffledSongs = [...SHAKIRA_SONGS];
+    for (let i = shuffledSongs.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledSongs[i], shuffledSongs[j]] = [
+        shuffledSongs[j],
+        shuffledSongs[i],
+      ];
+    }
+  }
+  return shuffledSongs;
+}
+
+const subscribeToSongs = () => () => {};
+const getServerSongs = () => SHAKIRA_SONGS;
+
+export function IpodCard({
+  locale,
+  tracks,
+}: {
+  locale: Locale;
+  tracks: string[];
+}) {
   const es = locale === "es";
   const [active, setActive] = useState(0);
+  const songs = useSyncExternalStore(
+    subscribeToSongs,
+    getShuffledSongs,
+    getServerSongs,
+  );
   const shouldReduceMotion = useReducedMotion();
-  const activeTrack = TRACKS[active];
+  const rootRef = useRef<HTMLDivElement>(null);
+  // Stars can be dragged anywhere inside the surrounding section.
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    sectionRef.current = rootRef.current?.closest("section") ?? null;
+  }, []);
 
   const controls = useMemo(
     () => ({
       previous: () =>
-        setActive((current) => (current - 1 + TRACKS.length) % TRACKS.length),
-      next: () => setActive((current) => (current + 1) % TRACKS.length),
+        setActive((current) => (current - 1 + tracks.length) % tracks.length),
+      next: () => setActive((current) => (current + 1) % tracks.length),
       menu: () => setActive(0),
     }),
-    [],
+    [tracks.length],
   );
 
   return (
-    <div className="relative h-[365px] w-[160px] overflow-visible">
+    <div
+      ref={rootRef}
+      className="relative h-[365px] w-[160px] overflow-visible"
+    >
       {/* Chrome stars */}
       {STARS.map((s, i) => (
         <motion.div
           key={i}
           className={`absolute z-20 cursor-grab touch-none active:cursor-grabbing ${s.className}`}
           drag
-          dragConstraints={{ top: -24, right: 24, bottom: 24, left: -24 }}
+          dragConstraints={sectionRef}
           dragElastic={0.14}
           dragMomentum={false}
           initial={{ rotate: s.rotate }}
@@ -142,17 +180,17 @@ export function IpodCard({ locale }: { locale: Locale }) {
             aria-live="polite"
             className="flex min-h-0 flex-1 flex-col justify-center"
           >
-            <p className="truncate text-[10px] leading-tight font-semibold text-white">
-              {activeTrack[locale]}
+            <p className="line-clamp-2 text-[10px] leading-tight font-semibold text-white">
+              {active + 1}. {tracks[active]}
             </p>
             <p className="mt-1 truncate text-[8px] leading-none text-white/70">
-              {es ? activeTrack.metaEs : activeTrack.metaEn}
+              ♪ {songs[active % songs.length]} · Shakira
             </p>
           </div>
           <div className="h-[2px] overflow-hidden rounded-full bg-black/15">
             <div
               className="h-full bg-white/70 transition-[width]"
-              style={{ width: `${((active + 1) / TRACKS.length) * 100}%` }}
+              style={{ width: `${((active + 1) / tracks.length) * 100}%` }}
             />
           </div>
         </div>

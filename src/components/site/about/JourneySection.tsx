@@ -6,7 +6,7 @@ type JourneyItem = {
   role: LocalizedString;
   company: LocalizedString;
   date: LocalizedString;
-  href?: `/work/${string}`;
+  href?: `/chapters/${string}`;
 };
 
 const INTRO: LocalizedString = {
@@ -19,23 +19,25 @@ const JOURNEY: JourneyItem[] = [
     role: { en: "Product & design", es: "Producto y diseño" },
     company: { en: "NomadHer", es: "NomadHer" },
     date: { en: "Oct 2025 - present", es: "Oct 2025 - presente" },
-    href: "/work/nomadher-app",
+    href: "/chapters/nomadher",
   },
   {
     role: { en: "Innovation & expansion", es: "Innovación y expansión" },
     company: { en: "BOOST LAB", es: "BOOST LAB" },
     date: { en: "2024 - present", es: "2024 - presente" },
-    href: "/work/global-youth-summit",
+    href: "/chapters/boost-lab",
   },
   {
     role: { en: "Branding & strategy", es: "Branding y estrategia" },
     company: { en: "Diseño independiente", es: "Diseño independiente" },
     date: { en: "2025 - 2026", es: "2025 - 2026" },
+    href: "/chapters/independent",
   },
   {
     role: { en: "LATAM talent scouting", es: "Talent scouting LATAM" },
     company: { en: "Travelling University", es: "Travelling University" },
     date: { en: "2024 - 2025", es: "2024 - 2025" },
+    href: "/chapters/travelling-university",
   },
   {
     role: {
@@ -44,6 +46,7 @@ const JOURNEY: JourneyItem[] = [
     },
     company: { en: "N9NE", es: "N9NE" },
     date: { en: "2021 - 2024", es: "2021 - 2024" },
+    href: "/chapters/n9ne",
   },
   {
     role: {
@@ -52,6 +55,7 @@ const JOURNEY: JourneyItem[] = [
     },
     company: { en: "Ironhack", es: "Ironhack" },
     date: { en: "2022 - 2023", es: "2022 - 2023" },
+    href: "/chapters/ironhack",
   },
 ];
 
@@ -71,12 +75,12 @@ export function JourneySection({ locale }: { locale: Locale }) {
             {JOURNEY.map((item) => (
               <li
                 key={item.role.en}
-                className="flex min-h-[74px] flex-col items-start gap-1 border-b border-[#e2e2dc] py-4 last:border-0 sm:flex-row sm:justify-between sm:gap-6 xl:py-0"
+                className="flex min-h-[74px] flex-col items-start justify-center gap-1 border-b border-[#e2e2dc] py-4 last:border-0 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
               >
                 <span className="font-inter text-ink2 max-w-[407px] text-[21px] leading-[normal] font-medium sm:text-[24px]">
                   {item.role[locale]}
                 </span>
-                <span className="flex shrink-0 flex-col items-start pt-0.5 sm:items-end">
+                <span className="flex shrink-0 flex-col items-start sm:items-end">
                   {item.href ? (
                     <Link
                       href={item.href}

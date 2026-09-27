@@ -155,8 +155,8 @@ export function MyStory({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <div className="relative mx-auto hidden w-full max-w-[1710px] lg:aspect-[1710/1000] lg:block">
-        <div className="pointer-events-none absolute left-[46.61%] top-[5.91%] z-10 size-[116px]">
+      <div className="relative hidden w-full lg:aspect-[1710/1060] lg:block">
+        <div className="pointer-events-none absolute left-[46.61%] top-[5.58%] z-10 size-[116px]">
           <Image
             src="/pages/about/figma/story-collage-doodle.svg"
             alt=""
@@ -165,11 +165,11 @@ export function MyStory({ locale }: { locale: Locale }) {
           />
         </div>
 
-        <h2 className="font-inter absolute left-1/2 top-[19.2%] z-10 -translate-x-1/2 text-center text-[clamp(32px,2.81vw,48px)] font-bold leading-none">
+        <h2 className="font-inter absolute left-1/2 top-[18.11%] z-10 -translate-x-1/2 text-center text-[clamp(32px,2.81vw,48px)] font-bold leading-none">
           {es ? "Mi historia" : "My story"}
         </h2>
 
-        <div className="font-inter absolute left-1/2 top-[25.76%] z-10 w-[50.35%] -translate-x-1/2 text-center text-[clamp(12px,1.053vw,18px)] leading-[1.5] text-[#c9cdd0]">
+        <div className="font-inter absolute left-1/2 top-[24.3%] z-10 w-[50.35%] max-w-[861px] -translate-x-1/2 text-center text-[clamp(12px,1.053vw,18px)] leading-[1.5] text-[#c9cdd0]">
           <StoryParagraphs locale={locale} />
         </div>
 

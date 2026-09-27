@@ -22,11 +22,12 @@ const figmaPhotoFiles = [
 test("My Story renders the responsive Figma collage with local image exports", () => {
   assert.match(component, /id="story"/);
   assert.match(component, /const es = locale === "es"/);
-  assert.match(component, /lg:aspect-\[1710\/1000\]/);
-  assert.match(component, /max-w-\[1710px\]/);
+  assert.match(component, /lg:aspect-\[1710\/1060\]/);
+  // Full-bleed so the edge photos stay attached to the viewport sides.
+  assert.doesNotMatch(component, /max-w-\[1710px\]/);
   assert.match(
     component,
-    /<div className="pointer-events-none absolute left-\[46\.61%\] top-\[5\.91%\] z-10 size-\[6\.78%\]">/,
+    /<div className="pointer-events-none absolute left-\[46\.61%\] top-\[5\.58%\] z-10 size-\[116px\]">/,
   );
   assert.match(component, /overflow-hidden/);
   assert.doesNotMatch(component, /relative overflow-hidden \$\{className\}/);
