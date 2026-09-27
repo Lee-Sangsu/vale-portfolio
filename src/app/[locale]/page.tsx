@@ -155,7 +155,7 @@ export default async function Home({
 
       <FeatureProjectsMarquee
         items={featureItems}
-        label={es ? "Marcas con las que trabajo" : "Brands I work with"}
+        label={es ? "Marcas con las que colaborado" : "Brands I collaborated with"}
       />
 
       <CategoryShowcase

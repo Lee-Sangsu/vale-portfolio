@@ -117,15 +117,15 @@ const CARRYON_BAG = {
 const chaptersTravelPhotos = [
   {
     src: encodeAsset("pages/projects/figma/chapters-travel-1.jpeg")!,
-    className: "left-[0.5%] top-[21.5%] z-10 h-[52.1%] w-[37.5%] -rotate-[18.79deg]",
+    className: "left-[11.5%] top-[21.5%] z-10 h-[52.1%] w-[37.5%] -rotate-[18.79deg]",
   },
   {
     src: encodeAsset("pages/projects/figma/chapters-travel-2.jpeg")!,
-    className: "left-[24.3%] top-[21.5%] z-20 h-[52.1%] w-[37.5%] -rotate-[1.88deg]",
+    className: "left-[35.3%] top-[21.5%] z-20 h-[52.1%] w-[37.5%] -rotate-[1.88deg]",
   },
   {
     src: encodeAsset("pages/projects/figma/chapters-travel-3.jpeg")!,
-    className: "left-[49%] top-[27.3%] z-30 h-[52.1%] w-[28.5%] rotate-[9.42deg]",
+    className: "left-[60%] top-[27.3%] z-30 h-[52.1%] w-[28.5%] rotate-[9.42deg]",
   },
 ];
 
@@ -349,16 +349,16 @@ export default async function ProjectsPage({
                 />
               </div>
             ))}
-            <span className="absolute left-[6%] top-[71.2%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+            <span className="absolute left-[17%] top-[71.2%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
               I ♥ SK
             </span>
-            <span className="absolute left-[29%] top-[58%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+            <span className="absolute left-[40%] top-[58%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
               LONDON
             </span>
-            <span className="absolute left-[51%] top-[74.5%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+            <span className="absolute left-[62%] top-[74.5%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
               ⛩
             </span>
-            <span className="absolute left-[66%] top-[28%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+            <span className="absolute left-[77%] top-[28%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
               ⛩
             </span>
           </div>
