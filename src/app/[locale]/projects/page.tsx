@@ -229,6 +229,13 @@ export default async function ProjectsPage({
       cover,
       href: `/chapters/${c.id}`,
       description: detail.intro[locale],
+      chapterProjects: detail.projects.map((project) => ({
+        title: project.title[locale],
+        label: project.label[locale],
+        description: project.description[locale],
+        href: project.href,
+        image: encodeAsset(project.image),
+      })),
     };
   });
 
@@ -372,7 +379,8 @@ export default async function ProjectsPage({
           </p>
           <ProjectChapterGrid
             categories={projectCategories}
-            cards={chapterCards.map(({ c, cover, href, description }) => ({
+            locale={locale}
+            cards={chapterCards.map(({ c, cover, href, description, chapterProjects }) => ({
               id: c.id,
               href,
               cover,
@@ -381,6 +389,7 @@ export default async function ProjectsPage({
               location: c.location[locale],
               description,
               projects: c.projects[locale],
+              chapterProjects,
             }))}
           />
         </div>
