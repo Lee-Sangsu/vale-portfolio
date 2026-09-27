@@ -28,83 +28,127 @@ const carryOnAsset = (file: string) =>
 const CARRYON_ITEMS = [
   {
     src: carryOnAsset("camara.svg"),
+    alt: { es: "Cámara", en: "Camera" },
+    label: { es: "creatividad", en: "creativity" },
     width: 2263,
     height: 1366,
     className:
       "left-[6%] top-[11%] w-[31%] sm:left-[9%] sm:top-[22%] sm:w-[9.5%]",
     sizes: "(min-width: 640px) 10vw, 31vw",
+    labelClassName: "top-full mt-2",
   },
   {
-    src: carryOnAsset("1Object.svg"),
-    width: 848,
-    height: 1194,
+    src: carryOnAsset("duck-figma.png"),
+    alt: { es: "Pato", en: "Duck" },
+    label: { es: "curiosidad", en: "curiosity" },
+    width: 207,
+    height: 354,
     className:
       "left-[56%] top-[6%] w-[14%] sm:left-[30%] sm:top-[6%] sm:w-[5.5%]",
     sizes: "(min-width: 640px) 6vw, 14vw",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("oveja.svg"),
+    alt: { es: "Oveja", en: "Sheep" },
+    label: { es: "empatía", en: "empathy" },
     width: 953,
     height: 772,
     className:
       "right-[8%] top-[19%] w-[26%] sm:right-[27%] sm:top-[15%] sm:w-[9%]",
     sizes: "(min-width: 640px) 9vw, 26vw",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("nube.svg"),
+    alt: { es: "Nube", en: "Cloud" },
+    label: { es: "imaginación", en: "imagination" },
     width: 4660,
     height: 4660,
     className:
       "right-[7%] top-[6%] w-[27%] sm:right-[5%] sm:top-[14%] sm:w-[10%]",
     sizes: "(min-width: 640px) 10vw, 27vw",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("laptop.svg"),
+    alt: { es: "Portátil", en: "Laptop" },
+    label: { es: "innovación", en: "innovation" },
     width: 2577,
     height: 1793,
     className:
       "left-[3%] top-[54%] w-[32%] sm:left-[6%] sm:top-[51%] sm:w-[10%]",
     sizes: "(min-width: 640px) 10vw, 32vw",
+    labelClassName: "bottom-full mb-2",
   },
   {
     src: carryOnAsset("loto.svg"),
+    alt: { es: "Flor de loto", en: "Lotus flower" },
+    label: { es: "equilibrio", en: "balance" },
     width: 2916,
     height: 2916,
     className:
       "left-[10%] top-[35%] w-[30%] sm:left-[20%] sm:top-[39%] sm:w-[9%]",
     sizes: "(min-width: 640px) 9vw, 30vw",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("disco.svg"),
+    alt: { es: "Bola de disco", en: "Disco ball" },
+    label: { es: "alegría", en: "joy" },
     width: 2131,
     height: 2557,
     className:
       "left-[20%] top-[75%] w-[21%] sm:left-[18%] sm:top-[67%] sm:w-[6.5%]",
     sizes: "(min-width: 640px) 7vw, 21vw",
+    labelClassName: "bottom-full mb-2",
   },
   {
     src: carryOnAsset("plane.svg"),
+    alt: { es: "Avión", en: "Plane" },
+    label: {
+      es: "mentalidad internacional",
+      en: "international mindset",
+    },
     width: 3308,
     height: 2203,
     className:
       "left-[47%] top-[80%] w-[38%] sm:left-[27%] sm:top-[74%] sm:w-[13%]",
     sizes: "(min-width: 640px) 13vw, 38vw",
+    labelClassName: "bottom-full mb-2",
   },
   {
     src: carryOnAsset("dados.svg"),
+    alt: { es: "Dados", en: "Dice" },
+    label: { es: "adaptabilidad", en: "adaptability" },
     width: 1552,
     height: 2002,
     className:
       "right-[4%] top-[43%] w-[22%] sm:right-[15%] sm:top-[37%] sm:w-[7%]",
     sizes: "(min-width: 640px) 7vw, 22vw",
+    labelClassName: "top-full mt-2",
+  },
+  {
+    src: carryOnAsset("paint-figma.png"),
+    alt: { es: "Pintura", en: "Painting" },
+    label: { es: "empoderamiento", en: "empowerment" },
+    width: 338,
+    height: 459,
+    className:
+      "right-[34%] top-[63%] w-[30%] sm:right-[22.5%] sm:top-[60%] sm:w-[9.5%]",
+    sizes: "(min-width: 640px) 10vw, 30vw",
+    labelClassName: "bottom-full mb-2",
   },
   {
     src: carryOnAsset("audifonos.svg"),
+    alt: { es: "Audífonos", en: "Headphones" },
+    label: { es: "escucha", en: "listening" },
     width: 2371,
     height: 2623,
     className:
       "right-[5%] top-[77%] w-[25%] sm:right-[6%] sm:top-[66%] sm:w-[8%]",
     sizes: "(min-width: 640px) 8vw, 25vw",
+    labelClassName: "bottom-full mb-2",
   },
 ];
 
@@ -390,26 +434,29 @@ export default async function ProjectsPage({
       <section className="relative overflow-hidden bg-white">
         <div className="relative mx-auto h-[640px] w-full overflow-hidden sm:h-auto sm:min-h-[460px] sm:aspect-[2/1] lg:min-h-0">
           {CARRYON_ITEMS.map((item) => (
-            <Image
+            <div
               key={item.src}
-              src={item.src}
-              alt=""
-              width={item.width}
-              height={item.height}
-              className={`pointer-events-none absolute z-10 h-auto select-none object-contain ${item.className}`}
-              sizes={item.sizes}
-            />
+              tabIndex={0}
+              role="img"
+              aria-label={`${item.alt[locale]}: ${item.label[locale]}`}
+              className={`group absolute z-10 cursor-help focus-visible:z-40 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c211e] hover:z-40 ${item.className}`}
+            >
+              <Image
+                src={item.src}
+                alt=""
+                width={item.width}
+                height={item.height}
+                className="pointer-events-none h-auto w-full select-none object-contain"
+                sizes={item.sizes}
+              />
+              <span
+                aria-hidden="true"
+                className={`pointer-events-none invisible absolute left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#1c211e] px-3 py-1.5 font-inter text-[11px] font-semibold text-white opacity-0 shadow-[0_3px_12px_rgba(0,0,0,0.18)] transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus:visible group-focus:opacity-100 ${item.labelClassName}`}
+              >
+                {item.label[locale]}
+              </span>
+            </div>
           ))}
-
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute right-[34%] top-[63%] z-10 h-[30vw] max-h-[120px] w-[30vw] max-w-[120px] bg-[#1043d8] sm:right-[22.5%] sm:top-[60%] sm:h-[9.5vw] sm:max-h-none sm:w-[9.5vw] sm:max-w-none"
-          >
-            <span className="absolute top-[20%] left-[18%] h-[28%] w-[24%] rounded-full border-[3px] border-white/90 border-r-transparent border-b-transparent" />
-            <span className="absolute top-[24%] right-[14%] h-[22%] w-[42%] rotate-[-18deg] rounded-full border-t-[4px] border-white/90" />
-            <span className="absolute bottom-[27%] left-[18%] h-[24%] w-[23%] rounded-full border-[3px] border-white/90 border-r-transparent" />
-            <span className="absolute right-[12%] bottom-[24%] h-[23%] w-[44%] rotate-[17deg] rounded-full border-t-[4px] border-white/90" />
-          </div>
 
           <Image
             src={CARRYON_BAG.src}
