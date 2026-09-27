@@ -4,6 +4,15 @@ import Image from "next/image";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { filterProjectCards } from "@/lib/project-categories.mjs";
+import type { Locale } from "@/content/types";
+
+export type ProjectChapterProject = {
+  title: string;
+  label: string;
+  description: string;
+  href?: string;
+  image?: string;
+};
 
 export type ProjectChapterCard = {
   id: string;
@@ -14,6 +23,7 @@ export type ProjectChapterCard = {
   location: string;
   description: string;
   projects: string[];
+  chapterProjects: ProjectChapterProject[];
 };
 
 export type ProjectCategory = {
@@ -24,12 +34,23 @@ export type ProjectCategory = {
 export function ProjectChapterGrid({
   cards,
   categories,
+  locale,
 }: {
   cards: ProjectChapterCard[];
   categories: ProjectCategory[];
+  locale: Locale;
 }) {
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id ?? "chapters");
-  const filteredCards = filterProjectCards(cards, activeCategory) as ProjectChapterCard[];
+  const isChaptersTab = activeCategory === "chapters";
+  const matchingChapters = filterProjectCards(cards, activeCategory) as ProjectChapterCard[];
+  const flatProjects = isChaptersTab
+    ? []
+    : matchingChapters.flatMap((chapter) =>
+        chapter.chapterProjects.map((project, index) => ({
+          ...project,
+          key: `${chapter.id}-${index}`,
+        })),
+      );
 
   return (
     <div>
@@ -53,47 +74,103 @@ export function ProjectChapterGrid({
         </div>
       </div>
 
-      <ul className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 lg:grid-cols-2 lg:gap-8">
-        {filteredCards.map((card) => (
-          <li key={card.id}>
-            <Link
-              href={card.href}
-              className="group flex h-full min-h-[620px] flex-col rounded-[22px] bg-[#ecece7] p-5 transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7b173b] sm:min-h-[700px] sm:p-6"
-            >
-              <div className="relative h-[240px] w-full overflow-hidden rounded-[14px] bg-[#c9d6cd] sm:h-[300px]">
-                {card.cover && (
-                  <Image
-                    src={card.cover}
-                    alt={card.title}
-                    fill
-                    sizes="(min-width: 1024px) 520px, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
+      {isChaptersTab ? (
+        <ul className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 lg:grid-cols-2 lg:gap-8">
+          {matchingChapters.map((card) => (
+            <li key={card.id}>
+              <Link
+                href={card.href}
+                className="group flex h-full min-h-[620px] flex-col rounded-[22px] bg-[#ecece7] p-5 transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7b173b] sm:min-h-[700px] sm:p-6"
+              >
+                <div className="relative h-[240px] w-full overflow-hidden rounded-[14px] bg-[#c9d6cd] sm:h-[300px]">
+                  {card.cover && (
+                    <Image
+                      src={card.cover}
+                      alt={card.title}
+                      fill
+                      sizes="(min-width: 1024px) 520px, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
+                </div>
+                <h3 className="mt-6 font-inter text-[30px] font-semibold leading-none text-[#1c211e] sm:text-[36px]">
+                  {card.title}
+                </h3>
+                <p className="mt-4 font-inter text-[14px] font-semibold leading-snug text-[#111] sm:text-[16px]">
+                  {card.location} · {card.dateRange}
+                </p>
+                <p className="mt-4 font-inter text-[15px] leading-[1.5] text-[#6e726e] sm:text-[17px]">
+                  {card.description}
+                </p>
+                <div className="mt-auto flex flex-wrap gap-2 pt-6">
+                  {card.projects.map((project) => (
+                    <span
+                      key={project}
+                      className="rounded-full bg-[#1c211e] px-4 py-2 font-inter text-[12px] font-medium text-white sm:text-[13px]"
+                    >
+                      {project}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <ul className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {flatProjects.map((project) => {
+            const className =
+              "group flex h-full min-h-[420px] flex-col overflow-hidden rounded-[18px] border border-[#e2e2dd] bg-[#fafaf5] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7b173b]";
+            const body = (
+              <>
+                <div className="relative h-[220px] w-full overflow-hidden bg-[#c9d6cd]">
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col px-6 pb-7 pt-6">
+                  <p className="font-inter text-[13px] font-medium tracking-[0.08em] text-[#555]">
+                    {project.label}
+                  </p>
+                  <h3 className="mt-3 font-inter text-[24px] font-semibold leading-[1.02] text-[#1c211e]">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 font-inter text-[15px] leading-[1.5] text-[#6e726e]">
+                    {project.description}
+                  </p>
+                  {project.href ? (
+                    <span className="mt-auto pt-6 font-inter text-[13px] font-semibold uppercase tracking-[0.1em] text-[#1c211e]">
+                      {locale === "es" ? "Ver proyecto ↗" : "View project ↗"}
+                    </span>
+                  ) : (
+                    <span className="mt-auto pt-6 font-inter text-[13px] font-medium text-[#6e726e]">
+                      {locale === "es" ? "Próximamente" : "Coming soon"}
+                    </span>
+                  )}
+                </div>
+              </>
+            );
+
+            return (
+              <li key={project.key}>
+                {project.href ? (
+                  <Link href={project.href} className={className}>
+                    {body}
+                  </Link>
+                ) : (
+                  <article className={className}>{body}</article>
                 )}
-              </div>
-              <h3 className="mt-6 font-inter text-[30px] font-semibold leading-none text-[#1c211e] sm:text-[36px]">
-                {card.title}
-              </h3>
-              <p className="mt-4 font-inter text-[14px] font-semibold leading-snug text-[#111] sm:text-[16px]">
-                {card.location} · {card.dateRange}
-              </p>
-              <p className="mt-4 font-inter text-[15px] leading-[1.5] text-[#6e726e] sm:text-[17px]">
-                {card.description}
-              </p>
-              <div className="mt-auto flex flex-wrap gap-2 pt-6">
-                {card.projects.map((project) => (
-                  <span
-                    key={project}
-                    className="rounded-full bg-[#1c211e] px-4 py-2 font-inter text-[12px] font-medium text-white sm:text-[13px]"
-                  >
-                    {project}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

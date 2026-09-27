@@ -20,3 +20,13 @@ test("project grid is a client component with accessible category controls", asy
   assert.match(component, /-mx-5 mt-8 overflow-x-auto/);
   assert.match(component, /<ul className="mt-4/);
 });
+
+test("non-chapters tabs render the individual projects inside matching chapters, not chapter cards", async () => {
+  const component = await readFile(componentUrl, "utf8");
+  assert.match(component, /const isChaptersTab = activeCategory === "chapters";/);
+  assert.match(
+    component,
+    /matchingChapters\.flatMap\(\s*\(chapter\)\s*=>\s*chapter\.chapterProjects\.map/,
+  );
+  assert.match(component, /\{isChaptersTab \? \(/);
+});
