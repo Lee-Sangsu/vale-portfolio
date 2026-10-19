@@ -13,7 +13,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
     ? "Diseño marcas, productos y eventos que salen del papel. Aquí vas a encontrar branding, eventos, campañas y producto digital, llevados de la mano de la creatividad y el trabajo en equipo."
     : "I design brands, products and events that make it off the page. Here you'll find branding, events, campaigns and digital products, driven by creativity and teamwork.";
 
-  const contactHref = `/${locale}/contact`;
+  const mailHref = "mailto:valejimenezc2003@gmail.com";
+  const cvHref = es ? "/cv/cv-es.pdf" : "/cv/cv-en.pdf";
+  const calendlyHref = "https://calendly.com/valejimenezc2003/30min";
   const projectsHref = `/${locale}/projects`;
 
   // Four floating folder stickers frame the portrait (desktop only), matching
@@ -30,7 +32,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
       textColor: "#000",
       pos: "left-[15%] top-[19%]",
       rotate: -7,
-      href: projectsHref,
+      href: cvHref,
+      external: true,
     },
     {
       // dark blue folder (Folder 1 = #043C9F) — left middle
@@ -50,7 +53,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
       textColor: "#000",
       pos: "left-[72%] top-[17%]",
       rotate: 4,
-      href: contactHref,
+      href: mailHref,
     },
     {
       // wine folder (Folder 1-2 = #7B173B) — lower right
@@ -60,7 +63,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
       textColor: "#fff",
       pos: "left-[73%] top-[49%]",
       rotate: -5,
-      href: contactHref,
+      href: calendlyHref,
+      external: true,
     },
   ];
 
@@ -94,6 +98,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 textColor={f.textColor}
                 rotate={f.rotate}
                 href={f.href}
+                external={f.external}
               />
             </div>
           ))}
@@ -147,9 +152,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </div>
 
         {/* Mobile CTA — the floating folders are desktop-only, so phones get a
-            plain button to the contact page. */}
+            plain button to email. */}
         <a
-          href={contactHref}
+          href={mailHref}
           className="font-inter mt-8 inline-flex items-center gap-2 rounded-full bg-[#043c9f] px-7 py-3 text-[14px] font-semibold text-white shadow-[0_8px_20px_rgba(4,60,159,0.35)] transition-transform hover:-translate-y-0.5 md:hidden"
         >
           {es ? "Colaboremos" : "Let's Collab"} <span aria-hidden>→</span>
