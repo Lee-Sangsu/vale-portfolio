@@ -52,3 +52,6 @@ public/shared/brands/**
 
 /.omc/
 /.omx/
+
+# unused local media moved out of public/ — kept on disk, never committed
+local-assets/
