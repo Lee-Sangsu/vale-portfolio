@@ -27,8 +27,8 @@ const chapterPageUrl = new URL(
   "../src/app/[locale]/chapters/[slug]/page.tsx",
   import.meta.url,
 );
-const categoriesUrl = new URL(
-  "../src/lib/project-categories.mjs",
+const portfolioDataUrl = new URL(
+  "../src/content/portfolio/data.generated.json",
   import.meta.url,
 );
 
@@ -39,15 +39,16 @@ test("chapter detail content covers every approved chapter with its editorial co
     "chapter-details.ts is missing",
   );
 
-  const [details, types, chapters, contentIndex, projectsPage, categories] =
+  const [details, types, chapters, contentIndex, projectsPage, portfolioRaw] =
     await Promise.all([
       readFile(chapterDetailsUrl, "utf8"),
       readFile(chapterTypesUrl, "utf8"),
       readFile(chaptersUrl, "utf8"),
       readFile(contentIndexUrl, "utf8"),
       readFile(projectsPageUrl, "utf8"),
-      readFile(categoriesUrl, "utf8"),
+      readFile(portfolioDataUrl, "utf8"),
     ]);
+  const portfolio = JSON.parse(portfolioRaw);
 
   for (const id of approvedChapterIds) {
     assert.match(types, new RegExp(`\\| "${id}"`));
@@ -77,8 +78,17 @@ test("chapter detail content covers every approved chapter with its editorial co
     /chapterDetails, getChapterDetail.*from "\.\/chapter-details"/,
   );
   assert.match(projectsPage, /getChapterDetail/);
-  assert.match(projectsPage, /href: `\/chapters\/\$\{c\.id\}`/);
-  assert.match(categories, /ironhack: \["ux-ui", "events", "strategy"\]/);
+  assert.match(projectsPage, /href: `\/chapters\/\$\{chapter\.id\}`/);
+
+  // The generated portfolio data lists the same chapters, in the same order.
+  assert.deepEqual(
+    portfolio.chapters.map((chapter) => chapter.id),
+    approvedChapterIds,
+  );
+  // Ironhack carries its case on the chapter page instead of project pages.
+  const ironhack = portfolio.chapters.find((chapter) => chapter.id === "ironhack");
+  assert.equal(ironhack.projects.length, 0);
+  assert.ok(ironhack.es.page.case && ironhack.en.page.case);
 });
 
 test("chapter details provide explicit English copy from the latest CV", async () => {
@@ -110,7 +120,14 @@ test("chapter details provide explicit English copy from the latest CV", async (
   assert.match(details, /value: \{ en: "1\.3M\+", es: "1,3M\+" \}/);
   assert.match(details, /value: \{ en: "59,000€", es: "59\.000€" \}/);
   assert.match(details, /value: \{ en: "100,000\+", es: "100\.000\+" \}/);
-  assert.match(page, /typeof impact\.value === "string"/);
+  // Chapter page copy now comes from the generated portfolio content.
+  assert.match(page, /getChapter,[\s\S]*?from "@\/content\/portfolio"/);
+  assert.match(page, /const \{ page \} = chapter\.t;/);
+  assert.match(page, /page\.stats\.map\(\(stat\)/);
+  assert.match(page, /\{stat\.value\}/);
+  assert.match(page, /\{stat\.label\}/);
+  assert.doesNotMatch(page, /impact\.value/);
+  assert.doesNotMatch(page, /detail\.intro|detail\.impact/);
   assert.doesNotMatch(
     page,
     /detail\.role\[locale\]\.toUpperCase\(\)\} · \{chapter\.dateRange/,

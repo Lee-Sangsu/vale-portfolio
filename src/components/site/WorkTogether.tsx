@@ -83,7 +83,7 @@ export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
         <div className="relative h-[360px] w-[266px] shrink-0 sm:h-[390px] sm:w-[286px]">
           <div className="absolute inset-0 overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
             <Image
-              src="/shared/portraits/work-together.png"
+              src="/shared/portraits/work-together-coffee.jpg"
               alt=""
               fill
               sizes="286px"

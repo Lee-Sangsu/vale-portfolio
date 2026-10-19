@@ -4,18 +4,26 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/content/types";
-import { getChapterDetail, heroes, chapters, getMentionsByChapter } from "@/content";
+import { getChapterDetail } from "@/content";
 import {
-  HERO_MANIFEST,
-  MENTION_MANIFEST,
-  encodeAsset,
-} from "@/content/photo-manifest";
+  FILTER_IDS,
+  FILTER_LABELS,
+  getProjectCover,
+  getProjectsByFilter,
+  portfolioChapters,
+} from "@/content/portfolio";
+import { encodeAsset } from "@/content/photo-manifest";
 import { carryOn } from "@/content/about";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CommunityStrip } from "@/components/site/CommunityStrip";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProjectChapterGrid } from "@/components/site/ProjectChapterGrid";
+import {
+  FolderBack,
+  FolderFront,
+  WineCardBackground,
+} from "@/components/site/ProjectsFolderArt";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -29,7 +37,7 @@ const CARRYON_ITEMS = [
   {
     src: carryOnAsset("camara.svg"),
     alt: { es: "Cámara", en: "Camera" },
-    label: { es: "creatividad", en: "creativity" },
+    label: { es: "visión artística", en: "artistic vision" },
     width: 2263,
     height: 1366,
     className:
@@ -40,7 +48,7 @@ const CARRYON_ITEMS = [
   {
     src: carryOnAsset("duck-figma.png"),
     alt: { es: "Pato", en: "Duck" },
-    label: { es: "curiosidad", en: "curiosity" },
+    label: { es: "evolución", en: "evolution" },
     width: 207,
     height: 354,
     className:
@@ -50,8 +58,8 @@ const CARRYON_ITEMS = [
   },
   {
     src: carryOnAsset("oveja.svg"),
-    alt: { es: "Oveja", en: "Sheep" },
-    label: { es: "empatía", en: "empathy" },
+    alt: { es: "Oveja con café", en: "Sheep with coffee" },
+    label: { es: "café mañanero", en: "morning coffee" },
     width: 953,
     height: 772,
     className:
@@ -62,7 +70,7 @@ const CARRYON_ITEMS = [
   {
     src: carryOnAsset("nube.svg"),
     alt: { es: "Nube", en: "Cloud" },
-    label: { es: "imaginación", en: "imagination" },
+    label: { es: "creatividad", en: "creativity" },
     width: 4660,
     height: 4660,
     className:
@@ -73,18 +81,18 @@ const CARRYON_ITEMS = [
   {
     src: carryOnAsset("laptop.svg"),
     alt: { es: "Portátil", en: "Laptop" },
-    label: { es: "innovación", en: "innovation" },
+    label: { es: "diseño de interfaces", en: "interface design" },
     width: 2577,
     height: 1793,
     className:
       "left-[3%] top-[54%] w-[32%] sm:left-[6%] sm:top-[51%] sm:w-[10%]",
     sizes: "(min-width: 640px) 10vw, 32vw",
-    labelClassName: "bottom-full mb-2",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("loto.svg"),
     alt: { es: "Flor de loto", en: "Lotus flower" },
-    label: { es: "equilibrio", en: "balance" },
+    label: { es: "pensamiento holístico", en: "holistic thinking" },
     width: 2916,
     height: 2916,
     className:
@@ -95,32 +103,29 @@ const CARRYON_ITEMS = [
   {
     src: carryOnAsset("disco.svg"),
     alt: { es: "Bola de disco", en: "Disco ball" },
-    label: { es: "alegría", en: "joy" },
+    label: { es: "diversión", en: "fun" },
     width: 2131,
     height: 2557,
     className:
       "left-[20%] top-[75%] w-[21%] sm:left-[18%] sm:top-[67%] sm:w-[6.5%]",
     sizes: "(min-width: 640px) 7vw, 21vw",
-    labelClassName: "bottom-full mb-2",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("plane.svg"),
     alt: { es: "Avión", en: "Plane" },
-    label: {
-      es: "mentalidad internacional",
-      en: "international mindset",
-    },
+    label: { es: "visión internacional", en: "international vision" },
     width: 3308,
     height: 2203,
     className:
       "left-[47%] top-[80%] w-[38%] sm:left-[27%] sm:top-[74%] sm:w-[13%]",
     sizes: "(min-width: 640px) 13vw, 38vw",
-    labelClassName: "bottom-full mb-2",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("dados.svg"),
     alt: { es: "Dados", en: "Dice" },
-    label: { es: "adaptabilidad", en: "adaptability" },
+    label: { es: "estrategia", en: "strategy" },
     width: 1552,
     height: 2002,
     className:
@@ -130,25 +135,25 @@ const CARRYON_ITEMS = [
   },
   {
     src: carryOnAsset("paint-figma.png"),
-    alt: { es: "Pintura", en: "Painting" },
-    label: { es: "empoderamiento", en: "empowerment" },
+    alt: { es: "Foto", en: "Photo" },
+    label: { es: "fuerza", en: "strength" },
     width: 338,
     height: 459,
     className:
       "right-[34%] top-[63%] w-[30%] sm:right-[22.5%] sm:top-[60%] sm:w-[9.5%]",
     sizes: "(min-width: 640px) 10vw, 30vw",
-    labelClassName: "bottom-full mb-2",
+    labelClassName: "top-full mt-2",
   },
   {
     src: carryOnAsset("audifonos.svg"),
     alt: { es: "Audífonos", en: "Headphones" },
-    label: { es: "escucha", en: "listening" },
+    label: { es: "buena música", en: "good music" },
     width: 2371,
     height: 2623,
     className:
       "right-[5%] top-[77%] w-[25%] sm:right-[6%] sm:top-[66%] sm:w-[8%]",
     sizes: "(min-width: 640px) 8vw, 25vw",
-    labelClassName: "bottom-full mb-2",
+    labelClassName: "top-full mt-2",
   },
 ];
 
@@ -161,15 +166,24 @@ const CARRYON_BAG = {
 const chaptersTravelPhotos = [
   {
     src: encodeAsset("pages/projects/figma/chapters-travel-1.jpeg")!,
-    className: "left-[11.5%] top-[21.5%] z-10 h-[52.1%] w-[37.5%] -rotate-[18.79deg]",
+    className:
+      "left-[11.5%] top-[21.5%] z-10 h-[52.1%] w-[37.5%] -rotate-[18.79deg]",
+    hoverClass:
+      "group-hover:-translate-x-14 group-hover:scale-[1.14] group-hover:-rotate-[24deg]",
   },
   {
     src: encodeAsset("pages/projects/figma/chapters-travel-2.jpeg")!,
-    className: "left-[35.3%] top-[21.5%] z-20 h-[52.1%] w-[37.5%] -rotate-[1.88deg]",
+    className:
+      "left-[35.3%] top-[21.5%] z-20 h-[52.1%] w-[37.5%] -rotate-[1.88deg]",
+    hoverClass:
+      "delay-[40ms] group-hover:scale-[1.2] group-hover:rotate-[1deg]",
   },
   {
     src: encodeAsset("pages/projects/figma/chapters-travel-3.jpeg")!,
-    className: "left-[60%] top-[27.3%] z-30 h-[52.1%] w-[28.5%] rotate-[9.42deg]",
+    className:
+      "left-[60%] top-[27.3%] z-30 h-[52.1%] w-[28.5%] rotate-[9.42deg]",
+    hoverClass:
+      "delay-[80ms] group-hover:translate-x-14 group-hover:scale-[1.14] group-hover:rotate-[15deg]",
   },
 ];
 
@@ -184,115 +198,119 @@ export default async function ProjectsPage({
   const locale = rawLocale as Locale;
   const es = locale === "es";
 
+  // Photos tucked inside the folder: they start mostly hidden behind the front
+  // panel and rise out of it on hover. `w`/`h` are the files' own pixel size so
+  // each keeps its aspect ratio (the white frames are part of the images).
   const portfolioPile = [
     {
-      src: encodeAsset("pages/projects/hero-photos/IMG_2567.png")!,
-      alt: "Portfolio photo collage",
-      className: "left-[15%] top-[27%] z-20 h-[61%] w-[21%] -rotate-[9deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-tote.png")!,
+      alt: "Tote bags \"She connects. She innovates. She inspires.\"",
+      w: 303, h: 383,
+      className: "left-[35.66%] top-[24.9%] z-[10] w-[15.5%] rotate-[10deg]",
       hoverClass:
-        "delay-[20ms] group-hover:-translate-x-7 group-hover:-translate-y-24 group-hover:scale-[1.06] group-hover:-rotate-[17deg]",
-      accent: false,
+        "delay-[0ms] group-hover:-translate-x-[67%] group-hover:-translate-y-[39%] group-hover:scale-[1.05] group-hover:rotate-[5deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/IMG_2012.png")!,
-      alt: "Portfolio photo collage",
-      className: "left-[30%] top-[17%] z-20 h-[37%] w-[19%] rotate-[9deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-team.png")!,
+      alt: es ? "Taller de identidad de equipo" : "Team identity workshop",
+      w: 338, h: 631,
+      className: "left-[22.94%] top-[32%] z-[12] w-[18%] -rotate-[8deg]",
       hoverClass:
-        "delay-[40ms] group-hover:-translate-x-4 group-hover:-translate-y-32 group-hover:scale-[1.06] group-hover:rotate-[16deg]",
-      accent: false,
+        "delay-[60ms] group-hover:-translate-x-[100%] group-hover:-translate-y-[34%] group-hover:scale-[1.05] group-hover:-rotate-[10deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/IMG_9109_VSCO.png")!,
-      alt: "Portfolio photo collage",
-      className: "left-[43%] top-[30%] z-30 h-[22%] w-[14%] -rotate-[4deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-nobled.png")!,
+      alt: "Nobled Specialty Coffee",
+      w: 332, h: 430,
+      className: "left-[46.14%] top-[48.2%] z-[15] w-[17.5%] rotate-[11deg]",
       hoverClass:
-        "delay-[60ms] group-hover:translate-x-2 group-hover:-translate-y-24 group-hover:scale-[1.06] group-hover:rotate-[4deg]",
-      accent: false,
+        "delay-[150ms] group-hover:-translate-x-[148%] group-hover:-translate-y-[68%] group-hover:scale-[1.05] group-hover:rotate-[8deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/IMG_0742_VSCO.png")!,
-      alt: "Portfolio photo collage",
-      className: "left-[32%] top-[50%] z-20 h-[37%] w-[19%] rotate-[1deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-superalink.png")!,
+      alt: "Superalink × NomadHer",
+      w: 288, h: 324,
+      className: "left-[50.15%] top-[26.7%] z-[11] w-[15%] -rotate-[9deg]",
       hoverClass:
-        "delay-[80ms] group-hover:-translate-x-16 group-hover:-translate-y-16 group-hover:scale-[1.06] group-hover:-rotate-[6deg]",
-      accent: false,
+        "delay-[30ms] group-hover:-translate-x-[38%] group-hover:-translate-y-[40%] group-hover:scale-[1.05] group-hover:-rotate-[9deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/IMG_0621.png")!,
-      alt: "Portfolio photo collage",
-      className: "left-[45%] top-[46%] z-40 h-[41%] w-[20%] rotate-[10deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-brujula.png")!,
+      alt: "Brújula Ética",
+      w: 354, h: 646,
+      className: "left-[60.86%] top-[24.3%] z-[16] w-[19.5%] rotate-[6deg]",
       hoverClass:
-        "delay-[100ms] group-hover:translate-x-14 group-hover:-translate-y-14 group-hover:scale-[1.06] group-hover:rotate-[17deg]",
-      accent: false,
+        "delay-[180ms] group-hover:translate-x-[74%] group-hover:-translate-y-[20%] group-hover:scale-[1.05] group-hover:rotate-[6deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/IMG_2012.png")!,
-      alt: "Portfolio photo collage",
-      className: "left-[50%] top-[20%] z-30 h-[31%] w-[18%] -rotate-[10deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-card.png")!,
+      alt: es ? "Tarjeta \"Cómo hablarle a mi cliente\"" : "\"How to talk to my customer\" card",
+      w: 303, h: 379,
+      className: "left-[40.45%] top-[52.9%] z-[14] w-[14%] -rotate-[1deg]",
       hoverClass:
-        "delay-[120ms] group-hover:translate-x-4 group-hover:-translate-y-28 group-hover:scale-[1.06] group-hover:-rotate-[17deg]",
-      accent: false,
+        "delay-[120ms] group-hover:translate-x-[90%] group-hover:-translate-y-[98%] group-hover:scale-[1.05] group-hover:rotate-[3deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/IMG_2567.png")!,
-      alt: "Portfolio photo collage",
-      className: "left-[64%] top-[17%] z-30 h-[62%] w-[22%] rotate-[5deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-mic.png")!,
+      alt: es ? "Participante con micrófono" : "Attendee with a microphone",
+      w: 243, h: 371,
+      className: "left-[57.92%] top-[55.9%] z-[17] w-[14.5%] -rotate-[6deg]",
       hoverClass:
-        "delay-[140ms] group-hover:translate-x-8 group-hover:-translate-y-32 group-hover:scale-[1.06] group-hover:rotate-[13deg]",
-      accent: false,
+        "delay-[210ms] group-hover:translate-x-[75%] group-hover:-translate-y-[80%] group-hover:scale-[1.05] group-hover:-rotate-[8deg]",
     },
     {
-      src: undefined,
-      alt: "",
-      className: "left-[61%] top-[54%] z-40 h-[36%] w-[15%] -rotate-[9deg]",
+      src: encodeAsset("pages/projects/hero-photos/folder-people.png")!,
+      alt: es ? "Asistentes a un evento" : "Event attendees",
+      w: 234, h: 233,
+      className: "left-[44.13%] top-[34.8%] z-[13] w-[12.5%] -rotate-[3deg]",
       hoverClass:
-        "delay-[160ms] group-hover:translate-x-20 group-hover:-translate-y-16 group-hover:scale-[1.06] group-hover:-rotate-[16deg]",
-      accent: true,
+        "delay-[90ms] group-hover:-translate-x-[51%] group-hover:-translate-y-[35%] group-hover:scale-[1.05] group-hover:-rotate-[6deg]",
     },
   ];
 
   // Chapter cards are the top level of the portfolio. They lead to chapter
-  // details, while individual case studies keep their existing /work URLs.
-  const chapterCards = chapters.map((c) => {
-    const detail = getChapterDetail(c.id)!;
-    const hero = heroes.find((h) => h.chapter === c.id);
-    const chapterMentions = getMentionsByChapter(c.id);
-    const featured =
-      chapterMentions.find((m) => MENTION_MANIFEST[m.id]?.cover) ??
-      chapterMentions[0];
-    const fallbackProjectImage = detail.projects.find((project) => project.image)?.image;
-    const cover = encodeAsset(
-      HERO_MANIFEST[hero?.slug ?? ""]?.cover ??
-        MENTION_MANIFEST[featured?.id ?? ""]?.cover ??
-        detail.cover ??
-        fallbackProjectImage,
-    );
+  // pages; every project has its own page under /work/<slug>.
+  const chapterCards = portfolioChapters.map((chapter) => {
+    const detail = getChapterDetail(chapter.id);
+    const firstCover = chapter.projects
+      .map((project) => getProjectCover(project.slug))
+      .find(Boolean);
+    const cover = encodeAsset(detail?.cover) ?? firstCover;
 
     return {
-      c,
+      id: chapter.id,
+      href: `/chapters/${chapter.id}`,
       cover,
-      href: `/chapters/${c.id}`,
-      description: detail.intro[locale],
-      chapterProjects: detail.projects.map((project) => ({
-        title: project.title[locale],
-        label: project.label[locale],
-        description: project.description[locale],
-        href: project.href,
-        image: encodeAsset(project.image),
-      })),
+      title: chapter[locale].card.title,
+      meta: chapter[locale].card.meta,
+      description: chapter[locale].card.description,
+      tags: chapter[locale].card.tags,
     };
   });
 
+  const accentOf = (chapterId: string) =>
+    getChapterDetail(chapterId)?.accent ?? "#c9d6cd";
+
+  // Filtered views list projects (not chapters), in the order set in the copy.
+  const projectsByCategory = Object.fromEntries(
+    FILTER_IDS.map((filter) => [
+      filter,
+      getProjectsByFilter(filter, locale).map((project) => ({
+        key: project.slug,
+        href: `/work/${project.slug}`,
+        image: getProjectCover(project.slug),
+        number: project.number,
+        accent: accentOf(project.chapter),
+        meta: project.t.card.meta,
+        title: project.t.card.title,
+        description: project.t.card.description,
+      })),
+    ]),
+  );
+
   const projectCategories = [
     { id: "chapters", label: es ? "Capítulos" : "Chapters" },
-    { id: "design", label: es ? "Diseño gráfico" : "Graphic design" },
-    { id: "ux-ui", label: "UX/UI" },
-    { id: "events", label: es ? "Eventos" : "Events" },
-    {
-      id: "marketing-content",
-      label: es ? "Marketing y contenido" : "Marketing & content",
-    },
-    { id: "strategy", label: es ? "Estrategia" : "Strategy" },
+    ...FILTER_IDS.map((id) => ({ id, label: FILTER_LABELS[id][locale] })),
   ];
 
   return (
@@ -300,7 +318,7 @@ export default async function ProjectsPage({
       {/* ── Hero — custom portfolio photo pile ── */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#cf9bac] via-[#e8c8d1] to-[#fffafa]">
         <SiteNav tone="dark" />
-        <div className="relative mx-auto flex min-h-[690px] max-w-[1200px] flex-col items-center px-5 pb-10 pt-[128px] sm:min-h-[850px] sm:px-8 sm:pt-[142px]">
+        <div className="relative mx-auto flex min-h-[470px] max-w-[1200px] flex-col items-center px-5 pb-12 pt-[128px] sm:min-h-[920px] sm:px-8 sm:pb-20 sm:pt-[142px]">
           <h1 className="relative z-10 flex items-baseline text-[#82143f]">
             <span className="font-display text-[clamp(4.3rem,13vw,10.5rem)] leading-[0.78] tracking-[-0.055em]">
               PORTA
@@ -311,54 +329,37 @@ export default async function ProjectsPage({
           </h1>
           <div className="group relative -mt-3 aspect-[11/7] w-full max-w-[920px] sm:-mt-8">
             <div className="absolute inset-0">
-              <div
-                aria-hidden="true"
-                data-projects-folder="back"
-                className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[55%] w-[68%] -translate-x-1/2 -rotate-[2deg] rounded-b-[34px] rounded-t-[24px] border border-[#151315] bg-[#525252]/45"
-              />
+              <FolderBack className="pointer-events-none absolute bottom-0 left-1/2 z-0 w-[62%] -translate-x-1/2" />
               {portfolioPile.map((photo) => (
-                <figure
-                  key={`${photo.src ?? "accent"}-${photo.className}`}
-                  className={`absolute overflow-hidden rounded-[10px] border-[7px] border-white bg-white shadow-[0_12px_24px_rgba(47,30,40,0.28)] transition-transform duration-200 ease-in motion-reduce:transform-none motion-reduce:transition-none ${photo.className} ${photo.hoverClass}`}
-                >
-                  {photo.accent ? (
-                    <div className="size-full bg-[#1fa463]" aria-hidden="true" />
-                  ) : (
-                    <Image
-                      src={photo.src!}
-                      alt={photo.alt}
-                      fill
-                      preload
-                      sizes="(max-width: 640px) 24vw, 200px"
-                      className="object-cover"
-                    />
-                  )}
-                </figure>
-              ))}
-              <div className="pointer-events-none absolute bottom-[3%] left-1/2 z-[45] h-[44%] w-[74%] -translate-x-1/2 -rotate-[2deg] perspective-[800px]">
                 <div
-                  aria-hidden="true"
-                  data-projects-folder="flap"
-                  className="absolute inset-0 origin-bottom transform-gpu rounded-b-[34px] rounded-t-[24px] border border-[#090809] bg-[#525252]/45 transition-transform duration-200 ease-in group-hover:rotate-x-[-14deg] motion-reduce:rotate-x-0 motion-reduce:transform-none motion-reduce:transition-none"
-                />
-              </div>
-              <div className="absolute bottom-[4%] left-[7%] z-50 flex size-[92px] flex-col items-center justify-center rounded-full bg-white font-display text-[2.4rem] leading-[0.72] tracking-[-0.08em] text-[#124aa8] shadow-[0_9px_16px_rgba(40,30,34,0.28)] sm:size-[132px] sm:text-[3.75rem]">
+                  key={photo.src}
+                  className={`absolute drop-shadow-[0_8px_14px_rgba(47,30,40,0.28)] transition-transform duration-200 ease-in motion-reduce:transform-none motion-reduce:transition-none ${photo.className} ${photo.hoverClass}`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.w}
+                    height={photo.h}
+                    preload
+                    sizes="(max-width: 640px) 30vw, 240px"
+                    className="h-auto w-full"
+                  />
+                </div>
+              ))}
+              <FolderFront className="pointer-events-none absolute bottom-0 left-1/2 z-[45] aspect-[603/409] w-[62%] -translate-x-1/2" />
+              <div className="absolute bottom-[4%] left-[4%] z-50 flex size-[64px] flex-col items-center justify-center rounded-full bg-white font-display text-[1.6rem] leading-[0.72] tracking-[-0.08em] text-[#124aa8] shadow-[0_9px_16px_rgba(40,30,34,0.28)] sm:left-[7%] sm:size-[132px] sm:text-[3.75rem]">
                 <span>20</span>
                 <span>26</span>
               </div>
               <div
                 data-projects-folder="meta"
-                className="absolute bottom-[3%] right-[2%] z-50 w-fit rotate-[2deg]"
+                className="absolute bottom-[3%] right-[2%] z-50 aspect-[245/131] w-[160px] rotate-[2deg] drop-shadow-lg sm:w-[330px]"
               >
-                <div
-                  aria-hidden="true"
-                  data-projects-folder="meta-tab"
-                  className="pointer-events-none absolute -top-3 right-4 z-0 h-6 w-16 rounded-t-[12px] bg-[#5D102C] sm:-top-5 sm:right-6 sm:h-10 sm:w-24"
-                />
-                <div className="relative z-10 rounded-[20px] bg-[#7B173B] px-4 py-3 font-inter text-[0.7rem] leading-tight text-white shadow-lg sm:px-6 sm:py-5 sm:text-[1.15rem]">
+                <WineCardBackground className="absolute inset-0 size-full" />
+                <div className="relative flex h-full flex-col justify-center px-[7%] pt-[9%] font-inter text-[0.54rem] leading-tight text-white sm:text-[1.1rem]">
                   <p className="whitespace-nowrap">BOG → BIO → BER → ICN</p>
-                  <p className="mt-2 border-t border-white/60 pt-2">Vale Jimenez</p>
-                  <p className="mt-2 border-t border-white/60 pt-2">2021 - 2026</p>
+                  <p className="mt-[3%] border-t border-white/60 pt-[3%]">Vale Jimenez</p>
+                  <p className="mt-[3%] border-t border-white/60 pt-[3%]">2021 - 2026</p>
                 </div>
               </div>
             </div>
@@ -378,7 +379,7 @@ export default async function ProjectsPage({
           <div
             aria-hidden="true"
             data-projects-chapters="travel-collage"
-            className="relative mx-auto mb-6 aspect-[320/288] w-full max-w-[320px] sm:mb-8"
+            className="group relative mx-auto mb-6 aspect-[320/340] w-full max-w-[320px] sm:mb-8"
           >
             <p className="absolute inset-x-0 top-0 text-center font-inter text-[15px] text-[#6e726e]">
               Viajando por el mundo
@@ -386,32 +387,36 @@ export default async function ProjectsPage({
             <p className="absolute inset-x-0 top-[7.65%] text-center font-inter text-[15px] font-medium text-[#5b9bd5]">
               @valejimenez.cm
             </p>
-            {chaptersTravelPhotos.map((photo) => (
-              <div
-                key={photo.src}
-                className={`absolute overflow-hidden rounded-[8px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.12)] ${photo.className}`}
-              >
-                <Image
-                  src={photo.src}
-                  alt=""
-                  fill
-                  sizes="(max-width: 320px) 38vw, 120px"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-            <span className="absolute left-[17%] top-[71.2%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
-              I ♥ SK
-            </span>
-            <span className="absolute left-[40%] top-[58%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
-              LONDON
-            </span>
-            <span className="absolute left-[62%] top-[74.5%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
-              ⛩
-            </span>
-            <span className="absolute left-[77%] top-[28%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
-              ⛩
-            </span>
+            {/* Photos + stickers keep their original 320×288 frame, anchored to the
+                bottom, so the header text above has clear space when photos grow. */}
+            <div className="absolute inset-x-0 bottom-0 aspect-[320/288]">
+              {chaptersTravelPhotos.map((photo) => (
+                <div
+                  key={photo.src}
+                  className={`absolute overflow-hidden rounded-[8px] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.12)] transition-[translate,rotate,scale] duration-300 ease-out motion-reduce:transition-none ${photo.className} ${photo.hoverClass}`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt=""
+                    fill
+                    sizes="(max-width: 320px) 38vw, 120px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+              <span className="absolute left-0 top-[71.2%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+                I ♥ DESIGN
+              </span>
+              <span className="absolute left-1/2 top-[58%] z-40 -translate-x-1/2 whitespace-nowrap rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+                ENJOYING THE PROCESS
+              </span>
+              <span className="absolute left-[62%] top-[74.5%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+                🎨
+              </span>
+              <span className="absolute left-[77%] top-[28%] z-40 rounded-[4px] bg-white px-2 py-1 font-inter text-[11px] font-bold leading-none text-[#111] shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+                🌸
+              </span>
+            </div>
           </div>
           <h2 className="font-inter text-ink2 text-center text-[32px] font-bold sm:text-[40px]">
             {es ? "Capítulos" : "Chapters"}
@@ -424,17 +429,8 @@ export default async function ProjectsPage({
           <ProjectChapterGrid
             categories={projectCategories}
             locale={locale}
-            cards={chapterCards.map(({ c, cover, href, description, chapterProjects }) => ({
-              id: c.id,
-              href,
-              cover,
-              title: c.title[locale],
-              dateRange: c.dateRange,
-              location: c.location[locale],
-              description,
-              projects: c.projects[locale],
-              chapterProjects,
-            }))}
+            cards={chapterCards}
+            projectsByCategory={projectsByCategory}
           />
         </div>
       </section>
@@ -448,19 +444,19 @@ export default async function ProjectsPage({
               tabIndex={0}
               role="img"
               aria-label={`${item.alt[locale]}: ${item.label[locale]}`}
-              className={`group absolute z-10 cursor-help focus-visible:z-40 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c211e] hover:z-40 ${item.className}`}
+              className={`group absolute z-10 focus-visible:z-40 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1c211e] hover:z-40 ${item.className}`}
             >
               <Image
                 src={item.src}
                 alt=""
                 width={item.width}
                 height={item.height}
-                className="pointer-events-none h-auto w-full select-none object-contain"
+                className="pointer-events-none h-auto w-full select-none object-contain transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[4deg] group-hover:scale-[1.06] group-focus-visible:-translate-y-2 group-focus-visible:rotate-[4deg] group-focus-visible:scale-[1.06] motion-reduce:transform-none motion-reduce:transition-none"
                 sizes={item.sizes}
               />
               <span
                 aria-hidden="true"
-                className={`pointer-events-none invisible absolute left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#1c211e] px-3 py-1.5 font-inter text-[11px] font-semibold text-white opacity-0 shadow-[0_3px_12px_rgba(0,0,0,0.18)] transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus:visible group-focus:opacity-100 ${item.labelClassName}`}
+                className={`pointer-events-none absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-inter text-[12px] font-medium text-[#1c211e] opacity-0 transition-opacity duration-200 group-hover:opacity-70 group-focus-visible:opacity-70 sm:text-[14px] ${item.labelClassName}`}
               >
                 {item.label[locale]}
               </span>

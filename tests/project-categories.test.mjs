@@ -1,42 +1,71 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import {
-  CHAPTER_CATEGORIES,
-  filterProjectCards,
-} from "../src/lib/project-categories.mjs";
+// The discipline filters now live in the generated portfolio content
+// (content/source/{es,en}/*.md -> src/content/portfolio/data.generated.json).
+const data = JSON.parse(
+  await readFile(
+    new URL("../src/content/portfolio/data.generated.json", import.meta.url),
+    "utf8",
+  ),
+);
 
-const cards = [
-  { id: "n9ne" },
-  { id: "travelling-university" },
-  { id: "independent" },
-  { id: "boost-lab" },
-  { id: "nomadher" },
-];
+const expectedFilterCounts = {
+  design: 20,
+  "ux-ui": 7,
+  events: 14,
+  "marketing-content": 15,
+  strategy: 20,
+};
 
-test("Capítulos returns every card in its existing order", () => {
-  assert.deepEqual(
-    filterProjectCards(cards, "chapters").map((card) => card.id),
-    cards.map((card) => card.id),
-  );
+const projects = data.chapters.flatMap((chapter) => chapter.projects);
+const slugs = new Set(projects.map((project) => project.slug));
+
+test("the portfolio has the six chapters and 37 projects", () => {
+  assert.equal(data.chapters.length, 6);
+  assert.equal(projects.length, 37);
+  assert.equal(slugs.size, 37, "project slugs must be unique");
 });
 
-test("NomadHer is assigned to the disciplines represented in its work", () => {
-  assert.deepEqual(CHAPTER_CATEGORIES.nomadher, [
-    "ux-ui",
-    "marketing-content",
-    "strategy",
-  ]);
+test("each discipline lists exactly the expected number of projects", () => {
+  assert.deepEqual(
+    Object.keys(data.filters).sort(),
+    Object.keys(expectedFilterCounts).sort(),
+  );
+
+  for (const [filter, count] of Object.entries(expectedFilterCounts)) {
+    assert.equal(
+      data.filters[filter].length,
+      count,
+      `${filter} must list ${count} projects`,
+    );
+    assert.equal(
+      new Set(data.filters[filter]).size,
+      count,
+      `${filter} must not list a project twice`,
+    );
+  }
 });
 
-test("each discipline filters to only matching project cards", () => {
-  assert.deepEqual(
-    filterProjectCards(cards, "design").map((card) => card.id),
-    ["n9ne", "independent"],
-  );
-  assert.deepEqual(
-    filterProjectCards(cards, "events").map((card) => card.id),
-    ["travelling-university", "boost-lab"],
-  );
-  assert.deepEqual(filterProjectCards(cards, "missing"), []);
+test("every project slug in a discipline exists in some chapter", () => {
+  for (const [filter, filterSlugs] of Object.entries(data.filters)) {
+    for (const slug of filterSlugs) {
+      assert.ok(slugs.has(slug), `${filter} lists unknown project: ${slug}`);
+    }
+  }
+});
+
+test("every project has a localized challenge, approach and result", () => {
+  for (const project of projects) {
+    for (const locale of ["es", "en"]) {
+      for (const field of ["challenge", "approach", "result"]) {
+        const text = project[locale].page[field];
+        assert.ok(
+          typeof text === "string" && text.trim().length > 0,
+          `${project.slug} (${locale}) is missing ${field}`,
+        );
+      }
+    }
+  }
 });

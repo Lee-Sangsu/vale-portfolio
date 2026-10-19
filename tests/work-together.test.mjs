@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const componentPath = "src/components/site/WorkTogether.tsx";
@@ -18,7 +18,12 @@ const callSitePaths = [...generalCallSitePaths, ...detailCallSitePaths];
 const component = readFileSync(componentPath, "utf8");
 
 test("WorkTogether uses the approved shared Figma photo", () => {
-  assert.match(component, /src="\/shared\/portraits\/work-together\.png"/);
+  assert.match(component, /src="\/shared\/portraits\/work-together-coffee\.jpg"/);
+  assert.doesNotMatch(component, /portraits\/work-together\.png/);
+  assert.ok(
+    existsSync("public/shared/portraits/work-together-coffee.jpg"),
+    "the coffee photo must be committed locally",
+  );
   assert.doesNotMatch(component, /src=\{photo\}/);
 });
 
@@ -80,20 +85,18 @@ test("general pages use the default coffee CTA", () => {
 });
 
 test("project and chapter detail pages use the detail CTA", () => {
-  const workDetail = readFileSync(detailCallSitePaths[0], "utf8");
-  const chapterDetail = readFileSync(detailCallSitePaths[1], "utf8");
+  for (const path of detailCallSitePaths) {
+    const detailPage = readFileSync(path, "utf8");
 
-  assert.equal(
-    [...workDetail.matchAll(/<WorkTogether\s+variant="detail"\s*\/>/g)].length,
-    2,
-    "expected both work detail CTA placements to use the detail variant",
-  );
-  assert.doesNotMatch(workDetail, /<WorkTogether\s*\/>/);
-  assert.equal(
-    [...chapterDetail.matchAll(/<WorkTogether\s+variant="detail"\s*\/>/g)]
-      .length,
-    1,
-    "expected the chapter detail CTA to use the detail variant",
-  );
-  assert.doesNotMatch(chapterDetail, /<WorkTogether\s*\/>/);
+    assert.equal(
+      [...detailPage.matchAll(/<WorkTogether\s+variant="detail"\s*\/>/g)].length,
+      1,
+      `expected exactly one detail CTA in ${path}`,
+    );
+    assert.doesNotMatch(
+      detailPage,
+      /<WorkTogether\s*\/>/,
+      `unexpected default CTA in ${path}`,
+    );
+  }
 });

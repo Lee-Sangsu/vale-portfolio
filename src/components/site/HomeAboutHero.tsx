@@ -55,7 +55,7 @@ export function HomeAboutHero({ locale }: { locale: Locale }) {
 
   const paragraphs = es
     ? [
-        "Estudié Liderazgo, Emprendimiento e Innovación y me especializo en un diseño holístico: combino diseño de experiencias, marketing, diseño gráfico y desarrollo de negocio. He construido proyectos en Europa, Latinoamérica y Asia, con equipos y culturas que me han enseñado a ver el trabajo desde ángulos tan retadores como enriquecedores.",
+        "Estudié Liderazgo, Emprendimiento e Innovación y me especialicé en un diseño holístico: combino diseño de experiencias, marketing, diseño gráfico y desarrollo de negocio. He construido proyectos en Europa, Latinoamérica y Asia, con equipos y culturas que me han enseñado a ver el trabajo desde ángulos tan retadores como enriquecedores.",
         "Me encanta seguir aprendiendo, trabajar de forma práctica y creativa, y ver cómo las ideas se transforman en cosas que generan impacto. Mi sello en cada equipo: energía para arrancar y cumplimiento para cerrar.",
       ]
     : [

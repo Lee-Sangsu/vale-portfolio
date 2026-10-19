@@ -5,17 +5,23 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { ChapterProjectRail } from "@/components/site/chapter/ChapterProjectRail";
+import { CaseSections } from "@/components/site/project/CaseSections";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteNav } from "@/components/site/SiteNav";
 import { WorkTogether } from "@/components/site/WorkTogether";
-import { chapters, getChapter, getChapterDetail } from "@/content";
+import { getChapterDetail } from "@/content";
+import {
+  getChapter,
+  getProjectCoverPath,
+  portfolioChapters,
+} from "@/content/portfolio";
 import { encodeAsset } from "@/content/photo-manifest";
-import type { Locale } from "@/content/types";
+import type { ChapterProject, Locale } from "@/content/types";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
-    chapters.map((chapter) => ({ locale, slug: chapter.id })),
+    portfolioChapters.map((chapter) => ({ locale, slug: chapter.id })),
   );
 }
 
@@ -25,13 +31,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const chapter = getChapter(slug as (typeof chapters)[number]["id"]);
-
-  if (!chapter || !hasLocale(routing.locales, locale)) return {};
+  if (!hasLocale(routing.locales, locale)) return {};
+  const chapter = getChapter(slug, locale as Locale);
+  if (!chapter) return {};
 
   return {
-    title: chapter.title[locale as Locale],
-    description: getChapterDetail(slug)?.intro[locale as Locale],
+    title: chapter.t.card.title,
+    description: chapter.t.page.tagline,
   };
 }
 
@@ -45,14 +51,33 @@ export default async function ChapterPage({
   setRequestLocale(rawLocale);
 
   const locale = rawLocale as Locale;
-  const chapter = getChapter(slug as (typeof chapters)[number]["id"]);
+  const chapter = getChapter(slug, locale);
+  // Visual identity (accent color, cover photo) still comes from the old chapter detail.
   const detail = getChapterDetail(slug);
   if (!chapter || !detail) notFound();
 
   const es = locale === "es";
-  const firstProjectImage = detail.projects.find(
-    (project) => project.image,
-  )?.image;
+  const { page } = chapter.t;
+
+  // Project cards for the rail, in the shape the rail already renders.
+  const railProjects: ChapterProject[] = chapter.projects.map((project) => ({
+    title: { es: project.es.card.title, en: project.en.card.title },
+    label: {
+      es: project.es.card.labels[0] ?? "",
+      en: project.en.card.labels[0] ?? "",
+    },
+    date: project.es.card.labels[1]
+      ? { es: project.es.card.labels[1], en: project.en.card.labels[1] ?? project.es.card.labels[1] }
+      : undefined,
+    description: {
+      es: project.es.card.description,
+      en: project.en.card.description,
+    },
+    href: `/work/${project.slug}`,
+    image: getProjectCoverPath(project.slug),
+  }));
+
+  const firstProjectImage = railProjects.find((project) => project.image)?.image;
   const cover = encodeAsset(detail.cover ?? firstProjectImage);
   const nomadHerHero =
     slug === "nomadher"
@@ -113,13 +138,13 @@ export default async function ChapterPage({
               [ {es ? "CAPÍTULO" : "CHAPTER"} {chapter.number} ]
             </p>
             <h1 className="font-display mt-4 text-[clamp(4rem,14vw,15.625rem)] leading-[0.84] text-[#ffb1db] [text-shadow:0_3px_7px_rgba(0,0,0,0.1),0_13px_13px_rgba(0,0,0,0.09),0_30px_18px_rgba(0,0,0,0.05)]">
-              {chapter.title[locale]}
+              {page.title}
             </h1>
             <p className="font-inter mt-6 max-w-[760px] text-[17px] leading-[1.45] text-white sm:text-[20px]">
-              {detail.intro[locale]}
+              {page.tagline}
             </p>
             <div className="font-inter mt-7 inline-flex rounded-full border border-white/50 px-5 py-2.5 text-[12px] font-medium tracking-[0.09em] text-white sm:text-[13px]">
-              {detail.role[locale].toUpperCase()}
+              {page.pill}
             </div>
           </div>
         </div>
@@ -128,30 +153,23 @@ export default async function ChapterPage({
       <section className="bg-[var(--chapter-accent)] px-5 py-16 sm:px-8 sm:py-20 lg:px-[96px] lg:py-[110px]">
         <div className="mx-auto grid max-w-[1710px] gap-10 lg:grid-cols-[minmax(190px,0.22fr)_minmax(0,1fr)] lg:gap-[120px]">
           <p className="font-inter text-[13px] font-medium tracking-[0.08em] text-[#e5f273] sm:text-[14px]">
-            [ {chapter.title[locale].toUpperCase()} ]
+            [ {page.label} ]
           </p>
           <div>
             <p className="font-inter max-w-[1060px] text-[20px] leading-[1.48] text-[#fafaf5] sm:text-[22px]">
-              {detail.intro[locale]}
+              {page.band}
             </p>
             <div className="mt-11 grid gap-8 sm:grid-cols-3 sm:gap-10 lg:mt-14 lg:gap-[90px]">
-              {detail.impact.map((impact) => {
-                const value =
-                  typeof impact.value === "string"
-                    ? impact.value
-                    : impact.value[locale];
-
-                return (
-                  <div key={`${value}-${impact.label.en}`}>
-                    <p className="font-inter text-[clamp(2.1rem,3.3vw,2.75rem)] leading-none font-bold text-[#e5f273]">
-                      {value}
-                    </p>
-                    <p className="font-inter mt-3 max-w-[250px] text-[14px] leading-[1.45] text-[#e5e5db] sm:text-[15px]">
-                      {impact.label[locale]}
-                    </p>
-                  </div>
-                );
-              })}
+              {page.stats.map((stat) => (
+                <div key={`${stat.value}-${stat.label}`}>
+                  <p className="font-inter text-[clamp(2.1rem,3.3vw,2.75rem)] leading-none font-bold text-[#e5f273]">
+                    {stat.value}
+                  </p>
+                  <p className="font-inter mt-3 max-w-[250px] text-[14px] leading-[1.45] text-[#e5e5db] sm:text-[15px]">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -168,20 +186,20 @@ export default async function ChapterPage({
             </p>
           </div>
           <div className="mt-10 grid overflow-hidden border-t border-l border-[#d1d1cc] sm:mt-12 md:grid-cols-2 lg:grid-cols-3">
-            {detail.responsibilities.map((responsibility, index) => (
+            {page.responsibilities.map((responsibility) => (
               <article
-                key={responsibility.title[locale]}
+                key={responsibility.n}
                 className="flex min-h-[256px] flex-col border-r border-b border-[#d1d1cc] p-6 sm:min-h-[280px] sm:p-8"
               >
                 <p className="font-inter text-muted text-[13px] font-medium tracking-[0.08em] sm:text-[14px]">
-                  [ {String(index + 1).padStart(2, "0")} ]
+                  [ {responsibility.n} ]
                 </p>
                 <div className="mt-auto pt-10">
                   <h3 className="font-inter text-[26px] leading-[1.1] font-semibold text-black sm:text-[30px]">
-                    {responsibility.title[locale]}
+                    {responsibility.title}
                   </h3>
-                  <p className="font-inter text-muted mt-3 text-[16px] leading-[1.45] sm:text-[18px]">
-                    {responsibility.body[locale]}
+                  <p className="font-inter text-ink mt-3 text-[16px] leading-[1.45] sm:text-[18px]">
+                    {responsibility.body}
                   </p>
                 </div>
               </article>
@@ -190,12 +208,23 @@ export default async function ChapterPage({
         </div>
       </section>
 
-      <ChapterProjectRail
-        projects={detail.projects}
-        locale={locale}
-        accent={detail.accent}
-        chapterId={chapter.id}
-      />
+      {/* Chapters without projects (Ironhack) carry their case on this page. */}
+      {page.case ? (
+        <CaseSections
+          data={page.case}
+          locale={locale}
+          heading={es ? "El caso" : "The case"}
+        />
+      ) : null}
+
+      {railProjects.length ? (
+        <ChapterProjectRail
+          projects={railProjects}
+          locale={locale}
+          accent={detail.accent}
+          chapterId={chapter.id}
+        />
+      ) : null}
 
       <WorkTogether variant="detail" />
       <SiteFooter />

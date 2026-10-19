@@ -4,8 +4,7 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/content/types";
-import { professionalPositioning, subhead } from "@/content/about";
-import { CommunityStrip } from "@/components/site/CommunityStrip";
+import { professionalPositioning } from "@/content/about";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { AboutHero } from "@/components/site/about/AboutHero";
@@ -51,8 +50,6 @@ export default async function AboutPage({
   return (
     <main>
       <AboutHero locale={locale} />
-
-      <CommunityStrip>{subhead[locale]}</CommunityStrip>
 
       <SkillsSection locale={locale} />
 

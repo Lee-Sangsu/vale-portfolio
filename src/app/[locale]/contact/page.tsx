@@ -8,6 +8,11 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PhotoRing } from "@/components/site/contact/PhotoRing";
+import {
+  EmailIcon,
+  InstagramIcon,
+  LinkedInIcon,
+} from "@/components/site/SocialIcons";
 import { contact, aboutLong } from "@/content/about";
 import { encodeAsset } from "@/content/photo-manifest";
 
@@ -67,20 +72,33 @@ export default async function ContactPage({
               ))}
             </div>
 
-            <a
-              href={contact.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="mt-8 inline-flex transition-opacity hover:opacity-70"
-            >
-              <Image
-                src="/pages/contact/figma/instagram-icon.svg"
-                alt="Instagram"
-                width={28}
-                height={28}
-              />
-            </a>
+            <div className="mt-8 flex items-center gap-3">
+              <a
+                href={contact.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-flex transition-opacity hover:opacity-70"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href={contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="inline-flex transition-opacity hover:opacity-70"
+              >
+                <LinkedInIcon />
+              </a>
+              <a
+                href={`mailto:${contact.email}`}
+                aria-label="Email"
+                className="inline-flex transition-opacity hover:opacity-70"
+              >
+                <EmailIcon />
+              </a>
+            </div>
           </div>
 
           {/* Right column: portrait card */}

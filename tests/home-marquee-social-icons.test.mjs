@@ -48,7 +48,8 @@ test("the marquee renders decorative brand logos without project links", () => {
   assert.doesNotMatch(marquee, /<span/);
   assert.match(marquee, /<ul[\s\S]*?aria-hidden="true"/);
   assert.match(marquee, /aria-hidden=\{i >= logos\.length\}/);
-  assert.match(marquee, /marquee-pause/);
+  // The brand strip keeps scrolling on hover (it no longer pauses).
+  assert.doesNotMatch(marquee, /marquee-pause/);
   assert.match(marquee, /--marquee-duration/);
 });
 

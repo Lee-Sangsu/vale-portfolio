@@ -16,7 +16,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const mailHref = "mailto:valejimenezc2003@gmail.com";
   const cvHref = es ? "/cv/cv-es.pdf" : "/cv/cv-en.pdf";
   const calendlyHref = "https://calendly.com/valejimenezc2003/30min";
-  const projectsHref = `/${locale}/projects`;
+  const servicesHref = "/servicios/servicios-creativos.pdf";
 
   // Four floating folder stickers frame the portrait (desktop only), matching
   // the Figma hero (nodes 227:1157/1161/1165/1178): CV + Creative Services on
@@ -43,7 +43,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
       textColor: "#fff",
       pos: "left-[18%] top-[47%]",
       rotate: 5,
-      href: projectsHref,
+      href: servicesHref,
+      external: true,
     },
     {
       // lime folder (Figma node 507:133) — upper right
@@ -82,12 +83,14 @@ export function HomeHero({ locale }: { locale: Locale }) {
         className="object-cover object-bottom"
       />
       {/* Top gradient for nav legibility */}
-      <div className="absolute inset-x-0 top-0 z-20 h-[160px] bg-gradient-to-b from-white/70 to-transparent" />
+      <div className="absolute inset-x-0 top-0 z-20 pointer-events-none h-[160px] bg-gradient-to-b from-white/70 to-transparent" />
 
       <SiteNav tone="light" />
 
       {/* Floating folders (desktop) — inset to the ~350px content margin via a centered stage */}
-      <div className="absolute inset-0 z-10 hidden md:block">
+      {/* Sits above the center stack so the folders receive clicks; the layer itself
+          ignores the pointer so the portrait/bio underneath stay interactive. */}
+      <div className="pointer-events-none absolute inset-0 z-[15] hidden md:block">
         <div className="relative mx-auto h-full max-w-[1280px]">
           {folders.map((f, i) => (
             <div key={i} className={`absolute ${f.pos}`}>

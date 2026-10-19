@@ -9,13 +9,14 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test:work-together": "node --test tests/work-together.test.mjs",
-    "verify:assets": "node scripts/verify-public-assets.mjs"
+    "verify:assets": "node scripts/verify-public-assets.mjs",
+    "content": "node scripts/build-portfolio-content.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "local-feedbacker": "^0.1.7",
     "motion": "^12.38.0",
-    "next": "^16.2.9",
+    "next": "^16.4.2",
     "next-intl": "^4.11.0",
     "nodemailer": "^10.0.11",
     "react": "19.2.4",

@@ -66,13 +66,45 @@ test("the about portrait is stored locally", () => {
 });
 
 test("CategoryShowcase matches the Figma list and overlapping image fan", () => {
-  assert.match(showcase, /useState\(0\)/);
-  assert.match(showcase, /onClick=\{\(\) => setActive\(i\)\}/);
-  assert.match(showcase, /aria-pressed=\{on\}/);
+  // Categories are click toggles, all closed at first.
+  assert.match(showcase, /useState<number \| null>\(null\)/);
+  assert.match(showcase, /const \[open, setOpen\]/);
+  assert.match(showcase, /const \[active, setActive\] = useState\(0\)/);
+  assert.match(showcase, /<button\b/);
+  assert.match(showcase, /aria-expanded=\{on\}/);
+  assert.match(showcase, /aria-controls=\{panelId\}/);
+  assert.match(showcase, /id=\{panelId\}/);
+  assert.match(
+    showcase,
+    /setOpen\(\(current\) => \(current === i \? null : i\)\)/,
+    "clicking an open category must close it",
+  );
+  assert.match(showcase, /setActive\(i\)/);
+  assert.doesNotMatch(showcase, /onMouseEnter=\{\(\) => setActive/);
+  assert.doesNotMatch(showcase, /onFocus=\{\(\) => setActive/);
+  assert.doesNotMatch(showcase, /aria-pressed=/);
+
+  // Text panels animate with a grid-rows transition and stay in the DOM.
+  assert.match(showcase, /grid-rows-\[1fr\]/);
+  assert.match(showcase, /grid-rows-\[0fr\]/);
+  assert.match(showcase, /transition-\[grid-template-rows,opacity\]/);
+  assert.match(showcase, /motion-reduce:transition-none/);
   assert.match(showcase, /categories\.map/);
   assert.match(showcase, /c\.desc/);
+
+  // The photo fan: hovering only brings a photo to the front.
+  assert.match(showcase, /const \[hovered, setHovered\] = useState<number \| null>\(null\)/);
+  assert.match(showcase, /onMouseEnter=\{\(\) => setHovered\(i\)\}/);
+  assert.match(showcase, /onMouseLeave=\{\(\) => setHovered\(null\)\}/);
+  assert.match(showcase, /hovered === i \? "z-\[4\]/);
   assert.match(showcase, /cat\.projects\.slice\(0, 3\)\.map/);
   assert.match(showcase, /-ml-\[28%\]/);
+
+  // Layout.
+  assert.match(showcase, /gap-24/);
+  assert.match(showcase, /lg:gap-36/);
+  assert.match(showcase, /lg:grid-cols-\[600px_minmax\(0,1fr\)\]/);
+
   assert.match(page, /Ver proyectos de esta área/);
   assert.doesNotMatch(showcase, /Featured projects for the active category/);
   assert.doesNotMatch(showcase, /grid-cols-1 gap-5 sm:grid-cols-3/);

@@ -28,69 +28,125 @@ test("public assets are grouped by page, project, and shared purpose", () => {
   }
 });
 
+const folderArt = await readFile(
+  new URL("../src/components/site/ProjectsFolderArt.tsx", import.meta.url),
+  "utf8",
+);
+
+const pileFiles = [
+  "folder-tote.png",
+  "folder-team.png",
+  "folder-nobled.png",
+  "folder-superalink.png",
+  "folder-brujula.png",
+  "folder-card.png",
+  "folder-mic.png",
+  "folder-people.png",
+];
+
 test("projects hero renders a custom pile of project photos", () => {
   const portfolioPileStart = projectsPage.indexOf("const portfolioPile = [");
   const portfolioPileEnd = projectsPage.indexOf("// Chapter cards", portfolioPileStart);
   const portfolioPileSource = projectsPage.slice(portfolioPileStart, portfolioPileEnd);
-  const flapClassMatch = projectsPage.match(
-    /data-projects-folder="flap"\s+className="([^"]+)"/,
-  );
 
-  assert.ok(flapClassMatch, "projects folder flap className is missing");
-  const flapClassName = flapClassMatch[1];
-
+  assert.ok(portfolioPileStart >= 0 && portfolioPileEnd > portfolioPileStart);
   assert.match(projectsPage, /const portfolioPile = \[/);
   assert.match(projectsPage, /portfolioPile\.map/);
-  assert.equal((portfolioPileSource.match(/hoverClass:/g) ?? []).length, 8);
   assert.match(projectsPage, /from-\[#cf9bac\]/);
-  assert.match(projectsPage, /group-hover:translate-/);
+
+  // Eight photos, each a local PNG that exists, with its own hover spread.
+  for (const file of pileFiles) {
+    assert.ok(
+      portfolioPileSource.includes(`pages/projects/hero-photos/${file}`),
+      `pile is missing ${file}`,
+    );
+    assert.equal(
+      existsSync(new URL(`public/pages/projects/hero-photos/${file}`, root)),
+      true,
+      `${file} is missing`,
+    );
+  }
+  assert.equal((portfolioPileSource.match(/src: encodeAsset\(/g) ?? []).length, 8);
+  assert.equal((portfolioPileSource.match(/hoverClass:/g) ?? []).length, 8);
   assert.equal(
     (
       portfolioPileSource.match(
-        /className: "left-\[[^"]+\] top-\[[^"]+\] z-(?:20|30|40) h-/g,
+        /className: "left-\[[^"]+\] top-\[[^"]+\] z-\[\d+\] w-\[[^"]+\]/g,
       ) ?? []
     ).length,
     8,
+    "every photo is positioned by percentage inside the folder",
   );
-  assert.equal((projectsPage.match(/group-hover:scale-\[1\.06\]/g) ?? []).length, 8);
-  assert.equal((projectsPage.match(/group-hover:-translate-y-32/g) ?? []).length, 2);
-  assert.match(projectsPage, /group-hover:-translate-x-16/);
-  assert.match(projectsPage, /group-hover:translate-x-20/);
-  assert.match(projectsPage, /delay-\[\d+ms\]/);
+  assert.equal(
+    (portfolioPileSource.match(/group-hover:translate-|group-hover:-translate-/g) ?? [])
+      .length >= 16,
+    true,
+    "every photo travels on both axes on hover",
+  );
+  assert.equal((portfolioPileSource.match(/group-hover:scale-\[1\.05\]/g) ?? []).length, 8);
+  const delays = [...portfolioPileSource.matchAll(/delay-\[(\d+)ms\]/g)].map((m) =>
+    Number(m[1]),
+  );
+  assert.equal(delays.length, 8);
+  assert.ok(Math.max(...delays) <= 250, "staggered delays must stay snappy");
+
+  // Photos keep their own aspect ratio and respect reduced motion.
+  assert.match(portfolioPileSource, /w: \d+, h: \d+/);
+  assert.match(projectsPage, /width=\{photo\.w\}/);
+  assert.match(projectsPage, /height=\{photo\.h\}/);
   assert.match(projectsPage, /transition-transform duration-200 ease-in/);
   assert.match(projectsPage, /motion-reduce:transform-none/);
-  assert.match(projectsPage, /data-projects-folder="back"/);
-  assert.match(projectsPage, /data-projects-folder="flap"/);
-  assert.match(projectsPage, /data-projects-folder="back"[\s\S]{0,320}border border-\[#151315\] bg-\[#525252\]\/45/);
-  assert.match(flapClassName, /(?:^|\s)border(?:\s|$)/);
-  assert.match(flapClassName, /(?:^|\s)border-\[#090809\](?:\s|$)/);
-  assert.match(flapClassName, /(?:^|\s)bg-\[#525252\]\/45(?:\s|$)/);
-  assert.doesNotMatch(
-    flapClassName,
-    /(?:^|\s)border-(?:t|r|b|l|x|y)(?:-\S+)?(?=\s|$)/,
-  );
-  assert.doesNotMatch(projectsPage, /data-projects-folder="tab"/);
-  assert.doesNotMatch(projectsPage, /data-projects-folder="top-outline-left"/);
-  assert.doesNotMatch(projectsPage, /data-projects-folder="top-outline-right"/);
-  assert.equal((projectsPage.match(/bg-\[#525252\]\/45/g) ?? []).length, 2);
   assert.match(projectsPage, /group relative -mt-3 aspect-\[11\/7\]/);
-  assert.doesNotMatch(projectsPage, /group relative z-0 -mt-3 aspect-\[11\/7\]/);
-  assert.match(projectsPage, /z-\[45\] h-\[44%\] w-\[74%\].*perspective-\[800px\]/);
-  assert.match(projectsPage, /absolute bottom-\[3%\] right-\[2%\] z-50 w-fit/);
-  assert.match(projectsPage, /perspective-\[800px\]/);
-  assert.match(projectsPage, /origin-bottom/);
-  assert.match(projectsPage, /group-hover:rotate-x-\[-14deg\]/);
-  assert.equal((projectsPage.match(/-rotate-\[2deg\]/g) ?? []).length, 2);
-  assert.match(projectsPage, /motion-reduce:rotate-x-0/);
-  assert.doesNotMatch(projectsPage, /transition-transform duration-500 ease-out/);
-  assert.doesNotMatch(projectsPage, /group-hover:rotate-x-\[14deg\]/);
-  assert.doesNotMatch(projectsPage, /z-10 h-\[44%\] w-\[74%\].*perspective-\[800px\]/);
+
+  // Photos sit between the back panel and the front panel of the folder.
+  const back = projectsPage.indexOf("<FolderBack");
+  const pile = projectsPage.indexOf("portfolioPile.map");
+  const front = projectsPage.indexOf("<FolderFront");
+  assert.ok(back >= 0 && back < pile, "FolderBack must come before the photos");
+  assert.ok(pile < front, "FolderFront must come after the photos");
+  assert.match(projectsPage, /<FolderFront className="[^"]*z-\[45\]/);
+  assert.match(projectsPage, /<WineCardBackground className="absolute inset-0 size-full" \/>/);
+  assert.match(projectsPage, /absolute bottom-\[3%\] right-\[2%\] z-50/);
+
+  assert.doesNotMatch(projectsPage, /data-projects-folder="flap"/);
+  assert.doesNotMatch(projectsPage, /data-projects-folder="tab"/);
   assert.doesNotMatch(projectsPage, /w-\[min\(45vw,340px\)\]/);
-  assert.doesNotMatch(projectsPage, /bg-\[linear-gradient\(145deg,#3a363b/);
-  assert.doesNotMatch(projectsPage, /shadow-\[0_18px_28px_rgba\(47,30,40,0\.3\)\]/);
-  assert.doesNotMatch(projectsPage, /delay-\[[2-9]\d{2}ms\]/);
-  assert.doesNotMatch(projectsPage, /group-hover:-translate-y-2(?=["\s])/);
   assert.doesNotMatch(projectsPage, /hero-folder\.svg/);
   assert.doesNotMatch(projectsPage, /Proyectos favoritos/);
   assert.doesNotMatch(projectsPage, /hero-pile\.png/);
+});
+
+test("projects hero folder is drawn from inline SVG pieces that swap on hover", () => {
+  assert.match(
+    projectsPage,
+    /import \{\s*FolderBack,\s*FolderFront,\s*WineCardBackground,?\s*\} from "@\/components\/site\/ProjectsFolderArt"/,
+  );
+  assert.match(folderArt, /export function FolderBack/);
+  assert.match(folderArt, /export function FolderFront/);
+  assert.match(folderArt, /export function WineCardBackground/);
+
+  // One shared 603x409 frame keeps back and fronts aligned.
+  assert.equal((folderArt.match(/viewBox="0 0 603 409"/g) ?? []).length, 2);
+  assert.match(folderArt, /data-projects-folder="back"/);
+  assert.match(folderArt, /data-projects-folder=\{folder\}/);
+  assert.match(folderArt, /folder="front-closed"/);
+  assert.match(folderArt, /folder="front-open"/);
+  assert.match(folderArt, /data-projects-folder="meta-bg"/);
+
+  // Closed front fades out while the open front fades in on group-hover.
+  assert.match(folderArt, /group-hover:opacity-0/);
+  assert.match(folderArt, /absolute inset-0 size-full opacity-0[^"]*group-hover:opacity-100/);
+  assert.match(folderArt, /motion-reduce:transition-none/);
+
+  // Translucent grey fill keeps the photos visible; the front has a black outline.
+  assert.match(folderArt, /const FILL = "#525252"/);
+  assert.match(folderArt, /const OPACITY = 0\.45/);
+  assert.match(folderArt, /stroke=\{INK\}/);
+  assert.match(folderArt, /const INK = "black"/);
+
+  // Every inline SVG is decorative.
+  assert.equal(
+    (folderArt.match(/<svg\b/g) ?? []).length,
+    (folderArt.match(/aria-hidden="true"/g) ?? []).length,
+  );
 });

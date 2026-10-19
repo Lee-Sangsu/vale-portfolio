@@ -16,20 +16,23 @@ const GLOBAL_YOUTH: Record<
   },
 };
 
-const PROJECTS: Record<Locale, string[]> = {
+const PROJECTS: Record<Locale, { label: string; slug: string }[]> = {
   en: [
-    "Misiones Internacionales",
-    "Sejong Global Idea Hackathon",
-    "Japan Airlines × NomadHer",
-    "NomadHer app",
+    { label: "Misiones Internacionales", slug: "misiones-internacionales" },
+    { label: "Sejong Global Idea Hackathon", slug: "sejong-hackathon" },
+    { label: "Japan Airlines × NomadHer", slug: "jal-nomadher" },
+    { label: "NomadHer app", slug: "nomadher-app" },
   ],
   es: [
-    "Misiones Internacionales",
-    "Hackathon Global de Ideas Sejong",
-    "Japan Airlines × NomadHer",
-    "App NomadHer",
+    { label: "Misiones Internacionales", slug: "misiones-internacionales" },
+    { label: "Hackathon Global de Ideas Sejong", slug: "sejong-hackathon" },
+    { label: "Japan Airlines × NomadHer", slug: "jal-nomadher" },
+    { label: "App NomadHer", slug: "nomadher-app" },
   ],
 };
+
+const LINK_CLASS =
+  "ml-auto block w-fit rounded-sm uppercase underline-offset-4 transition-opacity hover:opacity-70 hover:underline focus-visible:ring-2 focus-visible:ring-[#2a2a2a] focus-visible:ring-offset-4 focus-visible:outline-none";
 
 export function FavoriteProjects({ locale }: { locale: Locale }) {
   const isSpanish = locale === "es";
@@ -68,15 +71,19 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
         <div className="font-inter space-y-6 text-right text-[18px] leading-[1.1] font-bold tracking-[-0.025em] text-[#2a2a2a] sm:text-[25px] lg:mt-3 lg:space-y-9 lg:text-[30px]">
           <Link
             href="/work/global-youth-summit"
-            className="ml-auto block w-fit rounded-sm uppercase underline-offset-4 transition-opacity hover:opacity-70 hover:underline focus-visible:ring-2 focus-visible:ring-[#2a2a2a] focus-visible:ring-offset-4 focus-visible:outline-none"
+            className={LINK_CLASS}
           >
             <span className="block">{globalYouth.firstLine}</span>
             <span className="block">{globalYouth.secondLine}</span>
           </Link>
           {PROJECTS[locale].map((project) => (
-            <p key={project} className="uppercase">
-              {project}
-            </p>
+            <Link
+              key={project.slug}
+              href={`/work/${project.slug}`}
+              className={LINK_CLASS}
+            >
+              {project.label}
+            </Link>
           ))}
         </div>
       </div>

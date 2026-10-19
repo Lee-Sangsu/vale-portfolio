@@ -103,22 +103,31 @@ test("SkillsSection contains the exact approved Figma content", async () => {
 
   assert.match(source, /SkillsLogoMarquee/);
   assert.match(source, /import \{ IpodCard \} from "\.\/IpodCard"/);
-  assert.match(source, /<IpodCard\s+locale=\{locale\}\s+tracks=\{skills\.map\(\(skill\) => skill\.title\)\}\s+\/>/);
+  assert.match(
+    source,
+    /import \{ getSongPreviews \} from "@\/lib\/song-previews"/,
+  );
+  assert.match(source, /export async function SkillsSection/);
+  assert.match(source, /const previews = await getSongPreviews\(\)/);
+  const ipodCard =
+    /<IpodCard\s+locale=\{locale\}\s+tracks=\{skills\.map\(\(skill\) => skill\.title\)\}\s+scale=\{1\.45\}\s+previews=\{previews\}\s+\/>/;
+  assert.match(source, ipodCard);
   assert.match(source, /max-w-\[1076px\]/);
-  assert.match(source, /(?:xl|2xl):h-\[1000px\]/);
+  assert.match(source, /(?:xl|2xl):h-\[1200px\]/);
   assert.match(source, /(?:xl|2xl):pt-\[73px\]/);
   assert.match(source, /(?:xl|2xl):text-\[64px\]/);
   assert.match(source, /(?:xl|2xl):top-\[252px\]/);
-  assert.match(source, /xl:top-\[104px\]/);
-  assert.match(source, /const top = \[222, 327, 432, 520\]\[index\]/);
-  assert.match(source, /\{\[307, 412, 500\]\.map\(\(top\) =>/);
-  assert.match(source, /w-\[538px\]/);
-  assert.match(source, /xl:top-\[648px\]/);
+  // Skill items flow naturally inside an ordered list: no per-item absolute tops.
+  assert.match(source, /<ol\b/);
+  assert.match(source, /<span className="mr-2">\{index \+ 1\}\.<\/span>/);
+  assert.doesNotMatch(source, /const top = \[/);
+  assert.doesNotMatch(source, /\.map\(\(top\) =>/);
   assert.doesNotMatch(source, /\[274, 379, 430, 467\]/);
-  assert.match(
-    source,
-    /(?:xl|2xl):absolute[^\"]*(?:(?:xl|2xl):top-\[463px\][^\"]*(?:xl|2xl):left-\[885px\]|(?:xl|2xl):left-\[885px\][^\"]*(?:xl|2xl):top-\[463px\])[^>]*>[\s\S]*<IpodCard\s+locale=\{locale\}\s+tracks=\{skills\.map\(\(skill\) => skill\.title\)\}\s+\/>/,
+  const absoluteIpod = new RegExp(
+    String.raw`(?:xl|2xl):absolute[^"]*(?:(?:xl|2xl):top-\[463px\][^"]*(?:xl|2xl):left-\[885px\]|(?:xl|2xl):left-\[885px\][^"]*(?:xl|2xl):top-\[463px\])[^>]*>[\s\S]*` +
+      ipodCard.source,
   );
+  assert.match(source, absoluteIpod);
   assert.doesNotMatch(source, /NumberedAccordion|AppSwatchRow/);
 });
 
@@ -138,7 +147,13 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
   const menu = findControl(clickWheel, "Volver al inicio", "Back to menu");
   const previous = findControl(clickWheel, "Canción anterior", "Previous track");
   const next = findControl(clickWheel, "Siguiente canción", "Next track");
-  const play = findControl(clickWheel, "Reproducir selección", "Play selection");
+  const play = findControl(
+    clickWheel,
+    "Reproducir fragmento",
+    "Play preview",
+    "Pausar",
+    "Pause",
+  );
   const center = findControl(clickWheel, "Cambiar selección", "Change selection");
 
   for (const [name, control] of [
@@ -167,7 +182,6 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
   );
   for (const [name, control] of [
     ["next", next],
-    ["play", play],
     ["center", center],
   ]) {
     assert.match(
@@ -177,14 +191,47 @@ test("IpodCard preserves its controls in the compact Figma composition", async (
     );
   }
 
+  // The play button toggles the audio preview instead of advancing the track.
+  assert.match(
+    readOnClick(play),
+    /setPlaying\s*\(\s*\(current\)\s*=>\s*!current\s*\)/,
+    "play must toggle playback",
+  );
+  assert.match(play, /aria-pressed=\{playing\}/);
+  assert.doesNotMatch(play, /Reproducir selección|Play selection/);
+  assert.match(source, /const \[playing, setPlaying\] = useState\(false\)/);
+  assert.match(source, /new Audio\(\)/);
+  assert.match(source, /audio\.play\(\)\.catch\(/, "autoplay rejection must be handled");
+  assert.match(source, /audio\.pause\(\)/);
+
+  // Props and song playlist.
+  assert.match(source, /import \{[^}]*\bMotionConfig\b[^}]*\} from "motion\/react"/);
+  assert.match(source, /<MotionConfig\b/);
+  assert.match(source, /scale\s*=\s*1/);
+  assert.match(source, /previews\s*=\s*\{\}/);
+  assert.match(source, /from "@\/content\/songs"/);
+  assert.match(source, /\{song\.title\}/);
+  assert.match(source, /\{song\.artist\}/);
+  assert.match(
+    source,
+    /window\.setInterval\(\(\) => setSongIndex\(\(c\) => c \+ 1\), \d+\)/,
+    "songs must rotate on a timer",
+  );
+  assert.match(
+    source,
+    /shouldReduceMotion \|\| playing/,
+    "the timer must respect reduced motion and pause while playing",
+  );
+
   assert.match(source, /h-\[311px\]/);
   assert.match(source, /w-\[160px\]/);
-  assert.match(source, /h-\[82px\]/);
+  // The screen grew from 82px to 98px to fit the song title and artist.
+  assert.match(source, /h-\[98px\]/);
   assert.match(source, /size-\[118px\]/);
   assert.match(source, /rounded-\[18px\]/);
   assert.match(source, /border-\[#e0e0da\]/);
   assert.match(source, /bg-\[#fafaf8\]/);
-  assert.match(source, /h-\[82px\][^\"]*rounded-\[6px\]/);
+  assert.match(source, /h-\[98px\][^\"]*rounded-\[6px\]/);
   assert.match(source, /top-\[325px\][^\"]*w-\[240px\][^\"]*text-\[14px\]/);
   assert.match(
     source,

@@ -71,8 +71,8 @@ export default async function Home({
         ? "Innovación y estrategia de negocio"
         : "Innovation & business strategy",
       desc: es
-        ? "Posicionamiento, propuesta de valor y consultoría para ventures early-stage."
-        : "Positioning, value propositions and consulting for early-stage ventures.",
+        ? "Posicionamiento, propuesta de valor y consultoría para ventures early-stage. Me gusta ordenar qué problema resuelve una idea y convertirla en un plan claro para lanzarla."
+        : "Positioning, value propositions and consulting for early-stage ventures. I like sorting out what problem an idea solves and turning it into a clear plan to launch.",
       image: M("Innovation & Bussines strategy", "image-1.png"),
       projects: cat("Innovation & Bussines strategy", [
         "place-card-3.png",
@@ -84,8 +84,8 @@ export default async function Home({
       key: "product",
       title: es ? "Producto y UX/UI" : "Product & UX/UI",
       desc: es
-        ? "Diseño de producto para mobile y web: flujos, sistemas y experiencias."
-        : "Product design for mobile and web: flows, systems and experiences.",
+        ? "Diseño de producto para mobile y web: flujos, sistemas y experiencias. Disfruto llevar una idea del primer boceto a una interfaz que la gente entiende rápido."
+        : "Product design for mobile and web: flows, systems and experiences. I enjoy taking an idea from the first sketch to an interface people understand quickly.",
       image: M("Product & UX:UI Design ", "image-3.png"),
       projects: cat("Product & UX:UI Design ", [
         "place-card-1.png",
@@ -97,8 +97,8 @@ export default async function Home({
       key: "brand",
       title: es ? "Branding y redes" : "Branding & social media",
       desc: es
-        ? "Identidad, sistemas visuales y contenido que mantienen una marca viva en redes."
-        : "Identity, visual systems and content that keep a brand alive on social media.",
+        ? "Identidad, sistemas visuales y contenido que mantienen una marca viva en redes. Me gusta que cada pieza sea distinta pero reconocible."
+        : "Identity, visual systems and content that keep a brand alive on social media. I like every piece to feel different yet recognizable.",
       image: M("Brand & Marketing", "image-2.png"),
       projects: cat("Brand & Marketing", [
         "place-card-2.png",
@@ -110,8 +110,8 @@ export default async function Home({
       key: "events",
       title: es ? "Eventos y comunidad" : "Events & community",
       desc: es
-        ? "De la concepción al día D: experiencias de 80 a 400+ personas."
-        : "From concept to event day: experiences for 80 to 400+ people.",
+        ? "De la concepción al día D: experiencias de 80 a 400+ personas. Disfruto cuidar el detalle y juntar a la gente para que se conozca y aprenda."
+        : "From concept to event day: experiences for 80 to 400+ people. I enjoy caring for the detail and bringing people together to meet and learn.",
       image: M("Events & production", "image.png"),
       projects: cat("Events & production", [
         "place-card.png",
@@ -173,7 +173,7 @@ export default async function Home({
 
       {/* ── Designing for [rotating] ── */}
       <section className="bg-white px-6 py-20 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-[1040px]">
+        <div className="mx-auto max-w-[1250px]">
           <h2 className="font-inter text-ink2 text-[40px] leading-[1.1] font-bold sm:text-[68px]">
             {es ? "Diseñando para" : "Designing for"}
             <br />

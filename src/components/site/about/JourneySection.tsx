@@ -61,7 +61,7 @@ const JOURNEY: JourneyItem[] = [
 
 export function JourneySection({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 xl:h-[900px] xl:px-16 xl:py-0">
+    <section className="bg-white px-6 pt-20 pb-28 sm:px-12 sm:pt-24 sm:pb-36 xl:h-[1040px] xl:px-16 xl:py-0">
       <div className="relative mx-auto max-w-[1076px] xl:h-full">
         <div className="xl:absolute xl:top-[146px] xl:left-0 xl:w-[642px]">
           <h2 className="font-inter text-ink2 text-[38px] leading-[normal] font-bold sm:text-[48px] xl:text-[64px] xl:whitespace-nowrap">
