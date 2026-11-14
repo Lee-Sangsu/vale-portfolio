@@ -40,18 +40,19 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large media files — host on CDN/Vercel Blob instead
-# Tracked page and work assets remain available; newly added raw media stays local.
-public/pages/**
-public/work/**
-public/shared/brands/**
+# public/ is organized by page (inicio, portafolio, sobre-mi, contacto, compartido)
+# and everything in it is committed so it reaches the published site.
+# Keep photos web-sized (about 300 KB to 1.5 MB each).
 *.mov
 *.MOV
 *.mp4
 *.MP4
+# ...except the web-encoded Visual Diary clips inside the portfolio folders
+!public/portafolio/**/*.mp4
 
 /.omc/
 /.omx/
 
 # unused local media moved out of public/ — kept on disk, never committed
 local-assets/
+originales-pesados/

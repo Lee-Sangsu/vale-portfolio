@@ -1,5 +1,7 @@
 # CHAPTER 06 · TRAVELLING UNIVERSITY
 
+*Chapter page only, no projects. The Overview, Challenge, Approach and Result live inside the same page.*
+
 ## Card del capítulo
 
 **Título** · Travelling University
@@ -26,9 +28,9 @@ Travelling University connects high-potential talent with international entrepre
 
 | | |
 |---|---|
-| **~200** | schools contacted in Colombia |
 | **100K+** | views across content campaigns |
 | **80** | participants in Mentes Sin Fronteras |
+| **11 h** | of digital event in a single day |
 
 ### Mis responsabilidades · [ MI ROL ]
 
@@ -50,72 +52,28 @@ Audience mapping and segmentation to design paths to access.
 **[06] Operations**
 Notion work hubs for international teams.
 
-### Lo que salió de este capítulo · [ PROYECTOS ]
+### El caso · [ OVERVIEW ]
 
-Talent Scouting LATAM × Korea · Mentes Sin Fronteras
-
----
-
-## 6.1 Talent Scouting LATAM × Korea
-
-**CARD**
-Etiquetas · Estrategia · 2025
-Meta · Travelling University · Colombia and Korea, 2025
-Título · Talent Scouting LATAM × Korea
-Descripción · Nearly 200 schools contacted to bring an international degree closer to Colombian families.
-Tags · Strategy · Outreach
-Filtros · Estrategia · Marketing y contenido
-
-**PÁGINA**
-
-**Título** · Talent Scouting LATAM × Korea
-
-**Descripción**
-The work of bringing international entrepreneurship programs closer to young people with potential in Colombia, and of connecting Korean talent with Latin American ecosystems.
+*Since Travelling University has no projects of its own, the case lives inside the chapter page, below the responsibilities.*
 
 **Overview**
 Cliente · Travelling University
 Mi rol · Talent scout and ambassador in Latin America
-Tipo de proyecto · Marketing strategy and outreach
+Tipo de proyecto · Marketing strategy, outreach and digital event
 
 **01 Challenge**
-An international degree is a decision a whole family makes. The objection I heard most was moving to another country; almost everyone was interested in the program itself. And the Korean context called for a completely different strategy.
+An international degree is a decision a whole family makes. Almost everyone was interested in the program; what held the decision back was moving countries. The challenge was to bring these programs closer to young people with potential in Colombia, convincing students and parents at the same time, and to do it in Korea too, where the context called for a completely different strategy. On top of that came another need: building international brand presence in the format where the audience already was, online.
 
 **02 Approach**
-I worked with two audiences at once, students and parents, with a message for each. I mapped strategic schools and contacted them directly, with meetings, visits, fairs and one-on-one calls, and kept track of it all in my own database. I also sold workshops to schools as a way to open the institutional relationship.
+I worked two audiences at once, students and parents, with a message for each. I mapped strategic schools and contacted them directly, through meetings, visits, fairs and one-to-one calls, and kept track in a database of my own. I also sold workshops to schools as a way of opening the institutional relationship. For brand presence, together with BOOST LAB we designed Mentes Sin Fronteras: an online day, from nine in the morning to eight at night, that keeps changing format, with a keynote, a roundtable with students, partner showcases, mini workshops and networking rooms. Registration included a one-minute pitch challenge, #MiIdeaGlobal. I ran the marketing workshop and coordinated the people leading the others.
 
 **03 Result**
-Nearly 200 schools contacted and content campaigns with more than 100,000 views on social media. The work led me to speak at the Council of International Schools' CIS Conference in Bogotá, on talent scouting for global programs.
+- Content campaigns with more than 100,000 views on social media.
 
----
+- Invitation to speak at the Council of International Schools' CIS Conference in Bogotá, about talent scouting for global programs.
 
-## 6.2 Mentes Sin Fronteras
+- Mentes Sin Fronteras, on May 24, 2025: a digital event with 80 participants from Colombia, Spain, Chile and Mexico and more than ten speakers and partners.
 
-**CARD**
-Etiquetas · Evento · 2025
-Meta · Travelling University · Online, 2025
-Título · Mentes Sin Fronteras
-Descripción · Eleven hours online with 80 participants from four countries.
-Tags · Digital event · Workshop
-Filtros · Eventos y talleres · Marketing y contenido
+- Multiple school visits in Korea.
 
-**PÁGINA**
-
-**Título** · Mentes Sin Fronteras
-
-**Descripción**
-A free one-day digital event, on May 24, 2025, for young people in Latin America and Europe interested in starting their own ventures. Organized by Travelling University with BOOST LAB.
-
-**Overview**
-Cliente · Travelling University × BOOST LAB
-Mi rol · Marketing workshop and facilitator coordination
-Tipo de proyecto · Digital event
-
-**01 Challenge**
-Build international brand presence for the programs, in the format where the audience already was: online. And hold the attention of students aged 16 to 22 from nine in the morning to eight at night.
-
-**02 Approach**
-We designed a day that keeps changing format: keynote, student roundtable, partner showcases, three mini workshops and networking rooms. Registration included a one-minute pitch challenge, #MiIdeaGlobal. I was in charge of the marketing workshop and of coordinating the people leading the others.
-
-**03 Result**
-80 participants from Colombia, Spain, Chile and Mexico, and more than ten speakers and partners. The winners received mentorships, access to the BOOST Elevate course and blockchain-verified micro-credentials, in partnership with Caja Lab.
+- Workshops sold to schools.

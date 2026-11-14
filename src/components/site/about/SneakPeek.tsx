@@ -1,84 +1,110 @@
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
+import { getProject, getProjectCover } from "@/content/portfolio";
 import type { Locale } from "@/content/types";
 
-const GALLERY_IMAGES = [
-  {
-    src: "/pages/about/figma/sneak-peek-01.png",
-    frame:
-      "aspect-[288/293] w-[72vw] max-w-[288px] lg:w-auto lg:max-w-none",
-    image: "!h-[211.21%] !top-[-78.68%] object-cover",
-    sizes: "(min-width: 1024px) 288px, 72vw",
-  },
-  {
-    src: "/pages/about/figma/sneak-peek-02.png",
-    frame:
-      "aspect-[286/373] w-[72vw] max-w-[286px] lg:w-auto lg:max-w-none",
-    image: "object-cover object-bottom",
-    sizes: "(min-width: 1024px) 286px, 72vw",
-  },
-  {
-    src: "/pages/about/figma/sneak-peek-03.png",
-    frame:
-      "aspect-[259/364] w-[68vw] max-w-[259px] lg:w-auto lg:max-w-none",
-    image: "object-cover",
-    sizes: "(min-width: 1024px) 259px, 68vw",
-  },
-  {
-    src: "/pages/about/figma/sneak-peek-04.png",
-    frame:
-      "aspect-[227/302] w-[62vw] max-w-[227px] lg:w-auto lg:max-w-none",
-    image: "object-cover",
-    sizes: "(min-width: 1024px) 227px, 62vw",
-  },
-  {
-    src: "/pages/about/figma/sneak-peek-05.png",
-    frame:
-      "aspect-[339/315] w-[78vw] max-w-[339px] lg:w-auto lg:max-w-none",
-    image: "object-cover",
-    sizes: "(min-width: 1024px) 339px, 78vw",
-  },
-  {
-    src: "/pages/about/figma/sneak-peek-06.png",
-    frame:
-      "aspect-[236/300] w-[64vw] max-w-[236px] lg:w-auto lg:max-w-none",
-    image: "object-cover object-bottom",
-    sizes: "(min-width: 1024px) 236px, 64vw",
-  },
-] as const;
+/** Real projects shown in the strip, strongest first. Only those with a cover photo are used. */
+const FEATURED_SLUGS = [
+  "nomadher-app",
+  "global-youth-summit",
+  "jal-nomadher",
+  "sejong-hackathon",
+  "misiones-internacionales",
+  "brujula-etica",
+  "nobled-coffee",
+  "seoul-women-entrepreneur-summit",
+  "opuesto-sas",
+];
+
+/** Frame sizes (px, at desktop) cycled across the strip to keep the staggered Figma rhythm. */
+const FRAMES = [
+  { w: 288, h: 293 },
+  { w: 286, h: 373 },
+  { w: 259, h: 364 },
+  { w: 227, h: 302 },
+  { w: 339, h: 315 },
+  { w: 236, h: 300 },
+];
 
 export function SneakPeek({ locale }: { locale: Locale }) {
   const es = locale === "es";
 
-  return (
-    <section className="bg-white px-5 py-20 sm:px-8 sm:py-24">
-      <div className="mx-auto max-w-[1710px]">
-        <h2 className="font-inter text-ink2 text-center text-[28px] font-semibold sm:text-[34px]">
-          {es ? "Un adelanto de mi trabajo" : "Sneak peek of my works"}
-        </h2>
+  const items = FEATURED_SLUGS.flatMap((slug, index) => {
+    const project = getProject(slug, locale);
+    const cover = getProjectCover(slug);
+    if (!project || !cover) return [];
+    return [
+      {
+        slug,
+        cover,
+        title: project.t.card.title,
+        frame: FRAMES[index % FRAMES.length],
+      },
+    ];
+  });
 
-        <div
-          role="region"
-          aria-label={
-            es ? "Galería visual de trabajos" : "Visual work gallery"
-          }
-          tabIndex={0}
-          className="mt-14 flex snap-x snap-mandatory items-end gap-[23px] overflow-x-auto overscroll-x-contain scroll-smooth pb-5 [scrollbar-color:#6e726e_transparent] [scrollbar-width:thin] [-webkit-overflow-scrolling:touch] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6e726e] lg:-ml-5 lg:grid lg:w-[calc(100%+40px)] lg:snap-none lg:grid-cols-[288fr_286fr_259fr_227fr_339fr_236fr] lg:gap-[calc(100%*23/1750)] lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6e726e] [&::-webkit-scrollbar-track]:bg-transparent"
+  if (items.length === 0) return null;
+
+  // Duplicated once so the -50% translate loops seamlessly.
+  const strip = [...items, ...items];
+
+  return (
+    <section className="overflow-hidden bg-white px-0 py-20 sm:py-24">
+      <h2 className="font-inter text-ink2 px-5 text-center text-[28px] font-semibold sm:px-8 sm:text-[34px]">
+        {es ? "Un adelanto de mi trabajo" : "Sneak peek of my work"}
+      </h2>
+
+      <div
+        role="region"
+        aria-label={es ? "Galería visual de trabajos" : "Visual work gallery"}
+        className="relative mt-14 overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%)",
+        }}
+      >
+        <ul
+          className="marquee-track flex w-max items-end gap-[23px] pb-6 will-change-transform"
+          style={{ ["--marquee-duration" as string]: "70s" }}
         >
-          {GALLERY_IMAGES.map(({ src, frame, image, sizes }) => (
-            <div
-              key={src}
-              className={`relative shrink-0 snap-center overflow-hidden rounded-[5px] shadow-[0_6px_14px_rgba(0,0,0,0.12)] lg:snap-start ${frame}`}
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                sizes={sizes}
-                className={image}
-              />
-            </div>
-          ))}
-        </div>
+          {strip.map((item, index) => {
+            const duplicate = index >= items.length;
+            return (
+              <li
+                key={`${item.slug}-${index}`}
+                className="shrink-0"
+                aria-hidden={duplicate || undefined}
+              >
+                <Link
+                  href={`/work/${item.slug}`}
+                  tabIndex={duplicate ? -1 : undefined}
+                  className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6e726e]"
+                >
+                  <span
+                    className="relative block overflow-hidden rounded-[5px] bg-[#ecece7] shadow-[0_6px_14px_rgba(0,0,0,0.12)]"
+                    style={{
+                      width: `min(${item.frame.w}px, 72vw)`,
+                      aspectRatio: `${item.frame.w} / ${item.frame.h}`,
+                    }}
+                  >
+                    <Image
+                      src={item.cover}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 340px, 72vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                  </span>
+                  <span className="font-inter text-ink2 mt-3 block max-w-[260px] text-[14px] leading-snug font-medium transition-opacity group-hover:opacity-70">
+                    {item.title}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

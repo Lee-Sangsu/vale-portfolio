@@ -1,16 +1,20 @@
 /** Vale's current favorites, shown (and played as 30s previews) on the About iPod. */
-export type Song = { title: string; artist: string };
+/** `startAt`: second of the 30s clip where playback begins (skips a slow intro). */
+export type Song = { title: string; artist: string; startAt?: number };
 
 export const SONGS: Song[] = [
   { title: "Lost on You", artist: "LP" },
+  { title: "BOOMPALA", artist: "LE SSERAFIM" },
   { title: "Solifican12", artist: "Milo J" },
   { title: "Runaway Baby", artist: "Bruno Mars" },
-  { title: "The Thrill Is Gone", artist: "RAYE" },
-  { title: "Spiders", artist: "Lola Young" },
+  { title: "Run Rabbit", artist: "Mollie Elizabeth" },
+  { title: "The Thrill Is Gone", artist: "RAYE", startAt: 10 },
+  { title: "One Thing", artist: "Lola Young" },
   { title: "Legendario", artist: "Nathy Peluso" },
   { title: "Feel", artist: "Robbie Williams" },
-  { title: "Hips Don't Lie", artist: "Shakira" },
-  { title: "Papaoutai", artist: "Stromae" },
+  { title: "La Tortura", artist: "Shakira" },
+  { title: "A me mi piace", artist: "Alfa & Manu Chao" },
+  { title: "Ta fête", artist: "Stromae" },
   { title: "Todo Lo Bueno Tarda", artist: "Alcolirykoz" },
 ];
 

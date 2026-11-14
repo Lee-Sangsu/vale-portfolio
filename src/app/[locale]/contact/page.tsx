@@ -31,7 +31,7 @@ export default async function ContactPage({
   const locale = rawLocale as Locale;
   const es = locale === "es";
 
-  const portrait = encodeAsset("shared/portraits/Val.png")!;
+  const portrait = encodeAsset("compartido/retratos/Val.png")!;
   const bio = [aboutLong.paragraphs[1], aboutLong.paragraphs[2]];
 
   return (

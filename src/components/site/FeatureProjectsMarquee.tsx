@@ -16,7 +16,7 @@ export function FeatureProjectsMarquee({
   label: string;
   durationSeconds?: number;
 }) {
-  const logos = listPhotos("shared/brands");
+  const logos = listPhotos("compartido/marcas");
 
   if (logos.length === 0) return null;
 

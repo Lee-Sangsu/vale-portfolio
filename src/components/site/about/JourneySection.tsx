@@ -29,7 +29,7 @@ const JOURNEY: JourneyItem[] = [
   },
   {
     role: { en: "Branding & strategy", es: "Branding y estrategia" },
-    company: { en: "Diseño independiente", es: "Diseño independiente" },
+    company: { en: "Creative design", es: "Diseño creativo" },
     date: { en: "2025 - 2026", es: "2025 - 2026" },
     href: "/chapters/independent",
   },
@@ -104,7 +104,7 @@ export function JourneySection({ locale }: { locale: Locale }) {
 
         <div className="relative mx-auto mt-14 aspect-[372/493] w-full max-w-[372px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] xl:absolute xl:top-[240px] xl:right-0 xl:mt-0 xl:aspect-auto xl:h-[493px] xl:w-[372px] 2xl:right-[-158px]">
           <Image
-            src="/pages/about/figma/journey-portrait.jpg"
+            src="/sobre-mi/figma/journey-portrait.jpg"
             alt="Valeria Jiménez traveling"
             fill
             sizes="(min-width: 1024px) 372px, 100vw"

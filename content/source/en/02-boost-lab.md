@@ -4,7 +4,7 @@
 
 **Título** · BOOST LAB
 **Meta** · Korea ↔ Colombia · 2024 - present
-**Descripción** *(tuyo)* · BOOST LAB was born in Seoul in 2024 so entrepreneurs can grow with structure, community and a network that is already in the room. We design and run summits, hackathons, workshops and international missions between Korea and Latin America.
+**Descripción** *(tuyo)* · BOOST LAB was born in Seoul in 2024 with a simple idea: an entrepreneur grows by doing, not by reading about other markets. We design and run summits, hackathons, workshops and international missions between Korea and Latin America.
 **Tags** · Global Youth · Summits · Sejong · International Missions · Ruta 8
 
 ---
@@ -20,7 +20,7 @@
 **Etiqueta** · [ BOOST LAB ]
 
 **Texto de la banda** *(tuyo)*
-BOOST LAB was born in Seoul in 2024 so entrepreneurs can grow with structure, community and a network that is already in the room. We design and run summits, hackathons, workshops and international missions between Korea and Latin America.
+BOOST LAB was born in Seoul in 2024 with a simple idea: an entrepreneur grows by doing, not by reading about other markets. We design systems that take entrepreneurs out of their environment, expose them to markets and people that environment does not contain, and leave them with the capacity to keep evolving on their own. We do it through summits, hackathons, workshops and international missions between Korea and Latin America, and I designed the experience and the brand of each one.
 
 **Cifras** *(tuyo)*
 
@@ -41,8 +41,8 @@ Relationships with institutions, universities, speakers, sponsors and companies 
 **[03] Experience design**
 Summits, workshops, hackathons and missions, end to end.
 
-**[04] Identity and campaigns**
-Visual systems, materials, content and digital communication to call people in and move a community.
+**[04] Graphic design and identity**
+Visual identity, graphic pieces, materials and digital communication campaigns to call people in and move a community.
 
 **[05] Programs and facilitation**
 Modules, templates, activities, mentoring and reflection spaces for each format.
@@ -52,7 +52,7 @@ Production, logistics and team coordination to bring the concept to the big day.
 
 ### Lo que salió de este capítulo · [ PROYECTOS ]
 
-Global Youth: Women's Entrepreneurship Summit · Sejong Global Idea Hackathon · International Missions · Seoul Women Entrepreneur Summit · Seoul Entrepreneur Summit · Ruta 8 · Seoul Wellness Workshop · Youth Future Talent · BOOST LAB Workshops
+Global Youth: Women's Entrepreneurship Summit · Sejong Global Idea Hackathon · International Missions · Seoul Women Entrepreneur Summit · Seoul Entrepreneur Summit · Ruta 8 · Seoul Wellness Workshop · BOOST LAB programs and workshops
 
 ---
 
@@ -107,6 +107,17 @@ Cámara de Comercio de Bogotá · Universidad Externado de Colombia · Invest in
 
 **Details we designed**
 Workshops on innovation, wellbeing and agile methodologies. Lunch inside the venue so nobody had to leave to look for food. A closing dinner with standing tables, so partners would move around and meet each other. 32 volunteers on operations.
+
+**My role in detail**
+Event conceptualization · speaker curation and management · partnership development · marketing and promotion · logistics and on-site operations
+
+**The panels**
+01 Breaking barriers
+02 Tech titans
+03 Building a better world
+04 Creative empires
+05 The key to sustainable success
+06 Micro-talks
 
 ---
 
@@ -246,6 +257,32 @@ We made it 100% in English, because we are an international team and it was the 
 
 **Secciones extra**
 
+**Figures** *(para stat cards)*
+120+ · attendees
+42,000+ · campaign views
+4 · panels led by women
+14 · speakers
+7 · partners
+100% · in English
+
+**My role in detail**
+Event strategy and planning · speaker curation and management · marketing and promotion · design of the identity and every piece · logistics and on-site operations · panel moderation
+
+**The panels**
+01 She Breaks Barriers
+02 Tech Titans: Women Who Code the Future
+03 Building a Better World: Women Social Entrepreneurs in Action
+04 Creative Empires: Cultural Change Through Entrepreneurship
+
+**Challenges and how we solved them**
+Language: we made the summit 100% in English so the room was one and connected with a global audience. Gender bias: we actively searched for diverse panelists, far from the norm of Seoul's entrepreneurship stages. Budget: we stretched it with partnerships, volunteers and low-cost solutions.
+
+**Tools and method**
+Figma for the identity, the campaign pieces and the day's slides · Instagram as the main channel, with more than 42,000 views · a welcome kit and personalized pieces for every speaker · agile management to adapt the plan on the go
+
+**Partners**
+Piooda · Front 1 · Social Table · Beyond 2024 · Mondragon Team Academy · Check'o · Seoul Startup
+
 **A note**
 At this summit I met Hyojeong Kim, founder of NomadHer. A year later she hired me.
 
@@ -284,8 +321,22 @@ We built the cases with former McKinsey consultants, so the challenge depended o
 
 **Secciones extra**
 
-**The agenda**
-Welcome · expert talk with live questions · ice breaking · team challenge · pitch by quadrant · final pitch in front of a jury · networking
+**Figures** *(para stat cards)*
+80 · attendees
+2 · communities in one room: Korean and international
+1 · real challenge proposed by a company
+14 · slides designed to guide the day
+
+**How the day went**
+01 Welcome and registration, with a networking area open all afternoon
+02 Expert talk with live questions
+03 Ice breaking in two lines, face to face
+04 Team challenge: name, problem, research and solution
+05 Pitch by quadrant and final pitch in front of a jury
+06 Winner, thanks and closing networking
+
+**My role in detail**
+Event concept and format · visual identity and campaign · slides and instructions for every moment · running the day with the N9NE team
 
 ---
 
@@ -396,6 +447,17 @@ We partnered with two international companies from Spain and solved the identity
 **03 Result**
 A room of fewer than twenty people and the best feedback we have ever received. Four local sponsors and a donation of one million won in supplies. Months later, a company asked us for the same workshop for its team.
 
+**Secciones extra**
+
+**My role in detail**
+Branding and design: the event identity, the materials, the palette and the marketing pieces · marketing and promotion with a strategy aimed at entrepreneurs and professionals · social media management to build anticipation before the event
+
+**What attendees took home**
+Strategies to manage time, set boundaries and prioritize self-care · tools to recognize, understand and manage emotions · a community of peers to share what is almost never said out loud
+
+**The format**
+Interactive workshops · a panel conversation · networking spaces · a set of printed emotion cards, designed to be worked on at the table
+
 ---
 
 ## 2.8 Youth Future Talent
@@ -429,24 +491,40 @@ We entered the schools with Bnomad. We co-created the curriculum and designed ac
 **03 Result**
 Three workshops and more than 107 students: 15 at Suji High School with a focus on Sustainable Development Goals, 12 at Byeolmuri High School and more than 80 in a large-scale workshop. The presentations and templates were handed over to the community.
 
+**Secciones extra**
+
+**Figures** *(para stat cards)*
+3 · workshops in Seoul schools
+107+ · students
+8 · months of program
+80+ · students in the large-scale workshop
+
+**My role in detail**
+Co-creation of the curriculum with Bnomad · design of activities and exercises to think as a team · complete materials: presentations, worksheets and assessments · logistics of every session
+
+**The three workshops**
+01 Suji High School · 15 students · innovative solutions to the Sustainable Development Goals
+02 Byeolmuri High School · 12 students · solutions to problems in their own community
+03 Large-scale workshop · 80+ students from several schools · self-leadership, teamwork, problem solving and global citizenship
+
 ---
 
-## 2.9 BOOST LAB Workshops
+## 2.9 BOOST LAB programs and workshops
 
 **CARD**
-Etiquetas · Workshops · 2024 - 2026
+Etiquetas · Programs and workshops · 2024 - 2026
 Meta · BOOST LAB · Colombia and Korea, 2024 - 2026
-Título · BOOST LAB Workshops
-Descripción · 45 minutes to work on your own brand live and leave with the templates filled in.
+Título · BOOST LAB programs and workshops
+Descripción · 45-minute workshops and leadership programs: work on your own brand live and leave with the templates filled in.
 Tags · Workshops · Templates
 Filtros · Eventos y talleres · Estrategia
 
 **PÁGINA**
 
-**Título** · BOOST LAB Workshops
+**Título** · BOOST LAB programs and workshops
 
 **Descripción**
-BOOST LAB's training line: short, practical workshops on brand, strategy and entrepreneurship. There is only one rule. Each person arrives with their project, works on it during the workshop and leaves with their own strategy written on paper.
+BOOST LAB's training line: short, practical workshops on brand, strategy and entrepreneurship. There is only one rule. Each person arrives with their project, works on it during the workshop and leaves with their own strategy written on paper. Inside this project also lives Youth Future Talent, the eight-month leadership program with student councils at schools in Seoul.
 
 **Propósito** · Work live · See the method from the inside · Leave with something written
 

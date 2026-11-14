@@ -20,16 +20,17 @@ test("FavoriteProjects vertically centers its columns and spaces project names",
   assert.doesNotMatch(favoriteProjects, /(?:^|\s)lg:items-start(?:\s|$)/);
   assert.match(
     favoriteProjects,
-    /className="[^"]*(?:^|\s)space-y-4(?:\s|$)[^"]*(?:^|\s)lg:space-y-6(?:\s|$)[^"]*"/,
+    /className="[^"]*(?:^|\s)space-y-6(?:\s|$)[^"]*(?:^|\s)lg:space-y-9(?:\s|$)[^"]*"/,
   );
 });
 
-test("WorkTogether uses the approved black hand badge", () => {
+test("WorkTogether uses the approved wine hand badge", () => {
   const handBadge = workTogether.match(/<div className="([^"]+)">\s*✋/s);
 
   assert.ok(handBadge, "expected to find the hand badge");
-  assert.match(handBadge[1], /(?:^|\s)bg-black(?:\s|$)/);
-  assert.doesNotMatch(handBadge[1], /(?:^|\s)bg-\[#7B173B\](?:\s|$)/);
+  // The badge moved from black to the brand wine (#7B173B) when the palette was unified.
+  assert.match(handBadge[1], /(?:^|\s)bg-\[#7B173B\](?:\s|$)/);
+  assert.doesNotMatch(handBadge[1], /(?:^|\s)bg-black(?:\s|$)/);
   assert.doesNotMatch(handBadge[1], /(?:^|\s)bg-green(?:\s|$)/);
 });
 

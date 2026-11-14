@@ -62,13 +62,13 @@ const STORY_COPY = {
 } as const;
 
 const COLLAGE_PHOTOS = {
-  primary: "/pages/about/figma/story-collage-primary.png",
-  reflection: "/pages/about/figma/story-collage-reflection.png",
-  leftPortrait: "/pages/about/figma/story-collage-left-portrait.png",
-  rightPortrait: "/pages/about/figma/story-collage-right-portrait.png",
-  centerPhoto: "/pages/about/figma/story-collage-center-photo.png",
-  leftTilt: "/pages/about/figma/story-collage-left-tilt.png",
-  circle: "/pages/about/figma/story-collage-circle.png",
+  primary: "/sobre-mi/figma/story-collage-primary.png",
+  reflection: "/sobre-mi/figma/story-collage-reflection.png",
+  leftPortrait: "/sobre-mi/figma/story-collage-left-portrait.png",
+  rightPortrait: "/sobre-mi/figma/story-collage-right-portrait.png",
+  centerPhoto: "/sobre-mi/figma/story-collage-center-photo.png",
+  leftTilt: "/sobre-mi/figma/story-collage-left-tilt.png",
+  circle: "/sobre-mi/figma/story-collage-circle.png",
 } as const;
 
 type StoryPhotoName = keyof typeof COLLAGE_PHOTOS;
@@ -112,7 +112,7 @@ export function MyStory({ locale }: { locale: Locale }) {
     <section id="story" className="scroll-mt-24 overflow-hidden bg-[#111] text-white">
       <div className="mx-auto max-w-[960px] px-5 pb-16 pt-20 text-center sm:px-8 sm:pb-24 sm:pt-24 lg:hidden">
         <Image
-          src="/pages/about/figma/story-collage-doodle.svg"
+          src="/sobre-mi/figma/story-collage-doodle.svg"
           alt=""
           width={116}
           height={116}
@@ -158,7 +158,7 @@ export function MyStory({ locale }: { locale: Locale }) {
       <div className="relative hidden w-full lg:aspect-[1710/1260] lg:block">
         <div className="pointer-events-none absolute left-[46.61%] top-[4.7%] z-10 size-[116px]">
           <Image
-            src="/pages/about/figma/story-collage-doodle.svg"
+            src="/sobre-mi/figma/story-collage-doodle.svg"
             alt=""
             fill
             sizes="116px"

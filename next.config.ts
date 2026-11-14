@@ -11,11 +11,10 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   images: {
-    // Next 16 defaults the allowed-quality list to [75] and silently coerces
-    // any other `quality` prop to the nearest allowed value. The home hero
-    // portrait requests quality={92}, so 92 must be in the allowlist for that
-    // higher fidelity to actually be served.
-    qualities: [75, 92],
+    // Next 16 only serves the qualities listed here and rounds any `quality` prop to the nearest one. Keeping a
+    // single, high value makes every photo on the site (including the ones without an explicit `quality`) come out
+    // at 92 instead of the default 75.
+    qualities: [92],
   },
 };
 

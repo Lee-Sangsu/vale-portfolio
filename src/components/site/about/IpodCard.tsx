@@ -141,9 +141,13 @@ export function IpodCard({
       return () => window.clearTimeout(id);
     }
     if (audio.src !== previewUrl) audio.src = previewUrl;
-    audio.currentTime = 0;
-    audio.play().catch(() => setPlaying(false));
-  }, [playing, previewUrl]);
+    audio.currentTime = song.startAt ?? 0;
+    audio.play().catch((error: unknown) => {
+      // Skipping tracks quickly aborts the previous play(); only a blocked
+      // or failed playback should switch the player off.
+      if ((error as DOMException)?.name !== "AbortError") setPlaying(false);
+    });
+  }, [playing, previewUrl, song.startAt]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -218,7 +222,7 @@ export function IpodCard({
               style={{ width: s.width, height: s.height }}
             >
               <Image
-                src="/pages/about/figma/skills-red-star.png"
+                src="/sobre-mi/figma/skills-red-star.png"
                 alt=""
                 fill
                 sizes="65px"
@@ -263,7 +267,7 @@ export function IpodCard({
             {/* Click wheel */}
             <div className="absolute top-[139px] left-[20px] size-[118px]">
               <Image
-                src="/pages/about/figma/ipod-clickwheel-outer.svg"
+                src="/sobre-mi/figma/ipod-clickwheel-outer.svg"
                 alt=""
                 fill
                 sizes="118px"
@@ -331,7 +335,7 @@ export function IpodCard({
                 className="absolute top-[36px] left-[36px] size-[46px] rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#555]"
               >
                 <Image
-                  src="/pages/about/figma/ipod-clickwheel-inner.svg"
+                  src="/sobre-mi/figma/ipod-clickwheel-inner.svg"
                   alt=""
                   fill
                   sizes="46px"

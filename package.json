@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test:work-together": "node --test tests/work-together.test.mjs",
     "verify:assets": "node scripts/verify-public-assets.mjs",
+    "images": "node scripts/optimize-images.mjs",
     "content": "node scripts/build-portfolio-content.mjs"
   },
   "dependencies": {

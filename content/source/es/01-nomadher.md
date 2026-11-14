@@ -27,7 +27,7 @@ Entré en octubre de 2025 como Founding Designer, a diseñar el producto de una 
 | | |
 |---|---|
 | **21-23%** | retención de mes 1 en la app |
-| **2M+** | vistas orgánicas en el contenido que produzco |
+| **2M+** | vistas orgánicas totales en el contenido producido |
 | **31%** | tasa de apertura del newsletter |
 
 ### Mis responsabilidades · [ MI ROL ]
@@ -36,10 +36,10 @@ Entré en octubre de 2025 como Founding Designer, a diseñar el producto de una 
 Arquitectura por ciudad, cuatro espacios rediseñados y features en producción desde la v9.4.7.
 
 **[02] Web**
-Rediseño del sitio en Figma, con contenido, estructura y lógica listos para construir en Webflow.
+Diseño de interfaces y arquitectura de contenido para el sitio, en Figma y listo para construir en Webflow.
 
 **[03] Marca**
-Un sistema que el equipo aplica en banners, eventos, stories, App Store y papelería.
+Rol continuo de diseño gráfico para los elementos de marca: banners, stories, App Store, papelería y las piezas de cada evento y campaña, como los festivales She Can y las campañas con aliados.
 
 **[04] Campañas y partnerships**
 Dirección creativa para aliados como Japan Airlines, Superalink y NordVPN, entre Instagram, email y app.
@@ -47,20 +47,13 @@ Dirección creativa para aliados como Japan Airlines, Superalink y NordVPN, entr
 **[05] Contenido y comunidad**
 Directriz mensual, series, newsletter, programa de bloggers y creadoras de contenido.
 
-**[06] Eventos y experiencias**
-Concepto, logística y piezas físicas para festivales, workations y meetups en Corea.
-
-**[07] Desarrollo de negocio**
+**[06] Desarrollo de negocio**
 Business decks para aliados, inversionistas y programas internacionales, de VivaTech a AlUla.
-
-**[08] Operación interna**
-El workspace de Notion del equipo y un reporting de redes que se actualiza solo cada semana.
 
 ### Lo que salió de este capítulo · [ PROYECTOS ]
 
-Rediseño de la app · Lounge por ciudad · Travel Buddy y meetups · Niveles, badges y perks · Creator Call con JAL · Marca aplicada · Contenido y comunidad · Bloggers y creadoras · Business decks · Rediseño del website · Workspace en Notion · She Can Travel Anywhere Seúl · She Can Found Anywhere · She Can Create Anywhere · Wellness Creator Trip · Campañas con partners · Merch · Reporting automatizado
+Rediseño de la app · Marca aplicada · Creator Call con JAL · Contenido para Instagram · Bloggers Program · Business decks · Rediseño del website
 
-> *Nota: las cuatro primeras son el producto. Si en el carrusel quieres que se lean como un bloque, puedes ponerles la misma etiqueta "UX/UI · App" y dejarlas juntas al inicio.*
 
 ---
 
@@ -79,7 +72,7 @@ Filtros · UX/UI · Estrategia
 **Título** · Rediseño de la app · la base
 
 **Descripción**
-El rediseño de una app de comunidad que ya existía, de las entrevistas con usuarias a la arquitectura que hoy sostiene cada feature. Esta página cuenta la base. Las tres siguientes cuentan los espacios construidos encima: el Lounge, Travel Buddy y el sistema de niveles.
+El rediseño de una app de comunidad que ya existía, de las entrevistas con usuarias a la arquitectura que hoy sostiene cada feature. Esta página cuenta la base. Dentro de ella viven los tres espacios construidos encima: el Lounge, Travel Buddy y el sistema de niveles.
 
 **Propósito** · La ciudad al centro · Un perfil que invita a escribir · Un solo lenguaje de cards
 
@@ -127,178 +120,74 @@ Bienvenida, verificación de correo, verificación en proceso, rechazo, registro
 9.6.4 · sep 2026 · Travel Status, Follow, Blogs, Perks y chat de eventos pagados
 9.6.5 · en test · niveles, onboarding nuevo, RSVP y check-in de seguridad, notificaciones
 9.6.6 · en diseño · post unificado del Lounge y Travel Status
+9.6.7 · entregada al equipo técnico · perfil V2.1, Travel Buddy V3, Travel Status V3, creación de meetups V4.1, conversation starters y celebración de nivel
 
 ---
 
-## 1.2 Lounge por ciudad
+---
+
+## 1.2 Marca aplicada
 
 **CARD**
-Etiquetas · UX/UI · 2026
-Meta · NomadHer · Seúl, 2026
-Título · Lounge por ciudad
-Descripción · Del feed global a la ciudad: búsqueda, chat por ciudad y un mapa que muestra lugares.
-Tags · UX/UI · Research
-Filtros · UX/UI · Estrategia
+Etiquetas · Branding · 2025 - 2026
+Meta · NomadHer · Seúl, 2025 - 2026
+Título · Marca aplicada
+Descripción · Mi rol continuo de diseño gráfico para la marca: banners, stories, papelería, eventos y campañas, todo dentro de un mismo sistema.
+Tags · Identidad · Templates · Eventos
+Filtros · Diseño gráfico
 
 **PÁGINA**
 
-**Título** · Lounge por ciudad
+**Título** · La marca, aplicada
 
 **Descripción**
-El Lounge es el espacio donde la comunidad publica y conversa. Lo trabajé en dos frentes: arreglar lo que frenaba a las usuarias para escribir, y una propuesta en cuatro fases para organizarlo por ciudad y por fechas.
+Una marca se prueba en el uso: en el banner que cambia cada semana, en el póster de un evento con otra marca encima, en la tarjeta que alguien entrega en una feria. Esta página reúne cómo vive NomadHer fuera del logo, de la app a la calle. Dentro de este proyecto viven los eventos y campañas que la marca atravesó, de los festivales She Can a las campañas con aliados.
 
-**Propósito** · Ciudad más fechas · Contar antes de mostrar caras · Un ritual por ciudad
+**Propósito** · Una sola marca · Templates que no se rompen · Del píxel al cartón
 
 **Overview**
 Cliente · NomadHer
-Mi rol · Research, UX/UI y lógica de producto
-Tipo de proyecto · Rediseño de un espacio de comunidad
+Mi rol · Dirección de marca y diseño gráfico
+Tipo de proyecto · Sistema de marca aplicado
 
 **01 Challenge**
-El objetivo que nos pusimos en febrero fue simple: que las usuarias tengan ganas de escribir. Las entrevistas mostraban lo contrario. Un post en Seúl se perdía en minutos entre el volumen de contenido, la caja de comentarios se bloqueaba y escribir una guía larga era incómodo. Una usuaria lo resumió pidiendo salas por ciudad, al estilo Discord.
+Hyo me pidió llevar la marca hacia comunidad, darle un tono más serio y, sobre todo, unificarla. Las piezas salían de varias manos y la app y el Instagram parecían dos marcas. Y el día a día exigía velocidad: banners nuevos cada semana, eventos con aliados distintos, y un equipo que necesitaba editar sin pedirle cada cambio a una diseñadora.
 
 **02 Approach**
-Primero, lo que frenaba: rediseño de comentarios en tres opciones, likes y respuestas en una sola lógica, un post detail nuevo y un solo campo de contenido evidente al publicar. Después, el research: benchmark de once productos, de Timeleft y Nomad List a Strava, del que saqué ocho patrones. Con ellos armé una propuesta en cuatro fases, cada una con su criterio de "listo" medible.
+Partí de reglas claras, con guía de fotografía, texturas editoriales y brand guidelines aptas para externos. Encima construí templates pensados para editarse sin romperse. En los banners de la app, las figuras de marca quedan fijas sobre la foto, así que cambiar la imagen no mueve nada. Para eventos, un sistema base que absorbe la identidad de cada aliado. Y para lo físico, piezas reutilizables en lugar de lonas de un solo uso.
 
 **03 Result**
-Comentarios, likes y post detail rediseñados y entregados al equipo técnico, banners por campaña en producción, y una hoja de ruta de cuatro fases que hoy guía las siguientes versiones. La primera fase, una búsqueda por ciudad e intereses, ya está en Figma, y el post unificado con Travel Status está diseñado para la 9.6.6.
+Una sola identidad en la app, la App Store, Instagram, el newsletter, los eventos y la papelería del equipo. Cualquier persona del equipo arma hoy un banner nuevo cambiando foto y texto. La marca acompañó eventos en Seúl y meetups en Milán, París, Londres y Tokio, y aguantó convivir con la Embajada de Francia, una maratón y una feria de viajes.
 
 **Secciones extra**
 
-**Las cuatro fases**
-*Fase 1 · Where to?* Una barra de búsqueda con ciudad e intereses. Lista cuando buscar por ciudad se use más que los chips de ciudades populares.
-*Fase 2 · When.* Ahora, esta semana o fechas propias, pre-llenado desde el Travel Status. Una card que dice "12 NomadHers in Seoul this week · 3 meetups planned" y un chat de ciudad con fecha, legible antes de unirse.
-*Fase 3 · La página de ciudad.* Pestañas Now, Meetups, Tips y Guides, rol visible para las locales, un encuentro semanal sin host ("NomadHer Wednesday · 7 pm · Hongdae") y un check-in "I'm meeting her".
-*Fase 4 · El mapa.* Lugares y meetups. Las mujeres aparecen solo como conteo por barrio, con un mínimo de cinco, y un switch entre Global y My city.
+**Banners de la app**
+Un sistema de nueve templates de 1224 × 597 px, seis con foto y tres sin foto, con fondos en lenguaje de viaje: rutas de avión, huellas y continentes. Pensado para los dos usos que más se repiten, anunciar un meetup o un programa por ciudad, y lanzar una feature.
 
-**Los ocho patrones**
-Ciudad más rango de fechas · contar antes de mostrar caras · un chat de ciudad que existe antes de que llegue nadie · una ventana de 14 días antes a 3 después · chips de intención en lugar de texto libre · un ritual semanal sin host · visibilidad mutua con aprobación · lugar público y revelación tardía
+**Eventos**
+*Christmas Women's DJ Party · dic 2025.* Tres rutas de carrusel, banner, contenido web, push y la hoodie de voluntarias. 35 asistentes y 4,5 sobre 5 en reseñas.
+*Allthattravel Expo · abr y may 2026.* Pared del booth, banners, piezas con QR, 200 parches en cuatro diseños y 60 camisetas.
+*Fête de la Musique Seúl · jun 2026.* Con la Embajada de Francia en Space K: tres opciones de póster sobre una obra de Mandy El Sayegh, banner, post, story y reels.
+*Women Marathon · may 2026.* Slides y banners con las texturas de los organizadores. Entradas agotadas.
+*Meetups del mes.* Banners mensuales para surf, Wine & K-sool, gayageum, danza tradicional y meetups internacionales.
 
-**La regla de fondo**
-La unidad es la ciudad más las fechas, nunca la ubicación exacta. Nueve reglas no negociables para el mapa, y una estrategia propia para la ciudad que todavía está vacía.
+**Señalética reutilizable**
+Mini carteles de cartón de 30 × 30 cm y uno horizontal en A3, con "She Can Travel Anywhere", "Welcome to the sisterhood", el logo del aliado y una ilustración de marca sin texto como comodín. Se usan de evento en evento.
 
-**Lo que viene**
-"What are you up for?", para elegir plan y fechas desde el Lounge y pasar directo a Travel Buddy, y círculos por ciudad. Los dos están en exploración.
+**Stories y redes**
+Templates de stories en cuatro tipos, portadas y grilla de Instagram, y templates editables para el equipo.
 
-**Banners del Lounge**
-Un sistema de banners configurable por campaña, en carrusel y enlazado a la experiencia. Después definí el duplicado de banners y la publicación en varias ubicaciones a la vez, para que montar una campaña nueva fuera cuestión de minutos.
+**Papelería**
+Firma de correo para todo el equipo, con guía de instalación paso a paso, y tarjetas de presentación como plantillas editables.
 
----
-
-## 1.3 Travel Buddy y meetups
-
-**CARD**
-Etiquetas · UX/UI · 2026
-Meta · NomadHer · Seúl, 2026
-Título · Travel Buddy y meetups
-Descripción · Quién está activa, planes en un toque y un check-in de seguridad después de cada encuentro.
-Tags · UX/UI · Producto
-Filtros · UX/UI · Estrategia
-
-**PÁGINA**
-
-**Título** · Travel Buddy y meetups
-
-**Descripción**
-Travel Buddy es donde las usuarias encuentran compañía. Diseñé el recorrido completo, de ver quién está cerca a encontrarse en persona y volver a casa: Currently Active, Women Meetups, Travel Status y el flujo después de cada meetup.
-
-**Propósito** · Saber quién está · Planear sin fricción · Volver segura
-
-**Overview**
-Cliente · NomadHer
-Mi rol · UX/UI, lógica de producto y métricas
-Tipo de proyecto · Features de conexión, app mobile
-
-**01 Challenge**
-Entre un mensaje en frío y un evento formal no había nada. Las usuarias no sabían quién estaba en línea de verdad, dudaban en escribir, y los planes terminaban armándose en WhatsApp. Cualquier solución tenía que funcionar para mujeres que se encuentran con desconocidas en una ciudad nueva, así que la seguridad tenía que estar en el diseño desde el primer paso.
-
-**02 Approach**
-Diseñé cuatro piezas que se encadenan. Currently Active muestra quién estuvo activa en los últimos 15 minutos. Women Meetups convierte un plan pequeño en un chat en segundos. Travel Status cuenta dónde está cada una y por qué. Y el flujo del meetup cubre el antes y el después: confirmar asistencia, salir sin incomodar y responder, al volver, cómo se sintió. Arrancamos en Seúl y abrimos ciudad por ciudad según la demanda.
-
-**03 Result**
-313 uniones a meetups en las dos primeras semanas. En septiembre, 429 usuarias se unieron a al menos un meetup y 130 repitieron, cerca de un 30%. Women Meetups pasó de Seúl a París y, desde el 22 de septiembre de 2026, a todas las ciudades. El RSVP y el check-in de seguridad están en test para la 9.6.5.
-
-**Secciones extra**
-
-**Currently Active**
-Activa ahora: actividad en los últimos 15 minutos, con punto verde. Recently Active: de 15 minutos a 14 días, visible solo en el perfil. Un carrusel de tres cards con chip de estado y bandera. Sin foto o sin estado, la usuaria no aparece, y si no hay nadie activo, la sección desaparece. Antes de diseñarlo hice un research de presencia en apps de citas: un punto verde en vivo puede ser un riesgo, así que la presencia tenía que tener propósito.
-
-**Women Meetups**
-Tres tipos de plan (Food & drinks, Cultural Place, Outdoor Activity), hasta dos semanas de anticipación, "Join the chat!" en lugar de un RSVP formal y un chat que se crea solo, con la descripción como primer mensaje y archivo automático 24 horas después del encuentro. Fuera de Seúl, un botón "Add my city": con 20 pedidos se abre una ciudad. Los meetups con más movimiento suben solos al Lounge con el badge "via Travel Buddy".
-
-**Travel Status**
-Un flujo distinto para cada situación, Traveler, Local o Expat, y varias travel buddies a la vez cuando las fechas no se cruzan.
-
-**Antes y después del meetup**
-Antes: una pausa para leer los detalles antes de unirse, pestañas Chat y Details, y RSVP con Going, Maybe y Can't go. Unirse al meetup y al chat es una sola acción, y salir también. Después: "Did you make it?", y si no fue, por qué. Luego "How safe did you feel?". Cada respuesta "Not great" abre un espacio para contar qué pasó y avisa al equipo en el momento. Al final, una invitación a contar el encuentro en el Lounge.
-
-**Métricas definidas**
-Completitud de la encuesta · asistencia frente a no-shows · motivos · distribución de respuestas de seguridad · tasa de stories · hosts que repiten
-
-**Travel Buddy V3**
-Búsqueda por fechas, decidida con benchmark de Airbnb, filtros y orden, una card de meetup nueva, y likes y comentarios.
-
-**Chats de eventos**
-Quien compra una experiencia, gratis o pagada, entra al chat del evento con la host. En producción desde la 9.6.4.
+**La base**
+Tres moodboards iniciales (Elegant, Joyful y Power), una guía de fotografía con tres estilos, texturas editoriales y brand guidelines para compartir con externos.
 
 ---
 
-## 1.4 Niveles, badges y perks
-
-**CARD**
-Etiquetas · UX/UI · 2026
-Meta · NomadHer · Seúl, 2026
-Título · Niveles, badges y perks
-Descripción · Un sistema de reconocimiento en cuatro fases, de los puntos al wallet.
-Tags · UX/UI · Gamificación
-Filtros · UX/UI · Estrategia
-
-**PÁGINA**
-
-**Título** · Niveles, badges y perks
-
-**Descripción**
-La capa que reconoce a quien participa: niveles, badges, notificaciones y perks, diseñados por fases para que cada pieza pudiera salir sola y crecer después.
-
-**Propósito** · Reconocer · Avisar a tiempo · Devolver valor
-
-**Overview**
-Cliente · NomadHer
-Mi rol · UX/UI, lógica de puntos y sistema de fases
-Tipo de proyecto · Sistema de fidelización, app mobile
-
-**01 Challenge**
-En el diagnóstico de noviembre de 2025 aparecían tres huecos: las hosts no tenían incentivos, el valor de ser miembro no se percibía y la participación no se reconocía en ningún lado. Los perks de marcas aliadas estaban dispersos y no generaban comisión. Y las notificaciones se acumulaban sin limpiarse nunca.
-
-**02 Approach**
-Diseñé la lógica de puntos con benchmark de Booking Genius, por la permanencia del nivel, Duolingo, por las dos capas de XP y racha, y Gymshark, por premiar acciones de comunidad. El PRD inicial tenía cinco niveles. Recomendé lanzar primero los comunitarios y separar Ambassador como piloto, y ordené todo en cuatro fases: lanzamiento, todos los niveles, wallet y badges. Notificaciones y perks siguieron la misma lógica de fases.
-
-**03 Result**
-Inbox y notificaciones nuevas en producción desde la 9.6.2. Follow y Perks, desde la 9.6.4. La fase 1 de niveles y la nueva lógica de notificaciones están en test para la 9.6.5. Los badges de equipo y bloggers ya se ven en el Lounge, Travel Buddy, comentarios e Inbox.
-
-**Secciones extra**
-
-**Los niveles · fase 1**
-Dreamer al verificarse. Explorer con 600 puntos en el mes. Blog +500, reseña de meetup +250, comentario +50 con tope diario. Reset mensual sin bajar de nivel, y nivel privado, como en Booking. Un anillo de progreso en el avatar, una pantalla My Level y una celebración de subida de nivel, con tres propuestas.
-
-**Las cuatro fases**
-01 Lanzamiento con dos niveles · 02 Todos los niveles, con Inspirer y Ambassador · 03 Wallet, donde viven los perks ganados · 04 Badges por logros, ciudades y rachas
-
-**Badges**
-Blogger, equipo NomadHer y Ambassador, visibles en el Lounge, Travel Buddy, el detalle de cada post, Inbox y comentarios, con un pop-up que explica cada uno. El badge de Blogger conecta el producto con el programa de bloggers.
-
-**Notificaciones e Inbox**
-Separé alertas de conversaciones. Fase 1: cada notificación con su acción directa (Say hi, View plan, Open chat, Share story), agrupadas por hoy, ayer, esta semana y este mes. Fase 2: filtros Social, Meetups y System. Reglas de envío: recordatorios a 24 horas, 2 horas y 30 minutos, silencio de 22 a 8, máximo ocho push al día y likes agrupados cada hora.
-
-**Perks y wallet**
-Una página de Perks, un slider de cuatro en el Lounge y un detalle donde el código se lee como un ticket, con estado "Copied". Comercios locales sin código y QR para los aliados grandes. NomadCard, la tarjeta de miembro con formato NH-año-0000. Y el wallet como fase 3 de niveles, con aviso cuando un perk está por vencer.
-
-**Metas definidas para Perks**
-30% de usuarias abre un perk en sus primeros 30 días · 50% revela el código · 40% de los descubrimientos llega desde el slider del Lounge
-
 ---
 
-## 1.5 Creator Call con Japan Airlines
+## 1.3 Creator Call con Japan Airlines
 
 **CARD**
 Etiquetas · Campaña · 2026
@@ -346,78 +235,21 @@ Post y caption de convocatoria · stories de anuncio, pasos, recordatorio y cier
 
 ---
 
-## 1.6 Marca aplicada
-
-**CARD**
-Etiquetas · Branding · 2025 - 2026
-Meta · NomadHer · Seúl, 2025 - 2026
-Título · Marca aplicada
-Descripción · Banners, eventos, stories y papelería: una sola marca que el equipo edita sin romperla.
-Tags · Identidad · Templates · Eventos
-Filtros · Diseño gráfico
-
-**PÁGINA**
-
-**Título** · La marca, aplicada
-
-**Descripción**
-Una marca se prueba en el uso: en el banner que cambia cada semana, en el póster de un evento con otra marca encima, en la tarjeta que alguien entrega en una feria. Esta página reúne cómo vive NomadHer fuera del logo, de la app a la calle.
-
-**Propósito** · Una sola marca · Templates que no se rompen · Del píxel al cartón
-
-**Overview**
-Cliente · NomadHer
-Mi rol · Dirección de marca y diseño gráfico
-Tipo de proyecto · Sistema de marca aplicado
-
-**01 Challenge**
-Hyo me pidió llevar la marca hacia comunidad, darle un tono más serio y, sobre todo, unificarla. Las piezas salían de varias manos y la app y el Instagram parecían dos marcas. Y el día a día exigía velocidad: banners nuevos cada semana, eventos con aliados distintos, y un equipo que necesitaba editar sin pedirle cada cambio a una diseñadora.
-
-**02 Approach**
-Partí de reglas claras, con guía de fotografía, texturas editoriales y brand guidelines aptas para externos. Encima construí templates pensados para editarse sin romperse. En los banners de la app, las figuras de marca quedan fijas sobre la foto, así que cambiar la imagen no mueve nada. Para eventos, un sistema base que absorbe la identidad de cada aliado. Y para lo físico, piezas reutilizables en lugar de lonas de un solo uso.
-
-**03 Result**
-Una sola identidad en la app, la App Store, Instagram, el newsletter, los eventos y la papelería del equipo. Cualquier persona del equipo arma hoy un banner nuevo cambiando foto y texto. La marca acompañó eventos en Seúl y meetups en Milán, París, Londres y Tokio, y aguantó convivir con la Embajada de Francia, una maratón y una feria de viajes.
-
-**Secciones extra**
-
-**Banners de la app**
-Un sistema de nueve templates de 1224 × 597 px, seis con foto y tres sin foto, con fondos en lenguaje de viaje: rutas de avión, huellas y continentes. Pensado para los dos usos que más se repiten, anunciar un meetup o un programa por ciudad, y lanzar una feature.
-
-**Eventos**
-*Christmas Women's DJ Party · dic 2025.* Tres rutas de carrusel, banner, contenido web, push y la hoodie de voluntarias. 35 asistentes y 4,5 sobre 5 en reseñas.
-*Allthattravel Expo · abr y may 2026.* Pared del booth, banners, piezas con QR, 200 parches en cuatro diseños y 60 camisetas.
-*Fête de la Musique Seúl · jun 2026.* Con la Embajada de Francia en Space K: tres opciones de póster sobre una obra de Mandy El Sayegh, banner, post, story y reels.
-*Women Marathon · may 2026.* Slides y banners con las texturas de los organizadores. Entradas agotadas.
-*Meetups del mes.* Banners mensuales para surf, Wine & K-sool, gayageum, danza tradicional y meetups internacionales.
-
-**Señalética reutilizable**
-Mini carteles de cartón de 30 × 30 cm y uno horizontal en A3, con "She Can Travel Anywhere", "Welcome to the sisterhood", el logo del aliado y una ilustración de marca sin texto como comodín. Se usan de evento en evento.
-
-**Stories y redes**
-Templates de stories en cuatro tipos, portadas y grilla de Instagram, y templates editables para el equipo.
-
-**Papelería**
-Firma de correo para todo el equipo, con guía de instalación paso a paso, y tarjetas de presentación como plantillas editables.
-
-**La base**
-Tres moodboards iniciales (Elegant, Joyful y Power), una guía de fotografía con tres estilos, texturas editoriales y brand guidelines para compartir con externos.
-
 ---
 
-## 1.7 Contenido y comunidad
+## 1.4 Contenido para Instagram
 
 **CARD**
 Etiquetas · Contenido · 2025 - 2026
 Meta · NomadHer · Seúl, 2025 - 2026
-Título · Contenido y comunidad
+Título · Contenido para Instagram
 Descripción · Un sistema de contenido con directriz mensual, series fijas y automatización, de Instagram a la app.
 Tags · Estrategia de contenido · Comunidad
 Filtros · Marketing y contenido · Estrategia
 
 **PÁGINA**
 
-**Título** · Contenido y comunidad
+**Título** · Creación de contenido para Instagram
 
 **Descripción**
 El liderazgo creativo del contenido de NomadHer: la estrategia, las series, la automatización, la pauta y el newsletter. Todo diseñado como un sistema que se repite cada semana y que conecta Instagram con lo que pasa dentro de la app.
@@ -471,19 +303,21 @@ Un "email del mes" con Woman of the Month, beneficios, tips y eventos, construid
 
 ---
 
-## 1.8 Bloggers y creadoras
+---
+
+## 1.5 Bloggers Program
 
 **CARD**
 Etiquetas · Comunidad · 2026
 Meta · NomadHer · Global, 2026
-Título · Bloggers y creadoras
+Título · Bloggers Program
 Descripción · Dos programas que convierten a la comunidad en autora, con badge propio dentro de la app.
 Tags · Programa · Comunidad
 Filtros · Marketing y contenido · Estrategia
 
 **PÁGINA**
 
-**Título** · Official NomadHer Bloggers y creadoras
+**Título** · Bloggers Program
 
 **Descripción**
 Dos programas para que el contenido de NomadHer lo escriba también su comunidad: Official NomadHer Bloggers, para autoras que publican guías dentro de la app, y el Travel Content Creator Pilot, para creadoras que cuentan sus viajes en redes.
@@ -520,7 +354,9 @@ Un espacio en Notion para creadoras, con su propia guía de contenido, y brand g
 
 ---
 
-## 1.9 Business decks
+---
+
+## 1.6 Business decks
 
 **CARD**
 Etiquetas · Estrategia · 2025 - 2026
@@ -562,7 +398,9 @@ Una línea de decks que ya cubre partnership, inversión, programas de gobierno 
 
 ---
 
-## 1.10 Rediseño del website
+---
+
+## 1.7 Rediseño del website
 
 **CARD**
 Etiquetas · UX/UI · 2026
@@ -600,50 +438,183 @@ Pocos llamados a la acción, a propósito. "How the app works" como recorrido po
 
 ---
 
-## 1.11 Workspace en Notion
+---
+
+## 1.8 Lounge: la ciudad como sala
 
 **CARD**
-Etiquetas · Operación · 2025 - 2026
-Meta · NomadHer · Seúl, 2025 - 2026
-Título · Workspace en Notion
-Descripción · El sistema donde el equipo planea, vende y lanza, de los Key Results al Release Tracker.
-Tags · Notion · Operación
-Filtros · Estrategia
+Etiquetas · UX/UI · 2026
+Meta · NomadHer · Seúl, 2026
+Título · Lounge: la ciudad como sala
+Descripción · Del feed global a la ciudad: búsqueda, chat por ciudad y un mapa que muestra lugares.
+Tags · UX/UI · Research
+Filtros · UX/UI · Estrategia
 
 **PÁGINA**
 
-**Título** · El workspace del equipo en Notion
+**Título** · Lounge: la ciudad como sala
 
 **Descripción**
-El espacio de trabajo donde NomadHer organiza producto, marketing, alianzas y eventos. Lo empecé a construir en mi primer mes y hoy conecta los objetivos del trimestre con cada tarea, cada versión de la app y cada marca aliada.
+El Lounge es el espacio donde la comunidad publica y conversa. Lo trabajé en dos frentes: arreglar lo que frenaba a las usuarias para escribir, y una propuesta en cuatro fases para organizarlo por ciudad y por fechas.
 
-**Propósito** · Objetivos visibles · Un lugar por área · Producto y negocio conectados
+**Propósito** · Ciudad más fechas · Contar antes de mostrar caras · Un ritual por ciudad
 
 **Overview**
 Cliente · NomadHer
-Mi rol · Diseño del sistema, estructura y documentación
-Tipo de proyecto · Sistema operativo interno
+Mi rol · Research, UX/UI y lógica de producto
+Tipo de proyecto · Rediseño de un espacio de comunidad
 
 **01 Challenge**
-Un equipo pequeño entre Seúl y París, con producto, marketing, alianzas y eventos corriendo al mismo tiempo. Cada área necesitaba ver sus prioridades y las de las demás, y el equipo técnico necesitaba recibir cada feature con su lógica completa, lista para construir.
+El objetivo que nos pusimos en febrero fue simple: que las usuarias tengan ganas de escribir. Las entrevistas mostraban lo contrario. Un post en Seúl se perdía en minutos entre el volumen de contenido, la caja de comentarios se bloqueaba y escribir una guía larga era incómodo. Una usuaria lo resumió pidiendo salas por ciudad, al estilo Discord.
 
 **02 Approach**
-Armé la estructura de arriba hacia abajo: Key Results, sprints y tareas. Después, un espacio por área. Para producto reorganicé el espacio de la app y el Release Tracker, donde agrupamos features por versión y escribo los specs para el equipo técnico. Para negocio, un CRM de marcas para el festival con valor estimado, un espacio de partnerships y un dashboard de paquetes de patrocinio. Para contenido, el espacio de creadoras y los playbooks.
+Primero, lo que frenaba: rediseño de comentarios en tres opciones, likes y respuestas en una sola lógica, un post detail nuevo y un solo campo de contenido evidente al publicar. Después, el research: benchmark de once productos, de Timeleft y Nomad List a Strava, del que saqué ocho patrones. Con ellos armé una propuesta en cuatro fases, cada una con su criterio de "listo" medible.
 
 **03 Result**
-Un solo lugar desde donde el equipo planea sprints, decide qué entra en cada versión, cotiza patrocinios y acompaña a sus creadoras. Cada feature de la app, de Currently Active a los niveles, tiene su spec con problema, hipótesis, reglas y métricas.
+Comentarios, likes y post detail rediseñados y entregados al equipo técnico, banners por campaña en producción, y una hoja de ruta de cuatro fases que hoy guía las siguientes versiones. La primera fase, una búsqueda por ciudad e intereses, ya está en Figma, y el post unificado con Travel Status está diseñado para la 9.6.6.
 
 **Secciones extra**
 
-**Lo que vive ahí**
-Key Results → sprints → tareas · calendario compartido · espacio de marketing · Release Tracker y specs de producto · base de entrevistas con usuarias · CRM de marcas del festival · espacio de partnerships · dashboard de paquetes de patrocinio · espacio de creadoras con guía de contenido · Meta Ads Playbook · guía de fotografía · propuestas como "LatAm Partnerships" o "Request a Partnership"
+**Las cuatro fases**
+*Fase 1 · Where to?* Una barra de búsqueda con ciudad e intereses. Lista cuando buscar por ciudad se use más que los chips de ciudades populares.
+*Fase 2 · When.* Ahora, esta semana o fechas propias, pre-llenado desde el Travel Status. Una card que dice "12 NomadHers in Seoul this week · 3 meetups planned" y un chat de ciudad con fecha, legible antes de unirse.
+*Fase 3 · La página de ciudad.* Pestañas Now, Meetups, Tips y Guides, rol visible para las locales, un encuentro semanal sin host ("NomadHer Wednesday · 7 pm · Hongdae") y un check-in "I'm meeting her".
+*Fase 4 · El mapa.* Lugares y meetups. Las mujeres aparecen solo como conteo por barrio, con un mínimo de cinco, y un switch entre Global y My city.
 
-**Cómo se escribe un spec**
-Problema · hipótesis · reglas · casos borde · métricas · links a Figma para antes y después
+**Los ocho patrones**
+Ciudad más rango de fechas · contar antes de mostrar caras · un chat de ciudad que existe antes de que llegue nadie · una ventana de 14 días antes a 3 después · chips de intención en lugar de texto libre · un ritual semanal sin host · visibilidad mutua con aprobación · lugar público y revelación tardía
+
+**La regla de fondo**
+La unidad es la ciudad más las fechas, nunca la ubicación exacta. Nueve reglas no negociables para el mapa, y una estrategia propia para la ciudad que todavía está vacía.
+
+**Lo que viene**
+"What are you up for?", para elegir plan y fechas desde el Lounge y pasar directo a Travel Buddy, y círculos por ciudad. Los dos están en exploración.
+
+**Banners del Lounge**
+Un sistema de banners configurable por campaña, en carrusel y enlazado a la experiencia. Después definí el duplicado de banners y la publicación en varias ubicaciones a la vez, para que montar una campaña nueva fuera cuestión de minutos.
 
 ---
 
-## 1.12 She Can Travel Anywhere · Seúl
+---
+
+## 1.9 Travel Buddy: de la pantalla al encuentro
+
+**CARD**
+Etiquetas · UX/UI · 2026
+Meta · NomadHer · Seúl, 2026
+Título · Travel Buddy: de la pantalla al encuentro
+Descripción · Quién está activa, planes en un toque y un check-in de seguridad después de cada encuentro.
+Tags · UX/UI · Producto
+Filtros · UX/UI · Estrategia
+
+**PÁGINA**
+
+**Título** · Travel Buddy: de la pantalla al encuentro
+
+**Descripción**
+Travel Buddy es donde las usuarias encuentran compañía. Diseñé el recorrido completo, de ver quién está cerca a encontrarse en persona y volver a casa: Currently Active, Women Meetups, Travel Status y el flujo después de cada meetup.
+
+**Propósito** · Saber quién está · Planear sin fricción · Volver segura
+
+**Overview**
+Cliente · NomadHer
+Mi rol · UX/UI, lógica de producto y métricas
+Tipo de proyecto · Features de conexión, app mobile
+
+**01 Challenge**
+Entre un mensaje en frío y un evento formal no había nada. Las usuarias no sabían quién estaba en línea de verdad, dudaban en escribir, y los planes terminaban armándose en WhatsApp. Cualquier solución tenía que funcionar para mujeres que se encuentran con desconocidas en una ciudad nueva, así que la seguridad tenía que estar en el diseño desde el primer paso.
+
+**02 Approach**
+Diseñé cuatro piezas que se encadenan. Currently Active muestra quién estuvo activa en los últimos 15 minutos. Women Meetups convierte un plan pequeño en un chat en segundos. Travel Status cuenta dónde está cada una y por qué. Y el flujo del meetup cubre el antes y el después: confirmar asistencia, salir sin incomodar y responder, al volver, cómo se sintió. Arrancamos en Seúl y abrimos ciudad por ciudad según la demanda.
+
+**03 Result**
+313 uniones a meetups en las dos primeras semanas. En septiembre, 429 usuarias se unieron a al menos un meetup y 130 repitieron, cerca de un 30%. Women Meetups pasó de Seúl a París y, desde el 22 de septiembre de 2026, a todas las ciudades. El RSVP y el check-in de seguridad están en test para la 9.6.5.
+
+**Secciones extra**
+
+**Currently Active**
+Activa ahora: actividad en los últimos 15 minutos, con punto verde. Recently Active: de 15 minutos a 14 días, visible solo en el perfil. Un carrusel de tres cards con chip de estado y bandera. Sin foto o sin estado, la usuaria no aparece, y si no hay nadie activo, la sección desaparece. Antes de diseñarlo hice un research de presencia en apps de citas: un punto verde en vivo puede ser un riesgo, así que la presencia tenía que tener propósito.
+
+**Women Meetups**
+Tres tipos de plan (Food & drinks, Cultural Place, Outdoor Activity), hasta dos semanas de anticipación, "Join the chat!" en lugar de un RSVP formal y un chat que se crea solo, con la descripción como primer mensaje y archivo automático 24 horas después del encuentro. Fuera de Seúl, un botón "Add my city": con 20 pedidos se abre una ciudad. Los meetups con más movimiento suben solos al Lounge con el badge "via Travel Buddy".
+
+**Travel Status**
+Un flujo distinto para cada situación, Traveler, Local o Expat, y varias travel buddies a la vez cuando las fechas no se cruzan.
+
+**Antes y después del meetup**
+Antes: una pausa para leer los detalles antes de unirse, pestañas Chat y Details, y RSVP con Going, Maybe y Can't go. Unirse al meetup y al chat es una sola acción, y salir también. Después: "Did you make it?", y si no fue, por qué. Luego "How safe did you feel?". Cada respuesta "Not great" abre un espacio para contar qué pasó y avisa al equipo en el momento. Al final, una invitación a contar el encuentro en el Lounge.
+
+**Métricas definidas**
+Completitud de la encuesta · asistencia frente a no-shows · motivos · distribución de respuestas de seguridad · tasa de stories · hosts que repiten
+
+**Travel Buddy V3**
+Búsqueda por fechas, decidida con benchmark de Airbnb, filtros y orden, una card de meetup nueva, y likes y comentarios.
+
+**Chats de eventos**
+Quien compra una experiencia, gratis o pagada, entra al chat del evento con la host. En producción desde la 9.6.4.
+
+---
+
+---
+
+## 1.10 Niveles, badges y perks: reconocer a la comunidad
+
+**CARD**
+Etiquetas · UX/UI · 2026
+Meta · NomadHer · Seúl, 2026
+Título · Niveles, badges y perks: reconocer a la comunidad
+Descripción · Un sistema de reconocimiento en cuatro fases, de los puntos al wallet.
+Tags · UX/UI · Gamificación
+Filtros · UX/UI · Estrategia
+
+**PÁGINA**
+
+**Título** · Niveles, badges y perks: reconocer a la comunidad
+
+**Descripción**
+La capa que reconoce a quien participa: niveles, badges, notificaciones y perks, diseñados por fases para que cada pieza pudiera salir sola y crecer después.
+
+**Propósito** · Reconocer · Avisar a tiempo · Devolver valor
+
+**Overview**
+Cliente · NomadHer
+Mi rol · UX/UI, lógica de puntos y sistema de fases
+Tipo de proyecto · Sistema de fidelización, app mobile
+
+**01 Challenge**
+En el diagnóstico de noviembre de 2025 aparecían tres huecos: las hosts no tenían incentivos, el valor de ser miembro no se percibía y la participación no se reconocía en ningún lado. Los perks de marcas aliadas estaban dispersos y no generaban comisión. Y las notificaciones se acumulaban sin limpiarse nunca.
+
+**02 Approach**
+Diseñé la lógica de puntos con benchmark de Booking Genius, por la permanencia del nivel, Duolingo, por las dos capas de XP y racha, y Gymshark, por premiar acciones de comunidad. El PRD inicial tenía cinco niveles. Recomendé lanzar primero los comunitarios y separar Ambassador como piloto, y ordené todo en cuatro fases: lanzamiento, todos los niveles, wallet y badges. Notificaciones y perks siguieron la misma lógica de fases.
+
+**03 Result**
+Inbox y notificaciones nuevas en producción desde la 9.6.2. Follow y Perks, desde la 9.6.4. La fase 1 de niveles y la nueva lógica de notificaciones están en test para la 9.6.5. Los badges de equipo y bloggers ya se ven en el Lounge, Travel Buddy, comentarios e Inbox.
+
+**Secciones extra**
+
+**Los niveles · fase 1**
+Dreamer al verificarse. Explorer con 600 puntos en el mes. Blog +500, reseña de meetup +250, comentario +50 con tope diario. Reset mensual sin bajar de nivel, y nivel privado, como en Booking. Un anillo de progreso en el avatar, una pantalla My Level y una celebración de subida de nivel, con tres propuestas.
+
+**Las cuatro fases**
+01 Lanzamiento con dos niveles · 02 Todos los niveles, con Inspirer y Ambassador · 03 Wallet, donde viven los perks ganados · 04 Badges por logros, ciudades y rachas
+
+**Badges**
+Blogger, equipo NomadHer y Ambassador, visibles en el Lounge, Travel Buddy, el detalle de cada post, Inbox y comentarios, con un pop-up que explica cada uno. El badge de Blogger conecta el producto con el programa de bloggers.
+
+**Notificaciones e Inbox**
+Separé alertas de conversaciones. Fase 1: cada notificación con su acción directa (Say hi, View plan, Open chat, Share story), agrupadas por hoy, ayer, esta semana y este mes. Fase 2: filtros Social, Meetups y System. Reglas de envío: recordatorios a 24 horas, 2 horas y 30 minutos, silencio de 22 a 8, máximo ocho push al día y likes agrupados cada hora.
+
+**Perks y wallet**
+Una página de Perks, un slider de cuatro en el Lounge y un detalle donde el código se lee como un ticket, con estado "Copied". Comercios locales sin código y QR para los aliados grandes. NomadCard, la tarjeta de miembro con formato NH-año-0000. Y el wallet como fase 3 de niveles, con aviso cuando un perk está por vencer.
+
+**Metas definidas para Perks**
+30% de usuarias abre un perk en sus primeros 30 días · 50% revela el código · 40% de los descubrimientos llega desde el slider del Lounge
+
+---
+
+---
+
+## 1.11 She Can Travel Anywhere · Seúl
 
 **CARD**
 Etiquetas · Evento · 2026
@@ -681,7 +652,9 @@ Mapa del venue · programa · pósters A4, A2 y A3 · banners de booths, Inspire
 
 ---
 
-## 1.13 She Can Found Anywhere · Busan
+---
+
+## 1.12 She Can Found Anywhere · Busan
 
 **CARD**
 Etiquetas · Campaña · 2026
@@ -714,7 +687,9 @@ Diseñé la campaña en variantes por audiencia, unas con más caras coreanas y 
 
 ---
 
-## 1.14 She Can Create Anywhere · Jeju
+---
+
+## 1.13 She Can Create Anywhere · Jeju
 
 **CARD**
 Etiquetas · Campaña · 2026
@@ -747,7 +722,9 @@ Diez plazas, un programa de cinco noches y seis días, y un post de lanzamiento 
 
 ---
 
-## 1.15 Wellness Creator Trip · Jeonnam
+---
+
+## 1.14 Wellness Creator Trip · Jeonnam
 
 **CARD**
 Etiquetas · Campaña · 2026
@@ -780,7 +757,9 @@ Diseñé el post de convocatoria con su caption, la automatización en ManyChat 
 
 ---
 
-## 1.16 Campañas con partners
+---
+
+## 1.15 Campañas con partners
 
 **CARD**
 Etiquetas · Campaña · 2025 - 2026
@@ -819,72 +798,3 @@ Cada aliado tuvo su propia mecánica, y todas corrieron sobre el mismo sistema d
 *KiwiTaxi.* 10% de descuento con código, tres vouchers de 100€ y un premio al mejor relato de viaje.
 
 ---
-
-## 1.17 Merch
-
-**CARD**
-Etiquetas · Estrategia · 2026
-Meta · NomadHer · Seúl, 2026
-Título · Merch: el modelo de drop
-Descripción · De merch de regalo a ediciones limitadas, pensadas para coleccionar.
-Tags · Merch · Estrategia
-Filtros · Estrategia · Diseño gráfico
-
-**PÁGINA**
-
-**Título** · Merch · el modelo de drop
-
-**Descripción**
-Una propuesta para dejar de producir merch por evento y pasar a ediciones limitadas, diseñadas para sentirse coleccionables.
-
-**Overview**
-Cliente · NomadHer
-Mi rol · Estrategia y diseño de merch
-Tipo de proyecto · Estrategia de producto y diseño textil
-
-**01 Challenge**
-El merch se producía por evento: stickers, postales y parches pedidos con prisa que después sobraban. No había forma de saber qué funcionaba ni de aprender de un pedido al siguiente.
-
-**02 Approach**
-Propuse el modelo de drop: cantidad limitada, producción por adelantado y diseño con intención. Lo formalicé en un modelo operativo con reporte después de cada drop, una diseñadora textil y una creadora local por edición, y producción localizada año a año, Corea en 2026, Japón en 2027 y Colombia en 2028. La comunidad votó el diseño de la hoodie y los próximos productos.
-
-**03 Result**
-La dirección se aprobó el mismo día que la propuse. La encuesta de producto sumó 825 vistas y 110 votos, y el primer drop bajo el modelo nuevo está en producción.
-
-**Secciones extra**
-
-**Diseño**
-Hoodie "Broken Light", elegida por votación de la comunidad · camisetas en rosa, crema y verde oscuro · parches · totebag con su propuesta de paleta · postal
-
----
-
-## 1.18 Reporting automatizado
-
-**CARD**
-Etiquetas · Producto interno · 2026
-Meta · NomadHer · Seúl, 2026
-Título · Reporting automatizado
-Descripción · Un dashboard que reporta solo cada semana, en lugar de un documento rehecho a mano.
-Tags · Data · Producto interno
-Filtros · Estrategia · Marketing y contenido
-
-**PÁGINA**
-
-**Título** · Reporting automatizado
-
-**Descripción**
-El NomadHer Instagram Report: un dashboard en vivo que reemplazó el reporte manual del equipo.
-
-**Overview**
-Cliente · NomadHer
-Mi rol · Diseño y construcción del dashboard
-Tipo de proyecto · Producto interno de data
-
-**01 Challenge**
-Cada mes alguien reconstruía el reporte de redes a mano. Llegaba tarde, mostraba números sin explicar qué los movía y no dejaba comparar semanas ni años.
-
-**02 Approach**
-Conecté los datos de Instagram con una integración de Meta y armé el dashboard por capas: el mes en curso con los posts que movieron cada métrica, tendencias semanales, análisis post por post con curvas de retención, comparación anual, líneas base y un playbook. Lo construí yo, sin pasarlo al equipo de desarrollo.
-
-**03 Result**
-Lanzado el 24 de agosto de 2026. El equipo consulta un enlace en vez de esperar un documento, y el reporte se actualiza solo cada semana.

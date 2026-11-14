@@ -107,48 +107,30 @@ test("My Story maps the current locale's narrative into rendered paragraphs", as
   );
 });
 
-test("Sneak Peek renders the six local Figma images instead of linked project cards", async () => {
+test("Sneak Peek is a moving strip of real project covers, each linking to its work page", async () => {
   const source = await readSource("src/components/site/about/SneakPeek.tsx");
 
-  for (let index = 1; index <= 6; index += 1) {
-    const suffix = String(index).padStart(2, "0");
-    assert.ok(
-      source.includes(`/pages/about/figma/sneak-peek-${suffix}.png`),
-      `missing local Figma gallery asset sneak-peek-${suffix}.png`,
-    );
-  }
-
   assert.match(source, /<Image\b/, "the gallery must render Next Image elements");
-  assert.doesNotMatch(
+  assert.match(
     source,
-    /import\s+[\s\S]*?\s+from\s+["']next\/link["']\s*;/,
-    "Sneak Peek must not import next/link, including under an alias",
+    /from\s+["']@\/content\/portfolio["']/,
+    "projects must come from the portfolio content, not hard-coded images",
   );
-  assert.doesNotMatch(
+  assert.match(
     source,
-    /import\s*{[^}]*\bheroes\b[^}]*}\s*from/,
-    "Sneak Peek must not import heroes, including under an alias",
+    /href=\{`\/work\/\$\{item\.slug\}`\}/,
+    "every card must link to /work/<slug>",
   );
-  assert.doesNotMatch(
+  assert.match(source, /marquee-track/, "the strip must keep moving (marquee-track)");
+  assert.doesNotMatch(source, /marquee-pause/, "the strip must not pause on hover");
+  assert.match(
     source,
-    /import\s*{[^}]*\bHERO_MANIFEST\b[^}]*}\s*from/,
-    "Sneak Peek must not import HERO_MANIFEST, including under an alias",
+    /aria-hidden=\{duplicate \|\| undefined\}/,
+    "the duplicated loop items must be hidden from assistive tech",
   );
-  assert.doesNotMatch(
+  assert.match(
     source,
-    /<Link\b|\bhref\s*=\s*(?:["'][^"']*\/work\/|{[^}]*\/work\/)/,
-    "Sneak Peek must not render linked project cards",
+    /tabIndex=\{duplicate \? -1 : undefined\}/,
+    "links in the duplicated half must not be tab stops",
   );
-});
-
-test("Sneak Peek Figma exports are committed locally", () => {
-  for (let index = 1; index <= 6; index += 1) {
-    const suffix = String(index).padStart(2, "0");
-    const file = `sneak-peek-${suffix}.png`;
-    assert.equal(
-      existsSync(new URL(`../public/pages/about/figma/${file}`, import.meta.url)),
-      true,
-      `${file} is missing`,
-    );
-  }
 });

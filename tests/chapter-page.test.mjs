@@ -19,10 +19,11 @@ test("chapter pages use the Figma hierarchy and preserve dynamic route safeguard
 
   assert.match(page, /export function generateStaticParams\(\)/);
   assert.match(page, /getChapter\(slug, locale\)/);
-  // Accent color and cover still come from the old chapter detail.
+  // Accent color still comes from the old chapter detail; the photo comes from the chapter's portada folder.
   assert.match(page, /getChapterDetail\(slug\)/);
   assert.match(page, /detail\.accent/);
-  assert.match(page, /detail\.cover/);
+  assert.match(page, /getChapterCovers\(chapter\.id\)/);
+  assert.doesNotMatch(page, /detail\.cover|pages\/chapters/, "no hard-coded chapter photos");
   for (const field of [
     "page.title",
     "page.tagline",
@@ -35,11 +36,11 @@ test("chapter pages use the Figma hierarchy and preserve dynamic route safeguard
     assert.ok(page.includes(field), `chapter page must render ${field}`);
   }
   assert.match(page, /notFound\(\);/);
-  assert.match(page, /<SiteNav tone="light" \/>/);
+  assert.match(page, /<SiteNav tone="onDark" \/>/);
   assert.match(page, /<ChapterProjectRail/);
   assert.match(page, /Mis responsabilidades/);
   assert.match(page, /bg-\[var\(--chapter-accent\)\]/);
   assert.match(page, /<WorkTogether variant="detail" \/>/);
   assert.doesNotMatch(page, /<WorkTogether photo=/);
-  assert.match(nav, /className="[^"]*text-black[^"]*"/);
+  assert.match(nav, /onDark \? "text-white" : "text-black"/);
 });

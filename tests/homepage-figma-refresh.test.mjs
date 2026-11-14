@@ -40,7 +40,7 @@ test("the localized about section is inserted before CategoryShowcase", () => {
   assert.match(about, /Designer in motion/);
   assert.match(about, /Diseñadora en movimiento/);
   assert.match(about, /lg:grid-cols-\[minmax\(0,671px\)_372px\]/);
-  assert.match(about, /\/pages\/home\/figma\/about-portrait\.png/);
+  assert.match(about, /\/inicio\/hero\/about-portrait\.png/);
   assert.match(about, /contact\.instagram/);
   assert.match(about, /contact\.linkedin/);
 });
@@ -59,7 +59,7 @@ test("FavoriteProjects follows the Designing for section", () => {
 test("the about portrait is stored locally", () => {
   assert.equal(
     existsSync(
-      new URL("../public/pages/home/figma/about-portrait.png", import.meta.url),
+      new URL("../public/inicio/hero/about-portrait.png", import.meta.url),
     ),
     true,
   );

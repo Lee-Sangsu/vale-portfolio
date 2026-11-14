@@ -29,23 +29,20 @@ const CHAPTER_FILES = [
 /** URL slug per project number. Legacy slugs keep existing links working. */
 const SLUGS = {
   "1.1": "nomadher-app",
-  "1.2": "city-lounge",
-  "1.3": "travel-buddy-meetups",
-  "1.4": "levels-badges-perks",
-  "1.5": "jal-nomadher",
-  "1.6": "applied-brand",
-  "1.7": "content-community",
-  "1.8": "bloggers-creators",
-  "1.9": "business-decks",
-  "1.10": "website-redesign",
-  "1.11": "notion-workspace",
-  "1.12": "she-can-travel-anywhere-seoul",
-  "1.13": "she-can-found-anywhere",
-  "1.14": "she-can-create-anywhere",
-  "1.15": "wellness-creator-trip",
-  "1.16": "partner-campaigns",
-  "1.17": "merch-drop-model",
-  "1.18": "automated-reporting",
+  "1.2": "applied-brand",
+  "1.3": "jal-nomadher",
+  "1.4": "instagram-content",
+  "1.5": "bloggers-program",
+  "1.6": "business-decks",
+  "1.7": "website-redesign",
+  "1.8": "city-lounge",
+  "1.9": "travel-buddy-meetups",
+  "1.10": "levels-badges-perks",
+  "1.11": "she-can-travel-anywhere-seoul",
+  "1.12": "she-can-found-anywhere",
+  "1.13": "she-can-create-anywhere",
+  "1.14": "wellness-creator-trip",
+  "1.15": "partner-campaigns",
   "2.1": "global-youth-summit",
   "2.2": "sejong-hackathon",
   "2.3": "misiones-internacionales",
@@ -55,16 +52,49 @@ const SLUGS = {
   "2.7": "seoul-wellness-workshop",
   "2.8": "youth-future-talent",
   "2.9": "boost-lab-workshops",
-  "3.1": "serema-hotel",
-  "3.2": "opuesto-sas",
-  "3.3": "brujula-etica",
-  "3.4": "santa-juliana",
-  "3.5": "teampreneurship-cooperative",
+  "3.1": "opuesto-sas",
+  "3.2": "brujula-etica",
+  "3.3": "teampreneurship-cooperative",
   "4.1": "nobled-coffee",
   "4.2": "eats-real",
   "4.3": "hola-guesthouse-jeju",
-  "6.1": "talent-scouting",
-  "6.2": "mentes-sin-fronteras",
+};
+
+/**
+ * Projects that live inside another project's page. They keep their own page
+ * (/work/<slug>) but are left out of the chapter rail and the filtered views;
+ * their filters roll up into the parent.
+ */
+const PARENT = {
+  "city-lounge": "nomadher-app",
+  "travel-buddy-meetups": "nomadher-app",
+  "levels-badges-perks": "nomadher-app",
+  "she-can-travel-anywhere-seoul": "applied-brand",
+  "she-can-found-anywhere": "applied-brand",
+  "she-can-create-anywhere": "applied-brand",
+  "wellness-creator-trip": "applied-brand",
+  "partner-campaigns": "applied-brand",
+  "youth-future-talent": "boost-lab-workshops",
+};
+
+/**
+ * Which Figma page template a project uses: "app" (phone screens), "instagram",
+ * "ppt" (slides) or "visual" (everything else).
+ */
+const TEMPLATE_BY_SLUG = {
+  "nomadher-app": "app",
+  "city-lounge": "app",
+  "travel-buddy-meetups": "app",
+  "levels-badges-perks": "app",
+  "website-redesign": "app",
+  "instagram-content": "instagram",
+  "jal-nomadher": "instagram",
+  "business-decks": "ppt",
+  "ruta-8": "ppt",
+  "eats-real": "app",
+  "opuesto-sas": "app",
+  "brujula-etica": "instagram",
+  "hola-guesthouse-jeju": "ppt",
 };
 
 const FILTER_IDS = {
@@ -80,11 +110,11 @@ const FILTER_IDS = {
  * Membership comes from each project's own `Filtros` line; this only sorts.
  */
 const FILTER_ORDER = {
-  design: ["applied-brand","jal-nomadher","she-can-travel-anywhere-seoul","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","business-decks","merch-drop-model","brujula-etica","serema-hotel","opuesto-sas","santa-juliana","teampreneurship-cooperative","nobled-coffee","hola-guesthouse-jeju","eats-real","seoul-entrepreneur-summit","seoul-wellness-workshop","sejong-hackathon","ruta-8"],
+  design: ["applied-brand","jal-nomadher","she-can-travel-anywhere-seoul","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","business-decks","brujula-etica","opuesto-sas","teampreneurship-cooperative","nobled-coffee","hola-guesthouse-jeju","eats-real","seoul-entrepreneur-summit","seoul-wellness-workshop","sejong-hackathon","ruta-8"],
   "ux-ui": ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","website-redesign","opuesto-sas","eats-real"],
-  events: ["global-youth-summit","she-can-travel-anywhere-seoul","sejong-hackathon","ruta-8","boost-lab-workshops","misiones-internacionales","seoul-women-entrepreneur-summit","seoul-entrepreneur-summit","seoul-wellness-workshop","youth-future-talent","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","mentes-sin-fronteras"],
-  "marketing-content": ["content-community","jal-nomadher","bloggers-creators","partner-campaigns","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","automated-reporting","serema-hotel","brujula-etica","global-youth-summit","seoul-women-entrepreneur-summit","ruta-8","talent-scouting","mentes-sin-fronteras"],
-  strategy: ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","business-decks","notion-workspace","content-community","bloggers-creators","website-redesign","merch-drop-model","automated-reporting","serema-hotel","opuesto-sas","nobled-coffee","global-youth-summit","sejong-hackathon","misiones-internacionales","ruta-8","boost-lab-workshops","talent-scouting"],
+  events: ["global-youth-summit","she-can-travel-anywhere-seoul","sejong-hackathon","ruta-8","boost-lab-workshops","misiones-internacionales","seoul-women-entrepreneur-summit","seoul-entrepreneur-summit","seoul-wellness-workshop","youth-future-talent","applied-brand","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip"],
+  "marketing-content": ["instagram-content","jal-nomadher","bloggers-program","partner-campaigns","applied-brand","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","brujula-etica","global-youth-summit","seoul-women-entrepreneur-summit","ruta-8"],
+  strategy: ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","business-decks","instagram-content","bloggers-program","website-redesign","opuesto-sas","nobled-coffee","global-youth-summit","sejong-hackathon","misiones-internacionales","ruta-8","boost-lab-workshops"],
 };
 
 /** English for the short "type" tags (Etiquetas) the translators may have left in Spanish. */
@@ -516,6 +546,7 @@ CHAPTER_FILES.forEach(({ file, id }, index) => {
     if (!slug) warn(`no slug for project ${esProject.number}`);
     return {
       slug,
+      template: TEMPLATE_BY_SLUG[slug] ?? "visual",
       number: esProject.number,
       chapter: id,
       filters: esProject.card.filters,
@@ -533,14 +564,34 @@ CHAPTER_FILES.forEach(({ file, id }, index) => {
   });
 });
 
+// parents and roll-up: children keep their own filters, and the parent also
+// takes them so a filter still finds the parent project
+const bySlug = Object.fromEntries(chapters.flatMap((c) => c.projects).map((p) => [p.slug, p]));
+for (const [child, parent] of Object.entries(PARENT)) {
+  if (!bySlug[child] || !bySlug[parent]) {
+    warn(`PARENT references a missing project: ${child} -> ${parent}`);
+    continue;
+  }
+  bySlug[child].parent = parent;
+  for (const f of bySlug[child].filters) {
+    if (!bySlug[parent].filters.includes(f)) bySlug[parent].filters.push(f);
+  }
+}
+for (const c of chapters) {
+  for (const p of c.projects) {
+    p.children = c.projects.filter((x) => x.parent === p.slug).map((x) => x.slug);
+    if (!p.parent) p.parent = null;
+  }
+}
+
 // filters: membership from each project's `Filtros`, order from FILTER_ORDER
 const allProjects = chapters.flatMap((c) => c.projects);
 const filters = {};
 for (const [filterId, order] of Object.entries(FILTER_ORDER)) {
-  const members = allProjects.filter((p) => p.filters.includes(filterId)).map((p) => p.slug);
+  const members = allProjects.filter((p) => !p.parent && p.filters.includes(filterId)).map((p) => p.slug);
   const ordered = order.filter((s) => members.includes(s));
   const missing = members.filter((s) => !ordered.includes(s));
-  const extra = order.filter((s) => !members.includes(s));
+  const extra = order.filter((s) => !members.includes(s) && !PARENT[s]);
   if (missing.length) warn(`filter ${filterId}: in cards but not in order list: ${missing.join(", ")}`);
   if (extra.length) warn(`filter ${filterId}: in order list but not tagged on the card: ${extra.join(", ")}`);
   filters[filterId] = [...ordered, ...missing];

@@ -62,4 +62,4 @@ A UX/UI, data analytics or web development bootcamp compresses months of learnin
 I worked between the students and the campus team, alongside marketing, admissions, the program team and the teachers of each bootcamp. I supported each cohort from start to finish, tracked their progress with surveys and evaluations, and organized the gatherings that kept them together, from talks with partners to final presentations. When the campus needed something that didn't exist, I designed the tool or the space to solve it.
 
 **03 Result**
-Seven months supporting cohorts of more than 30 participants, with an average of three events per bootcamp. I documented six event management lessons for the team. That view of the full experience around a product is the one I apply today at NomadHer.
+Seven months supporting cohorts of more than 30 participants, with an average of three events per bootcamp. I documented six event management lessons for the team.

@@ -1,17 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 /**
- * Photos ride the Figma ribbon path (SVG viewBox 0 0 1253 503).
- * The path scales to fill the full container width at any viewport size.
- * No overflow-hidden — photos at the ribbon peak float above the container div.
- * Page scroll temporarily boosts the ribbon speed.
+ * Photos ride the Figma ribbon path (SVG viewBox 0 0 1253 503, Figma node 523-2426).
+ * The waypoints are joined with a Catmull-Rom spline (cubic Béziers) so the ribbon is one
+ * smooth loop instead of straight segments, and x/y scale together so the shape never distorts.
+ * Photos at the loop's peak float above the container; page scroll eases the speed up and back down.
  * Mobile: simple wrapping grid.
  */
 
-const RING = "/pages/contact/figma/ring";
+const RING = "/contacto/anillo-de-fotos";
 
 // Waypoints verbatim from the Figma SVG path
 const WAYPOINTS: [number, number][] = [
@@ -34,22 +34,36 @@ const WAYPOINTS: [number, number][] = [
 ];
 
 const SVG_W = 1253; // original viewBox width
+const SVG_H = 503; // original viewBox height
+const Y_PAD = 80; // room above/below the ribbon so photos at the peak aren't clipped
 
-/** Build a scaled `path()` string — only x scales, y stays as-is. */
-function buildPath(scaleX: number): string {
-  return WAYPOINTS
-    .map(([x, y], i) =>
-      `${i === 0 ? "M" : "L"} ${(x * scaleX).toFixed(2)} ${y.toFixed(3)}`
-    )
-    .join(" ");
+/** Smooth path through the waypoints, uniformly scaled. */
+function buildPath(scale: number): string {
+  const pts = WAYPOINTS.map(([x, y]) => [x * scale, (y + Y_PAD) * scale] as const);
+  let d = `M ${pts[0][0].toFixed(2)} ${pts[0][1].toFixed(2)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[Math.max(i - 1, 0)];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[Math.min(i + 2, pts.length - 1)];
+    // Uniform Catmull-Rom → cubic Bézier control points
+    const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+    const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+    const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d += ` C ${c1x.toFixed(2)} ${c1y.toFixed(2)} ${c2x.toFixed(2)} ${c2y.toFixed(2)} ${p2[0].toFixed(2)} ${p2[1].toFixed(2)}`;
+  }
+  return d;
 }
 
 // Photos are staggered across 11 virtual slots → ~9.1 % gap between them
 const STAGGER_SLOTS = 11;
-const PHOTO_SCALE = 0.78;
-const BASE_DURATION = 50; // seconds to traverse the full ribbon once
-const SCROLLING_DURATION = 18;
-const SCROLL_BOOST_DECAY = 3.2;
+const PHOTO_SCALE = 1.3; // photos at 1253px wide; they scale with the ribbon
+const MIN_PHOTO_PX = 84;
+const BASE_DURATION = 55; // seconds to traverse the full ribbon once
+const SCROLL_SPEEDUP = 2.4; // extra speed while the page is scrolling
+const SPEED_EASE = 3.2; // higher = speed follows the target faster
+const SCROLL_HOLD_MS = 160; // how long the boost lasts after the last scroll event
 const MAX_FRAME_SECONDS = 0.05;
 
 const TILES: { src: string; rot: number; size: number }[] = [
@@ -72,19 +86,21 @@ const TILES: { src: string; rot: number; size: number }[] = [
 export function PhotoRing() {
   const containerRef = useRef<HTMLDivElement>(null);
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const scrollBoostRef = useRef(0);
-  // Start with the unscaled path; ResizeObserver updates it on mount + resize
-  const [arcPath, setArcPath] = useState(() => buildPath(1));
+  const lastScrollRef = useRef(0);
+  // scale = rendered ribbon width / SVG_W; drives the path, the container height and the photo sizes
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const update = () => setArcPath(buildPath(el.offsetWidth / SVG_W));
+    const update = () => setScale(el.offsetWidth / SVG_W);
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
+
+  const arcPath = useMemo(() => buildPath(scale), [scale]);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -93,47 +109,49 @@ export function PhotoRing() {
     let frame = 0;
     let previous = performance.now();
     let progress = 0;
+    let speed = 1;
 
-    const accelerate = () => {
-      scrollBoostRef.current = 1;
+    const onScroll = () => {
+      lastScrollRef.current = performance.now();
     };
 
     const animate = (timestamp: number) => {
       const delta = Math.min((timestamp - previous) / 1000, MAX_FRAME_SECONDS);
       previous = timestamp;
 
-      const boostedSpeed =
-        1 + scrollBoostRef.current * (BASE_DURATION / SCROLLING_DURATION - 1);
-      progress = (progress + (delta / BASE_DURATION) * boostedSpeed) % 1;
-      scrollBoostRef.current = Math.max(
-        0,
-        scrollBoostRef.current - delta * SCROLL_BOOST_DECAY,
-      );
+      // Ease toward the target speed instead of jumping, so scroll never makes the photos stutter
+      const target = timestamp - lastScrollRef.current < SCROLL_HOLD_MS ? SCROLL_SPEEDUP : 1;
+      speed += (target - speed) * (1 - Math.exp(-SPEED_EASE * delta));
+      progress = (progress + (delta / BASE_DURATION) * speed) % 1;
 
       tileRefs.current.forEach((node, i) => {
         if (!node) return;
-        const offset = ((progress + i / STAGGER_SLOTS) % 1) * 100;
-        node.style.offsetDistance = `${offset.toFixed(3)}%`;
+        const t = (progress + i / STAGGER_SLOTS) % 1;
+        node.style.offsetDistance = `${(t * 100).toFixed(3)}%`;
+        // Gentle sway around each photo's own tilt, so the ribbon feels alive
+        const sway = Math.sin(t * Math.PI * 2 * 2 + i) * 4;
+        node.style.transform = `translate(-50%, -50%) rotate(${(TILES[i].rot + sway).toFixed(2)}deg)`;
       });
 
       frame = window.requestAnimationFrame(animate);
     };
 
-    window.addEventListener("scroll", accelerate, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     frame = window.requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("scroll", accelerate);
+      window.removeEventListener("scroll", onScroll);
       window.cancelAnimationFrame(frame);
     };
   }, []);
 
   return (
     <>
-      {/* Desktop: photos ride the full-width ribbon */}
+      {/* Desktop: photos ride the full-width ribbon. Height follows the ribbon's aspect ratio plus room for the photos. */}
       <div
         ref={containerRef}
-        className="relative hidden h-[520px] w-full md:block"
+        className="relative hidden w-full md:block"
+        style={{ height: (SVG_H + Y_PAD * 2) * scale }}
       >
         <style>{`
           @media (prefers-reduced-motion: reduce) {
@@ -142,7 +160,7 @@ export function PhotoRing() {
         `}</style>
 
         {TILES.map((t, i) => {
-          const scaledSize = t.size * PHOTO_SCALE;
+          const size = Math.max(t.size * PHOTO_SCALE * scale, MIN_PHOTO_PX);
           const offset = `${((i / STAGGER_SLOTS) * 100).toFixed(3)}%`;
 
           return (
@@ -151,10 +169,10 @@ export function PhotoRing() {
               ref={(node) => {
                 tileRefs.current[i] = node;
               }}
-              className="photo-ring-tile absolute z-10"
+              className="photo-ring-tile absolute z-10 will-change-transform"
               style={{
-                width: scaledSize,
-                height: scaledSize,
+                width: size,
+                height: size,
                 ["--photo-ring-offset" as string]: offset,
                 offsetPath: `path("${arcPath}")`,
                 offsetDistance: offset,
@@ -162,12 +180,12 @@ export function PhotoRing() {
                 transform: `translate(-50%, -50%) rotate(${t.rot}deg)`,
               } as React.CSSProperties}
             >
-              <div className="relative h-full w-full overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
+              <div className="relative h-full w-full overflow-hidden bg-white shadow-[0_6px_16px_rgba(0,0,0,0.14)]">
                 <Image
                   src={t.src}
                   alt=""
                   fill
-                  sizes={`${Math.ceil(scaledSize)}px`}
+                  sizes={`${Math.ceil(size)}px`}
                   className="object-cover"
                 />
               </div>
@@ -181,10 +199,10 @@ export function PhotoRing() {
         {TILES.map((t, i) => (
           <div
             key={i}
-            className="relative size-[88px] overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
+            className="relative size-[104px] overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
             style={{ transform: `rotate(${t.rot / 3}deg)` }}
           >
-            <Image src={t.src} alt="" fill sizes="88px" className="object-cover" />
+            <Image src={t.src} alt="" fill sizes="104px" className="object-cover" />
           </div>
         ))}
       </div>

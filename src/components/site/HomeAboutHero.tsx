@@ -108,7 +108,7 @@ export function HomeAboutHero({ locale }: { locale: Locale }) {
 
         <div className="relative mx-auto aspect-[372/508] w-full max-w-[372px] lg:mx-0">
           <Image
-            src="/pages/home/figma/about-portrait.png"
+            src="/inicio/hero/about-portrait.png"
             alt="Valeria Jiménez"
             fill
             sizes="(max-width: 1023px) min(100vw - 48px, 372px), 372px"

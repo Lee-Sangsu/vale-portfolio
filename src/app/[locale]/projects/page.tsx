@@ -8,6 +8,7 @@ import { getChapterDetail } from "@/content";
 import {
   FILTER_IDS,
   FILTER_LABELS,
+  getChapterCardCover,
   getProjectCover,
   getProjectsByFilter,
   portfolioChapters,
@@ -29,7 +30,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const CARRYON_ASSET_BASE = "shared/carry-on";
+const CARRYON_ASSET_BASE = "compartido/maleta";
 const carryOnAsset = (file: string) =>
   encodeAsset(`${CARRYON_ASSET_BASE}/${file}`)!;
 
@@ -165,21 +166,21 @@ const CARRYON_BAG = {
 
 const chaptersTravelPhotos = [
   {
-    src: encodeAsset("pages/projects/figma/chapters-travel-1.jpeg")!,
+    src: encodeAsset("portafolio/viajando-por-el-mundo/chapters-travel-1.jpeg")!,
     className:
       "left-[11.5%] top-[21.5%] z-10 h-[52.1%] w-[37.5%] -rotate-[18.79deg]",
     hoverClass:
       "group-hover:-translate-x-14 group-hover:scale-[1.14] group-hover:-rotate-[24deg]",
   },
   {
-    src: encodeAsset("pages/projects/figma/chapters-travel-2.jpeg")!,
+    src: encodeAsset("portafolio/viajando-por-el-mundo/chapters-travel-2.jpeg")!,
     className:
       "left-[35.3%] top-[21.5%] z-20 h-[52.1%] w-[37.5%] -rotate-[1.88deg]",
     hoverClass:
       "delay-[40ms] group-hover:scale-[1.2] group-hover:rotate-[1deg]",
   },
   {
-    src: encodeAsset("pages/projects/figma/chapters-travel-3.jpeg")!,
+    src: encodeAsset("portafolio/viajando-por-el-mundo/chapters-travel-3.jpeg")!,
     className:
       "left-[60%] top-[27.3%] z-30 h-[52.1%] w-[28.5%] rotate-[9.42deg]",
     hoverClass:
@@ -203,7 +204,7 @@ export default async function ProjectsPage({
   // each keeps its aspect ratio (the white frames are part of the images).
   const portfolioPile = [
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-tote.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-tote.png")!,
       alt: "Tote bags \"She connects. She innovates. She inspires.\"",
       w: 303, h: 383,
       className: "left-[35.66%] top-[24.9%] z-[10] w-[15.5%] rotate-[10deg]",
@@ -211,7 +212,7 @@ export default async function ProjectsPage({
         "delay-[0ms] group-hover:-translate-x-[67%] group-hover:-translate-y-[39%] group-hover:scale-[1.05] group-hover:rotate-[5deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-team.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-team.png")!,
       alt: es ? "Taller de identidad de equipo" : "Team identity workshop",
       w: 338, h: 631,
       className: "left-[22.94%] top-[32%] z-[12] w-[18%] -rotate-[8deg]",
@@ -219,15 +220,15 @@ export default async function ProjectsPage({
         "delay-[60ms] group-hover:-translate-x-[100%] group-hover:-translate-y-[34%] group-hover:scale-[1.05] group-hover:-rotate-[10deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-nobled.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-nobled.png")!,
       alt: "Nobled Specialty Coffee",
       w: 332, h: 430,
       className: "left-[46.14%] top-[48.2%] z-[15] w-[17.5%] rotate-[11deg]",
       hoverClass:
-        "delay-[150ms] group-hover:-translate-x-[148%] group-hover:-translate-y-[68%] group-hover:scale-[1.05] group-hover:rotate-[8deg]",
+        "delay-[150ms] group-hover:-translate-x-[148%] group-hover:-translate-y-[48%] group-hover:scale-[1.05] group-hover:rotate-[8deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-superalink.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-superalink.png")!,
       alt: "Superalink × NomadHer",
       w: 288, h: 324,
       className: "left-[50.15%] top-[26.7%] z-[11] w-[15%] -rotate-[9deg]",
@@ -235,7 +236,7 @@ export default async function ProjectsPage({
         "delay-[30ms] group-hover:-translate-x-[38%] group-hover:-translate-y-[40%] group-hover:scale-[1.05] group-hover:-rotate-[9deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-brujula.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-brujula.png")!,
       alt: "Brújula Ética",
       w: 354, h: 646,
       className: "left-[60.86%] top-[24.3%] z-[16] w-[19.5%] rotate-[6deg]",
@@ -243,39 +244,36 @@ export default async function ProjectsPage({
         "delay-[180ms] group-hover:translate-x-[74%] group-hover:-translate-y-[20%] group-hover:scale-[1.05] group-hover:rotate-[6deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-card.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-card.png")!,
       alt: es ? "Tarjeta \"Cómo hablarle a mi cliente\"" : "\"How to talk to my customer\" card",
       w: 303, h: 379,
       className: "left-[40.45%] top-[52.9%] z-[14] w-[14%] -rotate-[1deg]",
       hoverClass:
-        "delay-[120ms] group-hover:translate-x-[90%] group-hover:-translate-y-[98%] group-hover:scale-[1.05] group-hover:rotate-[3deg]",
+        "delay-[120ms] group-hover:translate-x-[90%] group-hover:-translate-y-[72%] group-hover:scale-[1.05] group-hover:rotate-[3deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-mic.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-mic.png")!,
       alt: es ? "Participante con micrófono" : "Attendee with a microphone",
       w: 243, h: 371,
       className: "left-[57.92%] top-[55.9%] z-[17] w-[14.5%] -rotate-[6deg]",
       hoverClass:
-        "delay-[210ms] group-hover:translate-x-[75%] group-hover:-translate-y-[80%] group-hover:scale-[1.05] group-hover:-rotate-[8deg]",
+        "delay-[210ms] group-hover:translate-x-[75%] group-hover:-translate-y-[60%] group-hover:scale-[1.05] group-hover:-rotate-[8deg]",
     },
     {
-      src: encodeAsset("pages/projects/hero-photos/folder-people.png")!,
+      src: encodeAsset("portafolio/portada-carpeta/folder-people.png")!,
       alt: es ? "Asistentes a un evento" : "Event attendees",
       w: 234, h: 233,
       className: "left-[44.13%] top-[34.8%] z-[13] w-[12.5%] -rotate-[3deg]",
       hoverClass:
-        "delay-[90ms] group-hover:-translate-x-[51%] group-hover:-translate-y-[35%] group-hover:scale-[1.05] group-hover:-rotate-[6deg]",
+        "delay-[90ms] group-hover:-translate-x-[51%] group-hover:translate-y-0 group-hover:scale-[1.05] group-hover:-rotate-[6deg]",
     },
   ];
 
   // Chapter cards are the top level of the portfolio. They lead to chapter
   // pages; every project has its own page under /work/<slug>.
   const chapterCards = portfolioChapters.map((chapter) => {
-    const detail = getChapterDetail(chapter.id);
-    const firstCover = chapter.projects
-      .map((project) => getProjectCover(project.slug))
-      .find(Boolean);
-    const cover = encodeAsset(detail?.cover) ?? firstCover;
+    // Same photo as the chapter page: public/portafolio/capitulos/<chapter>/portada/
+    const cover = getChapterCardCover(chapter.id);
 
     return {
       id: chapter.id,

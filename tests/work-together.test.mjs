@@ -18,10 +18,10 @@ const callSitePaths = [...generalCallSitePaths, ...detailCallSitePaths];
 const component = readFileSync(componentPath, "utf8");
 
 test("WorkTogether uses the approved shared Figma photo", () => {
-  assert.match(component, /src="\/shared\/portraits\/work-together-coffee\.jpg"/);
+  assert.match(component, /src="\/compartido\/retratos\/work-together-coffee\.jpg"/);
   assert.doesNotMatch(component, /portraits\/work-together\.png/);
   assert.ok(
-    existsSync("public/shared/portraits/work-together-coffee.jpg"),
+    existsSync("public/compartido/retratos/work-together-coffee.jpg"),
     "the coffee photo must be committed locally",
   );
   assert.doesNotMatch(component, /src=\{photo\}/);

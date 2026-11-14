@@ -11,7 +11,7 @@ const [about, marquee, page] = await Promise.all([
   readSource("../src/app/[locale]/page.tsx"),
 ]);
 const brandFiles = await readdir(
-  new URL("../public/shared/brands", import.meta.url),
+  new URL("../public/compartido/marcas", import.meta.url),
 ).catch(() => []);
 
 test("the featured-project marquee follows the about hero", () => {
@@ -38,7 +38,7 @@ test("the marquee translates the Figma 507:174 presentation", () => {
 
 test("the marquee renders decorative brand logos without project links", () => {
   assert.match(marquee, /import Image from "next\/image";/);
-  assert.match(marquee, /listPhotos\("shared\/brands"\)/);
+  assert.match(marquee, /listPhotos\("compartido\/marcas"\)/);
   assert.match(marquee, /if \(logos\.length === 0\) return null;/);
   assert.match(marquee, /const strip = \[\.\.\.logos, \.\.\.logos\]/);
   assert.match(marquee, /alt=""/);

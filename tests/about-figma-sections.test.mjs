@@ -93,8 +93,8 @@ test("SkillsSection contains the exact approved Figma content", async () => {
     "Innovación y emprendimiento",
     "Founder mindset: spotting gaps and building from zero to launch.",
     "Mentalidad fundadora: detectar oportunidades y construir desde cero hasta el lanzamiento.",
-    "Languages: Native Spanish · Fluent English · Basic Korean",
-    "Idiomas: Español nativo · Inglés fluido · Coreano básico",
+    "Languages: Native Spanish · Professional English · Basic Korean",
+    "Idiomas: Español nativo · Inglés profesional · Coreano básico",
   ];
 
   for (const text of expected) {
@@ -393,7 +393,7 @@ test("JourneySection contains the exact approved Figma content and asset", async
     "BOOST LAB",
     "2024 - present",
     "Branding & strategy",
-    "Diseño independiente",
+    "Diseño creativo",
     "2025 - 2026",
     "LATAM talent scouting",
     "Travelling University",
@@ -404,7 +404,7 @@ test("JourneySection contains the exact approved Figma content and asset", async
     "Program Manager Assistant",
     "Ironhack",
     "2022 - 2023",
-    "/pages/about/figma/journey-portrait.jpg",
+    "/sobre-mi/figma/journey-portrait.jpg",
   ];
 
   for (const text of expected) {

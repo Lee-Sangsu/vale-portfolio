@@ -7,7 +7,7 @@ import { routing } from "@/i18n/routing";
 import clsx from "clsx";
 import { motion } from "motion/react";
 
-type Tone = "light" | "dark";
+type Tone = "light" | "dark" | "onDark";
 
 const NAV = [
   { href: "/", en: "Home", es: "Inicio" },
@@ -22,8 +22,9 @@ const NAV = [
  * - centered white pill with the four links
  * - dark EN/ES toggle on the right
  *
- * `tone="light"` is for the home hero (sits over the sky → white logo).
- * `tone="dark"` is for white-background inner pages.
+ * `tone="light"` is for the home/about heroes (bright sky → black logo).
+ * `tone="dark"` is for white-background inner pages (black logo).
+ * `tone="onDark"` is for very dark backgrounds (chapter heroes): negative, white logo.
  */
 export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
   const locale = useLocale();
@@ -33,6 +34,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
   const other = routing.locales.find((l) => l !== locale)!;
 
   const light = tone === "light";
+  const onDark = tone === "onDark";
 
   return (
     <nav className="absolute inset-x-0 top-0 z-30">
@@ -40,7 +42,10 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
         {/* Logo */}
         <Link
           href="/"
-          className="font-display text-[28px] leading-none tracking-[0.02em] text-black transition-opacity hover:opacity-70 sm:text-[34px]"
+          className={clsx(
+            "font-display text-[28px] leading-none tracking-[0.02em] transition-opacity hover:opacity-70 sm:text-[34px]",
+            onDark ? "text-white" : "text-black",
+          )}
         >
           Portfolio
         </Link>
@@ -76,7 +81,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             }
             className={clsx(
               "font-inter text-[14px] font-semibold transition-opacity hover:opacity-60",
-              light ? "text-black" : "text-ink2",
+              onDark ? "text-white" : light ? "text-black" : "text-ink2",
               pending && "opacity-40",
             )}
           >
@@ -106,7 +111,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
               href={item.href}
               className={clsx(
                 "px-1 py-2 font-inter text-[13px] font-medium",
-                light ? "text-white/90" : active ? "text-nav" : "text-nav-dim",
+                onDark ? "text-white/90" : light ? "text-white/90" : active ? "text-nav" : "text-nav-dim",
               )}
             >
               {locale === "es" ? item.es : item.en}

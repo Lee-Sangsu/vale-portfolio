@@ -9,12 +9,42 @@ const projectsPage = await readFile(
   "utf8",
 );
 
-test("public assets are grouped by page, project, and shared purpose", () => {
-  for (const directory of ["public/pages", "public/work", "public/shared"]) {
+test("public assets are grouped by page, then by chapter and project", () => {
+  for (const directory of [
+    "public/inicio/documentos",
+    "public/inicio/que-disfruto-hacer",
+    "public/portafolio/capitulos",
+    "public/portafolio/portada-carpeta",
+    "public/sobre-mi",
+    "public/contacto",
+    "public/compartido/marcas",
+  ]) {
     assert.equal(existsSync(new URL(directory, root)), true, `${directory} is missing`);
   }
 
+  // One folder per chapter, each with a portada folder to drop its photo in.
+  for (const chapter of [
+    "01-nomadher",
+    "02-boost-lab",
+    "03-independiente",
+    "04-n9ne",
+    "05-ironhack",
+    "06-travelling-university",
+  ]) {
+    assert.equal(
+      existsSync(new URL(`public/portafolio/capitulos/${chapter}/portada`, root)),
+      true,
+      `${chapter}/portada is missing`,
+    );
+  }
+
   for (const legacyDirectory of [
+    "public/pages",
+    "public/shared",
+    "public/work",
+    "public/cv",
+    "public/servicios",
+    "public/projects",
     "public/photos",
     "public/figma",
     "public/Assets ",
@@ -57,11 +87,11 @@ test("projects hero renders a custom pile of project photos", () => {
   // Eight photos, each a local PNG that exists, with its own hover spread.
   for (const file of pileFiles) {
     assert.ok(
-      portfolioPileSource.includes(`pages/projects/hero-photos/${file}`),
+      portfolioPileSource.includes(`portafolio/portada-carpeta/${file}`),
       `pile is missing ${file}`,
     );
     assert.equal(
-      existsSync(new URL(`public/pages/projects/hero-photos/${file}`, root)),
+      existsSync(new URL(`public/portafolio/portada-carpeta/${file}`, root)),
       true,
       `${file} is missing`,
     );

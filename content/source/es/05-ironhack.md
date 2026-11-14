@@ -62,4 +62,4 @@ Un bootcamp de UX/UI, análisis de datos o desarrollo web comprime meses de apre
 Trabajé entre los estudiantes y el equipo de campus, con marketing, admisiones, programa y los profesores de cada bootcamp. Acompañé cada cohorte de punta a punta, seguí su progreso con encuestas y evaluaciones, y organicé los encuentros que la mantenían unida, de las charlas con aliados a las presentaciones finales. Cuando el campus necesitaba algo que no existía, diseñé la herramienta o el espacio para resolverlo.
 
 **03 Result**
-Siete meses acompañando cohortes de más de 30 participantes, con un promedio de tres eventos por bootcamp. Dejé sistematizados seis aprendizajes de gestión de eventos para el equipo. Esa mirada de experiencia completa alrededor de un producto es la que hoy aplico en NomadHer.
+Siete meses acompañando cohortes de más de 30 participantes, con un promedio de tres eventos por bootcamp. Dejé sistematizados seis aprendizajes de gestión de eventos para el equipo.

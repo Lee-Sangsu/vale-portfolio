@@ -49,7 +49,7 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
           <div className="relative mt-16 h-[288px] w-full max-w-[480px] sm:mt-20 sm:h-[380px] lg:h-[430px]">
             <div className="absolute top-[8%] left-[3%] aspect-[6/5] w-[75%] max-w-[290px] -rotate-[4deg] overflow-hidden shadow-[0_14px_30px_rgba(0,0,0,0.16)] lg:h-[242px] lg:w-[290px]">
               <Image
-                src="/pages/home/favorite-projects/city-photo.jpeg"
+                src="/inicio/proyectos-favoritos/city-photo.jpeg"
                 alt=""
                 fill
                 sizes="(max-width: 639px) min(290px, calc((100vw - 48px) * 0.75)), 290px"
@@ -58,7 +58,7 @@ export function FavoriteProjects({ locale }: { locale: Locale }) {
             </div>
             <div className="absolute right-[2%] bottom-[4%] aspect-[17/15] w-[71%] rotate-[5deg] overflow-hidden shadow-[0_18px_34px_rgba(0,0,0,0.18)] lg:h-[300px] lg:w-[340px]">
               <Image
-                src="/pages/home/favorite-projects/workshop-photo.jpeg"
+                src="/inicio/proyectos-favoritos/workshop-photo.jpeg"
                 alt=""
                 fill
                 sizes="(max-width: 639px) min(341px, calc((100vw - 48px) * 0.71)), (max-width: 1023px) 341px, 340px"

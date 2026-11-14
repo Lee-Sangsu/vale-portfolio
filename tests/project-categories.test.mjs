@@ -12,20 +12,22 @@ const data = JSON.parse(
 );
 
 const expectedFilterCounts = {
-  design: 20,
-  "ux-ui": 7,
-  events: 14,
-  "marketing-content": 15,
-  strategy: 20,
+  // Top-level projects only: projects that live inside another one
+  // (e.g. Lounge inside the app redesign) are rolled up into their parent.
+  design: 13,
+  "ux-ui": 4,
+  events: 9,
+  "marketing-content": 8,
+  strategy: 12,
 };
 
 const projects = data.chapters.flatMap((chapter) => chapter.projects);
 const slugs = new Set(projects.map((project) => project.slug));
 
-test("the portfolio has the six chapters and 37 projects", () => {
+test("the portfolio has the six chapters and 30 projects", () => {
   assert.equal(data.chapters.length, 6);
-  assert.equal(projects.length, 37);
-  assert.equal(slugs.size, 37, "project slugs must be unique");
+  assert.equal(projects.length, 30);
+  assert.equal(slugs.size, 30, "project slugs must be unique");
 });
 
 test("each discipline lists exactly the expected number of projects", () => {

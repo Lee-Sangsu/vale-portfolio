@@ -11,29 +11,16 @@ const railUrl = new URL(
   "../src/components/site/chapter/ChapterProjectRail.tsx",
   import.meta.url,
 );
-const detailsUrl = new URL("../src/content/chapter-details.ts", import.meta.url);
 
-const figmaAssets = [
-  "nomadher-hero-base.png",
-  "nomadher-hero-overlay.png",
-  "nomadher-project-01.png",
-  "nomadher-project-02.png",
-  "nomadher-project-03.png",
-  "nomadher-project-04.png",
-  "nomadher-project-05.png",
-  "nomadher-project-06.png",
-];
-
-test("NomadHer chapter uses its local Figma hero and six-card rail variant", async () => {
-  const [page, rail, details] = await Promise.all([
+test("NomadHer chapter reads its photo from the portada folder and keeps its rail variant", async () => {
+  const [page, rail] = await Promise.all([
     readFile(pageUrl, "utf8"),
     readFile(railUrl, "utf8"),
-    readFile(detailsUrl, "utf8"),
   ]);
 
-  assert.match(page, /slug === "nomadher"/);
-  assert.match(page, /pages\/chapters\/nomadher-hero-base\.png/);
-  assert.match(page, /pages\/chapters\/nomadher-hero-overlay\.png/);
+  // The old hard-coded Figma hero photos were removed; the chapter photo is dropped in a folder.
+  assert.match(page, /getChapterCovers\(chapter\.id\)/);
+  assert.doesNotMatch(page, /nomadher-hero-(base|overlay)|pages\/chapters/);
   assert.match(page, /chapterId=\{chapter\.id\}/);
 
   assert.match(rail, /chapterId: ChapterId/);
@@ -43,18 +30,9 @@ test("NomadHer chapter uses its local Figma hero and six-card rail variant", asy
   assert.match(rail, /Ver más/);
   assert.match(rail, /project\.date/);
 
-  const nomadHerStart = details.indexOf('id: "nomadher"');
-  const boostLabStart = details.indexOf('id: "boost-lab"', nomadHerStart);
-  const nomadHer = details.slice(nomadHerStart, boostLabStart);
-  assert.equal((nomadHer.match(/title: bilingual\(/g) ?? []).length, 12);
-  assert.match(nomadHer, /Automatización ManyChat/);
-  assert.match(nomadHer, /Análisis de contenido/);
-
-  for (const asset of figmaAssets) {
-    assert.equal(
-      existsSync(new URL(`../public/pages/chapters/${asset}`, import.meta.url)),
-      true,
-      `${asset} is missing`,
-    );
-  }
+  assert.equal(
+    existsSync(new URL("../public/portafolio/capitulos/01-nomadher/portada", import.meta.url)),
+    true,
+    "the NomadHer portada folder must exist so photos can be dropped in",
+  );
 });

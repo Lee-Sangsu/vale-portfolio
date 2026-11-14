@@ -78,8 +78,8 @@ export const journeyRoles: JourneyRole[] = [
   },
   {
     role: {
-      en: "Independent Designer · Brand, web & content strategy",
-      es: "Diseño independiente · Marca, web y estrategia de contenido",
+      en: "Creative Designer · Brand, web & content strategy",
+      es: "Diseño creativo · Marca, web y estrategia de contenido",
     },
     company: { en: "Independent", es: "Independiente" },
     date: { en: "2025–2026", es: "2025–2026" },
@@ -207,15 +207,15 @@ export const carryOn = {
 
 /**
  * Tools shown as a visual grid in the Skills + Contact sections.
- * `icon` is the real logo under /public/shared/tool-logos/ (extensions vary by file).
+ * `icon` is the real logo under /public/compartido/logos-herramientas/ (extensions vary by file).
  */
 export const tools: { slug: string; label: string; icon: string }[] = [
-  { slug: "figma", label: "Figma", icon: "/shared/tool-logos/figma.avif" },
-  { slug: "illustrator", label: "Illustrator", icon: "/shared/tool-logos/illustrator.webp" },
-  { slug: "photoshop", label: "Photoshop", icon: "/shared/tool-logos/photoshop.avif" },
-  { slug: "framer", label: "Framer", icon: "/shared/tool-logos/framer.avif" },
-  { slug: "canva", label: "Canva", icon: "/shared/tool-logos/canva.webp" },
-  { slug: "notion", label: "Notion", icon: "/shared/tool-logos/notion.svg" },
-  { slug: "capcut", label: "CapCut", icon: "/shared/tool-logos/capcut.avif" },
-  { slug: "manychat", label: "ManyChat", icon: "/shared/tool-logos/manychat.webp" },
+  { slug: "figma", label: "Figma", icon: "/compartido/logos-herramientas/figma.avif" },
+  { slug: "illustrator", label: "Illustrator", icon: "/compartido/logos-herramientas/illustrator.webp" },
+  { slug: "photoshop", label: "Photoshop", icon: "/compartido/logos-herramientas/photoshop.avif" },
+  { slug: "framer", label: "Framer", icon: "/compartido/logos-herramientas/framer.avif" },
+  { slug: "canva", label: "Canva", icon: "/compartido/logos-herramientas/canva.webp" },
+  { slug: "notion", label: "Notion", icon: "/compartido/logos-herramientas/notion.svg" },
+  { slug: "capcut", label: "CapCut", icon: "/compartido/logos-herramientas/capcut.avif" },
+  { slug: "manychat", label: "ManyChat", icon: "/compartido/logos-herramientas/manychat.webp" },
 ];

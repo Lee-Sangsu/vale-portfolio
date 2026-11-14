@@ -40,14 +40,14 @@ test("My Story renders the responsive Figma collage with local image exports", (
   assert.doesNotMatch(component, /lg:grid-cols-4/);
 
   for (const file of figmaPhotoFiles) {
-    assert.match(component, new RegExp(`/pages/about/figma/${file}`));
+    assert.match(component, new RegExp(`/sobre-mi/figma/${file}`));
   }
 });
 
 test("My Story Figma exports are committed locally", () => {
   for (const file of [...figmaPhotoFiles, "story-collage-doodle.svg"]) {
     assert.equal(
-      existsSync(new URL(`../public/pages/about/figma/${file}`, import.meta.url)),
+      existsSync(new URL(`../public/sobre-mi/figma/${file}`, import.meta.url)),
       true,
       `${file} is missing`,
     );

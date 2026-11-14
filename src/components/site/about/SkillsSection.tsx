@@ -53,8 +53,8 @@ const SKILLS: Record<Locale, Skill[]> = {
 };
 
 const LANGUAGES: Record<Locale, string> = {
-  en: "Languages: Native Spanish · Fluent English · Basic Korean",
-  es: "Idiomas: Español nativo · Inglés fluido · Coreano básico",
+  en: "Languages: Native Spanish · Professional English · Basic Korean",
+  es: "Idiomas: Español nativo · Inglés profesional · Coreano básico",
 };
 
 export async function SkillsSection({ locale }: { locale: Locale }) {

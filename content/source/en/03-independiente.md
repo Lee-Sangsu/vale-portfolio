@@ -1,34 +1,34 @@
-# CHAPTER 03 · INDEPENDENT DESIGN
+# CHAPTER 03 · CREATIVE DESIGN
 
 ## Card del capítulo
 
-**Título** · Independent design
+**Título** · Creative design
 **Meta** · Colombia · Korea · Spain · 2025 - 2026
-**Descripción** *(tuyo)* · Branding, websites and content strategy for clients in Colombia, Korea and Spain. The work is getting inside the client's head and coming out with something tangible: a brand, a system or a strategy. Here I also work as a consultant.
-**Tags** *(tuyo)* · Serema Hotel · Opuesto SAS · Brújula Ética · Santa Juliana
+**Descripción** *(tuyo)* · Branding, websites and content strategy for international clients. The work is getting inside the client's head and coming out with something tangible: a brand, a system or a strategy.
+**Tags** *(tuyo)* · Opuesto SAS · Brújula Ética · Teampreneurship Cooperative
 
 ---
 
 ## Página del capítulo
 
-**Título** · INDEPENDENT DESIGN
+**Título** · CREATIVE DESIGN
 
-**Bajada** · Branding, websites and content strategy for clients in Colombia, Korea and Spain.
+**Bajada** · Branding, websites and content strategy for international clients.
 
 **Píldora** · CHAPTER 03 · 2025 - 2026
 
-**Etiqueta** · [ INDEPENDENT DESIGN ]
+**Etiqueta** · [ CREATIVE DESIGN ]
 
 **Texto de la banda**
-I work with brands in the middle of change: a hotel renewing itself without closing, a construction company that wants to lead its region. The work is getting inside the client's head and coming out with something tangible, whether it's a brand, a system or a strategy. Here I also work as a consultant.
+I work with brands that evolve. My creative work is getting inside the client's head and coming out with something tangible: a brand, a system, a strategy.
 
 **Cifras**
 
 | | |
 |---|---|
-| **5** | clients in three countries |
-| **70+** | pieces per edition on Brújula Ética |
-| **6** | weeks from brief to complete brand at Serema |
+| **4** | countries where I have worked: Spain, Germany, Korea and Colombia |
+| **2** | editions of Brújula Ética |
+| **60+** | pieces per campaign edition |
 
 ### Mis responsabilidades · [ MI ROL ]
 
@@ -39,10 +39,10 @@ Positioning, DNA, voice and pillars for brands in transition.
 Logos, brandbooks and systems built to work in more than one language.
 
 **[03] Web**
-Architecture, content and technical audits of websites for hospitality and construction.
+Architecture and content for websites in the construction sector.
 
 **[04] Content and campaigns**
-Monthly matrices, slide-by-slide scripts and message automations.
+Campaign systems for social media: posters, posts and stories per episode.
 
 **[05] Editorial design**
 Commercial portfolios, brochures and construction documents.
@@ -52,64 +52,17 @@ Competitor benchmarks, regulatory analysis and team mentoring.
 
 ### Lo que salió de este capítulo · [ PROYECTOS ]
 
-Serema Hotel · Opuesto SAS · Brújula Ética · Santa Juliana Land Development · Teampreneurship Cooperative
+Opuesto SAS · Brújula Ética · Teampreneurship Cooperative Land Development · Teampreneurship Cooperative
 
 ---
 
-## 3.1 Serema Hotel
+## 3.1 Opuesto SAS
 
 **CARD**
 Etiquetas · Branding · 2025
-Meta *(tuyo)* · Independent · Cartagena, 2025
-Título · Serema Hotel
-Descripción *(tuyo)* · Visual system and brand voice for a seaside boutique hotel in the middle of a renovation.
-Tags *(tuyo)* · Identity · Tone of voice
-Filtros · Diseño gráfico · Estrategia · Marketing y contenido
-
-**PÁGINA**
-
-**Título** · Serema Hotel
-
-**Descripción**
-A boutique hotel in Cielo Mar, Cartagena, that changed its name and is renewing itself without closing. I built its brand, voice, content and website, turning the construction work into a brand argument.
-
-**Propósito** · Community · Institutional · Marketing
-
-**Overview**
-Cliente · Serema Hotel
-Mi rol · Brand strategy, content and web
-Tipo de proyecto · Brand, content and website
-
-**01 Challenge**
-Serema opened as Casa Mar, changed its name and operates in the middle of a remodel. The website had little text spread across empty subpages, there was no voice or narrative, and bookings came in only through WhatsApp and Booking. The client wanted a premium boutique experience at an accessible price.
-
-**02 Approach**
-The project came through referrals from the Global Youth Summit and started as marketing support. I proposed telling the story of the construction instead of hiding it, and from that came the mantra "comfort that evolves". I wrote a tone guide with word substitutions: luxury becomes carefully crafted details, exclusive becomes intimate, sophisticated becomes harmonious. On top of that voice I built pillars, a monthly matrix with a script for each piece, campaigns with automation and the full content for the website.
-
-**03 Result**
-In six weeks, with a meeting every two: brand DNA, tone guide, three pillars, twelve pieces a month, two campaigns, the two-tier Club Serema, the complete website with a technical audit, and a Notion space so the hotel team can keep working on their own.
-
-**Secciones extra**
-
-**Tone of voice**
-| Instead of | Serema says |
-|---|---|
-| Luxury | Carefully crafted details |
-| Exclusive | Intimate |
-| Sophisticated | Harmonious |
-
-**Visual Identity**
-Cream and mist base, olive and terracotta accents. Playfair for headlines, Inter for text and calls to action.
-
----
-
-## 3.2 Opuesto SAS
-
-**CARD**
-Etiquetas · Branding · 2025
-Meta · Independent · Pasto, 2025
+Meta · Creative design · 2025
 Título · Opuesto SAS
-Descripción · Brand, portfolio, website and an internal tool for a construction company in Nariño.
+Descripción · Creation of the brand of a construction company that fuses opposite elements to create balanced spaces.
 Tags · Identity · Web
 Filtros · Diseño gráfico · Estrategia · UX/UI
 
@@ -118,36 +71,34 @@ Filtros · Diseño gráfico · Estrategia · UX/UI
 **Título** · Opuesto SAS
 
 **Descripción**
-A construction company from Nariño that asked to understand its competition and ended up with a brand, a portfolio, a website and a tool for its internal operations.
+Creation of the brand of a construction company that fuses opposite elements to create balanced spaces.
 
 **Overview**
 Cliente · Opuesto SAS
-Mi rol · Research, identity, web and documents
-Tipo de proyecto · Brand, web and internal product
+Mi rol · Identity, portfolio and web
+Tipo de proyecto · Brand, portfolio and website
 
 **01 Challenge**
-Opuesto wanted to position itself as the trusted partner for anyone building in Nariño. Before designing, it needed to know how the construction companies in Pasto were presenting themselves and what rules applied in the city.
+Opuesto SAS wanted to position itself as the trusted partner for anyone who builds. To get there it needed an identity of its own, one that conveyed the solidity of a construction company and, at the same time, the closeness of personalized work.
+
+Before designing, it was necessary to understand how its competitors presented themselves.
 
 **02 Approach**
-I started with a benchmark of four construction companies in the region, covering social media, website and market position, research on the INVIPASTO registry and a reading of Pasto's Territorial Development Plan. With that I designed the brand and brandbook, a portfolio with seven projects, among them Torres del Cielo, the website and an internal application for registering employees, products and payroll.
+A benchmark of four competing construction companies was done, covering their social media, website and market position. Based on it, the brand philosophy was defined: opposite elements to create balanced spaces, backed by four values, trust, holism, professionalism and sustainability.
+
+From there came the brandbook, with a logo in full, nominative and iconic versions, a sober palette of blacks, grays and one blue, and an iconography inspired by the natural elements of the region.
 
 **03 Result**
-Ten weeks of work, a brandbook and templates the company still uses, and a relationship that continues: today I design their construction documents, such as the budgets for the expansion of Block 9 of the Faculty of Arts at the University of Nariño.
-
-**Secciones extra**
-
-**A process rule**
-At least eight curated photographs per project before starting to design. An architecture portfolio depends on its photos.
+A complete identity was delivered. The relationship continues: today its construction documents are designed.
 
 ---
-
-## 3.3 Brújula Ética
+## 3.2 Brújula Ética
 
 **CARD**
 Etiquetas · Campaign · 2025 - 2026
-Meta *(tuyo)* · Independent · 2025 - 2026
+Meta *(tuyo)* · Creative design · 2025 - 2026
 Título · Brújula Ética
-Descripción *(tuyo, ajustado)* · Visual language and campaign pieces for a university ethics podcast. They hired me again for the second edition.
+Descripción *(tuyo, ajustado)* · Visual language and campaign pieces for a university ethics podcast. We worked together again on a second edition.
 Tags *(tuyo)* · Campaign · Editorial
 Filtros · Diseño gráfico · Marketing y contenido
 
@@ -156,7 +107,7 @@ Filtros · Diseño gráfico · Marketing y contenido
 **Título** · Brújula Ética
 
 **Descripción**
-The campaign for a podcast about ethics and entrepreneurship produced by the Pontificia Universidad Javeriana and the Universidad Loyola. I designed the first edition, and the two universities hired me again for the second. More than seventy pieces per season, with a palette designed for students.
+The campaign for a podcast about ethics and entrepreneurship produced by the Pontificia Universidad Javeriana and the Universidad Loyola. I designed the first edition and we worked together again on the second. More than sixty pieces per edition, with a palette designed for students.
 
 **Overview**
 Cliente · Universidad Javeriana × Universidad Loyola
@@ -164,64 +115,26 @@ Mi rol · Visual identity and campaign design
 Tipo de proyecto · Podcast campaign on social media
 
 **01 Challenge**
-Two universities, one in Colombia and one in Spain, wanted to reach students in their late teens and early twenties with a serious topic. That audience tunes out institutional communication.
+Two universities, Pontificia Universidad Javeriana in Colombia and Universidad Loyola in Spain, wanted to open a serious conversation about ethics and leadership with students in their late teens and early twenties. The problem was not that this audience didn't care about the topic: formal, distant institutional communication made them scroll past before giving it a chance.
+
+The challenge was to create a less institutional proposal, with an identity that felt close and youthful to reach these ages better, without losing the seriousness of the subject or the credibility of the two universities behind it.
 
 **02 Approach**
-I presented three proposals with moodboards. They chose the boldest one: purple, yellow and turquoise, big shapes and cut-out portraits, far from the usual tone of both universities. With that system I designed every episode: a poster with the guest, five posts of three or four pieces each, and stories.
+Three visual proposals were presented, each with its own idea: the first revolved around youth, projection and belonging; the second, around impact, determination and action; and the third, around creativity, flexibility and growth. They ended up choosing the boldest one, the third: purple, yellow and turquoise, big shapes and cut-out portraits, far from the usual tone of both universities.
+
+From there the concept was developed, which plays a lot with textures and with lines that connect every piece, so each podcast reads as part of one story. Each podcast had its own path: two pre-launch posts, one on launch day and two post-launch, plus a poster with the guest and a story.
+
+For the second edition, a year later, they wanted to keep the same colors and the same spirit, but with an evolution. So it was decided that giving the lines more flexibility was the way forward without losing the identity.
 
 **03 Result**
-The first edition ended in a direct rehire for the second, with the same visual system. In total, seven episodes in the first and six in the second, more than seventy pieces per edition and two months of work per season. The design is mine, with Sonia Marcela Córdoba as contact and coordinator.
-
-**Secciones extra**
-
-**Figures** *(para stat cards)*
-2 · editions, with a direct rehire
-13 · episodes
-70+ · pieces per edition
-
-**Social Media Carousel**
-Per episode · poster with the guest · five posts · story set
+The first edition, six episodes long, went out on social media between November 5 and February 10. A year later we worked together again on a second edition of four episodes, published one after another between February 9 and 26. In total, more than sixty pieces per edition and two months of work per season.
 
 ---
-
-## 3.4 Santa Juliana Land Development
-
-**CARD**
-Etiquetas · Editorial · 2025
-Meta · Independent · Colombia, 2025
-Título · Santa Juliana Land Development
-Descripción · Brand, brandbook and commercial portfolio for a nature reserve in Colombia.
-Tags · Identity · Editorial
-Filtros · Diseño gráfico
-
-**PÁGINA**
-
-**Título** · Santa Juliana Land Development
-
-**Descripción**
-A land development in Colombia that offers a way of living alongside nature. I designed its brand, brandbook and commercial portfolio.
-
-**Overview**
-Cliente · Santa Juliana Nature Reserve
-Mi rol · Identity, brandbook and editorial design
-Tipo de proyecto · Brand and commercial portfolio
-
-**01 Challenge**
-Santa Juliana offers a way of living in balance with nature, with the community at the center. The brand had to feel aspirational and rooted in the land at the same time, and the project material was scattered across photos, floor plans and technical data.
-
-**02 Approach**
-I designed the identity, with logo, typography and palette, and a brandbook with concept, personality and tone. Then I organized the material into a commercial portfolio and a digital site, with cover, index, identity and project presentation, in partial deliveries with two rounds of review.
-
-**03 Result**
-Two months of work and a commercial piece ready to present the project to buyers, with the same visual system applied across all the collateral.
-
----
-
-## 3.5 Teampreneurship Cooperative
+## 3.3 Teampreneurship Cooperative
 
 **CARD**
 Etiquetas · Logo · 2025
-Meta *(tuyo)* · Independent · Korea, 2025
+Meta *(tuyo)* · Creative design · Korea, 2025
 Título · Teampreneurship Cooperative
 Descripción *(tuyo)* · Logo inspired by the traditional Korean Ssanghak Maedeup knots, ready for a bilingual context.
 Tags *(tuyo)* · Logo · Visual system

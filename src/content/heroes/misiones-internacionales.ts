@@ -10,7 +10,7 @@ export const misionesInternacionales: Hero = {
     es: "25 jul – 8 ago 2025",
   },
   location: "Seoul · Busan · Jeju",
-  accent: "#0f4f3c",
+  accent: "#043c9f",
   title: {
     en: "Misiones Internacionales",
     es: "Misiones Internacionales",

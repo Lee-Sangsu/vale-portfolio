@@ -5,7 +5,7 @@ import { SiteNav } from "./SiteNav";
 import { WindowCard } from "./WindowCard";
 import { FolderSticker } from "./FolderSticker";
 
-const MAIN = "pages/home/content";
+const MAIN = "inicio/hero";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const es = locale === "es";
@@ -14,9 +14,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
     : "I design brands, products and events that make it off the page. Here you'll find branding, events, campaigns and digital products, driven by creativity and teamwork.";
 
   const mailHref = "mailto:valejimenezc2003@gmail.com";
-  const cvHref = es ? "/cv/cv-es.pdf" : "/cv/cv-en.pdf";
+  const cvHref = es ? "/inicio/documentos/cv-es.pdf" : "/inicio/documentos/cv-en.pdf";
   const calendlyHref = "https://calendly.com/valejimenezc2003/30min";
-  const servicesHref = "/servicios/servicios-creativos.pdf";
+  const servicesHref = "/inicio/documentos/servicios-creativos.pdf";
 
   // Four floating folder stickers frame the portrait (desktop only), matching
   // the Figma hero (nodes 227:1157/1161/1165/1178): CV + Creative Services on
@@ -26,7 +26,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const folders = [
     {
       // pink folder (Folder 1-3 = #FFB1DB) — upper left
-      src: encodeAsset(`${MAIN}/files/Folder 1-3.svg`)!,
+      src: encodeAsset(`${MAIN}/carpetas/Folder 1-3.svg`)!,
       label: "CV",
       color: "#ffb1db",
       textColor: "#000",
@@ -37,7 +37,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
     },
     {
       // dark blue folder (Folder 1 = #043C9F) — left middle
-      src: encodeAsset(`${MAIN}/files/Folder 1.svg`)!,
+      src: encodeAsset(`${MAIN}/carpetas/Folder 1.svg`)!,
       label: es ? "Servicios creativos" : "Creative Services",
       color: "#043c9f",
       textColor: "#fff",
@@ -48,7 +48,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
     },
     {
       // lime folder (Figma node 507:133) — upper right
-      src: "/pages/home/figma/folder-collab-lime.svg",
+      src: "/inicio/hero/folder-collab-lime.svg",
       label: es ? "Colaboremos" : "Let's Collab",
       color: "#c9f24d",
       textColor: "#000",
@@ -58,7 +58,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
     },
     {
       // wine folder (Folder 1-2 = #7B173B) — lower right
-      src: encodeAsset(`${MAIN}/files/Folder 1-2.svg`)!,
+      src: encodeAsset(`${MAIN}/carpetas/Folder 1-2.svg`)!,
       label: es ? "Consultoría" : "Strategic Consult",
       color: "#7b173b",
       textColor: "#fff",
@@ -75,7 +75,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
           The wide 1710×952 source covers the hero vertically, so the bright sky
           stays up top and the flowers sit along the bottom edge as in the design. */}
       <Image
-        src="/pages/home/figma/sky.jpg"
+        src="/inicio/hero/sky.jpg"
         alt=""
         fill
         priority

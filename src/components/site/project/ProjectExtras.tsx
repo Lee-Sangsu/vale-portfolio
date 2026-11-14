@@ -131,7 +131,7 @@ export function ProjectExtras({ extras }: { extras: Extra[] }) {
   const textSections = extras.filter((e) => !Array.isArray(e.stats));
 
   return (
-    <section className="bg-white pb-16 sm:pb-24">
+    <section className="bg-white pb-24 sm:pb-36">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
         {statSections.map((extra) => (
           <div key={extra.title} className="mb-14">

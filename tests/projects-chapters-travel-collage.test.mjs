@@ -62,14 +62,14 @@ test("projects page renders the Figma travel collage above the Chapters heading"
   );
 
   for (const file of photoFiles) {
-    assert.match(page, new RegExp(`pages/projects/figma/${file}`));
+    assert.match(page, new RegExp(`portafolio/viajando-por-el-mundo/${file}`));
   }
 });
 
 test("projects Chapters travel-photo exports are committed locally", () => {
   for (const file of photoFiles) {
     assert.equal(
-      existsSync(new URL(`../public/pages/projects/figma/${file}`, import.meta.url)),
+      existsSync(new URL(`../public/portafolio/viajando-por-el-mundo/${file}`, import.meta.url)),
       true,
       `${file} is missing`,
     );

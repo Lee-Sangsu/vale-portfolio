@@ -54,8 +54,14 @@ export type ProjectLocale = { card: ProjectCard; page: ProjectPage };
 export type Project = {
   slug: string;
   number: string;
+  /** Page template: app (phone), instagram, ppt (slides) or visual. */
+  template: "app" | "instagram" | "ppt" | "visual";
   chapter: ChapterId;
   filters: FilterId[];
+  /** Slug of the project this one lives inside, or null for top-level projects. */
+  parent: string | null;
+  /** Slugs of the projects that live inside this one. */
+  children: string[];
   es: ProjectLocale;
   en: ProjectLocale;
 };

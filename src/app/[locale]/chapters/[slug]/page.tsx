@@ -6,18 +6,29 @@ import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { ChapterProjectRail } from "@/components/site/chapter/ChapterProjectRail";
 import { CaseSections } from "@/components/site/project/CaseSections";
+import { HeroMedia, TemplateGallery } from "@/components/site/project/ProjectTemplates";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { RotatingCover } from "@/components/site/RotatingCover";
 import { SiteNav } from "@/components/site/SiteNav";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { getChapterDetail } from "@/content";
 import {
+  FILTER_IDS,
+  FILTER_LABELS,
   getChapter,
+  getChapterCovers,
+  getChapterPhotos,
   getProjectCoverPath,
+  getTopLevelProjects,
   portfolioChapters,
 } from "@/content/portfolio";
 import { encodeAsset } from "@/content/photo-manifest";
 import type { ChapterProject, Locale } from "@/content/types";
+import { CHAPTER_FOLDERS } from "@/lib/project-photos";
 import { routing } from "@/i18n/routing";
+
+/** Chapters whose project carousel shows the discipline filter chips. */
+const FILTERED_CHAPTERS = ["nomadher", "boost-lab"];
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -60,7 +71,7 @@ export default async function ChapterPage({
   const { page } = chapter.t;
 
   // Project cards for the rail, in the shape the rail already renders.
-  const railProjects: ChapterProject[] = chapter.projects.map((project) => ({
+  const railProjects: ChapterProject[] = getTopLevelProjects(chapter.id).map((project) => ({
     title: { es: project.es.card.title, en: project.en.card.title },
     label: {
       es: project.es.card.labels[0] ?? "",
@@ -75,50 +86,43 @@ export default async function ChapterPage({
     },
     href: `/work/${project.slug}`,
     image: getProjectCoverPath(project.slug),
+    filters: project.filters,
   }));
 
-  const firstProjectImage = railProjects.find((project) => project.image)?.image;
-  const cover = encodeAsset(detail.cover ?? firstProjectImage);
-  const nomadHerHero =
-    slug === "nomadher"
-      ? {
-          base: encodeAsset("pages/chapters/nomadher-hero-base.png")!,
-          overlay: encodeAsset("pages/chapters/nomadher-hero-overlay.png")!,
-        }
-      : undefined;
+  // Filter chips for the rail: only categories that at least one project uses.
+  // Only the two chapters with many projects (NomadHer, BOOST LAB) show the filter chips; the others just list their projects.
+  const railFilters = FILTERED_CHAPTERS.includes(chapter.id)
+    ? FILTER_IDS.filter((id) =>
+        railProjects.some((project) => project.filters?.includes(id)),
+      ).map((id) => ({ id, label: FILTER_LABELS[id][locale] }))
+    : [];
+
+  // Case chapters: photos from public/portafolio/capitulos/<chapter>/{destacada,visual,presentacion,instagram}/
+  const casePhotos = {
+    celular: [],
+    instagram: page.case ? getChapterPhotos(chapter.id, "instagram") : [],
+    presentacion: page.case ? getChapterPhotos(chapter.id, "presentacion") : [],
+    visual: page.case ? getChapterPhotos(chapter.id, "visual") : [],
+  };
+  const featured = page.case ? getChapterPhotos(chapter.id, "destacada") : [];
+  const caseMedia = await HeroMedia({ template: "visual", photos: casePhotos, title: page.title });
+  const caseFolder = `public/portafolio/capitulos/${CHAPTER_FOLDERS[chapter.id]}`;
+  const caseHints = {
+    celular: "",
+    instagram: `${caseFolder}/instagram/`,
+    presentacion: `${caseFolder}/presentacion/`,
+    visual: `${caseFolder}/visual/`,
+  };
+
+  // Chapter photo: whatever is in public/portafolio/capitulos/<chapter>/portada/
+  const covers = getChapterCovers(chapter.id);
   const pageStyle = { "--chapter-accent": detail.accent } as CSSProperties;
 
   return (
     <main style={pageStyle}>
       <section className="relative isolate min-h-[680px] overflow-hidden bg-[#111] sm:min-h-[760px] lg:min-h-[900px]">
-        {nomadHerHero ? (
-          <div aria-hidden="true" className="absolute inset-0 -z-20">
-            <Image
-              src={nomadHerHero.base}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-            <Image
-              src={nomadHerHero.overlay}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        ) : cover ? (
-          <Image
-            src={cover}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="-z-20 object-cover"
-          />
+        {covers.length ? (
+          <RotatingCover srcs={covers} />
         ) : (
           <div
             aria-hidden="true"
@@ -127,10 +131,15 @@ export default async function ChapterPage({
         )}
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 -z-10 h-[76%] bg-gradient-to-b from-transparent via-[#0d0f0a]/55 to-[#0d0f0a]"
+          className="absolute inset-x-0 bottom-0 -z-10 h-[76%] bg-gradient-to-b from-transparent via-[#10110d]/55 to-[#10110d]"
         />
 
-        <SiteNav tone="light" />
+        {/* Soft shade behind the white logo and nav so they stay legible over bright photos */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[170px] bg-gradient-to-b from-black/55 to-transparent"
+        />
+        <SiteNav tone="onDark" />
 
         <div className="mx-auto flex min-h-[680px] max-w-[1710px] items-end px-5 pt-40 pb-12 sm:min-h-[760px] sm:px-8 sm:pb-16 lg:min-h-[900px] lg:px-[84px] lg:pb-[92px]">
           <div className="max-w-[940px]">
@@ -152,7 +161,7 @@ export default async function ChapterPage({
 
       <section className="bg-[var(--chapter-accent)] px-5 py-16 sm:px-8 sm:py-20 lg:px-[96px] lg:py-[110px]">
         <div className="mx-auto grid max-w-[1710px] gap-10 lg:grid-cols-[minmax(190px,0.22fr)_minmax(0,1fr)] lg:gap-[120px]">
-          <p className="font-inter text-[13px] font-medium tracking-[0.08em] text-[#e5f273] sm:text-[14px]">
+          <p className="font-inter text-[13px] font-medium tracking-[0.08em] text-[#d6ff5a] sm:text-[14px]">
             [ {page.label} ]
           </p>
           <div>
@@ -162,7 +171,7 @@ export default async function ChapterPage({
             <div className="mt-11 grid gap-8 sm:grid-cols-3 sm:gap-10 lg:mt-14 lg:gap-[90px]">
               {page.stats.map((stat) => (
                 <div key={`${stat.value}-${stat.label}`}>
-                  <p className="font-inter text-[clamp(2.1rem,3.3vw,2.75rem)] leading-none font-bold text-[#e5f273]">
+                  <p className="font-inter text-[clamp(2.1rem,3.3vw,2.75rem)] leading-none font-bold text-[#d6ff5a]">
                     {stat.value}
                   </p>
                   <p className="font-inter mt-3 max-w-[250px] text-[14px] leading-[1.45] text-[#e5e5db] sm:text-[15px]">
@@ -208,13 +217,61 @@ export default async function ChapterPage({
         </div>
       </section>
 
-      {/* Chapters without projects (Ironhack) carry their case on this page. */}
+      {/* Chapters without projects (Ironhack, Travelling University) carry their case on this page,
+          laid out like the "visual" project template: photo grid, Overview, collage. */}
       {page.case ? (
-        <CaseSections
-          data={page.case}
-          locale={locale}
-          heading={es ? "El caso" : "The case"}
-        />
+        <>
+          {featured.length || caseMedia ? (
+            <section className="bg-white px-5 pt-16 sm:px-8 sm:pt-24 lg:px-[96px] lg:pt-[110px]">
+              <div className="mx-auto flex max-w-[1710px] flex-col gap-4 sm:gap-6">
+                {featured.map((src, i) => (
+                  <div
+                    key={src}
+                    className="relative mx-auto aspect-[3/2] w-full max-w-[1040px] overflow-hidden rounded-[16px] bg-[#ecece7] shadow-[0_8px_22px_rgba(0,0,0,0.12)]"
+                  >
+                    <Image
+                      src={src}
+                      alt=""
+                      fill
+                      priority={i === 0}
+                      sizes="(min-width: 1040px) 1040px, 92vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+                {caseMedia}
+              </div>
+            </section>
+          ) : null}
+          <CaseSections
+            data={page.case}
+            locale={locale}
+            heading={es ? "El caso" : "The case"}
+          />
+          <TemplateGallery
+            template="visual"
+            photos={casePhotos}
+            locale={locale}
+            hints={caseHints}
+          />
+          {casePhotos.presentacion.length ? (
+            <TemplateGallery
+              template="ppt"
+              photos={casePhotos}
+              locale={locale}
+              hints={caseHints}
+              title={es ? "Dossier del evento" : "Event dossier"}
+            />
+          ) : null}
+          {casePhotos.instagram.length ? (
+            <TemplateGallery
+              template="instagram"
+              photos={casePhotos}
+              locale={locale}
+              hints={caseHints}
+            />
+          ) : null}
+        </>
       ) : null}
 
       {railProjects.length ? (
@@ -223,6 +280,7 @@ export default async function ChapterPage({
           locale={locale}
           accent={detail.accent}
           chapterId={chapter.id}
+          filters={railFilters}
         />
       ) : null}
 
