@@ -3,27 +3,31 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { filterProjectCards } from "@/lib/project-categories.mjs";
 import type { Locale } from "@/content/types";
-
-export type ProjectChapterProject = {
-  title: string;
-  label: string;
-  description: string;
-  href?: string;
-  image?: string;
-};
 
 export type ProjectChapterCard = {
   id: string;
   href: string;
   cover?: string;
   title: string;
-  dateRange: string;
-  location: string;
+  /** "Seúl · Global · Oct 2025 - presente" */
+  meta: string;
   description: string;
-  projects: string[];
-  chapterProjects: ProjectChapterProject[];
+  tags: string[];
+};
+
+export type ProjectGridCard = {
+  key: string;
+  href: string;
+  image?: string;
+  /** "1.1" style number, shown on image-less cards. */
+  number: string;
+  /** Chapter color, used when the project has no photo yet. */
+  accent: string;
+  /** "NomadHer · Seúl, 2026" */
+  meta: string;
+  title: string;
+  description: string;
 };
 
 export type ProjectCategory = {
@@ -34,23 +38,17 @@ export type ProjectCategory = {
 export function ProjectChapterGrid({
   cards,
   categories,
+  projectsByCategory,
   locale,
 }: {
   cards: ProjectChapterCard[];
   categories: ProjectCategory[];
+  projectsByCategory: Record<string, ProjectGridCard[]>;
   locale: Locale;
 }) {
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id ?? "chapters");
   const isChaptersTab = activeCategory === "chapters";
-  const matchingChapters = filterProjectCards(cards, activeCategory) as ProjectChapterCard[];
-  const flatProjects = isChaptersTab
-    ? []
-    : matchingChapters.flatMap((chapter) =>
-        chapter.chapterProjects.map((project, index) => ({
-          ...project,
-          key: `${chapter.id}-${index}`,
-        })),
-      );
+  const projects = projectsByCategory[activeCategory] ?? [];
 
   return (
     <div>
@@ -76,7 +74,7 @@ export function ProjectChapterGrid({
 
       {isChaptersTab ? (
         <ul className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 lg:grid-cols-2 lg:gap-8">
-          {matchingChapters.map((card) => (
+          {cards.map((card) => (
             <li key={card.id}>
               <Link
                 href={card.href}
@@ -97,18 +95,18 @@ export function ProjectChapterGrid({
                   {card.title}
                 </h3>
                 <p className="mt-4 font-inter text-[14px] font-semibold leading-snug text-[#111] sm:text-[16px]">
-                  {card.location} · {card.dateRange}
+                  {card.meta}
                 </p>
-                <p className="mt-4 font-inter text-[15px] leading-[1.5] text-[#6e726e] sm:text-[17px]">
+                <p className="mt-4 font-inter text-[15px] leading-[1.5] text-[#4a4f4a] sm:text-[17px]">
                   {card.description}
                 </p>
                 <div className="mt-auto flex flex-wrap gap-2 pt-6">
-                  {card.projects.map((project) => (
+                  {card.tags.map((tag) => (
                     <span
-                      key={project}
+                      key={tag}
                       className="rounded-full bg-[#1c211e] px-4 py-2 font-inter text-[12px] font-medium text-white sm:text-[13px]"
                     >
-                      {project}
+                      {tag}
                     </span>
                   ))}
                 </div>
@@ -118,13 +116,17 @@ export function ProjectChapterGrid({
         </ul>
       ) : (
         <ul className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {flatProjects.map((project) => {
-            const className =
-              "group flex h-full min-h-[420px] flex-col overflow-hidden rounded-[18px] border border-[#e2e2dd] bg-[#fafaf5] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7b173b]";
-            const body = (
-              <>
-                <div className="relative h-[220px] w-full overflow-hidden bg-[#c9d6cd]">
-                  {project.image && (
+          {projects.map((project) => (
+            <li key={project.key}>
+              <Link
+                href={project.href}
+                className="group flex h-full min-h-[420px] flex-col overflow-hidden rounded-[18px] border border-[#e2e2dd] bg-[#fafaf5] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7b173b]"
+              >
+                <div
+                  className="relative h-[200px] w-full overflow-hidden"
+                  style={{ backgroundColor: project.accent }}
+                >
+                  {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -132,43 +134,32 @@ export function ProjectChapterGrid({
                       sizes="(min-width: 1024px) 33vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="absolute bottom-4 left-5 font-display text-[72px] leading-none text-white/85"
+                    >
+                      {project.number}
+                    </span>
                   )}
                 </div>
                 <div className="flex flex-1 flex-col px-6 pb-7 pt-6">
                   <p className="font-inter text-[13px] font-medium tracking-[0.08em] text-[#555]">
-                    {project.label}
+                    {project.meta}
                   </p>
-                  <h3 className="mt-3 font-inter text-[24px] font-semibold leading-[1.02] text-[#1c211e]">
+                  <h3 className="mt-3 font-inter text-[24px] font-semibold leading-[1.05] text-[#1c211e]">
                     {project.title}
                   </h3>
-                  <p className="mt-4 font-inter text-[15px] leading-[1.5] text-[#6e726e]">
+                  <p className="mt-4 font-inter text-[15px] leading-[1.5] text-[#4a4f4a]">
                     {project.description}
                   </p>
-                  {project.href ? (
-                    <span className="mt-auto pt-6 font-inter text-[13px] font-semibold uppercase tracking-[0.1em] text-[#1c211e]">
-                      {locale === "es" ? "Ver proyecto ↗" : "View project ↗"}
-                    </span>
-                  ) : (
-                    <span className="mt-auto pt-6 font-inter text-[13px] font-medium text-[#6e726e]">
-                      {locale === "es" ? "Próximamente" : "Coming soon"}
-                    </span>
-                  )}
+                  <span className="mt-auto pt-6 font-inter text-[13px] font-semibold uppercase tracking-[0.1em] text-[#1c211e]">
+                    {locale === "es" ? "Ver proyecto ↗" : "View project ↗"}
+                  </span>
                 </div>
-              </>
-            );
-
-            return (
-              <li key={project.key}>
-                {project.href ? (
-                  <Link href={project.href} className={className}>
-                    {body}
-                  </Link>
-                ) : (
-                  <article className={className}>{body}</article>
-                )}
-              </li>
-            );
-          })}
+              </Link>
+            </li>
+          ))}
         </ul>
       )}
     </div>

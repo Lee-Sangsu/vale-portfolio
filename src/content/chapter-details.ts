@@ -14,7 +14,7 @@ export const chapterDetails: ChapterDetail[] = [
       "Founding Designer · October 2025 to present",
     ),
     accent: "#7b173b",
-    cover: "work/nomadher-app/03 iPhone Mockups.png",
+    cover: "portafolio/fotos-anteriores/nomadher-app/03 iPhone Mockups.png",
     impact: [
       {
         value: "21–23%",
@@ -95,7 +95,6 @@ export const chapterDetails: ChapterDetail[] = [
           "From isolated screens to one system: Travel Buddy, profile, settings and Currently Active.",
         ),
         href: "/work/nomadher-app",
-        image: "pages/chapters/nomadher-project-01.png",
       },
       {
         title: bilingual("Creator Call con JAL", "Creator Call with JAL"),
@@ -106,7 +105,6 @@ export const chapterDetails: ChapterDetail[] = [
           "Instagram, automation and the app working as a single campaign funnel.",
         ),
         href: "/work/jal-nomadher",
-        image: "pages/chapters/nomadher-project-02.png",
       },
       {
         title: bilingual("Sistema visual", "Visual system"),
@@ -116,7 +114,6 @@ export const chapterDetails: ChapterDetail[] = [
           "La identidad que conecta app, redes y campañas en un mismo lenguaje.",
           "The identity connecting the app, social media and campaigns in one language.",
         ),
-        image: "pages/chapters/nomadher-project-03.png",
       },
       {
         title: bilingual("Contenido y comunidad", "Content and community"),
@@ -126,7 +123,6 @@ export const chapterDetails: ChapterDetail[] = [
           "Carruseles, reels y automatizaciones que sostienen la conversación cada semana.",
           "Carousels, reels and automations that sustain the conversation every week.",
         ),
-        image: "pages/chapters/nomadher-project-04.png",
       },
       {
         title: bilingual("Automatización ManyChat", "ManyChat automation"),
@@ -136,7 +132,6 @@ export const chapterDetails: ChapterDetail[] = [
           "Comentarios que se vuelven conversaciones y links que llegan a cientos de aplicantes sin perder a nadie.",
           "Comments becoming conversations and links reaching hundreds of applicants without losing anyone.",
         ),
-        image: "pages/chapters/nomadher-project-05.png",
       },
       {
         title: bilingual("Análisis de contenido", "Content analysis"),
@@ -146,7 +141,6 @@ export const chapterDetails: ChapterDetail[] = [
           "Qué formatos funcionan de verdad en la comunidad, y la fórmula que se repite cuando algo despega.",
           "The formats that truly work for the community and the repeatable formula behind breakout content.",
         ),
-        image: "pages/chapters/nomadher-project-06.png",
       },
     ],
   },
@@ -160,8 +154,8 @@ export const chapterDetails: ChapterDetail[] = [
       "Liderazgo creativo · enero 2024 a presente",
       "Creative Lead · January 2024 to present",
     ),
-    accent: "#0f4f3c",
-    cover: "work/global-youth-summit/_MG_3552.png",
+    accent: "#043c9f",
+    cover: "portafolio/fotos-anteriores/global-youth-summit/_MG_3552.png",
     impact: [
       {
         value: "45+",
@@ -244,7 +238,7 @@ export const chapterDetails: ChapterDetail[] = [
           "BOOST LAB's largest event, built from scratch with a network of 45+ partners.",
         ),
         href: "/work/global-youth-summit",
-        image: "work/global-youth-summit/_MG_3552.png",
+        image: "portafolio/fotos-anteriores/global-youth-summit/_MG_3552.png",
       },
       {
         title: bilingual(
@@ -257,7 +251,7 @@ export const chapterDetails: ChapterDetail[] = [
           "Two days to turn an idea into a pitch before a jury.",
         ),
         href: "/work/sejong-hackathon",
-        image: "work/sejong-hackathon/IMG_3845.png",
+        image: "portafolio/fotos-anteriores/sejong-hackathon/IMG_3845.png",
       },
       {
         title: bilingual("Misiones Internacionales", "International Missions"),
@@ -267,7 +261,7 @@ export const chapterDetails: ChapterDetail[] = [
           "Two Latin American companies and two industry-specific routes through the Korean ecosystem.",
         ),
         href: "/work/misiones-internacionales",
-        image: "work/misiones-internacionales/IMG_9755.png",
+        image: "portafolio/fotos-anteriores/misiones-internacionales/IMG_9755.png",
       },
       {
         title: bilingual(
@@ -280,7 +274,7 @@ export const chapterDetails: ChapterDetail[] = [
           "An international stage designed to ensure women were part of the conversation.",
         ),
         href: "/work/women-entrepreneur-summit-seoul",
-        image: "work/boost-lab/women-entrepreneur-summit-seoul/Group 2864.png",
+        image: "portafolio/fotos-anteriores/boost-lab/women-entrepreneur-summit-seoul/Group 2864.png",
       },
     ],
   },
@@ -294,8 +288,8 @@ export const chapterDetails: ChapterDetail[] = [
       "Diseñadora independiente y consultora · 2025 a 2026",
       "Independent designer and consultant · 2025 to 2026",
     ),
-    accent: "#1c3d8f",
-    cover: "work/independent/brujula-etica/Poster 1.png",
+    accent: "#4373a4",
+    cover: "portafolio/fotos-anteriores/independent/brujula-etica/Poster 1.png",
     impact: [
       {
         value: "3",
@@ -309,13 +303,6 @@ export const chapterDetails: ChapterDetail[] = [
         label: bilingual(
           "piezas por edición para Brújula Ética",
           "assets per Brújula Ética edition",
-        ),
-      },
-      {
-        value: "6",
-        label: bilingual(
-          "semanas para la estrategia y sistema de Serema",
-          "weeks for Serema's strategy and system",
         ),
       },
     ],
@@ -365,7 +352,7 @@ export const chapterDetails: ChapterDetail[] = [
           "A youthful visual system for a binational university podcast.",
         ),
         href: "/work/brujula-etica",
-        image: "work/independent/brujula-etica/Poster 1.png",
+        image: "portafolio/fotos-anteriores/independent/brujula-etica/Poster 1.png",
       },
       {
         title: bilingual("Opuesto SAS", "Opuesto SAS"),
@@ -375,26 +362,7 @@ export const chapterDetails: ChapterDetail[] = [
           "From competitive analysis to identity, portfolio, website and internal tool.",
         ),
         href: "/work/opuesto-sas",
-        image: "work/independent/opuesto-sas/Group 2412.png",
-      },
-      {
-        title: bilingual("Serema Hotel", "Serema Hotel"),
-        label: bilingual("Estrategia de marca", "Brand strategy"),
-        description: bilingual(
-          "Una narrativa y sistema comercial para un hotel que evoluciona mientras opera.",
-          "A narrative and commercial system for a hotel evolving while it operates.",
-        ),
-      },
-      {
-        title: bilingual("Santa Juliana", "Santa Juliana"),
-        label: bilingual(
-          "Diseño editorial y digital",
-          "Editorial and digital design",
-        ),
-        description: bilingual(
-          "Del material disperso a un portafolio comercial listo para presentar.",
-          "From scattered material to a presentation-ready commercial portfolio.",
-        ),
+        image: "portafolio/fotos-anteriores/independent/opuesto-sas/Group 2412.png",
       },
     ],
   },
@@ -408,8 +376,8 @@ export const chapterDetails: ChapterDetail[] = [
       "Co-fundadora y líder de equipo · 2021 a septiembre 2024",
       "Co-founder and team lead · 2021 to September 2024",
     ),
-    accent: "#5f3a74",
-    cover: "work/n9ne/nobled-coffee/IMG_3839.png",
+    accent: "#10110d",
+    cover: "portafolio/fotos-anteriores/n9ne/nobled-coffee/IMG_3839.png",
     impact: [
       {
         value: { en: "59,000€", es: "59.000€" },
@@ -475,7 +443,7 @@ export const chapterDetails: ChapterDetail[] = [
           "A Colombian coffee brand and subscription model for Berlin.",
         ),
         href: "/work/nobled-coffee",
-        image: "work/n9ne/nobled-coffee/IMG_3839.png",
+        image: "portafolio/fotos-anteriores/n9ne/nobled-coffee/IMG_3839.png",
       },
       {
         title: bilingual("Eat’s Real", "Eat’s Real"),
@@ -505,7 +473,7 @@ export const chapterDetails: ChapterDetail[] = [
       "Program Manager Assistant · Berlín · marzo a septiembre 2023",
       "Program Manager Assistant · Berlin · March to September 2023",
     ),
-    accent: "#f5263a",
+    accent: "#7b173b",
     impact: [
       {
         value: "30+",
@@ -596,9 +564,9 @@ export const chapterDetails: ChapterDetail[] = [
       "Estrategia de marketing y talent scouting · febrero a septiembre 2025",
       "Marketing strategy and talent scouting · February to September 2025",
     ),
-    accent: "#124aa8",
+    accent: "#4373a4",
     cover:
-      "work/travelling-university/mentes-sin-fronteras/2. Overview + Vision.png",
+      "portafolio/fotos-anteriores/travelling-university/mentes-sin-fronteras/2. Overview + Vision.png",
     impact: [
       {
         value: "200",
@@ -662,7 +630,7 @@ export const chapterDetails: ChapterDetail[] = [
         ),
         href: "/work/mentes-sin-fronteras",
         image:
-          "work/travelling-university/mentes-sin-fronteras/2. Overview + Vision.png",
+          "portafolio/fotos-anteriores/travelling-university/mentes-sin-fronteras/2. Overview + Vision.png",
       },
       {
         title: bilingual(

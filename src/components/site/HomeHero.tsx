@@ -5,7 +5,7 @@ import { SiteNav } from "./SiteNav";
 import { WindowCard } from "./WindowCard";
 import { FolderSticker } from "./FolderSticker";
 
-const MAIN = "pages/home/content";
+const MAIN = "inicio/hero";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const es = locale === "es";
@@ -13,8 +13,10 @@ export function HomeHero({ locale }: { locale: Locale }) {
     ? "Diseño marcas, productos y eventos que salen del papel. Aquí vas a encontrar branding, eventos, campañas y producto digital, llevados de la mano de la creatividad y el trabajo en equipo."
     : "I design brands, products and events that make it off the page. Here you'll find branding, events, campaigns and digital products, driven by creativity and teamwork.";
 
-  const contactHref = `/${locale}/contact`;
-  const projectsHref = `/${locale}/projects`;
+  const mailHref = "mailto:valejimenezc2003@gmail.com";
+  const cvHref = es ? "/inicio/documentos/cv-es.pdf" : "/inicio/documentos/cv-en.pdf";
+  const calendlyHref = "https://calendly.com/valejimenezc2003/30min";
+  const servicesHref = "/inicio/documentos/servicios-creativos.pdf";
 
   // Four floating folder stickers frame the portrait (desktop only), matching
   // the Figma hero (nodes 227:1157/1161/1165/1178): CV + Creative Services on
@@ -24,43 +26,46 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const folders = [
     {
       // pink folder (Folder 1-3 = #FFB1DB) — upper left
-      src: encodeAsset(`${MAIN}/files/Folder 1-3.svg`)!,
+      src: encodeAsset(`${MAIN}/carpetas/Folder 1-3.svg`)!,
       label: "CV",
       color: "#ffb1db",
       textColor: "#000",
       pos: "left-[15%] top-[19%]",
       rotate: -7,
-      href: projectsHref,
+      href: cvHref,
+      external: true,
     },
     {
       // dark blue folder (Folder 1 = #043C9F) — left middle
-      src: encodeAsset(`${MAIN}/files/Folder 1.svg`)!,
+      src: encodeAsset(`${MAIN}/carpetas/Folder 1.svg`)!,
       label: es ? "Servicios creativos" : "Creative Services",
       color: "#043c9f",
       textColor: "#fff",
       pos: "left-[18%] top-[47%]",
       rotate: 5,
-      href: projectsHref,
+      href: servicesHref,
+      external: true,
     },
     {
       // lime folder (Figma node 507:133) — upper right
-      src: "/pages/home/figma/folder-collab-lime.svg",
+      src: "/inicio/hero/folder-collab-lime.svg",
       label: es ? "Colaboremos" : "Let's Collab",
       color: "#c9f24d",
       textColor: "#000",
       pos: "left-[72%] top-[17%]",
       rotate: 4,
-      href: contactHref,
+      href: mailHref,
     },
     {
       // wine folder (Folder 1-2 = #7B173B) — lower right
-      src: encodeAsset(`${MAIN}/files/Folder 1-2.svg`)!,
+      src: encodeAsset(`${MAIN}/carpetas/Folder 1-2.svg`)!,
       label: es ? "Consultoría" : "Strategic Consult",
       color: "#7b173b",
       textColor: "#fff",
       pos: "left-[73%] top-[49%]",
       rotate: -5,
-      href: contactHref,
+      href: calendlyHref,
+      external: true,
     },
   ];
 
@@ -70,7 +75,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
           The wide 1710×952 source covers the hero vertically, so the bright sky
           stays up top and the flowers sit along the bottom edge as in the design. */}
       <Image
-        src="/pages/home/figma/sky.jpg"
+        src="/inicio/hero/sky.jpg"
         alt=""
         fill
         priority
@@ -78,12 +83,14 @@ export function HomeHero({ locale }: { locale: Locale }) {
         className="object-cover object-bottom"
       />
       {/* Top gradient for nav legibility */}
-      <div className="absolute inset-x-0 top-0 z-20 h-[160px] bg-gradient-to-b from-white/70 to-transparent" />
+      <div className="absolute inset-x-0 top-0 z-20 pointer-events-none h-[160px] bg-gradient-to-b from-white/70 to-transparent" />
 
       <SiteNav tone="light" />
 
       {/* Floating folders (desktop) — inset to the ~350px content margin via a centered stage */}
-      <div className="absolute inset-0 z-10 hidden md:block">
+      {/* Sits above the center stack so the folders receive clicks; the layer itself
+          ignores the pointer so the portrait/bio underneath stay interactive. */}
+      <div className="pointer-events-none absolute inset-0 z-[15] hidden md:block">
         <div className="relative mx-auto h-full max-w-[1280px]">
           {folders.map((f, i) => (
             <div key={i} className={`absolute ${f.pos}`}>
@@ -94,6 +101,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 textColor={f.textColor}
                 rotate={f.rotate}
                 href={f.href}
+                external={f.external}
               />
             </div>
           ))}
@@ -147,9 +155,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </div>
 
         {/* Mobile CTA — the floating folders are desktop-only, so phones get a
-            plain button to the contact page. */}
+            plain button to email. */}
         <a
-          href={contactHref}
+          href={mailHref}
           className="font-inter mt-8 inline-flex items-center gap-2 rounded-full bg-[#043c9f] px-7 py-3 text-[14px] font-semibold text-white shadow-[0_8px_20px_rgba(4,60,159,0.35)] transition-transform hover:-translate-y-0.5 md:hidden"
         >
           {es ? "Colaboremos" : "Let's Collab"} <span aria-hidden>→</span>

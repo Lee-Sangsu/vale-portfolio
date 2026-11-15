@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { encodeAsset } from "@/content/photo-manifest";
 import type { ChapterId, ChapterProject, Locale } from "@/content/types";
@@ -11,6 +11,8 @@ type ChapterProjectRailProps = {
   locale: Locale;
   accent: string;
   chapterId: ChapterId;
+  /** Filter chips (id + label). When given, each project's `filters` decides where it shows. */
+  filters?: { id: string; label: string }[];
 };
 
 export function ChapterProjectRail({
@@ -18,9 +20,20 @@ export function ChapterProjectRail({
   locale,
   accent,
   chapterId,
+  filters = [],
 }: ChapterProjectRailProps) {
   const railRef = useRef<HTMLDivElement>(null);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const visibleProjects =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((project) => project.filters?.includes(activeFilter));
   const isNomadHer = chapterId === "nomadher";
+
+  const selectFilter = (id: string) => {
+    setActiveFilter(id);
+    railRef.current?.scrollTo({ left: 0, behavior: "smooth" });
+  };
 
   const scrollBy = (direction: -1 | 1) => {
     const rail = railRef.current;
@@ -42,8 +55,8 @@ export function ChapterProjectRail({
             </p>
             <h2 className="mt-3 font-inter text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.03] text-black">
               {locale === "es"
-                ? "Lo que salió de este capítulo"
-                : "What came out of this chapter"}
+                ? "Lo que más me gustó de este capítulo"
+                : "What I liked most about this chapter"}
             </h2>
           </div>
 
@@ -66,19 +79,44 @@ export function ChapterProjectRail({
             </button>
           </div>
         </div>
+        {filters.length > 1 ? (
+          <div
+            role="group"
+            aria-label={locale === "es" ? "Filtrar proyectos" : "Filter projects"}
+            className="mt-7 flex flex-wrap gap-2"
+          >
+            {[{ id: "all", label: locale === "es" ? "Todos" : "All" }, ...filters].map(
+              (filter) => (
+                <button
+                  key={filter.id}
+                  type="button"
+                  aria-pressed={activeFilter === filter.id}
+                  onClick={() => selectFilter(filter.id)}
+                  className={`rounded-full border px-4 py-2 font-inter text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111] ${
+                    activeFilter === filter.id
+                      ? "border-[#111] bg-[#111] text-white"
+                      : "border-[#d1d1cc] bg-white text-[#474d47] hover:border-[#474d47]"
+                  }`}
+                >
+                  {filter.label}
+                </button>
+              ),
+            )}
+          </div>
+        ) : null}
       </div>
 
       <div
         ref={railRef}
         className="mt-9 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:mt-11 sm:gap-6 sm:px-8 lg:px-[96px] [&::-webkit-scrollbar]:hidden"
       >
-        {projects.map((project, index) => {
+        {visibleProjects.map((project, index) => {
           const image = encodeAsset(project.image);
           const nomadHerCard = (
             <>
               <div
                 className="flex min-h-[244px] flex-col gap-4 px-[22px] pb-6 pt-[22px]"
-                style={{ backgroundColor: index === 0 ? "#d9f25a" : "#ecece7" }}
+                style={{ backgroundColor: index === 0 ? "#d6ff5a" : "#ecece7" }}
               >
                 <div className="flex flex-wrap gap-2">
                   <span className="rounded-full border border-transparent bg-white px-[14px] py-[7px] font-inter text-[13px] font-medium leading-none text-[#212621]">
@@ -97,8 +135,8 @@ export function ChapterProjectRail({
                   {project.description[locale]}
                 </p>
               </div>
-              <div className="relative min-h-[296px] flex-1 px-3 pb-3 pt-0">
-                <div className="relative size-full overflow-hidden rounded-[12px]">
+              <div className="relative px-3 pb-3 pt-0">
+                <div className="relative h-[296px] w-full overflow-hidden rounded-[12px]">
                   {image ? (
                     <Image
                       src={image}
@@ -122,7 +160,7 @@ export function ChapterProjectRail({
           );
           const card = (
             <>
-              <div className="relative h-[58%] min-h-[280px] overflow-hidden">
+              <div className="relative h-[300px] shrink-0 overflow-hidden">
                 {image ? (
                   <Image
                     src={image}

@@ -33,7 +33,7 @@ export type ProjectManifest = {
   decks?: DeckEntry[];
 };
 
-const WORK_ASSETS = "work";
+const WORK_ASSETS = "portafolio/fotos-anteriores";
 
 // ── HEROES ────────────────────────────────────────────────────────────
 export const HERO_MANIFEST: Record<string, ProjectManifest> = {

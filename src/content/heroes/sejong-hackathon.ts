@@ -10,7 +10,7 @@ export const sejongHackathon: Hero = {
     es: "12–13 dic 2025",
   },
   location: "Seoul",
-  accent: "#1c3d8f",
+  accent: "#4373a4",
   title: {
     en: "Sejong Global Idea Hackathon",
     es: "Sejong Global Idea Hackathon",

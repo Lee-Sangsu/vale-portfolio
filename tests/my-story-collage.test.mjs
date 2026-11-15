@@ -22,13 +22,17 @@ const figmaPhotoFiles = [
 test("My Story renders the responsive Figma collage with local image exports", () => {
   assert.match(component, /id="story"/);
   assert.match(component, /const es = locale === "es"/);
-  assert.match(component, /lg:aspect-\[1710\/1060\]/);
+  // Taller than the Figma frame (1060) to leave room between the text and photos.
+  assert.match(component, /lg:aspect-\[1710\/1260\]/);
+  assert.doesNotMatch(component, /lg:aspect-\[1710\/1060\]/);
   // Full-bleed so the edge photos stay attached to the viewport sides.
   assert.doesNotMatch(component, /max-w-\[1710px\]/);
   assert.match(
     component,
-    /<div className="pointer-events-none absolute left-\[46\.61%\] top-\[5\.58%\] z-10 size-\[116px\]">/,
+    /<div className="pointer-events-none absolute left-\[46\.61%\] top-\[4\.7%\] z-10 size-\[116px\]">/,
   );
+  assert.match(component, /absolute left-1\/2 top-\[15\.25%\] z-10/);
+  assert.match(component, /absolute left-1\/2 top-\[20\.45%\] z-10/);
   assert.match(component, /overflow-hidden/);
   assert.doesNotMatch(component, /relative overflow-hidden \$\{className\}/);
   assert.match(component, /<div className=\{`overflow-hidden \$\{className\}`\}>/);
@@ -36,14 +40,14 @@ test("My Story renders the responsive Figma collage with local image exports", (
   assert.doesNotMatch(component, /lg:grid-cols-4/);
 
   for (const file of figmaPhotoFiles) {
-    assert.match(component, new RegExp(`/pages/about/figma/${file}`));
+    assert.match(component, new RegExp(`/sobre-mi/figma/${file}`));
   }
 });
 
 test("My Story Figma exports are committed locally", () => {
   for (const file of [...figmaPhotoFiles, "story-collage-doodle.svg"]) {
     assert.equal(
-      existsSync(new URL(`../public/pages/about/figma/${file}`, import.meta.url)),
+      existsSync(new URL(`../public/sobre-mi/figma/${file}`, import.meta.url)),
       true,
       `${file} is missing`,
     );

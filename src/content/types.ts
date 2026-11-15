@@ -103,6 +103,8 @@ export type ChapterProject = {
   description: LocalizedString;
   href?: `/work/${string}`;
   image?: string;
+  /** Filter ids (design, ux-ui, ...) used by the chapter rail's filter chips. */
+  filters?: string[];
 };
 
 export type ChapterDetail = {

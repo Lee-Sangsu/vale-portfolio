@@ -68,13 +68,13 @@ test("FavoriteProjects renders the Figma labels after the Designing for section"
   );
 });
 
-test("FavoriteProjects links the complete localized Global Youth title only", () => {
+test("FavoriteProjects links all five project names to their work pages", () => {
   const component = readFileSync(componentPath, "utf8");
 
   assert.match(
     component,
     /import\s+\{\s*Link\s*\}\s+from\s+["']@\/i18n\/navigation["'];/,
-    "the project link must use locale-aware navigation",
+    "the project links must use locale-aware navigation",
   );
   assert.equal(
     (component.match(/\/work\/global-youth-summit/g) ?? []).length,
@@ -90,8 +90,16 @@ test("FavoriteProjects links the complete localized Global Youth title only", ()
     assert.ok(component.includes(line), `missing localized link line: ${line}`);
   }
 
+  // All links share one class constant instead of inline class names.
+  const linkClass = component.match(/const LINK_CLASS =\s*"([^"]+)"/);
+  assert.ok(linkClass, "expected a shared LINK_CLASS constant");
+  assert.match(linkClass[1], /hover:underline/);
+  assert.match(linkClass[1], /hover:opacity-/);
+  assert.match(linkClass[1], /focus-visible:ring-/);
+  assert.match(linkClass[1], /focus-visible:outline-none/);
+
   const globalYouthLink = component.match(
-    /<Link\s+href="\/work\/global-youth-summit"([\s\S]*?)<\/Link>/,
+    /<Link\s+href="\/work\/global-youth-summit"\s+className=\{LINK_CLASS\}\s*>([\s\S]*?)<\/Link>/,
   );
   assert.ok(globalYouthLink, "expected one link for the complete Global Youth title");
   assert.equal(
@@ -101,23 +109,35 @@ test("FavoriteProjects links the complete localized Global Youth title only", ()
   );
   assert.match(globalYouthLink[0], /\{globalYouth\.firstLine\}/);
   assert.match(globalYouthLink[0], /\{globalYouth\.secondLine\}/);
-  assert.match(globalYouthLink[1], /hover:underline/);
-  assert.match(globalYouthLink[1], /hover:opacity-/);
-  assert.match(globalYouthLink[1], /focus-visible:ring-/);
-  assert.match(globalYouthLink[1], /focus-visible:outline-none/);
 
-  assert.equal(
-    (component.match(/\bhref=/g) ?? []).length,
-    1,
-    "no other favorite project may become a link",
-  );
-
-  const staticProjects = component.match(
+  // The other four projects are links built from PROJECTS, each to /work/<slug>.
+  const projectLinks = component.match(
     /\{PROJECTS\[locale\]\.map\(\(project\) => \(([\s\S]*?)\)\)\}/,
   );
-  assert.ok(staticProjects, "expected the remaining projects to stay in the list");
-  assert.match(staticProjects[1], /^\s*<p\b/);
-  assert.doesNotMatch(staticProjects[1], /<Link\b|href=/);
+  assert.ok(projectLinks, "expected the remaining projects to be mapped");
+  assert.match(projectLinks[1], /^\s*<Link\b/);
+  assert.match(projectLinks[1], /href=\{`\/work\/\$\{project\.slug\}`\}/);
+  assert.match(projectLinks[1], /className=\{LINK_CLASS\}/);
+  assert.doesNotMatch(projectLinks[1], /<p\b/);
+
+  for (const slug of [
+    "misiones-internacionales",
+    "sejong-hackathon",
+    "jal-nomadher",
+    "nomadher-app",
+  ]) {
+    assert.equal(
+      (component.match(new RegExp(`slug: "${slug}"`, "g")) ?? []).length,
+      2,
+      `${slug} must be declared once per locale`,
+    );
+  }
+
+  assert.equal(
+    (component.match(/\bclassName=\{LINK_CLASS\}/g) ?? []).length,
+    2,
+    "exactly two link elements (Global Youth + the mapped projects) share LINK_CLASS",
+  );
 
   for (const label of [
     "Misiones Internacionales",

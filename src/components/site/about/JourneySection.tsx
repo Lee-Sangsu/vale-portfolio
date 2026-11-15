@@ -29,7 +29,7 @@ const JOURNEY: JourneyItem[] = [
   },
   {
     role: { en: "Branding & strategy", es: "Branding y estrategia" },
-    company: { en: "Diseño independiente", es: "Diseño independiente" },
+    company: { en: "Creative design", es: "Diseño creativo" },
     date: { en: "2025 - 2026", es: "2025 - 2026" },
     href: "/chapters/independent",
   },
@@ -61,7 +61,7 @@ const JOURNEY: JourneyItem[] = [
 
 export function JourneySection({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-white px-6 py-20 sm:px-12 sm:py-24 xl:h-[900px] xl:px-16 xl:py-0">
+    <section className="bg-white px-6 pt-20 pb-28 sm:px-12 sm:pt-24 sm:pb-36 xl:h-[1040px] xl:px-16 xl:py-0">
       <div className="relative mx-auto max-w-[1076px] xl:h-full">
         <div className="xl:absolute xl:top-[146px] xl:left-0 xl:w-[642px]">
           <h2 className="font-inter text-ink2 text-[38px] leading-[normal] font-bold sm:text-[48px] xl:text-[64px] xl:whitespace-nowrap">
@@ -104,7 +104,7 @@ export function JourneySection({ locale }: { locale: Locale }) {
 
         <div className="relative mx-auto mt-14 aspect-[372/493] w-full max-w-[372px] overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] xl:absolute xl:top-[240px] xl:right-0 xl:mt-0 xl:aspect-auto xl:h-[493px] xl:w-[372px] 2xl:right-[-158px]">
           <Image
-            src="/pages/about/figma/journey-portrait.jpg"
+            src="/sobre-mi/figma/journey-portrait.jpg"
             alt="Valeria Jiménez traveling"
             fill
             sizes="(min-width: 1024px) 372px, 100vw"

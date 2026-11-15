@@ -1,30 +1,114 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { heroes, getHero, chapters } from "@/content";
-import { mentions } from "@/content/mentions";
-import { HERO_MANIFEST, encodeAsset } from "@/content/photo-manifest";
-import { MentionDetail } from "@/components/MentionDetail";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { WorkTogether } from "@/components/site/WorkTogether";
-import { AppSwatchRow } from "@/components/site/AppSwatchRow";
-import { ProjectRosette } from "@/components/site/project/ProjectRosette";
-import { VisualDiary } from "@/components/site/project/VisualDiary";
-import { getProjectTemplate } from "@/lib/project-template.mjs";
-import type { Hero, Locale } from "@/content/types";
-import type { Metadata } from "next";
+import { CaseSections } from "@/components/site/project/CaseSections";
+import { ProjectExtras } from "@/components/site/project/ProjectExtras";
+import {
+  HeroMedia,
+  TemplateGallery,
+  type TemplatePhotos,
+} from "@/components/site/project/ProjectTemplates";
+import {
+  allProjects,
+  getChapter,
+  getProject,
+  getProjectCover,
+  getProjectDiary,
+  getProjectInstagramPosts,
+  getProjectPhotos,
+  getTopLevelProjects,
+} from "@/content/portfolio";
+import { CHAPTER_FOLDERS } from "@/lib/project-photos";
+import type { Locale } from "@/content/types";
+
+/** Own heading for a project's deck ("ppt") or poster ("afiches") section. */
+const SECTION_TITLES: Record<string, Partial<Record<"ppt" | "afiches" | "visual" | "portafolio", Record<Locale, string>>>> = {
+  "nobled-coffee": { ppt: { es: "Brandbook", en: "Brandbook" } },
+  "teampreneurship-cooperative": { ppt: { es: "Guía de marca", en: "Brand guide" } },
+  "opuesto-sas": {
+    ppt: { es: "Brandbook", en: "Brandbook" },
+  },
+  "eats-real": { afiches: { es: "Campaña", en: "Campaign" } },
+  "nomadher-app": {
+    afiches: { es: "App Store", en: "App Store" },
+    portafolio: { es: "Onboarding y guía de comunidad", en: "Onboarding and community guide" },
+  },
+  "bloggers-program": { afiches: { es: "Emails del programa", en: "Program emails" } },
+  "instagram-content": {
+    portafolio: { es: "Sistema de stories", en: "Story system" },
+    afiches: { es: "Newsletter y emails", en: "Newsletter and emails" },
+  },
+  "misiones-internacionales": { ppt: { es: "La propuesta de la misión", en: "The mission proposal" } },
+  "seoul-women-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
+  "global-youth-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
+  "seoul-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
+  "ruta-8": { afiches: { es: "Póster de convocatoria", en: "Call poster" } },
+  "business-decks": { portafolio: { es: "Booth deck del festival", en: "Festival booth deck" } },
+  "city-lounge": { portafolio: { es: "Propuestas y flujos", en: "Proposals and flows" } },
+  "travel-buddy-meetups": { portafolio: { es: "Flujos y versiones", en: "Flows and versions" } },
+  "levels-badges-perks": { portafolio: { es: "Niveles, badges y perks", en: "Levels, badges and perks" } },
+  "brujula-etica": { afiches: { es: "Pósters e historias", en: "Posters and stories" } },
+  "hola-guesthouse-jeju": {
+    ppt: { es: "Brand guidelines", en: "Brand guidelines" },
+    afiches: { es: "Folleto", en: "Brochure" },
+  },
+};
+
+/**
+ * Pieces for the Instagram ring in the hero. With a second edition (all pieces vertical, 4:5) the ring shows only
+ * those, so every tile has the same size: the first piece of each post, then the second of each post up to 7.
+ */
+function heroPieces(slug: string): string[] {
+  const second = getProjectInstagramPosts(slug, 2);
+  if (!second.length) return getProjectInstagramPosts(slug).flat();
+  const firsts = second.map((group) => group[0]);
+  const seconds = second.filter((group) => group.length > 1).map((group) => group[1]);
+  return [...firsts, ...seconds].slice(0, 7);
+}
+
+/** With several editions every edition shows all its posts as one carousel, one piece after another. */
+function oneCarouselPerEdition(posts: string[][], slug: string): string[][] {
+  return getProjectInstagramPosts(slug, 2).length ? [posts.flat()] : posts;
+}
+
+/** Projects whose children are sections of their own page instead of cards linking to another page. */
+const INLINE_CHILDREN = new Set(["boost-lab-workshops"]);
+
+/** Instagram account shown on the posts of each chapter; other projects show their own title. */
+const INSTAGRAM_ACCOUNTS: Record<string, string> = {
+  nomadher: "nomad_her",
+  "boost-lab": "boostlab",
+};
+
+/** Keywords of each moodboard proposal, shown under it. */
+const MOODBOARD_LABELS: Record<string, Record<Locale, string[]>> = {
+  "brujula-etica": {
+    es: ["Juventud, proyección, pertenencia", "Impacto, determinación, acción", "Creatividad, flexibilidad, crecimiento"],
+    en: ["Youth, projection, belonging", "Impact, determination, action", "Creativity, flexibility, growth"],
+  },
+};
+
+/** Order of a project's extra galleries when it differs from the default one (earlier = higher on the page). */
+const EXTRA_ORDER: Record<string, string[]> = {
+  "opuesto-sas": ["web", "ppt", "portafolio"],
+};
+function extraRank(slug: string, template: string) {
+  const order = EXTRA_ORDER[slug];
+  const i = order ? order.indexOf(template) : -1;
+  return i === -1 ? 100 : i; // the rest keeps its order (sort is stable)
+}
 
 export function generateStaticParams() {
-  const heroParams = routing.locales.flatMap((locale) =>
-    heroes.map((h) => ({ locale, slug: h.slug })),
+  return routing.locales.flatMap((locale) =>
+    allProjects.map((project) => ({ locale, slug: project.slug })),
   );
-  const mentionParams = routing.locales.flatMap((locale) =>
-    mentions.map((m) => ({ locale, slug: m.id })),
-  );
-  return [...heroParams, ...mentionParams];
 }
 
 export async function generateMetadata({
@@ -33,21 +117,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const hero = getHero(slug);
-  if (hero) {
-    return {
-      title: hero.title[locale as Locale],
-      description: hero.tagline[locale as Locale],
-    };
-  }
-  const mention = mentions.find((m) => m.id === slug);
-  if (mention) {
-    return {
-      title: mention.title,
-      description: mention.tagline[locale as Locale],
-    };
-  }
-  return {};
+  if (!hasLocale(routing.locales, locale)) return {};
+  const project = getProject(slug, locale as Locale);
+  if (!project) return {};
+  return {
+    title: project.t.page.title,
+    description: project.t.card.description,
+  };
 }
 
 export default async function WorkPage({
@@ -61,399 +137,363 @@ export default async function WorkPage({
   const locale = rawLocale as Locale;
   const es = locale === "es";
 
-  // (A) Hero (fav project) — redesigned project detail
-  const hero = getHero(slug);
-  if (hero) {
-    return <HeroProjectPage hero={hero} locale={locale} es={es} />;
-  }
+  const project = getProject(slug, locale);
+  if (!project) notFound();
 
-  // (B) Mention (secondary project) — reuse existing MentionDetail
-  const mention = mentions.find((m) => m.id === slug);
-  if (mention) {
-    return (
-      <>
-        <section className="relative">
-          <SiteNav tone="dark" />
-        </section>
-        <main>
-          <MentionDetail mention={mention} locale={locale} />
-        </main>
-        <WorkTogether variant="detail" />
-        <SiteFooter />
-      </>
-    );
-  }
+  const chapter = getChapter(project.chapter, locale)!;
+  const { page, card } = project.t;
+  const cover = getProjectCover(project.slug);
 
-  notFound();
-}
-
-/* ------------------------------------------------------------------ */
-/* Hero project detail                                                 */
-/* ------------------------------------------------------------------ */
-
-function HeroProjectPage({
-  hero,
-  locale,
-  es,
-}: {
-  hero: Hero;
-  locale: Locale;
-  es: boolean;
-}) {
-  const manifest = HERO_MANIFEST[hero.slug] ?? {};
-  const cover = encodeAsset(manifest.cover);
-  const template = getProjectTemplate(hero.slug);
-
-  // Project manifests can contain a single cover only. Repeat that cover as a
-  // visual fallback so every Figma composition keeps its media rhythm.
-  const discoveredPhotos = [
-    ...(manifest.mosaic ?? []),
-    ...(manifest.mainCarousel ?? []),
-    ...(hero.gallery ?? []),
-  ]
-    .map((p) => encodeAsset(p)!)
-    .filter(Boolean);
-  const diaryPhotos = discoveredPhotos.length
-    ? discoveredPhotos
-    : cover
-      ? Array.from({ length: 7 }, () => cover)
-      : [];
-
-  // Tags / labels.
-  const t = {
-    diary: es ? "Diario visual" : "Visual Diary",
-    diarySub: es
-      ? "Esta sección reúne fotografía y video originales que capturé, creados sobre todo para contenido de viaje propio y, de vez en cuando, para clientes."
-      : "This section features original photography and video captured by me, created primarily for personal travel content alongside occasional client work.",
-    overview: es ? "Resumen" : "Overview",
-    client: es ? "Cliente" : "Client",
-    role: es ? "Rol" : "Role",
-    projectType: es ? "Tipo de proyecto" : "Project Type",
-    challenge: es ? "Reto" : "Challenge",
-    approach: es ? "Enfoque" : "Approach",
-    result: es ? "Resultado" : "Result",
-    visualA: es ? "Identidad" : "Visual",
-    visualB: es ? "visual" : "Identity",
-    coreBenefits: es ? "BENEFICIOS CLAVE" : "CORE BENEFITS",
+  // Photos dropped in the project's folders feed the template (app / instagram / ppt / visual).
+  const photos: TemplatePhotos = {
+    portada: cover,
+    celular: getProjectPhotos(project.slug, "celular"),
+    // All Instagram pieces of the project, flat (the ring in the hero uses them); posts keep their own groups below.
+    instagram: heroPieces(project.slug),
+    presentacion: getProjectPhotos(project.slug, "presentacion"),
+    visual: getProjectPhotos(project.slug, "visual"),
+    afiches: getProjectPhotos(project.slug, "afiches"),
+    web: getProjectPhotos(project.slug, "web"),
+    grilla: getProjectPhotos(project.slug, "grilla"),
+    moodboard: getProjectPhotos(project.slug, "moodboard"),
+    portafolio: getProjectPhotos(project.slug, "portafolio"),
+    webScreens: getProjectPhotos(project.slug, "web/pantalla"),
+    instagramPosts: oneCarouselPerEdition(getProjectInstagramPosts(project.slug), project.slug),
+    diario: getProjectDiary(project.slug),
   };
+  // A second edition (edicion-2/ folder) gets its own block after the first one.
+  const secondPosts = getProjectInstagramPosts(project.slug, 2);
+  const secondEdition: TemplatePhotos | null = secondPosts.length || getProjectPhotos(project.slug, "afiches", 2).length
+    ? {
+        portada: cover,
+        celular: [],
+        instagram: secondPosts.flat(),
+        presentacion: [],
+        visual: [],
+        afiches: getProjectPhotos(project.slug, "afiches", 2),
+        grilla: getProjectPhotos(project.slug, "grilla", 2),
+        // Many posts: one carousel with all the pieces, one after another.
+        instagramPosts: [secondPosts.flat()],
+      }
+    : null;
+  const account = INSTAGRAM_ACCOUNTS[project.chapter] ?? page.title;
+  const folder = `public/portafolio/capitulos/${CHAPTER_FOLDERS[project.chapter]}/proyectos/${project.slug}`;
+  const hints = {
+    celular: `${folder}/celular/`,
+    instagram: `${folder}/instagram/`,
+    presentacion: `${folder}/presentacion/`,
+    visual: `${folder}/visual/`,
+  };
+  const media = await HeroMedia({ template: project.template, photos, title: page.title });
+  // Instagram and the visual collage open with a centered title and description above the pictures.
+  const centered = (project.template === "instagram" || project.template === "visual") && Boolean(media);
+  const slidesLeft = (project.template === "ppt" || project.template === "app") && Boolean(media);
 
-  // ── Overview meta + cards ─────────────────────────────────────────
-  const chapter = chapters.find((c) => c.id === hero.chapter);
-  const projectType = chapter ? chapter.title[locale] : hero.brand;
+  const parent = project.parent ? getProject(project.parent, locale) : undefined;
+  const children = project.children
+    .map((childSlug) => getProject(childSlug, locale))
+    .filter((child): child is NonNullable<typeof child> => Boolean(child));
 
-  const sections = hero.sections ?? [];
-  const challengeBody = hero.context[locale];
-  const approachBody =
-    sections[0]?.body?.[locale] ??
-    sections[0]?.bullets?.[locale]?.join(". ") ??
-    hero.tagline[locale];
-  const resultBody =
-    hero.status?.[locale] ??
-    sections[sections.length - 1]?.body?.[locale] ??
-    sections[sections.length - 1]?.bullets?.[locale]?.join(". ") ??
-    hero.tagline[locale];
-
-  const cards = [
-    { n: "01", title: t.challenge, body: challengeBody },
-    { n: "02", title: t.approach, body: approachBody },
-    { n: "03", title: t.result, body: resultBody },
-  ];
-
-  // ── Visual Identity benefits ──────────────────────────────────────
-  const benefits =
-    hero.results && hero.results.length
-      ? hero.results.slice(0, 3).map((r) => ({
-          label:
-            typeof r.value === "string" ? r.value : r.value[locale],
-          body: r.label[locale],
-        }))
-      : sections.slice(0, 3).map((s) => ({
-          label: s.title[locale],
-          body:
-            s.body?.[locale] ??
-            s.bullets?.[locale]?.[0] ??
-            "",
-        }));
+  // Previous/next stay inside the same group: siblings of a child, or the chapter's top-level projects.
+  const siblings = parent
+    ? parent.children
+        .map((childSlug) => allProjects.find((p) => p.slug === childSlug))
+        .filter((p): p is NonNullable<typeof p> => Boolean(p))
+    : getTopLevelProjects(project.chapter);
+  const index = siblings.findIndex((p) => p.slug === project.slug);
+  const prev = index > 0 ? siblings[index - 1] : undefined;
+  const next = index < siblings.length - 1 ? siblings[index + 1] : undefined;
 
   return (
     <main>
-      <ProjectHero
-        template={template}
-        title={hero.title[locale]}
-        description={hero.context[locale]}
-        tagline={hero.tagline[locale]}
-        cover={cover}
-        photos={diaryPhotos}
-        locale={locale}
-      />
-
-      {/* ── Overview ── */}
-      <section className="bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
-          <h2 className="font-inter text-[32px] font-bold leading-tight text-ink2 sm:text-[40px]">
-            {t.overview}
-          </h2>
-
-          {/* Meta row */}
-          <div className="mt-8 grid grid-cols-1 gap-6 border-t border-[#e2e2dc] pt-8 sm:grid-cols-3">
-            {[
-              { label: t.client, value: hero.brand },
-              { label: t.role, value: hero.location },
-              { label: t.projectType, value: projectType },
-            ].map((m) => (
-              <div key={m.label}>
-                <div className="font-inter text-[14px] text-muted">
-                  {m.label}
-                </div>
-                <div className="mt-1 font-inter text-[17px] font-medium text-ink2">
-                  {m.value}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* 3 cards */}
-          <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-3">
-            {cards.map((c) => (
-              <div
-                key={c.n}
-                className="flex flex-col gap-3 rounded-[14px] bg-[#f3f2ee] px-6 pb-8 pt-6 shadow-[0_8px_26px_rgba(0,0,0,0.06)]"
+      <section className="relative overflow-hidden bg-white">
+        <SiteNav tone="dark" />
+        <div
+          className={`mx-auto max-w-[1280px] px-5 pt-[150px] pb-20 sm:px-8 md:pt-[180px] md:pb-32 ${
+            media && slidesLeft
+              ? "grid items-center gap-12 lg:grid-cols-2"
+              : media
+                ? "flex flex-col gap-12"
+                : cover
+                  ? "grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]"
+                  : ""
+          }`}
+        >
+          {media && slidesLeft ? <div className="lg:order-first">{media}</div> : null}
+          <div className={centered ? "mx-auto max-w-[760px] text-center" : "max-w-[760px]"}>
+            {parent ? (
+              <Link
+                href={`/work/${parent.slug}`}
+                className="font-inter text-ink2 mb-5 inline-flex items-center gap-2 text-[14px] font-medium transition-opacity hover:opacity-70"
               >
-                <span className="font-inter text-[32px] font-bold leading-none text-[#c8c8c2]">
-                  {c.n}
+                <span aria-hidden="true">←</span>
+                {es ? "Parte de" : "Part of"} {parent.t.card.title}
+              </Link>
+            ) : null}
+            <Link
+              href={`/chapters/${project.chapter}`}
+              className="font-inter text-muted text-[13px] font-medium tracking-[0.08em] transition-colors hover:text-black"
+            >
+              [ {es ? "CAPÍTULO" : "CHAPTER"} {chapter.number} · {chapter.t.page.label} ]
+            </Link>
+            <h1 className="font-inter text-ink2 mt-5 text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] font-bold">
+              {page.title}
+            </h1>
+            <p className="font-inter text-ink mt-6 text-[17px] leading-[1.55] sm:text-[19px]">
+              {page.description}
+            </p>
+            <p className="font-inter text-muted mt-5 text-[14px] font-medium">
+              {card.meta}
+            </p>
+
+            {page.purpose.length ? (
+              <div className="mt-9 rounded-[24px] bg-[#f4f4f4] px-6 py-5 sm:px-9 sm:py-6">
+                <span className="font-inter text-muted text-[13px]">
+                  {es ? "Propósito" : "Purpose"}
                 </span>
-                <h3 className="font-inter text-[21px] font-semibold text-ink2">
-                  {c.title}
-                </h3>
-                <p className="font-inter text-[16px] leading-[23px] text-muted">
-                  {c.body}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <AppSwatchRow className="mt-14 sm:mt-20" />
-        </div>
-      </section>
-
-      {template === "ux-ui" ? (
-        <DeviceGallery title={hero.title[locale]} photos={diaryPhotos} />
-      ) : null}
-
-      {template === "marketing-social" ? (
-        <SocialMediaShowcase photos={diaryPhotos} locale={locale} />
-      ) : null}
-
-      {/* ── Visual Identity (campaign / brand template) ── */}
-      {template === "campaign-brand" ? <section className="bg-white py-12 sm:py-20">
-        <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
-          <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_320px]">
-            {/* Green panel */}
-            <div className="rounded-[24px] bg-[#1f4a37] p-8 sm:p-12 lg:p-14">
-              <h2 className="font-inter text-[44px] font-bold leading-[1.02] text-white sm:text-[64px] lg:text-[88px] lg:leading-[0.95]">
-                {t.visualA}
-                <br />
-                {t.visualB}
-              </h2>
-
-              <div className="mt-8 grid gap-8 lg:mt-12 lg:grid-cols-2 lg:gap-12">
-                <p className="max-w-[280px] font-inter text-[16px] leading-[24px] text-white/[0.82]">
-                  {hero.tagline[locale]}
-                </p>
-
-                <div className="max-w-[280px]">
-                  <div className="font-inter text-[13px] font-bold tracking-[0.78px] text-white">
-                    {t.coreBenefits}
-                  </div>
-                  <ul className="mt-5 flex flex-col gap-5">
-                    {benefits.map((b, i) => (
-                      <li
-                        key={i}
-                        className="font-inter text-[16px] leading-[22px] text-white/90"
-                      >
-                        <span className="font-bold text-white">{b.label}</span>
-                        {b.body ? <>{" · "}{b.body}</> : null}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Side photo */}
-            {cover ? (
-              <div className="relative hidden h-full min-h-[500px] overflow-hidden rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.1)] lg:block">
-                <Image
-                  src={cover}
-                  alt={hero.title[locale]}
-                  fill
-                  sizes="320px"
-                  className="object-cover"
-                />
+                <ul
+                  className="mt-3 grid divide-y divide-[#c8c8c2] sm:grid-cols-[repeat(var(--cols),minmax(0,1fr))] sm:divide-x sm:divide-y-0"
+                  style={{ ["--cols" as string]: page.purpose.length }}
+                >
+                  {page.purpose.map((item) => (
+                    <li
+                      key={item}
+                      className="font-inter text-ink2 flex min-h-[64px] items-center justify-center px-5 py-2 text-center text-balance sm:px-6 text-[15px] leading-snug font-bold sm:text-[17px]"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ) : null}
           </div>
-        </div>
-      </section> : null}
 
-      {template === "campaign-brand" ? (
-        <VisualDiary heading={t.diary} subtitle={t.diarySub} photos={diaryPhotos} />
+          {media && !slidesLeft ? media : null}
+
+          {!media && cover ? (
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[18px] bg-[#ecece7] shadow-[0_12px_32px_rgba(0,0,0,0.12)]">
+              <Image
+                src={cover}
+                alt={page.title}
+                fill
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="object-cover"
+              />
+            </div>
+          ) : null}
+        </div>
+      </section>
+
+      <CaseSections data={page} locale={locale} />
+      {(photos.moodboard ?? []).length ? (
+        <TemplateGallery account={account}
+          template="moodboard"
+          photos={photos}
+          locale={locale}
+          hints={hints}
+          labels={MOODBOARD_LABELS[project.slug]?.[locale]}
+        />
+      ) : null}
+      {secondEdition ? (
+        <TemplateGallery account={account}
+          template="edition"
+          photos={photos}
+          locale={locale}
+          hints={hints}
+          title={es ? "Primera edición" : "First edition"}
+        />
+      ) : null}
+      <TemplateGallery account={account}
+        template={project.template}
+        photos={photos}
+        locale={locale}
+        hints={hints}
+        title={
+          project.template === "ppt"
+            ? SECTION_TITLES[project.slug]?.ppt?.[locale]
+            : secondEdition && project.template === "instagram"
+              ? "Social Media Carousel · " + (es ? "Versión 1" : "Version 1")
+              : undefined
+        }
+      />
+      {/* A project can also carry other kinds of photos (a brandbook deck, phone screens...): show each one that has files. */}
+      {(
+        [
+          ["ppt", photos.presentacion],
+          ["portafolio", photos.portafolio ?? []],
+          ["instagram", photos.instagram],
+          ["app", photos.celular],
+          ["afiches", photos.afiches ?? []],
+          ["web", photos.web ?? []],
+          ["grilla", photos.grilla ?? []],
+          // The Visual Diary (diario/) rides on the visual gallery, so it counts even when visual/ is empty.
+          ["visual", photos.visual.length ? photos.visual : (photos.diario ?? [])],
+        ] as const
+      )
+        .filter(([template, list]) => template !== project.template && list.length > 0)
+        .sort(([a], [b]) => extraRank(project.slug, a) - extraRank(project.slug, b))
+        .map(([template]) => (
+          <TemplateGallery account={account}
+            key={template}
+            template={template}
+            photos={photos}
+            locale={locale}
+            hints={hints}
+            visualInHero={false}
+            title={
+              template === "ppt" || template === "afiches" || template === "visual" || template === "portafolio"
+                ? SECTION_TITLES[project.slug]?.[template]?.[locale]
+                : undefined
+            }
+          />
+        ))}
+      {secondEdition ? (
+        <>
+          <TemplateGallery account={account}
+            template="edition"
+            photos={photos}
+            locale={locale}
+            hints={hints}
+            title={es ? "Segunda edición" : "Second edition"}
+            body={
+              es
+                ? "Un año después, volvieron con una nueva edición. Querían mantener el mismo concepto, pero jugar un poco más con las líneas."
+                : "A year later they came back with a new edition. They wanted to keep the same concept, but play a bit more with the lines."
+            }
+          />
+          {secondEdition.instagram.length ? (
+            <TemplateGallery account={account}
+              template="instagram"
+              photos={secondEdition}
+              locale={locale}
+              hints={hints}
+              title={"Social Media Carousel · " + (es ? "Versión 2" : "Version 2")}
+            />
+          ) : null}
+          {(secondEdition.afiches ?? []).length ? (
+            <TemplateGallery account={account}
+              template="afiches"
+              photos={secondEdition}
+              locale={locale}
+              hints={hints}
+              title={SECTION_TITLES[project.slug]?.afiches?.[locale]}
+            />
+          ) : null}
+          {(secondEdition.grilla ?? []).length ? (
+            <TemplateGallery account={account} template="grilla" photos={secondEdition} locale={locale} hints={hints} />
+          ) : null}
+        </>
+      ) : null}
+      <ProjectExtras extras={page.extras} />
+
+      {/* Parts of a project (Youth Future Talent inside the workshops): shown as sections of this same page. */}
+      {INLINE_CHILDREN.has(project.slug)
+        ? children.map((child) => {
+            const childVisual = getProjectPhotos(child.slug, "visual");
+            return (
+              <div key={child.slug}>
+                <CaseSections
+                  data={child.t.page}
+                  locale={locale}
+                  heading={child.t.card.title}
+                  intro={child.t.page.description}
+                />
+                {childVisual.length ? (
+                  <TemplateGallery account={account}
+                    template="visual"
+                    photos={{ portada: undefined, celular: [], instagram: [], presentacion: [], visual: childVisual }}
+                    locale={locale}
+                    hints={hints}
+                    visualInHero={false}
+                    title={es ? "Galería" : "Gallery"}
+                  />
+                ) : null}
+              </div>
+            );
+          })
+        : null}
+
+      {children.length && !INLINE_CHILDREN.has(project.slug) ? (
+        <section className="bg-white pb-24 sm:pb-36">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
+            <h2 className="font-inter text-ink2 text-[32px] leading-tight font-bold sm:text-[40px]">
+              {es ? "Dentro de este proyecto" : "Inside this project"}
+            </h2>
+            <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {children.map((child) => {
+                const childCover = getProjectCover(child.slug);
+                return (
+                  <li key={child.slug}>
+                    <Link
+                      href={`/work/${child.slug}`}
+                      className="group flex h-full min-h-[300px] flex-col overflow-hidden rounded-[16px] border border-[#e2e2dd] bg-[#fafaf5] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7b173b]"
+                    >
+                      <span className="relative block h-[160px] shrink-0 overflow-hidden bg-[#ecece7]">
+                        {childCover ? (
+                          <Image
+                            src={childCover}
+                            alt=""
+                            fill
+                            sizes="(min-width: 1024px) 400px, 100vw"
+                            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                          />
+                        ) : null}
+                      </span>
+                      <span className="flex flex-1 flex-col px-6 pb-6 pt-6">
+                        <span className="font-inter text-muted text-[13px] font-medium tracking-[0.08em]">
+                          {child.t.card.labels.join(" · ")}
+                        </span>
+                        <span className="font-inter text-ink2 mt-3 text-[24px] leading-[1.08] font-semibold">
+                          {child.t.card.title}
+                        </span>
+                        <span className="font-inter text-ink mt-3 text-[15px] leading-[1.5]">
+                          {child.t.card.description}
+                        </span>
+                        <span className="font-inter text-ink2 mt-auto pt-5 text-[13px] font-semibold tracking-[0.1em] uppercase">
+                          {es ? "Ver proyecto ↗" : "View project ↗"}
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
       ) : null}
 
-      {/* ── Contact + footer ── */}
+      {/* ── Previous / next project in this chapter ── */}
+      <nav
+        aria-label={es ? "Más proyectos del capítulo" : "More projects in this chapter"}
+        className="border-t border-[#e2e2dc] bg-white"
+      >
+        <div className="mx-auto grid max-w-[1280px] gap-px px-5 py-10 sm:grid-cols-2 sm:px-8">
+          {[
+            { target: prev, label: es ? "Anterior" : "Previous" },
+            { target: next, label: es ? "Siguiente" : "Next" },
+          ].map(({ target, label }, i) => (
+            <div key={label} className={i === 1 ? "sm:text-right" : ""}>
+              {target ? (
+                <Link
+                  href={`/work/${target.slug}`}
+                  className="group inline-flex flex-col gap-1 py-3 transition-opacity hover:opacity-70"
+                >
+                  <span className="font-inter text-muted text-[13px] font-medium tracking-[0.08em]">
+                    {label.toUpperCase()}
+                  </span>
+                  <span className="font-inter text-ink2 text-[22px] leading-tight font-semibold">
+                    {target[locale].card.title}
+                  </span>
+                </Link>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      </nav>
+
       <WorkTogether variant="detail" />
       <SiteFooter />
     </main>
-  );
-}
-
-function ProjectHero({
-  template,
-  title,
-  description,
-  tagline,
-  cover,
-  photos,
-  locale,
-}: {
-  template: string;
-  title: string;
-  description: string;
-  tagline: string;
-  cover?: string;
-  photos: string[];
-  locale: Locale;
-}) {
-  if (template === "ux-ui") {
-    return (
-      <section className="relative overflow-hidden bg-white">
-        <SiteNav tone="dark" />
-        <div className="mx-auto grid max-w-[1280px] items-center gap-10 px-5 pb-20 pt-[150px] sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:pt-[180px]">
-          <div className="relative mx-auto h-[360px] w-full max-w-[500px] sm:h-[520px]">
-            {cover ? (
-              <Image
-                src={cover}
-                alt=""
-                fill
-                priority
-                sizes="(min-width: 768px) 520px, 100vw"
-                className="object-contain drop-shadow-[0_16px_16px_rgba(0,0,0,0.18)]"
-              />
-            ) : null}
-          </div>
-          <div className="max-w-[640px]">
-            <h1 className="font-inter text-[44px] font-bold leading-none text-ink2 sm:text-[72px]">
-              {title}
-            </h1>
-            <p className="mt-6 line-clamp-6 font-inter text-[16px] leading-[23px] text-muted sm:text-[17px]">
-              {description}
-            </p>
-            <div className="mt-8 rounded-[28px] bg-[#f4f4f4] px-7 py-6 sm:px-10">
-              <span className="font-inter text-[13px] text-muted">
-                {locale === "es" ? "Propósito" : "Purpose"}
-              </span>
-              <div className="mt-3 grid grid-cols-3 divide-x divide-[#9a9a9a]">
-                {["Research", "System", "Shipped"].map((item) => (
-                  <span key={item} className="px-3 text-center font-inter text-[15px] font-bold text-ink2 sm:text-[20px]">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (template === "campaign-brand") {
-    const cards = photos.slice(0, 3);
-    return (
-      <section className="relative overflow-hidden bg-white">
-        <SiteNav tone="dark" />
-        <div className="mx-auto grid max-w-[1420px] items-center gap-10 px-5 pb-20 pt-[140px] sm:px-8 md:grid-cols-[1.08fr_0.92fr] md:pt-[170px]">
-          <div className="grid h-[280px] grid-cols-3 gap-3 sm:h-[420px]">
-            {cards.map((photo, index) => (
-              <div key={`${photo}-${index}`} className="relative overflow-hidden rounded-[2px] bg-[#dedede]">
-                <Image src={photo} alt="" fill priority={index === 0} sizes="30vw" className="object-cover" />
-              </div>
-            ))}
-          </div>
-          <div className="max-w-[500px]">
-            <h1 className="font-inter text-[40px] font-bold leading-none text-ink2 sm:text-[60px]">
-              {title}
-            </h1>
-            <p className="mt-7 font-inter text-[16px] leading-[23px] text-muted sm:text-[17px]">
-              {tagline}
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="relative overflow-hidden bg-white">
-      <SiteNav tone="dark" />
-      <div className="mx-auto flex max-w-[900px] flex-col items-center px-5 pb-12 pt-[150px] text-center sm:px-8 sm:pt-[200px]">
-        <h1 className="font-inter text-[36px] font-bold leading-tight text-[#111] sm:text-[56px]">
-          {title}
-        </h1>
-        <p className="mx-auto mt-5 max-w-[680px] font-inter text-[15px] leading-[23px] text-muted">
-          {tagline}
-        </p>
-        <div className="mt-12 sm:mt-16">
-          <ProjectRosette photos={photos} title={title} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function DeviceGallery({ title, photos }: { title: string; photos: string[] }) {
-  const screens = photos.slice(0, 7);
-  if (!screens.length) return null;
-  return (
-    <section className="overflow-hidden bg-[#f7f7f7] py-20 sm:py-28">
-      <div className="mx-auto flex max-w-[1500px] items-end justify-center px-5 sm:px-8">
-        {screens.map((photo, index) => (
-          <div
-            key={`${photo}-${index}`}
-            className="relative -mx-5 h-[230px] w-[130px] overflow-hidden rounded-[18px] border-[3px] border-[#161616] bg-[#f3bad2] shadow-[0_10px_18px_rgba(0,0,0,0.16)] sm:-mx-8 sm:h-[390px] sm:w-[220px]"
-            style={{ zIndex: index, transform: `translateY(${Math.abs(index - 3) * 18}px)` }}
-          >
-            <Image src={photo} alt="" fill sizes="220px" className="object-cover" />
-          </div>
-        ))}
-      </div>
-      <p className="mt-8 text-center font-inter text-[14px] text-muted">{title}</p>
-    </section>
-  );
-}
-
-function SocialMediaShowcase({ photos, locale }: { photos: string[]; locale: Locale }) {
-  const [feature, ...stack] = photos;
-  if (!feature) return null;
-  return (
-    <section className="bg-white py-20 sm:py-28">
-      <div className="mx-auto max-w-[960px] px-5 sm:px-8">
-        <div className="text-center">
-          <h2 className="font-inter text-[30px] font-bold text-ink2 sm:text-[42px]">Social Media Carousel</h2>
-          <p className="mt-2 font-inter text-[13px] text-green-soft">{locale === "es" ? "9 piezas" : "9 slides"}</p>
-        </div>
-        <div className="mt-10 grid items-center gap-8 md:grid-cols-2">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-[9px] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
-            <Image src={feature} alt="" fill sizes="340px" className="object-cover" />
-          </div>
-          <div className="relative mx-auto h-[300px] w-full max-w-[370px]">
-            {stack.slice(0, 5).map((photo, index) => (
-              <div key={`${photo}-${index}`} className="absolute inset-y-0 w-[72%] overflow-hidden rounded-[9px] shadow-[0_8px_16px_rgba(0,0,0,0.14)]" style={{ left: `${index * 7}%`, zIndex: index }}>
-                <Image src={photo} alt="" fill sizes="280px" className="object-cover" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }

@@ -55,7 +55,7 @@ export function HomeAboutHero({ locale }: { locale: Locale }) {
 
   const paragraphs = es
     ? [
-        "Estudié Liderazgo, Emprendimiento e Innovación y me especializo en un diseño holístico: combino diseño de experiencias, marketing, diseño gráfico y desarrollo de negocio. He construido proyectos en Europa, Latinoamérica y Asia, con equipos y culturas que me han enseñado a ver el trabajo desde ángulos tan retadores como enriquecedores.",
+        "Estudié Liderazgo, Emprendimiento e Innovación y me especialicé en un diseño holístico: combino diseño de experiencias, marketing, diseño gráfico y desarrollo de negocio. He construido proyectos en Europa, Latinoamérica y Asia, con equipos y culturas que me han enseñado a ver el trabajo desde ángulos tan retadores como enriquecedores.",
         "Me encanta seguir aprendiendo, trabajar de forma práctica y creativa, y ver cómo las ideas se transforman en cosas que generan impacto. Mi sello en cada equipo: energía para arrancar y cumplimiento para cerrar.",
       ]
     : [
@@ -108,7 +108,7 @@ export function HomeAboutHero({ locale }: { locale: Locale }) {
 
         <div className="relative mx-auto aspect-[372/508] w-full max-w-[372px] lg:mx-0">
           <Image
-            src="/pages/home/figma/about-portrait.png"
+            src="/inicio/hero/about-portrait.png"
             alt="Valeria Jiménez"
             fill
             sizes="(max-width: 1023px) min(100vw - 48px, 372px), 372px"

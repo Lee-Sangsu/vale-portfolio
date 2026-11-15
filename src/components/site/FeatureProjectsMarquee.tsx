@@ -6,7 +6,7 @@ export type FeatureItem = { title: string; href: string; img: string };
 /**
  * Auto-scrolling strip of brand logos.
  * Uses the global `.marquee-track` animation; duplicates the list for a
- * seamless loop and pauses on hover.
+ * seamless loop; it keeps running on hover.
  */
 export function FeatureProjectsMarquee({
   label,
@@ -16,7 +16,7 @@ export function FeatureProjectsMarquee({
   label: string;
   durationSeconds?: number;
 }) {
-  const logos = listPhotos("shared/brands");
+  const logos = listPhotos("compartido/marcas");
 
   if (logos.length === 0) return null;
 
@@ -31,7 +31,7 @@ export function FeatureProjectsMarquee({
       </div>
 
       <div
-        className="marquee-pause relative overflow-hidden"
+        className="relative overflow-hidden"
         style={
           {
             ["--marquee-duration" as string]: `${durationSeconds}s`,

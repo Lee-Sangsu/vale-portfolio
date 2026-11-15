@@ -29,14 +29,14 @@ export const chapters: Chapter[] = [
     id: "independent",
     number: "03",
     title: {
-      en: "Independent design",
-      es: "Diseño independiente",
+      en: "Creative design",
+      es: "Diseño creativo",
     },
     dateRange: "2025–2026",
     location: { en: "Colombia · Korea · Spain", es: "Colombia · Corea · España" },
     projects: {
-      en: ["Serema Hotel", "Opuesto SAS", "Brújula Ética", "Santa Juliana"],
-      es: ["Serema Hotel", "Opuesto SAS", "Brújula Ética", "Santa Juliana"],
+      en: ["Opuesto SAS", "Brújula Ética", "Cooperativa Teampreneurship"],
+      es: ["Opuesto SAS", "Brújula Ética", "Teampreneurship Cooperative"],
     },
   },
   {
