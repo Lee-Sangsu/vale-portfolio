@@ -159,30 +159,15 @@ Una sola identidad en la app, la App Store, Instagram, los correos, los eventos 
 
 **Secciones extra**
 
-**Banners de la app**
-Un sistema de nueve templates de 1224 × 597 px, seis con foto y tres sin foto, con fondos en lenguaje de viaje: rutas de avión, huellas y continentes. Pensado para los dos usos que más se repiten, anunciar un meetup o un programa por ciudad, y lanzar una feature.
-
-**Eventos**
-*Christmas Women's DJ Party · dic 2025.* Tres rutas de carrusel, banner, contenido web, push y la hoodie de voluntarias. 35 asistentes y 4,5 sobre 5 en reseñas.
-*Allthattravel Expo · abr y may 2026.* Pared del booth, banners, piezas con QR, 200 parches en cuatro diseños y 60 camisetas.
-*Fête de la Musique Seúl · jun 2026.* Con la Embajada de Francia en Space K: tres opciones de póster sobre una obra de Mandy El Sayegh, banner, post, story y reels.
-*Women Marathon · may 2026.* Slides y banners con las texturas de los organizadores. Entradas agotadas.
-*Meetups del mes.* Banners mensuales para surf, Wine & K-sool, gayageum, danza tradicional y meetups internacionales.
-
 **Newsletter**
 Un "email del mes" con Woman of the Month, beneficios, tips y eventos, construido como sistema modular en Figma con ejemplos por temporada y enviado por Mailjet. Las plantillas nuevas permiten, además, medir cada bloque.
 
 **Señalética reutilizable**
 Mini carteles de cartón de 30 × 30 cm y uno horizontal en A3, con "She Can Travel Anywhere", "Welcome to the sisterhood", el logo del aliado y una ilustración de marca sin texto como comodín. Se usan de evento en evento.
 
-**Stories y redes**
-Templates de stories en cuatro tipos, portadas y grilla de Instagram, y templates editables para el equipo.
-
 **Papelería**
 Firma de correo para todo el equipo, con guía de instalación paso a paso, y tarjetas de presentación como plantillas editables.
 
-**Las guías**
-Tres moodboards iniciales (Elegant, Joyful y Power), una guía de fotografía con tres estilos, texturas editoriales y brand guidelines para compartir con externos.
 
 ---
 
@@ -589,18 +574,13 @@ Mi rol · Concepto, logística y diseño gráfico del festival, con el equipo de
 Tipo de proyecto · Festival presencial
 
 **01 Challenge**
-Un festival de un día con zona de booths, Inspire Space, Build Lab, speakers, voluntarias y embajadoras. Todo tenía que orientar a 300 personas dentro de un venue físico, y antes de eso, vender entradas en tres plataformas distintas.
+Un festival de un día con booths, Inspire Space, Build Lab, speakers, voluntarias y embajadoras. Todo tenía que orientar a 300 personas dentro del venue y, antes, vender entradas en tres plataformas.
 
 **02 Approach**
-Con el equipo de comunidad recorrimos el espacio y definimos qué talleres tenían sentido y cómo se iba a mover la gente. Después diseñé el sistema completo: mapa y programa, pósters en A4 y A2, banners por zona, posts de speakers, lucky draw, totebag, postal, stickers y coupon cards, más los códigos de voluntarias y embajadoras dentro de la app.
+Recorrimos el espacio con el equipo de comunidad y definimos cómo se iba a mover la gente. Después diseñé el sistema completo, de la venta de entradas a lo que cada persona se llevó a casa.
 
 **03 Result**
-300 asistentes, diez embajadoras activas el día del evento, y una venta de entradas en tres fases: Flash Sale por la Semana de la Mujer, el reto "Why She Travels" y el bundle "Bring Your Person". El programa de embajadoras se convirtió después en el Travel Content Creator Pilot.
-
-**Secciones extra**
-
-**El paquete de diseño**
-Mapa del venue · programa · pósters A4, A2 y A3 · banners de booths, Inspire Space y Build Lab · posts de speakers · lucky draw · diseños para voluntarias y embajadoras · totebag · postal · stickers · coupon cards de Travel Camp · páginas en Eventus, Luma y Eventbrite · presentación del día del evento · email de campaña
+300 asistentes, diez embajadoras activas el día del evento y entradas vendidas en tres fases. El programa de embajadoras se convirtió después en el Travel Content Creator Pilot.
 
 ---
 
@@ -629,13 +609,13 @@ Mi rol · Campaña, piezas digitales e impresas
 Tipo de proyecto · Campaña y evento presencial
 
 **01 Challenge**
-Una workation para fundadoras es un producto nuevo para una comunidad de viajeras: había que explicar qué es, para quién es y por qué vale la pena en cuatro días en Busan, con la ciudad, Seo-gu y el CCEI como aliados institucionales detrás. El programa tenía que convencer a dos públicos que no reaccionan igual a la misma imagen, fundadoras coreanas y asiáticas, y fundadoras internacionales, y hacerlo con un nombre recién definido en agosto y un calendario corto hasta octubre.
+Una workation para fundadoras era un producto nuevo para una comunidad de viajeras: había que explicar qué es y para quién es, y convencer a la vez a fundadoras coreanas e internacionales, con la ciudad de Busan, Seo-gu y el CCEI detrás.
 
 **02 Approach**
-Partí del sistema de la serie She Can [Verb] Anywhere y lo llevé a un registro más corporativo, acorde con fundadoras e instituciones. Diseñé la campaña en variantes por audiencia, unas con más caras coreanas y asiáticas y otras con más caras internacionales, y las dejé correr en paralelo para ver cuál conectaba con cada una. El set cubrió el recorrido completo: banner y post en el Lounge, página de experiencia donde se postulaban, Instagram, anuncios en Meta y posts de presentación de las fundadoras seleccionadas. Para los días del evento, tarjetas de nombre, un X-banner de 600 × 1.800 mm y la tarjeta de bienvenida, con los logos de los aliados en cada pieza.
+Llevé el sistema She Can [Verb] Anywhere a un registro más corporativo y diseñé la campaña en variantes por audiencia, para ver cuál conectaba con cada una.
 
 **03 Result**
-26 postulaciones y 15 fundadoras seleccionadas para la primera edición, de Corea y de fuera, con presencia en el escenario de BOUNCE 2026 y una identidad que ya quedó lista para repetirse en la siguiente ciudad.
+26 postulaciones y 15 fundadoras seleccionadas para la primera edición, presencia en el escenario de BOUNCE 2026 y una identidad lista para la siguiente ciudad.
 
 ---
 
@@ -664,13 +644,13 @@ Mi rol · Dirección de arte, naming de la serie y jurado
 Tipo de proyecto · Campaña y programa presencial
 
 **01 Challenge**
-Era el primer programa de este formato: cinco noches en Jeju para que diez creadoras construyeran un MVP con vibe coding, con Jeju City y el Jeju CCEI como aliados. No había referencia previa ni nombre. Necesitaba una identidad que explicara el programa en un vistazo, convenciera a creadoras de distintos países y pudiera repetirse en otras ciudades sin rediseñarse desde cero.
+El primer programa de este formato: cinco noches en Jeju para que diez creadoras construyeran un MVP con vibe coding. No había referencia previa ni nombre.
 
 **02 Approach**
-Propuse el nombre de serie She Can Create Anywhere [City] Edition, un formato abierto que después dio origen a She Can Found Anywhere en Busan. Dirigí el diseño, con una diseñadora del equipo, en dos rutas, una corporativa y otra emocional, y las comparamos en carrusel, portadas y banners con los logos de los aliados antes de elegir. Diseñé la presentación de orientación con la que arrancó el programa y fui jurado de los proyectos finales, así que vi la campaña de punta a punta, de la convocatoria al MVP.
+Propuse el nombre de serie She Can Create Anywhere [City] Edition y dirigí el diseño en dos rutas, una corporativa y otra emocional, antes de elegir.
 
 **03 Result**
-Diez plazas cubiertas, un programa de cinco noches y seis días, y un post de lanzamiento con 20.600 vistas y 80 compartidos. El sistema de naming y la identidad se siguen usando en las ediciones siguientes de la serie.
+Diez plazas cubiertas y un post de lanzamiento con 20.600 vistas. El naming y la identidad se siguen usando en las ediciones siguientes.
 
 ---
 
@@ -699,13 +679,48 @@ Mi rol · Campaña de convocatoria y piezas físicas del viaje
 Tipo de proyecto · Campaña y experiencia presencial
 
 **01 Challenge**
-Un retiro de tres días en Jeollanam-do, con TDI como aliado, para nueve creadoras de contenido que después contarían la región a sus audiencias. La convocatoria tenía que llegar lejos y filtrar bien para un viaje con tan pocas plazas, y el recibimiento pedía piezas en gran formato, con las exigencias técnicas de una imprenta y tiempos cortos.
+Un retiro de tres días en Jeollanam-do, con TDI como aliado, para nueve creadoras. La convocatoria tenía que llegar lejos y filtrar bien, y el recibimiento pedía piezas en gran formato con tiempos cortos.
 
 **02 Approach**
-Diseñé la convocatoria como un embudo: el post con su caption, la automatización en ManyChat que convertía el comentario en mensaje directo con los pasos, y el banner dentro de la app. Para el viaje, el kit físico de recibimiento: carteles de mano, el banner "Welcome to the sisterhood", un banner horizontal de 5.000 × 700 mm con los ajustes de troquel que pidió la imprenta, y tarjetas de presentación. Las fotos del viaje volvieron a la marca como material para las campañas siguientes.
+La convocatoria como un embudo: post, automatización en ManyChat y banner en la app. Para el viaje, el kit físico de recibimiento y las piezas impresas.
 
 **03 Result**
-400 postulaciones para nueve plazas. El equipo de comunidad filtró las candidatas y contactó a 60 antes de la selección final, y el viaje dejó un banco de fotos de Naju, Hampyeong y Muan que hoy sostiene las piezas de la región.
+400 postulaciones para nueve plazas y un banco de fotos de Naju, Hampyeong y Muan que hoy sostiene las piezas de la región.
+
+---
+
+---
+
+## 1.16 She Can Begin Anywhere · Gangjin
+
+**CARD**
+Etiquetas · Campaña · 2026
+Meta · NomadHer · Gangjin, 2026
+Título · She Can Begin Anywhere
+Descripción · Dos viajes a un pueblo que nadie googlea: el Gangjin Camp y la edición con el condado.
+Tags · Campaña · Dirección de arte
+Filtros · Marketing y contenido · Diseño gráfico · Eventos y talleres
+
+**PÁGINA**
+
+**Título** · She Can Begin Anywhere · Gangjin
+
+**Descripción**
+Gangjin es un pueblo del sur de Corea con 900 años de celadón y casi nadie publicando sobre él. Diseñé dos convocatorias para llevar mujeres allí: el Gangjin Camp en octubre y She Can Begin Anywhere, con el condado de Gangjin, en noviembre.
+
+**Overview**
+Cliente · NomadHer con Gangjin-gun
+Mi rol · Concepto, copy y diseño de las dos campañas
+Tipo de proyecto · Campaña y viaje presencial
+
+**01 Challenge**
+Vender un destino desconocido sin fotos de postal. Lo que tiene Gangjin son personas: una anfitriona que volvió de París, una maestra artesana, un ritmo lento que no cabe en un banner.
+
+**02 Approach**
+Conté el pueblo como una historia, con postales y notas escritas a mano dentro del carrusel. Para la edición con el condado, la misma voz en un sistema completo: posts de lanzamiento en el Lounge, experience posts y banner en la app, con una promesa más directa: dos días para empezar algo, con una Living Library de cuatro mujeres que volvieron a empezar.
+
+**03 Result**
+Dos convocatorias en dos meses con una sola identidad. La edición con el condado salió con ocho plazas, selección por aplicación y un precio simbólico de ₩30.000, y las piezas quedaron como plantilla para las siguientes ediciones regionales.
 
 ---
 
@@ -717,7 +732,7 @@ Diseñé la convocatoria como un embudo: el post con su caption, la automatizaci
 Etiquetas · Campaña · 2025 - 2026
 Meta · NomadHer · Global, 2025 - 2026
 Título · Campañas con partners
-Descripción · Superalink, NordVPN y KiwiTaxi: beneficios de marcas aliadas, diseñados para usarse dentro de la app.
+Descripción · Superalink, Fête de la Musique y NomadHer Perks: campañas con aliados, diseñadas para vivir dentro de la app.
 Tags · Campaña · Partnerships
 Filtros · Marketing y contenido
 
@@ -726,27 +741,21 @@ Filtros · Marketing y contenido
 **Título** · Campañas con partners
 
 **Descripción**
-Las campañas que llevan beneficios de marcas aliadas a la comunidad, diseñadas para vivir dentro de la app, además de en redes.
+Las campañas que se hacen con aliados: una eSIM para viajar conectada, una noche de arte y música en Space K con el Institut français, y el lanzamiento de los perks de la comunidad.
 
 **Overview**
-Cliente · NomadHer con Superalink, NordVPN y KiwiTaxi
-Mi rol · Diseño de campaña y piezas in-app
+Cliente · NomadHer con Superalink, Space K × Fête de la Musique y marcas aliadas
+Mi rol · Concepto, copy y diseño de las piezas
 Tipo de proyecto · Campañas de partnership
 
 **01 Challenge**
-Una marca aliada quiere que su beneficio se vea y se use, y cada una llega con su propia mecánica: giveaway mensual, código de descuento, vouchers, patrocinio de un evento. La comunidad, en cambio, quiere sentir que el beneficio le sirve de verdad y no un anuncio. Cada campaña tenía que resolver las dos cosas en el mismo banner, dentro de la app y en redes, y poder montarse rápido cada vez que entraba un aliado nuevo.
+Cada aliado llega con su propia mecánica y su propio logo. La comunidad tiene que sentir que el beneficio le sirve de verdad, y el aliado, que su marca se respeta sin que la pieza deje de ser NomadHer.
 
 **02 Approach**
-Trabajo cada campaña como un set dentro de la app: banner, lounge post, página de experiencia, push y anuncio de ganadoras, más la pieza de Instagram, todos sobre los mismos templates para que el equipo pueda repetirlos. La diferencia está en el relato: en Superalink cambié la portada después de la revisión, con fotos de la propia comunidad, para que una eSIM transmitiera seguridad y no solo precio; en NordVPN el beneficio se contó desde el viaje; en KiwiTaxi, desde el relato de llegada a una ciudad nueva.
+Para cada campaña, un set completo sobre los mismos templates: carrusel para Instagram, stories, banner en la app y post en el Lounge. Superalink se contó desde la seguridad de viajar conectada; la Fête de la Musique, desde tres mujeres que crecieron entre culturas; los Perks, desde cómo viaja cada una.
 
 **03 Result**
-Tres aliados, tres mecánicas distintas y un solo sistema de piezas in-app que ya es la forma estándar de lanzar un beneficio en NomadHer: el giveaway de Superalink corre cada mes desde abril de 2026 con cinco ganadoras, y las campañas nuevas se montan en días, no en semanas.
+Tres campañas distintas que se leen como una sola marca, y un sistema de piezas in-app que hoy es la forma estándar de lanzar un beneficio o un evento con aliado en NomadHer.
 
-**Secciones extra**
-
-**Las campañas**
-*Superalink.* Giveaway mensual de eSIM desde abril de 2026, con cinco ganadoras por mes.
-*NordVPN.* Patrocinio del festival y una campaña en la comunidad con 76% de descuento y cuatro meses gratis.
-*KiwiTaxi.* 10% de descuento con código, tres vouchers de 100€ y un premio al mejor relato de viaje.
 
 ---

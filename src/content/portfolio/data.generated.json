@@ -544,47 +544,6 @@
               "result": "Una sola identidad en la app, la App Store, Instagram, los correos, los eventos y la papelería del equipo. Y eficiencia: las plantillas permiten que el equipo que no es diseñador edite lo que no es vital, y que yo me dedique por completo a lo que sí lo es, como las campañas de los eventos. Aunque no diseñe cada pieza, todo sale con la marca. Dentro de esto entra también el sistema de newsletters que diseñé para todo el user journey, de la bienvenida a los recordatorios de cada evento. La marca acompañó eventos en Seúl y meetups en Milán, París, Londres y Tokio, y convivió con la Embajada de Francia, una maratón y una feria de viajes.",
               "extras": [
                 {
-                  "title": "Banners de la app",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "Un sistema de nueve templates de 1224 × 597 px, seis con foto y tres sin foto, con fondos en lenguaje de viaje: rutas de avión, huellas y continentes. Pensado para los dos usos que más se repiten, anunciar un meetup o un programa por ciudad, y lanzar una feature."
-                    }
-                  ]
-                },
-                {
-                  "title": "Eventos",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Christmas Women's DJ Party · dic 2025",
-                          "text": "Tres rutas de carrusel, banner, contenido web, push y la hoodie de voluntarias. 35 asistentes y 4,5 sobre 5 en reseñas."
-                        },
-                        {
-                          "lead": "Allthattravel Expo · abr y may 2026",
-                          "text": "Pared del booth, banners, piezas con QR, 200 parches en cuatro diseños y 60 camisetas."
-                        },
-                        {
-                          "lead": "Fête de la Musique Seúl · jun 2026",
-                          "text": "Con la Embajada de Francia en Space K: tres opciones de póster sobre una obra de Mandy El Sayegh, banner, post, story y reels."
-                        },
-                        {
-                          "lead": "Women Marathon · may 2026",
-                          "text": "Slides y banners con las texturas de los organizadores. Entradas agotadas."
-                        },
-                        {
-                          "lead": "Meetups del mes",
-                          "text": "Banners mensuales para surf, Wine & K-sool, gayageum, danza tradicional y meetups internacionales."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
                   "title": "Newsletter",
                   "stats": false,
                   "blocks": [
@@ -605,32 +564,12 @@
                   ]
                 },
                 {
-                  "title": "Stories y redes",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "Templates de stories en cuatro tipos, portadas y grilla de Instagram, y templates editables para el equipo."
-                    }
-                  ]
-                },
-                {
                   "title": "Papelería",
                   "stats": false,
                   "blocks": [
                     {
                       "type": "p",
                       "text": "Firma de correo para todo el equipo, con guía de instalación paso a paso, y tarjetas de presentación como plantillas editables."
-                    }
-                  ]
-                },
-                {
-                  "title": "Las guías",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "Tres moodboards iniciales (Elegant, Joyful y Power), una guía de fotografía con tres estilos, texturas editoriales y brand guidelines para compartir con externos."
                     }
                   ]
                 }
@@ -683,47 +622,6 @@
               "result": "A single identity across the app, the App Store, Instagram, emails, events and the team's stationery. And efficiency: the templates let the non-designers on the team edit what isn't vital, so I can fully focus on what is, like the event campaigns. Even when I don't design every piece, everything goes out on brand. This also includes the newsletter system I designed for the whole user journey, from the welcome email to each event's reminders. The brand went along to events in Seoul and meetups in Milan, Paris, London and Tokyo, and held up next to the French Embassy, a marathon and a travel fair.",
               "extras": [
                 {
-                  "title": "App banners",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "A system of nine templates at 1224 × 597 px, six with a photo and three without, with backgrounds in a travel language: flight routes, footprints and continents. Built for the two uses that repeat most, announcing a meetup or a program by city, and launching a feature."
-                    }
-                  ]
-                },
-                {
-                  "title": "Events",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Christmas Women's DJ Party · Dec 2025",
-                          "text": "Three carousel routes, banner, web content, push and the volunteers' hoodie. 35 attendees and 4.5 out of 5 in reviews."
-                        },
-                        {
-                          "lead": "Allthattravel Expo · Apr and May 2026",
-                          "text": "Booth wall, banners, pieces with QR, 200 patches in four designs and 60 t-shirts."
-                        },
-                        {
-                          "lead": "Fête de la Musique Seoul · Jun 2026",
-                          "text": "With the French Embassy at Space K: three poster options on an artwork by Mandy El Sayegh, banner, post, story and reels."
-                        },
-                        {
-                          "lead": "Women Marathon · May 2026",
-                          "text": "Slides and banners with the organizers' textures. Sold out."
-                        },
-                        {
-                          "lead": "Meetups of the month",
-                          "text": "Monthly banners for surf, Wine & K-sool, gayageum, traditional dance and international meetups."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
                   "title": "Newsletter",
                   "stats": false,
                   "blocks": [
@@ -744,32 +642,12 @@
                   ]
                 },
                 {
-                  "title": "Stories and social",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "Story templates in four types, covers and Instagram grid, and editable templates for the team."
-                    }
-                  ]
-                },
-                {
                   "title": "Stationery",
                   "stats": false,
                   "blocks": [
                     {
                       "type": "p",
                       "text": "Email signature for the whole team, with a step-by-step install guide, and business cards as editable templates."
-                    }
-                  ]
-                },
-                {
-                  "title": "The guides",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "Three initial moodboards (Elegant, Joyful and Power), a photography guide with three styles, editorial textures and brand guidelines to share with outside partners."
                     }
                   ]
                 }
@@ -781,6 +659,7 @@
             "she-can-found-anywhere",
             "she-can-create-anywhere",
             "wellness-creator-trip",
+            "she-can-begin-anywhere",
             "partner-campaigns"
           ],
           "parent": null
@@ -2431,36 +2310,10 @@
                   "value": "Festival presencial"
                 }
               ],
-              "challenge": "Un festival de un día con zona de booths, Inspire Space, Build Lab, speakers, voluntarias y embajadoras. Todo tenía que orientar a 300 personas dentro de un venue físico, y antes de eso, vender entradas en tres plataformas distintas.",
-              "approach": "Con el equipo de comunidad recorrimos el espacio y definimos qué talleres tenían sentido y cómo se iba a mover la gente. Después diseñé el sistema completo: mapa y programa, pósters en A4 y A2, banners por zona, posts de speakers, lucky draw, totebag, postal, stickers y coupon cards, más los códigos de voluntarias y embajadoras dentro de la app.",
-              "result": "300 asistentes, diez embajadoras activas el día del evento, y una venta de entradas en tres fases: Flash Sale por la Semana de la Mujer, el reto \"Why She Travels\" y el bundle \"Bring Your Person\". El programa de embajadoras se convirtió después en el Travel Content Creator Pilot.",
-              "extras": [
-                {
-                  "title": "El paquete de diseño",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "Mapa del venue",
-                        "programa",
-                        "pósters A4, A2 y A3",
-                        "banners de booths, Inspire Space y Build Lab",
-                        "posts de speakers",
-                        "lucky draw",
-                        "diseños para voluntarias y embajadoras",
-                        "totebag",
-                        "postal",
-                        "stickers",
-                        "coupon cards de Travel Camp",
-                        "páginas en Eventus, Luma y Eventbrite",
-                        "presentación del día del evento",
-                        "email de campaña"
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "challenge": "Un festival de un día con booths, Inspire Space, Build Lab, speakers, voluntarias y embajadoras. Todo tenía que orientar a 300 personas dentro del venue y, antes, vender entradas en tres plataformas.",
+              "approach": "Recorrimos el espacio con el equipo de comunidad y definimos cómo se iba a mover la gente. Después diseñé el sistema completo, de la venta de entradas a lo que cada persona se llevó a casa.",
+              "result": "300 asistentes, diez embajadoras activas el día del evento y entradas vendidas en tres fases. El programa de embajadoras se convirtió después en el Travel Content Creator Pilot.",
+              "extras": []
             }
           },
           "en": {
@@ -2500,36 +2353,10 @@
                   "value": "In-person festival"
                 }
               ],
-              "challenge": "A one-day festival with a booth zone, an Inspire Space, a Build Lab, speakers, volunteers and ambassadors. Everything had to guide 300 people inside a physical venue, and before that, sell tickets on three different platforms.",
-              "approach": "With the community team we walked the space and defined which workshops made sense and how people would move. Then I designed the full system: map and program, A4 and A2 posters, banners by zone, speaker posts, lucky draw, tote bag, postcard, stickers and coupon cards, plus the volunteer and ambassador codes inside the app.",
-              "result": "300 attendees, ten active ambassadors on the day of the event, and ticket sales in three phases: a Flash Sale for Women's Week, the \"Why She Travels\" challenge and the \"Bring Your Person\" bundle. The ambassador program later became the Travel Content Creator Pilot.",
-              "extras": [
-                {
-                  "title": "The design package",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "Venue map",
-                        "program",
-                        "A4, A2 and A3 posters",
-                        "banners for booths, the Inspire Space and the Build Lab",
-                        "speaker posts",
-                        "lucky draw",
-                        "designs for volunteers and ambassadors",
-                        "tote bag",
-                        "postcard",
-                        "stickers",
-                        "Travel Camp coupon cards",
-                        "pages on Eventus, Luma and Eventbrite",
-                        "event-day presentation",
-                        "campaign email"
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "challenge": "A one-day festival with booths, an Inspire Space, a Build Lab, speakers, volunteers and ambassadors. Everything had to guide 300 people inside the venue and, before that, sell tickets on three platforms.",
+              "approach": "We walked the space with the community team and defined how people would move through it. Then I designed the whole system, from ticket sales to what everyone took home.",
+              "result": "300 attendees, ten ambassadors active on the day and tickets sold in three phases. The ambassador program later became the Travel Content Creator Pilot.",
+              "extras": []
             }
           },
           "parent": "applied-brand",
@@ -2583,9 +2410,9 @@
                   "value": "Campaña y evento presencial"
                 }
               ],
-              "challenge": "Una workation para fundadoras es un producto nuevo para una comunidad de viajeras: había que explicar qué es, para quién es y por qué vale la pena en cuatro días en Busan, con la ciudad, Seo-gu y el CCEI como aliados institucionales detrás. El programa tenía que convencer a dos públicos que no reaccionan igual a la misma imagen, fundadoras coreanas y asiáticas, y fundadoras internacionales, y hacerlo con un nombre recién definido en agosto y un calendario corto hasta octubre.",
-              "approach": "Partí del sistema de la serie She Can [Verb] Anywhere y lo llevé a un registro más corporativo, acorde con fundadoras e instituciones. Diseñé la campaña en variantes por audiencia, unas con más caras coreanas y asiáticas y otras con más caras internacionales, y las dejé correr en paralelo para ver cuál conectaba con cada una. El set cubrió el recorrido completo: banner y post en el Lounge, página de experiencia donde se postulaban, Instagram, anuncios en Meta y posts de presentación de las fundadoras seleccionadas. Para los días del evento, tarjetas de nombre, un X-banner de 600 × 1.800 mm y la tarjeta de bienvenida, con los logos de los aliados en cada pieza.",
-              "result": "26 postulaciones y 15 fundadoras seleccionadas para la primera edición, de Corea y de fuera, con presencia en el escenario de BOUNCE 2026 y una identidad que ya quedó lista para repetirse en la siguiente ciudad.",
+              "challenge": "Una workation para fundadoras era un producto nuevo para una comunidad de viajeras: había que explicar qué es y para quién es, y convencer a la vez a fundadoras coreanas e internacionales, con la ciudad de Busan, Seo-gu y el CCEI detrás.",
+              "approach": "Llevé el sistema She Can [Verb] Anywhere a un registro más corporativo y diseñé la campaña en variantes por audiencia, para ver cuál conectaba con cada una.",
+              "result": "26 postulaciones y 15 fundadoras seleccionadas para la primera edición, presencia en el escenario de BOUNCE 2026 y una identidad lista para la siguiente ciudad.",
               "extras": []
             }
           },
@@ -2627,9 +2454,9 @@
                   "value": "Campaign and in-person event"
                 }
               ],
-              "challenge": "A workation for founders is a new product for a community of travellers: it had to explain what it is, who it is for and why it is worth four days in Busan, with the city, Seo-gu and the CCEI as institutional partners behind it. The program had to convince two audiences that don't react the same way to the same image, Korean and Asian founders, and international founders, and do it with a name only just defined in August and a short runway to October.",
-              "approach": "I started from the She Can [Verb] Anywhere series system and took it to a more corporate register, fitting founders and institutions. I designed the campaign in variants by audience, some with more Korean and Asian faces and others with more international faces, and ran them in parallel to see which connected with each. The set covered the whole journey: banner and post in the Lounge, the Experience page where people applied, Instagram, Meta ads and introduction posts for the selected founders. For the event days, name cards, a 600 × 1,800 mm X-banner and the welcome card, with the partners' logos on every piece.",
-              "result": "26 applications and 15 founders selected for the first edition, from Korea and abroad, with a presence on the BOUNCE 2026 stage and an identity ready to repeat in the next city.",
+              "challenge": "A workation for founders was a new product for a community of travellers: it had to explain what it is and who it is for, and convince Korean and international founders at once, with Busan City, Seo-gu and the CCEI behind it.",
+              "approach": "I took the She Can [Verb] Anywhere system into a more corporate register and designed the campaign in variants per audience, to see which one connected with each.",
+              "result": "26 applications and 15 founders selected for the first edition, a presence on the BOUNCE 2026 stage and an identity ready for the next city.",
               "extras": []
             }
           },
@@ -2684,9 +2511,9 @@
                   "value": "Campaña y programa presencial"
                 }
               ],
-              "challenge": "Era el primer programa de este formato: cinco noches en Jeju para que diez creadoras construyeran un MVP con vibe coding, con Jeju City y el Jeju CCEI como aliados. No había referencia previa ni nombre. Necesitaba una identidad que explicara el programa en un vistazo, convenciera a creadoras de distintos países y pudiera repetirse en otras ciudades sin rediseñarse desde cero.",
-              "approach": "Propuse el nombre de serie She Can Create Anywhere [City] Edition, un formato abierto que después dio origen a She Can Found Anywhere en Busan. Dirigí el diseño, con una diseñadora del equipo, en dos rutas, una corporativa y otra emocional, y las comparamos en carrusel, portadas y banners con los logos de los aliados antes de elegir. Diseñé la presentación de orientación con la que arrancó el programa y fui jurado de los proyectos finales, así que vi la campaña de punta a punta, de la convocatoria al MVP.",
-              "result": "Diez plazas cubiertas, un programa de cinco noches y seis días, y un post de lanzamiento con 20.600 vistas y 80 compartidos. El sistema de naming y la identidad se siguen usando en las ediciones siguientes de la serie.",
+              "challenge": "El primer programa de este formato: cinco noches en Jeju para que diez creadoras construyeran un MVP con vibe coding. No había referencia previa ni nombre.",
+              "approach": "Propuse el nombre de serie She Can Create Anywhere [City] Edition y dirigí el diseño en dos rutas, una corporativa y otra emocional, antes de elegir.",
+              "result": "Diez plazas cubiertas y un post de lanzamiento con 20.600 vistas. El naming y la identidad se siguen usando en las ediciones siguientes.",
               "extras": []
             }
           },
@@ -2728,9 +2555,9 @@
                   "value": "Campaign and in-person program"
                 }
               ],
-              "challenge": "It was the first program of this format: five nights in Jeju for ten creators to build an MVP with vibe coding, with Jeju City and the Jeju CCEI as partners. There was no precedent and no name. It needed an identity that explained the program at a glance, convinced creators from different countries and could be repeated in other cities without redesigning from scratch.",
-              "approach": "I proposed the series name She Can Create Anywhere [City] Edition, an open format that later gave rise to She Can Found Anywhere in Busan. I directed the design, with a designer on the team, along two routes, one corporate and one emotional, and we compared them in carousel, covers and banners with the partners' logos before choosing. I designed the orientation presentation that opened the program and sat on the jury for the final projects, so I saw the campaign end to end, from the open call to the MVP.",
-              "result": "Ten spots filled, a five-night, six-day program, and a launch post with 20,600 views and 80 shares. The naming system and the identity are still used in the following editions of the series.",
+              "challenge": "The first program of this format: five nights in Jeju for ten creators to build an MVP with vibe coding. There was no previous reference and no name.",
+              "approach": "I proposed the series name She Can Create Anywhere [City] Edition and directed the design in two routes, one corporate and one emotional, before choosing.",
+              "result": "Ten spots filled and a launch post with 20,600 views. The naming and the identity are still used in the following editions.",
               "extras": []
             }
           },
@@ -2785,9 +2612,9 @@
                   "value": "Campaña y experiencia presencial"
                 }
               ],
-              "challenge": "Un retiro de tres días en Jeollanam-do, con TDI como aliado, para nueve creadoras de contenido que después contarían la región a sus audiencias. La convocatoria tenía que llegar lejos y filtrar bien para un viaje con tan pocas plazas, y el recibimiento pedía piezas en gran formato, con las exigencias técnicas de una imprenta y tiempos cortos.",
-              "approach": "Diseñé la convocatoria como un embudo: el post con su caption, la automatización en ManyChat que convertía el comentario en mensaje directo con los pasos, y el banner dentro de la app. Para el viaje, el kit físico de recibimiento: carteles de mano, el banner \"Welcome to the sisterhood\", un banner horizontal de 5.000 × 700 mm con los ajustes de troquel que pidió la imprenta, y tarjetas de presentación. Las fotos del viaje volvieron a la marca como material para las campañas siguientes.",
-              "result": "400 postulaciones para nueve plazas. El equipo de comunidad filtró las candidatas y contactó a 60 antes de la selección final, y el viaje dejó un banco de fotos de Naju, Hampyeong y Muan que hoy sostiene las piezas de la región.",
+              "challenge": "Un retiro de tres días en Jeollanam-do, con TDI como aliado, para nueve creadoras. La convocatoria tenía que llegar lejos y filtrar bien, y el recibimiento pedía piezas en gran formato con tiempos cortos.",
+              "approach": "La convocatoria como un embudo: post, automatización en ManyChat y banner en la app. Para el viaje, el kit físico de recibimiento y las piezas impresas.",
+              "result": "400 postulaciones para nueve plazas y un banco de fotos de Naju, Hampyeong y Muan que hoy sostiene las piezas de la región.",
               "extras": []
             }
           },
@@ -2829,9 +2656,110 @@
                   "value": "Campaign and in-person experience"
                 }
               ],
-              "challenge": "A three-day retreat in Jeollanam-do, with TDI as a partner, for nine content creators who would then tell the region to their audiences. The open call had to reach far and filter well for a trip with so few spots, and the welcome called for large-format pieces, with the technical demands of a print shop and short deadlines.",
-              "approach": "I designed the open call as a funnel: the post with its caption, the ManyChat automation that turned a comment into a direct message with the steps, and the banner inside the app. For the trip, the physical welcome kit: hand-held signs, the \"Welcome to the sisterhood\" banner, a 5,000 × 700 mm horizontal banner with the die-cut adjustments the print shop asked for, and business cards. The trip's photos came back to the brand as material for the campaigns that followed.",
-              "result": "400 applications for nine spots. The community team screened the candidates and contacted 60 before the final selection, and the trip left a bank of photos from Naju, Hampyeong and Muan that now carries the region's pieces.",
+              "challenge": "A three-day retreat in Jeollanam-do, with TDI as partner, for nine creators. The open call had to reach far and filter well, and the welcome asked for large-format pieces on short timelines.",
+              "approach": "The open call as a funnel: post, ManyChat automation and in-app banner. For the trip, the physical welcome kit and the printed pieces.",
+              "result": "400 applications for nine spots and a photo bank of Naju, Hampyeong and Muan that now supports the region's pieces.",
+              "extras": []
+            }
+          },
+          "parent": "applied-brand",
+          "children": []
+        },
+        {
+          "slug": "she-can-begin-anywhere",
+          "template": "visual",
+          "number": "1.16",
+          "chapter": "nomadher",
+          "filters": [
+            "marketing-content",
+            "design",
+            "events"
+          ],
+          "es": {
+            "card": {
+              "labels": [
+                "Campaña",
+                "2026"
+              ],
+              "meta": "NomadHer · Gangjin, 2026",
+              "title": "She Can Begin Anywhere",
+              "description": "Dos viajes a un pueblo que nadie googlea: el Gangjin Camp y la edición con el condado.",
+              "tags": [
+                "Campaña",
+                "Dirección de arte"
+              ],
+              "filters": [
+                "marketing-content",
+                "design",
+                "events"
+              ]
+            },
+            "page": {
+              "title": "She Can Begin Anywhere · Gangjin",
+              "description": "Gangjin es un pueblo del sur de Corea con 900 años de celadón y casi nadie publicando sobre él. Diseñé dos convocatorias para llevar mujeres allí: el Gangjin Camp en octubre y She Can Begin Anywhere, con el condado de Gangjin, en noviembre.",
+              "purpose": [],
+              "purposeLabel": null,
+              "overview": [
+                {
+                  "label": "Cliente",
+                  "value": "NomadHer con Gangjin-gun"
+                },
+                {
+                  "label": "Mi rol",
+                  "value": "Concepto, copy y diseño de las dos campañas"
+                },
+                {
+                  "label": "Tipo de proyecto",
+                  "value": "Campaña y viaje presencial"
+                }
+              ],
+              "challenge": "Vender un destino desconocido sin fotos de postal. Lo que tiene Gangjin son personas: una anfitriona que volvió de París, una maestra artesana, un ritmo lento que no cabe en un banner.",
+              "approach": "Conté el pueblo como una historia, con postales y notas escritas a mano dentro del carrusel. Para la edición con el condado, la misma voz en un sistema completo: posts de lanzamiento en el Lounge, experience posts y banner en la app, con una promesa más directa: dos días para empezar algo, con una Living Library de cuatro mujeres que volvieron a empezar.",
+              "result": "Dos convocatorias en dos meses con una sola identidad. La edición con el condado salió con ocho plazas, selección por aplicación y un precio simbólico de ₩30.000, y las piezas quedaron como plantilla para las siguientes ediciones regionales.",
+              "extras": []
+            }
+          },
+          "en": {
+            "card": {
+              "labels": [
+                "Campaign",
+                "2026"
+              ],
+              "meta": "NomadHer · Gangjin, 2026",
+              "title": "She Can Begin Anywhere",
+              "description": "Two trips to a town nobody googles: the Gangjin Camp and the edition with the county.",
+              "tags": [
+                "Campaign",
+                "Art direction"
+              ],
+              "filters": [
+                "marketing-content",
+                "design",
+                "events"
+              ]
+            },
+            "page": {
+              "title": "She Can Begin Anywhere · Gangjin",
+              "description": "Gangjin is a town in the south of Korea with 900 years of celadon and almost nobody posting about it. I designed two open calls to take women there: the Gangjin Camp in October and She Can Begin Anywhere, with Gangjin County, in November.",
+              "purpose": [],
+              "purposeLabel": null,
+              "overview": [
+                {
+                  "label": "Cliente",
+                  "value": "NomadHer with Gangjin-gun"
+                },
+                {
+                  "label": "Mi rol",
+                  "value": "Concept, copy and design of both campaigns"
+                },
+                {
+                  "label": "Tipo de proyecto",
+                  "value": "Campaign and in-person trip"
+                }
+              ],
+              "challenge": "Selling an unknown destination with no postcard shots. What Gangjin has is people: a host who came back from Paris, a master artisan, a slow pace that does not fit in a banner.",
+              "approach": "I told the town as a story, with postcards and handwritten notes inside the carousel. For the edition with the county, the same voice in a full system: Lounge launch posts, experience posts and an in-app banner, with a more direct promise: two days to start something, with a Living Library of four women who started over.",
+              "result": "Two open calls in two months under one identity. The county edition went out with eight seats, selection by application and a symbolic ₩30,000 price, and the pieces became the template for the next regional editions.",
               "extras": []
             }
           },
@@ -2854,7 +2782,7 @@
               ],
               "meta": "NomadHer · Global, 2025 - 2026",
               "title": "Campañas con partners",
-              "description": "Superalink, NordVPN y KiwiTaxi: beneficios de marcas aliadas, diseñados para usarse dentro de la app.",
+              "description": "Superalink, Fête de la Musique y NomadHer Perks: campañas con aliados, diseñadas para vivir dentro de la app.",
               "tags": [
                 "Campaña",
                 "Partnerships"
@@ -2865,51 +2793,27 @@
             },
             "page": {
               "title": "Campañas con partners",
-              "description": "Las campañas que llevan beneficios de marcas aliadas a la comunidad, diseñadas para vivir dentro de la app, además de en redes.",
+              "description": "Las campañas que se hacen con aliados: una eSIM para viajar conectada, una noche de arte y música en Space K con el Institut français, y el lanzamiento de los perks de la comunidad.",
               "purpose": [],
               "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
-                  "value": "NomadHer con Superalink, NordVPN y KiwiTaxi"
+                  "value": "NomadHer con Superalink, Space K × Fête de la Musique y marcas aliadas"
                 },
                 {
                   "label": "Mi rol",
-                  "value": "Diseño de campaña y piezas in-app"
+                  "value": "Concepto, copy y diseño de las piezas"
                 },
                 {
                   "label": "Tipo de proyecto",
                   "value": "Campañas de partnership"
                 }
               ],
-              "challenge": "Una marca aliada quiere que su beneficio se vea y se use, y cada una llega con su propia mecánica: giveaway mensual, código de descuento, vouchers, patrocinio de un evento. La comunidad, en cambio, quiere sentir que el beneficio le sirve de verdad y no un anuncio. Cada campaña tenía que resolver las dos cosas en el mismo banner, dentro de la app y en redes, y poder montarse rápido cada vez que entraba un aliado nuevo.",
-              "approach": "Trabajo cada campaña como un set dentro de la app: banner, lounge post, página de experiencia, push y anuncio de ganadoras, más la pieza de Instagram, todos sobre los mismos templates para que el equipo pueda repetirlos. La diferencia está en el relato: en Superalink cambié la portada después de la revisión, con fotos de la propia comunidad, para que una eSIM transmitiera seguridad y no solo precio; en NordVPN el beneficio se contó desde el viaje; en KiwiTaxi, desde el relato de llegada a una ciudad nueva.",
-              "result": "Tres aliados, tres mecánicas distintas y un solo sistema de piezas in-app que ya es la forma estándar de lanzar un beneficio en NomadHer: el giveaway de Superalink corre cada mes desde abril de 2026 con cinco ganadoras, y las campañas nuevas se montan en días, no en semanas.",
-              "extras": [
-                {
-                  "title": "Las campañas",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Superalink",
-                          "text": "Giveaway mensual de eSIM desde abril de 2026, con cinco ganadoras por mes."
-                        },
-                        {
-                          "lead": "NordVPN",
-                          "text": "Patrocinio del festival y una campaña en la comunidad con 76% de descuento y cuatro meses gratis."
-                        },
-                        {
-                          "lead": "KiwiTaxi",
-                          "text": "10% de descuento con código, tres vouchers de 100€ y un premio al mejor relato de viaje."
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "challenge": "Cada aliado llega con su propia mecánica y su propio logo. La comunidad tiene que sentir que el beneficio le sirve de verdad, y el aliado, que su marca se respeta sin que la pieza deje de ser NomadHer.",
+              "approach": "Para cada campaña, un set completo sobre los mismos templates: carrusel para Instagram, stories, banner en la app y post en el Lounge. Superalink se contó desde la seguridad de viajar conectada; la Fête de la Musique, desde tres mujeres que crecieron entre culturas; los Perks, desde cómo viaja cada una.",
+              "result": "Tres campañas distintas que se leen como una sola marca, y un sistema de piezas in-app que hoy es la forma estándar de lanzar un beneficio o un evento con aliado en NomadHer.",
+              "extras": []
             }
           },
           "en": {
@@ -2920,7 +2824,7 @@
               ],
               "meta": "NomadHer · Global, 2025 - 2026",
               "title": "Partner campaigns",
-              "description": "Superalink, NordVPN and KiwiTaxi: partner brand perks, designed to be used inside the app.",
+              "description": "Superalink, Fête de la Musique and NomadHer Perks: partner campaigns, designed to live inside the app.",
               "tags": [
                 "Campaign",
                 "Partnerships"
@@ -2931,51 +2835,27 @@
             },
             "page": {
               "title": "Partner campaigns",
-              "description": "The campaigns that bring partner brand perks to the community, designed to live inside the app as well as on social media.",
+              "description": "The campaigns made with partners: an eSIM to travel connected, a night of art and music at Space K with the Institut français, and the launch of the community perks.",
               "purpose": [],
               "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
-                  "value": "NomadHer with Superalink, NordVPN and KiwiTaxi"
+                  "value": "NomadHer with Superalink, Space K × Fête de la Musique and partner brands"
                 },
                 {
                   "label": "Mi rol",
-                  "value": "Campaign design and in-app pieces"
+                  "value": "Concept, copy and design of the pieces"
                 },
                 {
                   "label": "Tipo de proyecto",
                   "value": "Partnership campaigns"
                 }
               ],
-              "challenge": "A partner brand wants its perk to be seen and used, and each one arrives with its own mechanic: a monthly giveaway, a discount code, vouchers, an event sponsorship. The community, on the other hand, wants to feel the perk genuinely works for them, not an ad. Each campaign had to solve both in the same banner, inside the app and on social, and be quick to set up every time a new partner came in.",
-              "approach": "I work each campaign as a set inside the app: banner, lounge post, experience page, push and winners announcement, plus the Instagram piece, all on the same templates so the team can repeat them. The difference is in the story: for Superalink I changed the cover after the review, with photos of the community itself, so an eSIM conveyed safety and not just price; for NordVPN the perk was told from the trip; for KiwiTaxi, from the story of arriving in a new city.",
-              "result": "Three partners, three different mechanics and one system of in-app pieces that is now the standard way to launch a perk at NomadHer: the Superalink giveaway has run every month since April 2026 with five winners, and new campaigns go up in days, not weeks.",
-              "extras": [
-                {
-                  "title": "The campaigns",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Superalink",
-                          "text": "Monthly eSIM giveaway since April 2026, with five winners per month."
-                        },
-                        {
-                          "lead": "NordVPN",
-                          "text": "Festival sponsorship and a community campaign with 76% off and four months free."
-                        },
-                        {
-                          "lead": "KiwiTaxi",
-                          "text": "10% off with a code, three €100 vouchers and a prize for the best travel story."
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "challenge": "Every partner comes with its own mechanic and its own logo. The community has to feel the perk truly helps them, and the partner has to see its brand respected while the piece still looks like NomadHer.",
+              "approach": "For every campaign, a full set on the same templates: Instagram carousel, stories, in-app banner and Lounge post. Superalink was told through the safety of travelling connected; Fête de la Musique through three women who grew up between cultures; Perks through how each woman travels.",
+              "result": "Three different campaigns that read as one brand, and a system of in-app pieces that is now the standard way to launch a perk or a partner event at NomadHer.",
+              "extras": []
             }
           },
           "parent": "applied-brand",

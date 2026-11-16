@@ -11,6 +11,7 @@ import { WorkTogether } from "@/components/site/WorkTogether";
 import { CaseSections } from "@/components/site/project/CaseSections";
 import { ProjectExtras } from "@/components/site/project/ProjectExtras";
 import { InstagramEmbeds } from "@/components/site/project/InstagramEmbeds";
+import { SlideCarousel } from "@/components/site/project/SlideCarousel";
 import { getImageAspect } from "@/lib/image-aspect";
 import {
   HeroMedia,
@@ -64,6 +65,9 @@ const SECTION_TITLES: Record<
       es: "Newsletters y emails del user journey",
       en: "Newsletters and user-journey emails",
     },
+  },
+  "she-can-travel-anywhere-seoul": {
+    visual: { es: "Todo lo que se diseñó", en: "Everything that was designed" },
   },
   "instagram-content": {
     portafolio: { es: "Plantillas de stories", en: "Story templates" },
@@ -165,6 +169,55 @@ function splitSentences(text: string) {
 /** Titles for the `celular/<group>/` folders (the folder name without its number prefix). */
 const SCREEN_GROUP_TITLES: Record<string, Record<Locale, string>> = {
   banners: { es: "Banners en la app", en: "In-app banners" },
+  "banners-figma": {
+    es: "Banners de la app · sistema en Figma",
+    en: "App banners · Figma system",
+  },
+  "banners-canva": {
+    es: "Banners · plantillas editables en Canva",
+    en: "Banners · editable Canva templates",
+  },
+  papeleria: {
+    es: "Papelería · tarjetas y firma de correo",
+    en: "Stationery · cards and email signature",
+  },
+  senaletica: { es: "Señalética · carteles de evento", en: "Signage · event signs" },
+  carrusel: { es: "Carrusel de lanzamiento", en: "Launch carousel" },
+  "post-fundadoras": { es: "Post · las fundadoras", en: "Post · the founders" },
+  experiencia: { es: "Experience posts", en: "Experience posts" },
+  impresos: { es: "Impresos del viaje", en: "Printed pieces for the trip" },
+  "superalink-carrusel": { es: "Superalink · carrusel", en: "Superalink · carousel" },
+  "superalink-posts": { es: "Superalink · posts y banners", en: "Superalink · posts and banners" },
+  "superalink-app": { es: "Superalink · dentro de la app", en: "Superalink · inside the app" },
+  "fete-carrusel": { es: "Fête de la Musique · carrusel", en: "Fête de la Musique · carousel" },
+  "fete-stories": { es: "Fête de la Musique · stories", en: "Fête de la Musique · stories" },
+  "fete-afiches": { es: "Fête de la Musique · afiches y banner", en: "Fête de la Musique · posters and banner" },
+  perks: { es: "NomadHer Perks · lanzamiento", en: "NomadHer Perks · launch" },
+  bingo: { es: "Bingo · lucky draw card", en: "Bingo · lucky draw card" },
+  posters: { es: "Pósters y piezas de venta", en: "Posters and ticket pieces" },
+  "mapa-y-programa": { es: "Mapa y programa", en: "Map and program" },
+  "banners-y-senaletica": {
+    es: "Banners y señalética del venue",
+    en: "Venue banners and signage",
+  },
+  speakers: { es: "Posts de speakers", en: "Speaker posts" },
+  embajadoras: {
+    es: "Embajadoras y voluntarias",
+    en: "Ambassadors and volunteers",
+  },
+  postal: { es: "Postal", en: "Postcard" },
+  "stories-community": {
+    es: "Stories para la comunidad",
+    en: "Community stories",
+  },
+  "posts-speakers-ig": {
+    es: "Posts de speakers en Instagram",
+    en: "Speaker posts on Instagram",
+  },
+  "ipad-y-flyers": {
+    es: "iPad de los talleres y flyers A6",
+    en: "Workshop iPad and A6 flyers",
+  },
   "launch-posts": { es: "Launch posts", en: "Launch posts" },
   "experience-posts": { es: "Experience posts", en: "Experience posts" },
   "experience-cover": { es: "Experience cover", en: "Experience cover" },
@@ -366,9 +419,12 @@ export default async function WorkPage({
     // All Instagram pieces of the project, flat (the ring in the hero uses them); posts keep their own groups below.
     instagram: heroPieces(project.slug),
     presentacion: getProjectPhotos(project.slug, "presentacion"),
-    visual: getProjectPhotos(project.slug, "visual").length
-      ? getProjectPhotos(project.slug, "visual")
-      : launchGroups.flatMap((g) => g.items),
+    // Only the loose files: pieces sorted in subfolders render as titled rows, never as the hero collage.
+    visual: getProjectPhotos(project.slug, "visual"),
+    // Pieces sorted in visual/ subfolders: the loose files on top are the hero collage; the rows show the rest.
+    visualHeroOnly:
+      launchGroups.length > 0 &&
+      getProjectPhotos(project.slug, "visual").length > 0,
     afiches: getProjectPhotos(project.slug, "afiches"),
     web: getProjectPhotos(project.slug, "web"),
     grilla: getProjectPhotos(project.slug, "grilla"),
@@ -421,7 +477,8 @@ export default async function WorkPage({
   // The Instagram ring opens the page: it sits above the title, the text follows.
   const mediaFirst = project.template === "instagram" && Boolean(media);
   const launchFirst =
-    project.template === "instagram" && photos.visual.length > 0;
+    project.template === "instagram" &&
+    (photos.visual.length > 0 || launchGroups.length > 0);
 
   const parent = project.parent
     ? getProject(project.parent, locale)
@@ -469,7 +526,7 @@ export default async function WorkPage({
             {parent ? (
               <Link
                 href={`/work/${parent.slug}`}
-                className="font-inter text-ink2 mb-5 inline-flex items-center gap-2 text-[14px] font-medium transition-opacity hover:opacity-70"
+                className="font-inter text-ink2 mr-5 mb-5 inline-flex items-center gap-2 text-[14px] font-medium transition-opacity hover:opacity-70"
               >
                 <span aria-hidden="true">←</span>
                 {es ? "Parte de" : "Part of"} {parent.t.card.title}
@@ -577,12 +634,12 @@ export default async function WorkPage({
         />
       ) : null}
       {/* On a campaign page the pieces that launched it (app banner, Lounge post, Experience page) come before the Instagram posts. */}
-      {launchFirst && launchGroups.length ? (
+      {launchGroups.length ? (
         <section className="bg-white py-24 sm:py-36">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
             <h2 className="font-inter text-ink2 text-center text-[32px] leading-tight font-semibold">
               {SECTION_TITLES[project.slug]?.visual?.[locale] ??
-                (es ? "Las piezas" : "The pieces")}
+                (es ? "Todo lo que se diseñó" : "Everything that was designed")}
             </h2>
             <div className="mt-12 space-y-14">
               {await Promise.all(
@@ -598,24 +655,13 @@ export default async function WorkPage({
                       <h3 className="font-inter text-ink2 text-[18px] font-semibold sm:text-[20px]">
                         {group.title}
                       </h3>
-                      <ul className="mt-5 flex flex-wrap justify-start gap-4 sm:gap-5">
-                        {sized.map(({ src, aspect }) => (
-                          <li
-                            key={src}
-                            className="relative h-[150px] overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_8px_24px_rgba(0,0,0,0.10)] sm:h-[220px]"
-                            style={{ aspectRatio: String(aspect) }}
-                          >
-                            <Image
-                              src={src}
-                              alt=""
-                              fill
-                              sizes="(min-width: 640px) 420px, 60vw"
-                              quality={90}
-                              className="object-cover"
-                            />
-                          </li>
-                        ))}
-                      </ul>
+                      {/* One slider per section, tall, so each design can be seen properly. */}
+                      <SlideCarousel
+                        tall
+                        slides={sized}
+                        previousLabel={es ? "Pieza anterior" : "Previous piece"}
+                        nextLabel={es ? "Pieza siguiente" : "Next piece"}
+                      />
                     </div>
                   );
                 }),
@@ -641,7 +687,9 @@ export default async function WorkPage({
       (project.template === "visual" &&
         photos.visual.length === 0 &&
         (photos.diario ?? []).length === 0) ||
-      EMBEDS_FIRST.has(project.slug) ? null : (
+      EMBEDS_FIRST.has(project.slug) ||
+      // The titled rows already show every piece: no second "Galería" of the same files.
+      (project.template === "visual" && launchGroups.length > 0) ? null : (
         <TemplateGallery
           account={account}
           tallSlides={CLASSIC_GALLERY.has(project.slug)}

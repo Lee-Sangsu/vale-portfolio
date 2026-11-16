@@ -30,6 +30,8 @@ export type TemplatePhotos = {
   celular: string[];
   /** App screens in named groups (onboarding, lounge...): each one gets its own row with a title. */
   screenGroups?: { title: string; items: string[] }[];
+  /** True when the project's pieces live in titled rows below: the top-level visual files are the hero collage only. */
+  visualHeroOnly?: boolean;
   instagram: string[];
   presentacion: string[];
   visual: string[];
@@ -168,7 +170,7 @@ function PhoneFrame({
 }
 
 const COLLAGE_GAP = 6;
-const COLLAGE_TARGET_HEIGHT = 420;
+const COLLAGE_TARGET_HEIGHT = 320;
 
 /**
  * Groups photos (in order) into rows so every row lands near the target height.
@@ -482,7 +484,7 @@ export async function HeroMedia({
   if (
     template === "visual" &&
     photos.visual.length >= 2 &&
-    photos.diario?.length
+    (photos.diario?.length || photos.visualHeroOnly)
   ) {
     return (
       <TightCollage
@@ -826,12 +828,10 @@ export async function TemplateGallery({
             <SlideCarousel
               tall
               slides={await Promise.all(
-                posts
-                  .flat()
-                  .map(async (src) => ({
-                    src,
-                    aspect: await getImageAspect(src),
-                  })),
+                posts.flat().map(async (src) => ({
+                  src,
+                  aspect: await getImageAspect(src),
+                })),
               )}
               previousLabel={es ? "Pieza anterior" : "Previous slide"}
               nextLabel={es ? "Pieza siguiente" : "Next slide"}
@@ -842,7 +842,8 @@ export async function TemplateGallery({
               const indexed = posts.map((group, i) => ({ group, i }));
               // Reels and stories (tall 9:16 pieces) share the second row; square and 4:5 posts stay in the feed.
               const isTall = ({ group, i }: { group: string[]; i: number }) =>
-                (group.length === 1 && isVideoPath(group[0])) || aspects[i] < 0.7;
+                (group.length === 1 && isVideoPath(group[0])) ||
+                aspects[i] < 0.7;
               const stills = indexed.filter((p) => !isTall(p));
               const reels = indexed.filter(isTall);
               const cols = (n: number) =>

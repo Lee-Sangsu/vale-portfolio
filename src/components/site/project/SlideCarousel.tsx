@@ -14,7 +14,7 @@ export function SlideCarousel({
   slides: { src: string; aspect: number }[];
   previousLabel: string;
   nextLabel: string;
-  /** Slides keep the full shared height and crop sideways when they are wider than the box (the original look). */
+  /** Decks and boards: a touch taller than the default strip. Nothing is cropped either way. */
   tall?: boolean;
 }) {
   const trackRef = useRef<HTMLUListElement>(null);
@@ -54,25 +54,19 @@ export function SlideCarousel({
         {slides.map(({ src, aspect }, i) => (
           <li
             key={src}
-            className={`relative shrink-0 snap-start overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_10px_32px_rgba(0,0,0,0.16)] ${
-              tall ? "h-[clamp(260px,46vw,620px)] max-w-[92%]" : ""
-            }`}
-            // Width from the slide's own proportion at the shared height, capped to the viewport: a wide board gets
-            // shorter instead of being cropped, so every piece shows whole. `tall` keeps the full height instead.
-            style={
-              tall
-                ? { aspectRatio: String(aspect) }
-                : {
-                    aspectRatio: String(aspect),
-                    width: `min(92%, calc(clamp(260px, 46vw, 620px) * ${aspect}))`,
-                  }
-            }
+            className="relative shrink-0 snap-start overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_10px_32px_rgba(0,0,0,0.16)]"
+            // Every piece keeps its own proportions at a shared height; a wide one is capped by the viewport and gets
+            // shorter instead of cropped, so nothing is ever cut and the next piece always peeks in.
+            style={{
+              aspectRatio: String(aspect),
+              width: `min(${aspect > 1.4 ? 72 : 92}%, calc(clamp(240px, 40vw, ${tall ? 560 : 540}px) * ${aspect}))`,
+            }}
           >
             <Image
               src={src}
               alt=""
               fill
-              sizes="(min-width: 1024px) 1100px, 92vw"
+              sizes="(min-width: 1280px) 1100px, 92vw"
               priority={i === 0}
               quality={92}
               className="object-cover"
