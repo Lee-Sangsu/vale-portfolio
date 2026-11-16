@@ -3520,39 +3520,24 @@
                   "stats": false,
                   "blocks": [
                     {
-                      "type": "rows",
-                      "rows": [
-                        [
-                          "Cámara de Comercio de Bogotá",
-                          "Invest in Bogotá",
-                          "Geek Girls LATAM",
-                          "Laboratoria",
-                          "Mondragon Team Academy",
-                          "Jobly",
-                          "Realtyplus",
-                          "La Caja Lab"
-                        ],
-                        [
-                          "We Push",
-                          "Treebu Latam",
-                          "Penguin Random House",
-                          "BizNation",
-                          "Notiontopia",
-                          "Fundación EVA",
-                          "Plurall",
-                          "Mujeres y Producto",
-                          "Fondo Impacta"
-                        ],
-                        [
-                          "Universidad Externado de Colombia",
-                          "Universidad Ean",
-                          "Universidad de La Sabana",
-                          "Universidad del Rosario",
-                          "Universidad ECCI",
-                          "SENA",
-                          "LEINN International",
-                          "Uniempresarial"
-                        ]
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Apoya",
+                          "text": "Cámara de Comercio de Bogotá · Mondragon Team Academy"
+                        },
+                        {
+                          "lead": "Partners",
+                          "text": "Invest in Bogotá · Geek Girls LATAM · Laboratoria · Jobly · Realtyplus · La Caja Lab · We Push · Treebu Latam · Penguin Random House · BizNation"
+                        },
+                        {
+                          "lead": "Aliados",
+                          "text": "Notiontopia · Fundación EVA · Plurall · Mujeres y Producto · Fondo Impacta · Infinita · NESsT · ScienteLab"
+                        },
+                        {
+                          "lead": "Universidades",
+                          "text": "Universidad Externado de Colombia · Universidad Ean · Universidad de La Sabana · Universidad del Rosario · Universidad ECCI · SENA · LEINN International · Uniempresarial"
+                        }
                       ]
                     }
                   ]
@@ -3764,39 +3749,24 @@
                   "stats": false,
                   "blocks": [
                     {
-                      "type": "rows",
-                      "rows": [
-                        [
-                          "Cámara de Comercio de Bogotá",
-                          "Invest in Bogotá",
-                          "Geek Girls LATAM",
-                          "Laboratoria",
-                          "Mondragon Team Academy",
-                          "Jobly",
-                          "Realtyplus",
-                          "La Caja Lab"
-                        ],
-                        [
-                          "We Push",
-                          "Treebu Latam",
-                          "Penguin Random House",
-                          "BizNation",
-                          "Notiontopia",
-                          "Fundación EVA",
-                          "Plurall",
-                          "Mujeres y Producto",
-                          "Fondo Impacta"
-                        ],
-                        [
-                          "Universidad Externado de Colombia",
-                          "Universidad Ean",
-                          "Universidad de La Sabana",
-                          "Universidad del Rosario",
-                          "Universidad ECCI",
-                          "SENA",
-                          "LEINN International",
-                          "Uniempresarial"
-                        ]
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Supported by",
+                          "text": "Cámara de Comercio de Bogotá · Mondragon Team Academy"
+                        },
+                        {
+                          "lead": "Partners",
+                          "text": "Invest in Bogotá · Geek Girls LATAM · Laboratoria · Jobly · Realtyplus · La Caja Lab · We Push · Treebu Latam · Penguin Random House · BizNation"
+                        },
+                        {
+                          "lead": "Allies",
+                          "text": "Notiontopia · Fundación EVA · Plurall · Mujeres y Producto · Fondo Impacta · Infinita · NESsT · ScienteLab"
+                        },
+                        {
+                          "lead": "Universities",
+                          "text": "Universidad Externado de Colombia · Universidad Ean · Universidad de La Sabana · Universidad del Rosario · Universidad ECCI · SENA · LEINN International · Uniempresarial"
+                        }
                       ]
                     }
                   ]

@@ -119,9 +119,10 @@ More than 400 attendees and around 40 entrepreneur stands, over 45 strategic par
 *Increased visibility.* Over 142,473 views across all campaign materials on social media.
 
 **Partners**
-Cámara de Comercio de Bogotá · Invest in Bogotá · Geek Girls LATAM · Laboratoria · Mondragon Team Academy · Jobly · Realtyplus · La Caja Lab
-We Push · Treebu Latam · Penguin Random House · BizNation · Notiontopia · Fundación EVA · Plurall · Mujeres y Producto · Fondo Impacta
-Universidad Externado de Colombia · Universidad Ean · Universidad de La Sabana · Universidad del Rosario · Universidad ECCI · SENA · LEINN International · Uniempresarial
+*Supported by.* Cámara de Comercio de Bogotá · Mondragon Team Academy
+*Partners.* Invest in Bogotá · Geek Girls LATAM · Laboratoria · Jobly · Realtyplus · La Caja Lab · We Push · Treebu Latam · Penguin Random House · BizNation
+*Allies.* Notiontopia · Fundación EVA · Plurall · Mujeres y Producto · Fondo Impacta · Infinita · NESsT · ScienteLab
+*Universities.* Universidad Externado de Colombia · Universidad Ean · Universidad de La Sabana · Universidad del Rosario · Universidad ECCI · SENA · LEINN International · Uniempresarial
 
 **Design**
 21 graphic pieces, including a set for each speaker so each of them could post on LinkedIn and Instagram, campaign reels and pieces for the on-site event.
