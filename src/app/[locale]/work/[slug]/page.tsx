@@ -45,17 +45,12 @@ const SECTION_TITLES: Record<string, Partial<Record<"ppt" | "afiches" | "visual"
     portafolio: { es: "Sistema de stories", en: "Story system" },
     afiches: { es: "Newsletter y emails", en: "Newsletter and emails" },
   },
-  "misiones-internacionales": { ppt: { es: "La propuesta de la misión", en: "The mission proposal" } },
+  "misiones-internacionales": { ppt: { es: "Los itinerarios", en: "The itineraries" } },
   "seoul-women-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
   "global-youth-summit": { ppt: { es: "Dossier para aliados", en: "Partner dossier" } },
-  "seoul-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
   "sejong-hackathon": {
     ppt: { es: "Las plantillas de trabajo", en: "The worksheets" },
     afiches: { es: "Los reconocimientos", en: "The awards" },
-  },
-  "ruta-8": {
-    portafolio: { es: "Plan de comunicación", en: "Communication plan" },
-    afiches: { es: "Póster y correos de convocatoria", en: "Call poster and emails" },
   },
   "business-decks": { portafolio: { es: "Booth deck del festival", en: "Festival booth deck" } },
   "city-lounge": { portafolio: { es: "Propuestas y flujos", en: "Proposals and flows" } },
@@ -102,6 +97,9 @@ const MOODBOARD_LABELS: Record<string, Record<Locale, string[]>> = {
     en: ["Youth, projection, belonging", "Impact, determination, action", "Creativity, flexibility, growth"],
   },
 };
+
+/** Projects whose Visual Diary runs in more than two rows. */
+const DIARY_ROWS: Record<string, number> = { "seoul-women-entrepreneur-summit": 4 };
 
 /** Order of a project's extra galleries when it differs from the default one (earlier = higher on the page). */
 const EXTRA_ORDER: Record<string, string[]> = {
@@ -168,6 +166,7 @@ export default async function WorkPage({
     webScreens: getProjectPhotos(project.slug, "web/pantalla"),
     instagramPosts: oneCarouselPerEdition(getProjectInstagramPosts(project.slug), project.slug),
     diario: getProjectDiary(project.slug),
+    diaryRows: DIARY_ROWS[project.slug],
   };
   // A second edition (edicion-2/ folder) gets its own block after the first one.
   const secondPosts = getProjectInstagramPosts(project.slug, 2);
@@ -196,6 +195,8 @@ export default async function WorkPage({
   // Instagram and the visual collage open with a centered title and description above the pictures.
   const centered = (project.template === "instagram" || project.template === "visual") && Boolean(media);
   const slidesLeft = (project.template === "ppt" || project.template === "app") && Boolean(media);
+  // The Instagram ring opens the page: it sits above the title, the text follows.
+  const mediaFirst = project.template === "instagram" && Boolean(media);
 
   const parent = project.parent ? getProject(project.parent, locale) : undefined;
   const children = project.children
@@ -228,6 +229,7 @@ export default async function WorkPage({
           }`}
         >
           {media && slidesLeft ? <div className="lg:order-first">{media}</div> : null}
+          {media && mediaFirst ? media : null}
           <div className={centered ? "mx-auto max-w-[760px] text-center" : "max-w-[760px]"}>
             {parent ? (
               <Link
@@ -276,7 +278,7 @@ export default async function WorkPage({
             ) : null}
           </div>
 
-          {media && !slidesLeft ? media : null}
+          {media && !slidesLeft && !mediaFirst ? media : null}
 
           {!media && cover ? (
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[18px] bg-[#ecece7] shadow-[0_12px_32px_rgba(0,0,0,0.12)]">

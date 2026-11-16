@@ -52,7 +52,7 @@ Producción, logística y coordinación de equipos para llevar el concepto al d�
 
 ### Lo que salió de este capítulo · [ PROYECTOS ]
 
-Global Youth: Women's Entrepreneurship Summit · Sejong Global Idea Hackathon · Misiones Internacionales · Seoul Women Entrepreneur Summit · Seoul Entrepreneur Summit · Ruta 8 · Seoul Wellness Workshop · Programas y talleres BOOST LAB
+Global Youth: Women's Entrepreneurship Summit · Sejong Global Idea Hackathon · Misiones Internacionales · Seoul Women Entrepreneur Summit · Ruta 8 · Programas y talleres BOOST LAB
 
 ---
 
@@ -219,13 +219,13 @@ Mi rol · Diseño de itinerario, agenda de reuniones, traducción y acompañamie
 Tipo de proyecto · Misión empresarial y cultural
 
 **01 Challenge**
-Entrar a Corea desde Latinoamérica choca primero con el idioma, y después con algo más difícil: llegar a las personas correctas. Dos empresas de industrias opuestas, innovación y café de especialidad, necesitaban rutas distintas dentro del mismo viaje.
+Para una empresa latinoamericana, Corea empieza siendo una barrera de idioma y termina siendo una pregunta más difícil: ¿cómo llegar a las personas que de verdad abren puertas? Y esta vez viajaban dos empresas de mundos distintos, una de innovación y otra de café de especialidad, que necesitaban agendas propias dentro de un mismo viaje.
 
 **02 Approach**
-Curamos un itinerario por industria y corrimos dos rutas en paralelo, con la experiencia cultural compartida. Agendamos seis reuniones institucionales y traducimos en vivo entre coreano y español, con inglés de puente según el sector. Acompañamos de principio a fin, con contexto antes de cada reunión, debrief después, e itinerarios impresos y materiales de bienvenida.
+Curamos un itinerario por industria y corrimos dos rutas en paralelo, con la experiencia cultural compartida. Agendamos seis reuniones institucionales y traducimos en vivo entre coreano y español, con inglés de puente según el sector. Acompañamos de principio a fin: contexto antes de cada reunión, debrief después, y un itinerario que entrelaza las reuniones empresariales con la experiencia cultural, para que cada día tuviera algo que aprender y algo que negociar.
 
 **03 Result**
-Superamos el objetivo de cinco empresas conectadas por industria, y salieron negocios, sobre todo del lado del café. Se abrieron conversaciones de colaboración entre Bogotá y Seúl, y entre Medellín y Busan. Caja Lab organiza ahora sus propias misiones internacionales.
+Superamos la meta de cinco empresas conectadas por industria. Cada empresa volvió con alianzas abiertas, una red de contactos internacionales en Seúl, Busan y Jeju, y un plan de acción para seguir el proceso desde Colombia. Las conversaciones que empezaron en Corea siguen hoy entre Bogotá y Seúl, y entre Medellín y Busan.
 
 **Secciones extra**
 
@@ -258,7 +258,9 @@ Filtros · Eventos y talleres · Marketing y contenido
 **Título** · Seoul Women Entrepreneur Summit
 
 **Descripción**
-Un summit en inglés en Seúl, en junio de 2024, armado tres meses después del primero, cuando notamos que casi no había mujeres en las listas de speakers.
+Un evento a gran escala para empoderar a las mujeres emprendedoras y fortalecer el ecosistema emprendedor de Seúl. Un espacio para compartir conocimiento, hacer red e inspirarse, con una idea al centro: que las mujeres lideren la innovación y el cambio social. Seúl, junio de 2024, 100% en inglés.
+
+**Logros** · 120+ asistentes · 14 speakers · 4 paneles · 42.000+ views
 
 **Overview**
 Cliente · BOOST LAB
@@ -284,8 +286,29 @@ Lo hicimos 100% en inglés, porque somos un equipo internacional y era la manera
 7 · aliados
 100% · en inglés
 
-**Mi rol en detalle**
-Estrategia y planeación del evento · curaduría y gestión de speakers · marketing y promoción · diseño de la identidad y de todas las piezas · logística y operación en sitio · moderación de paneles
+**Mis responsabilidades**
+*Estrategia y planeación del evento.* El concepto completo: tema, formato y audiencia objetivo.
+*Curaduría y gestión de speakers.* Identificar y contactar a las panelistas, coordinar agendas y resolver su logística.
+*Marketing y promoción.* Una estrategia integral en redes, email y alianzas para llegar a la audiencia correcta.
+*Logística y operación.* Venue, proveedores y coordinación en sitio el día del evento.
+*Paneles.* Diseñar el contenido de cada conversación y moderarla en escenario.
+
+**Retos y cómo los resolvimos**
+*La barrera del idioma.* Hicimos el summit 100% en inglés para derribarla: una sola sala, una audiencia global y colaboración entre culturas.
+*El sesgo de género en el ecosistema.* Buscamos activamente panelistas diversas para desafiar la norma de los escenarios de emprendimiento en Seúl e inspirar a más mujeres a emprender.
+*Recursos limitados.* Estiramos el presupuesto con alianzas, voluntarias y soluciones de bajo costo.
+
+**Herramientas y método**
+*Gestión de proyecto.* Tareas, plazos y recursos bajo control en una sola herramienta.
+*Diseño.* Figma para la identidad, las piezas de campaña y las slides del día.
+*Instagram.* El canal principal de la campaña: más de 42.000 views en todas las piezas.
+*Metodologías ágiles.* Para adaptar el plan sobre la marcha y entregar a tiempo.
+
+**Resultados e impacto**
+*Un evento que funcionó.* Más de 120 asistentes, de 80 que habíamos tenido en marzo.
+*Mujeres emprendedoras conectadas.* Un espacio para conocerse, aprender e inspirarse unas a otras.
+*Paneles diversos.* Speakers de distintos orígenes y sectores: titanas tecnológicas, emprendedoras sociales y líderes creativas.
+*Alianzas sólidas.* Piooda, Front 1, Social Table, Beyond 2024, Mondragon Team Academy, Check'o y Seoul Startup.
 
 **Los paneles**
 01 She Breaks Barriers
@@ -293,69 +316,8 @@ Estrategia y planeación del evento · curaduría y gestión de speakers · mark
 03 Building a Better World: Women Social Entrepreneurs in Action
 04 Creative Empires: Cultural Change Through Entrepreneurship
 
-**Retos y cómo los resolvimos**
-El idioma: hicimos el summit 100% en inglés para que la sala fuera una sola y conectara con una audiencia global. El sesgo de género: buscamos activamente panelistas diversas, lejos de la norma de los escenarios de emprendimiento en Seúl. El presupuesto: lo estiramos con alianzas, voluntarias y soluciones de bajo costo.
-
-**Herramientas y método**
-Figma para la identidad, las piezas de campaña y las slides del día · Instagram como canal principal, con más de 42.000 views · un kit de bienvenida y piezas personalizadas para cada speaker · gestión ágil para adaptar el plan sobre la marcha
-
 **Aliados**
 Piooda · Front 1 · Social Table · Beyond 2024 · Mondragon Team Academy · Check'o · Seoul Startup
-
-**Una nota**
-En este summit conocí a Hyojeong Kim, fundadora de NomadHer. Un año después me contrató.
-
----
-
-## 2.5 Seoul Entrepreneur Summit
-
-**CARD**
-Etiquetas · Summit · Seúl
-Meta · BOOST LAB · Seúl, 2024
-Título · Seoul Entrepreneur Summit
-Descripción · El primer evento de BOOST LAB: emprendedores coreanos e internacionales en la misma sala.
-Tags · Evento · Identidad
-Filtros · Eventos y talleres · Diseño gráfico
-
-**PÁGINA**
-
-**Título** · Seoul Entrepreneur Summit
-
-**Descripción**
-El evento con el que nació BOOST LAB, en marzo de 2024: una tarde de charla de expertos, reto por equipos y pitch, con emprendedores coreanos e internacionales mezclados en cada mesa.
-
-**Overview**
-Cliente · BOOST LAB con N9NE
-Mi rol · Concepto, identidad visual, campaña y operación
-Tipo de proyecto · Summit presencial
-
-**01 Challenge**
-En Seúl había eventos para emprendedores coreanos y eventos para internacionales, casi nunca para los dos a la vez. Queríamos un reto real para trabajar en equipos mixtos, y conseguir que una empresa lo propusiera tomaba meses.
-
-**02 Approach**
-Construimos los casos con ex consultores de McKinsey, así el reto dependía de nosotros y de ningún sponsor. Diseñamos cinco horas cronometradas: charla con preguntas, ice breaking, reto por equipos con investigación y validación, y pitch. Veinte mesas en cuatro cuadrantes por sector; cada cuadrante votaba a su ganador sin poder votarse a sí mismo, y los ganadores presentaban ante jurado.
-
-**03 Result**
-80 asistentes en el primer evento de BOOST LAB, y el formato base de todo lo que hicimos después. Tres meses más tarde vino el Seoul Women Entrepreneur Summit, y seis meses después, Bogotá.
-
-**Secciones extra**
-
-**Cifras** *(para stat cards)*
-80 · asistentes
-2 · comunidades en una sala: coreana e internacional
-1 · reto real propuesto por una empresa
-14 · slides diseñadas para guiar el día
-
-**Cómo fue el día**
-01 Bienvenida y registro, con área de networking abierta toda la tarde
-02 Charla de expertos con preguntas en vivo
-03 Ice breaking en dos filas, frente a frente
-04 Reto por equipos: nombre, problema, investigación y solución
-05 Pitch por cuadrante y pitch final ante jurado
-06 Ganador, agradecimientos y networking de cierre
-
-**Mi rol en detalle**
-Concepto y formato del evento · identidad visual y campaña · slides e instrucciones de cada momento · operación del día con el equipo de N9NE
 
 ---
 
@@ -367,7 +329,7 @@ Concepto y formato del evento · identidad visual y campaña · slides e instruc
 Etiquetas · Programa · Quito
 Meta · BOOST LAB · Quito, 2026
 Título · Ruta 8
-Descripción · 176 postulaciones, 46 negocios y ocho talleres para emprendedores colombianos en Ecuador, con el Consulado de Colombia en Quito.
+Descripción · 176 postulaciones, 49 negocios y ocho talleres para emprendedores colombianos en Ecuador, con el Consulado de Colombia en Quito.
 Tags · Programa · Campaña
 Filtros · Eventos y talleres · Estrategia · Marketing y contenido · Diseño gráfico
 
@@ -378,7 +340,7 @@ Filtros · Eventos y talleres · Estrategia · Marketing y contenido · Diseño 
 **Descripción**
 Un programa del Consulado General de Colombia en Quito para emprendedores colombianos en Ecuador, dentro de la línea de emprendimiento y empleabilidad de COLOMBIA NOS UNE. Diseñamos la ruta completa, de la convocatoria a los ocho talleres, entre agosto y diciembre de 2026.
 
-**Propósito** · Convocar · Formar · Conectar
+**Logros** · 176 postulaciones · 49 negocios · 8 talleres · 1 feria de cierre
 
 **Overview**
 Cliente · Consulado General de Colombia en Quito · COLOMBIA NOS UNE
@@ -386,21 +348,29 @@ Mi rol · Diseño del programa, campaña de convocatoria, piezas, contenido y at
 Tipo de proyecto · Programa de formación y campaña
 
 **01 Challenge**
-La comunidad emprendedora colombiana en Ecuador estaba dispersa, y el Consulado necesitaba llegar a ella, explicarle un programa nuevo y convertir el interés en postulaciones reales. Había un punto delicado: registrarse no significaba quedar seleccionado, y eso tenía que entenderse desde el primer mensaje. Todo bajo la identidad de Casa Colombia.
+Crecer un negocio lejos de la red que dejaste atrás exige nuevas conexiones y herramientas prácticas. Miles de colombianos en Ecuador ya tienen un negocio o una iniciativa productiva en marcha, pero no una comunidad ni un programa que los acompañe a llevarlo al siguiente nivel. El Consulado General de Colombia en Quito quería ponérselos al alcance, en Ecuador y gratis, dentro de Casa Colombia y Colombia Nos Une: ocho talleres híbridos con mentores expertos, una plataforma con acompañamiento de IA disponible 24 horas y una feria de cierre abierta al público. El reto era convertir esa promesa en una convocatoria clara, en una cohorte de 50 negocios y en un programa que la gente terminara.
 
 **02 Approach**
-Diseñamos la ruta en tres etapas: convocatoria, ocho talleres entre presenciales y virtuales, y cierre. Para la convocatoria construimos cuatro perfiles de emprendedor, cada uno con su propio mensaje, y un sistema de piezas sobre la identidad de Casa Colombia: dos carruseles por semana durante todo el ciclo, siete correos, dos sesiones informativas en vivo y una página de inscripción que registra qué canal trae a cada persona.
+Diseñamos Ruta 8 como una experiencia completa y no como una serie de talleres sueltos: una convocatoria con voz propia, un proceso de selección claro, ocho sesiones que se construyen una sobre otra, y una comunidad que acompaña al emprendedor entre sesión y sesión. Del lado de BOOST LAB llevamos el diseño del programa, la estrategia de comunicación, todas las piezas gráficas y de contenido, la plataforma donde los participantes siguen el proceso y la atención directa a cada persona que preguntó.
 
 **03 Result**
-176 postulaciones y 46 negocios seleccionados para la cohorte, que hoy avanzan por los ocho talleres. Los participantes tienen además una plataforma propia donde siguen el programa sesión por sesión, con acceso directo desde su correo. La campaña sostuvo dos piezas por semana durante todo el ciclo, de la convocatoria al último taller.
+176 postulaciones y 49 negocios seleccionados para la cohorte, que hoy avanzan por los ocho talleres entre Quito y sesiones virtuales. Una comunidad que no existía como tal ahora tiene un canal, una plataforma y un calendario compartido. Para el Consulado, Ruta 8 quedó como un formato replicable para la siguiente cohorte.
 
 **Secciones extra**
 
 **Cifras** *(para stat cards)*
 176 · postulaciones
-46 · negocios en la cohorte
+49 · negocios en la cohorte
 8 · talleres
-7 · correos de convocatoria
+1 · plataforma con mentor IA
+
+**Lo que diseñamos**
+*El programa.* Ocho talleres en dos pilares, diagnóstico y marca primero, crecimiento del negocio después: del cliente y el problema a la oferta, la marca, lo digital, la tecnología, las finanzas, las ventas y la red. Cinco virtuales y tres presenciales en Quito, y una feria de cierre abierta al público donde cada negocio presenta lo que construyó.
+*La convocatoria.* Una campaña en redes, correo, WhatsApp, aliados y volantes, con mensajes distintos según el momento de cada emprendedor y dos sesiones informativas en vivo para resolver dudas antes de aplicar.
+*La selección.* Un formulario y unos criterios que explicaban desde el inicio qué significaba postularse, para cuidar la expectativa de quien no quedara.
+*La plataforma.* Un espacio propio donde cada participante sigue el programa sesión por sesión, con sus materiales, su avance y un mentor con IA disponible las 24 horas. Se queda con ellos después del programa.
+*La comunidad.* Canales de WhatsApp para informar, resolver dudas una a una y acompañar a los seleccionados durante todo el ciclo.
+*La identidad.* Un sistema de piezas sobre la marca Casa Colombia y sus cinco pétalos: carruseles, correos, póster, historias y materiales de taller, siempre arrancando desde el contexto del emprendedor antes de presentar la oferta.
 
 **Los ocho talleres**
 01 Cliente, contexto y problema · 2 oct · presencial
@@ -412,119 +382,8 @@ Diseñamos la ruta en tres etapas: convocatoria, ocho talleres entre presenciale
 07 Ventas y pitch · 20 nov · presencial
 08 Red, comunidad y preparación · diciembre · presencial
 
-Sesiones virtuales los jueves de 6:30 a 8:30 p. m. y presenciales en Quito los viernes de 1:30 a 5:30 p. m.
-
-**La convocatoria**
-Del 12 de agosto al 20 de septiembre. Dos carruseles por semana en Instagram y Facebook, siete correos semanales, dos sesiones informativas en vivo el 3 y el 10 de septiembre, y enlaces cortos marcados por canal para saber qué funciona: correo, redes, WhatsApp, aliados o volantes.
-
-**Cuatro perfiles, cuatro mensajes**
-Cuatro emprendedores tipo, cada uno con su situación, sus barreras y su propio mensaje, usados para segmentar la pauta en Meta.
-
-**WhatsApp, en tres capas**
-Un canal público de información, una línea uno a uno para resolver dudas y un grupo de anuncios para los seleccionados.
-
-**Las reglas del programa**
-Graduación con 75% de asistencia. Cada sesión con su cuestionario dentro de la plataforma.
-
-**La identidad**
-El sistema de piezas se construyó sobre la marca Casa Colombia y sus cinco pétalos, con piezas que arrancan desde el contexto antes de presentar la oferta.
-
-> *Nota: en el CV quitaste la feria de cierre, así que aquí tampoco la nombro como resultado. Si se hace en diciembre, se puede agregar después con asistentes reales.*
-
----
-
-## 2.7 Seoul Wellness Workshop
-
-**CARD**
-Etiquetas · Workshop · Seúl
-Meta · BOOST LAB · Seúl, 2024
-Título · Seoul Wellness Workshop
-Descripción · Un espacio para hablar de salud mental en una ciudad que trabaja sin pausa.
-Tags · Workshop · Identidad
-Filtros · Eventos y talleres · Diseño gráfico
-
-**PÁGINA**
-
-**Título** · Seoul Wellness Workshop
-
-**Descripción**
-Un workshop íntimo en Seúl, en abril de 2024, para hablar en comunidad de algo que casi nunca se dice en voz alta: cómo sostenerse mientras se construye algo.
-
-**Propósito** · Balance vida y trabajo · Inteligencia emocional · Comunidad de pares
-
-**Overview**
-Cliente · BOOST LAB, con dos compañías españolas
-Mi rol · Branding, identidad visual, campaña y redes
-Tipo de proyecto · Workshop presencial
-
-**01 Challenge**
-El ritmo de trabajo en Corea deja poco espacio para el bienestar, y el burnout se vive en privado. Lo empezamos a ver en nosotros mismos. El reto era abrir esa conversación sin presupuesto.
-
-**02 Approach**
-Nos aliamos con dos compañías internacionales de España y resolvimos la identidad como una fusión de las tres marcas. Diseñamos talleres para reconocer y manejar emociones, técnicas prácticas, un panel y networking, con speakers como Ian Matthews, fundador de Zenbok.
-
-**03 Result**
-Una sala de menos de veinte personas y el mejor feedback que hemos recibido. Cuatro sponsors locales y una donación de un millón de wones en material. Meses después, una empresa nos pidió el mismo workshop para su equipo.
-
-**Secciones extra**
-
 **Mi rol en detalle**
-Branding y diseño: la identidad del evento, los materiales, la paleta y las piezas de marketing · marketing y promoción con una estrategia dirigida a emprendedores y profesionales · gestión de redes para construir expectativa antes del evento
-
-**Lo que se llevaron las asistentes**
-Estrategias para manejar el tiempo, poner límites y priorizar el autocuidado · herramientas para reconocer, entender y manejar las emociones · una comunidad de pares con quien compartir lo que casi nunca se dice en voz alta
-
-**El formato**
-Workshops interactivos · conversación en panel · espacios de networking · un set de tarjetas impresas de emociones, pensado para trabajar en mesa
-
----
-
-## 2.8 Youth Future Talent
-
-**CARD**
-Etiquetas · Programa · Seúl
-Meta · BOOST LAB · Seúl, 2024
-Título · Youth Future Talent
-Descripción · Ocho meses de liderazgo con consejos estudiantiles en colegios de Seúl.
-Tags · Programa · Workshops
-Filtros · Eventos y talleres
-
-**PÁGINA**
-
-**Título** · Youth Future Talent
-
-**Descripción**
-Un programa de liderazgo de ocho meses, de enero a agosto de 2024, con miembros de consejos estudiantiles de colegios en Seúl, construido junto a Bnomad.
-
-**Overview**
-Cliente · BOOST LAB con Bnomad
-Mi rol · Currículum, diseño de workshops, materiales y logística
-Tipo de proyecto · Programa educativo
-
-**01 Challenge**
-Formar liderazgo en adolescentes coreanos, en coreano y con algunos talleres en inglés, y lograr que cada sesión funcionara igual con doce estudiantes que con ochenta.
-
-**02 Approach**
-Entramos a los colegios con Bnomad. Co-creamos el currículum y diseñamos actividades donde los estudiantes trabajaban problemas reales de su entorno. En los grupos pequeños el diseño abría espacio para que cada persona hablara; en el grande, la metodología tenía que sostener sola lo que en el pequeño sostiene la conversación.
-
-**03 Result**
-Tres workshops y más de 107 estudiantes: 15 en Suji High School con foco en Objetivos de Desarrollo Sostenible, 12 en Byeolmuri High School y más de 80 en un workshop a gran escala. Las presentaciones y plantillas quedaron entregadas a la comunidad.
-
-**Secciones extra**
-
-**Cifras** *(para stat cards)*
-3 · workshops en colegios de Seúl
-107+ · estudiantes
-8 · meses de programa
-80+ · estudiantes en el workshop a gran escala
-
-**Mi rol en detalle**
-Co-creación del currículum con Bnomad · diseño de actividades y ejercicios para pensar en equipo · materiales completos: presentaciones, hojas de trabajo y evaluaciones · logística de cada sesión
-
-**Los tres workshops**
-01 Suji High School · 15 estudiantes · soluciones innovadoras a los Objetivos de Desarrollo Sostenible
-02 Byeolmuri High School · 12 estudiantes · soluciones a problemas de su propia comunidad
-03 Workshop a gran escala · 80+ estudiantes de varios colegios · autoliderazgo, trabajo en equipo, resolución de problemas y ciudadanía global
+Diseño del programa y de la ruta del participante · estrategia y calendario de la convocatoria · diseño de todas las piezas gráficas y de contenido · redacción de correos y mensajes · montaje de la plataforma de seguimiento · atención directa a postulantes y participantes
 
 ---
 
@@ -543,7 +402,7 @@ Filtros · Eventos y talleres · Estrategia
 **Título** · Programas y talleres BOOST LAB
 
 **Descripción**
-La línea de formación de BOOST LAB: talleres cortos y prácticos de marca, estrategia y emprendimiento, y programas más largos. La regla es una sola. Cada persona llega con su proyecto, lo trabaja durante el taller y se va con su propia estrategia escrita en papel. Dentro de este proyecto vive también Youth Future Talent, el programa de liderazgo de ocho meses con consejos estudiantiles de colegios en Seúl.
+La línea de formación de BOOST LAB: talleres cortos y prácticos de marca, estrategia y emprendimiento, y programas más largos. La regla es una sola. Cada persona llega con su proyecto, lo trabaja durante el taller y se va con su propia estrategia escrita en papel.
 
 **Propósito** · Trabajar en vivo · Ver el método por dentro · Salir con algo escrito
 
@@ -559,7 +418,7 @@ Quien emprende sale de muchas charlas inspirado, y a la semana sigue con las mis
 Diseñamos un formato de unos 45 minutos que alterna cuatro momentos: un bloque corto de contenido, una plantilla para resolver en el momento, un "detrás de escena" donde mostramos cómo lo hacemos en nuestros propios proyectos y un espacio abierto de preguntas. Cada taller trae sus plantillas en A4, diseñadas para llenarse a mano y llevarse a casa.
 
 **03 Result**
-Tres talleres con nombre propio, versiones uno a uno para una sola marca y un taller de bienestar a la medida, que una empresa nos pidió para su equipo después del Seoul Wellness Workshop. El mismo método sostiene los workshops del Sejong Hackathon, de Global Youth y de Ruta 8.
+Lo que empezó como un taller de 45 minutos se volvió la columna vertebral de la formación de BOOST LAB. Hoy la línea tiene tres talleres con nombre propio, un formato uno a uno de seis sesiones para marcas personales, y versiones a la medida para equipos de empresa, incluido un taller de bienestar que una compañía nos pidió para su gente. El método ha corrido en Colombia y Corea con estudiantes, emprendedores y equipos de empresa, y es el mismo que sostiene los workshops del Sejong Hackathon, de Global Youth, de Youth Future Talent y los ocho talleres de Ruta 8: cada persona llega con su proyecto, trabaja sobre él en vivo y se va con decisiones tomadas y las plantillas llenas.
 
 **Secciones extra**
 
@@ -574,7 +433,13 @@ Tres talleres con nombre propio, versiones uno a uno para una sola marca y un ta
 *Marca con Propósito · Estrategia, visibilidad y futuro digital.*
 *Emprender con Sentido · Bienestar, impacto y visión global.*
 *Uno a uno.* El mismo método aplicado a una sola marca personal, en seis sesiones.
-*A la medida.* Talleres para equipos de empresa, como el de bienestar que nació del Seoul Wellness Workshop.
+*A la medida.* Talleres para equipos de empresa, como el de bienestar que una compañía nos pidió para su gente.
+
+**Youth Future Talent**
+Un programa de liderazgo para adolescentes en Seúl, construido junto a Bnomad entre enero y agosto de 2024. Entramos a los colegios con una pregunta: ¿cómo se forma liderazgo a los 16 años? Co-creamos el currículum, diseñamos actividades sobre problemas reales de su entorno y llevamos el mismo método a tres escalas: 15 estudiantes en Suji High School trabajando los Objetivos de Desarrollo Sostenible, 12 en Byeolmuri High School resolviendo problemas de su propia comunidad, y más de 80 de varios colegios en un workshop a gran escala sobre autoliderazgo, trabajo en equipo y ciudadanía global. Más de 107 estudiantes, y todas las presentaciones y plantillas quedaron entregadas a la comunidad.
+
+**Seoul Wellness Workshop**
+Un taller de bienestar para emprendedores y profesionales en Seúl, en abril de 2024, en alianza con N9NE, MTA, Psiconix y Kaos. La idea era simple: en una ciudad que trabaja sin pausa, parar una tarde a mirar hacia adentro. Un panel sobre equilibrio entre vida y trabajo, un workshop de autodescubrimiento en el que cada persona pintó sus emociones con colores y se llevó herramientas para gestionarlas, y un networking para cerrar con calma. Diseñé la identidad, las piezas y un juego de tarjetas de emociones, una por estado, con pasos concretos para atravesarlo.
 
 **Lo que se lleva cada persona**
 Sus plantillas llenas · decisiones tomadas sobre su marca · un método para repetirlo por su cuenta

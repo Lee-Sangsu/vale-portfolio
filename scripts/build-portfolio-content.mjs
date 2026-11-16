@@ -47,10 +47,7 @@ const SLUGS = {
   "2.2": "sejong-hackathon",
   "2.3": "misiones-internacionales",
   "2.4": "seoul-women-entrepreneur-summit",
-  "2.5": "seoul-entrepreneur-summit",
   "2.6": "ruta-8",
-  "2.7": "seoul-wellness-workshop",
-  "2.8": "youth-future-talent",
   "2.9": "boost-lab-workshops",
   "3.1": "opuesto-sas",
   "3.2": "brujula-etica",
@@ -74,7 +71,6 @@ const PARENT = {
   "she-can-create-anywhere": "applied-brand",
   "wellness-creator-trip": "applied-brand",
   "partner-campaigns": "applied-brand",
-  "youth-future-talent": "boost-lab-workshops",
 };
 
 /**
@@ -90,7 +86,7 @@ const TEMPLATE_BY_SLUG = {
   "instagram-content": "instagram",
   "jal-nomadher": "instagram",
   "business-decks": "ppt",
-  "ruta-8": "ppt",
+  "ruta-8": "instagram",
   "eats-real": "app",
   "opuesto-sas": "app",
   "brujula-etica": "instagram",
@@ -110,9 +106,9 @@ const FILTER_IDS = {
  * Membership comes from each project's own `Filtros` line; this only sorts.
  */
 const FILTER_ORDER = {
-  design: ["applied-brand","jal-nomadher","she-can-travel-anywhere-seoul","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","business-decks","brujula-etica","opuesto-sas","teampreneurship-cooperative","nobled-coffee","hola-guesthouse-jeju","eats-real","seoul-entrepreneur-summit","seoul-wellness-workshop","sejong-hackathon","ruta-8"],
+  design: ["applied-brand","jal-nomadher","she-can-travel-anywhere-seoul","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","business-decks","brujula-etica","opuesto-sas","teampreneurship-cooperative","nobled-coffee","hola-guesthouse-jeju","eats-real","sejong-hackathon","ruta-8"],
   "ux-ui": ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","website-redesign","opuesto-sas","eats-real"],
-  events: ["global-youth-summit","she-can-travel-anywhere-seoul","sejong-hackathon","ruta-8","boost-lab-workshops","misiones-internacionales","seoul-women-entrepreneur-summit","seoul-entrepreneur-summit","seoul-wellness-workshop","youth-future-talent","applied-brand","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip"],
+  events: ["global-youth-summit","she-can-travel-anywhere-seoul","sejong-hackathon","ruta-8","boost-lab-workshops","misiones-internacionales","seoul-women-entrepreneur-summit","applied-brand","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip"],
   "marketing-content": ["instagram-content","jal-nomadher","bloggers-program","partner-campaigns","applied-brand","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","brujula-etica","global-youth-summit","seoul-women-entrepreneur-summit","ruta-8"],
   strategy: ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","business-decks","instagram-content","bloggers-program","website-redesign","opuesto-sas","nobled-coffee","global-youth-summit","sejong-hackathon","misiones-internacionales","ruta-8","boost-lab-workshops"],
 };

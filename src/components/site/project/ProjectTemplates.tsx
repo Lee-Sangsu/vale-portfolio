@@ -31,6 +31,8 @@ export type TemplatePhotos = {
   instagramPosts?: string[][];
   /** Everything for the "Visual Diary" section: photos and videos. */
   diario?: MediaItem[];
+  /** Rows of the Visual Diary marquee (2 by default). */
+  diaryRows?: number;
 };
 
 export type MediaItem = { src: string; kind: "image" | "video" };
@@ -787,7 +789,7 @@ export async function TemplateGallery({
           </p>
         </div>
         <div className="mt-12 sm:mt-16">
-          <DiaryMarquee items={diaryItems} label="Visual Diary" />
+          <DiaryMarquee items={diaryItems} label="Visual Diary" rows={photos.diaryRows ?? 2} />
         </div>
       </section>
     );
