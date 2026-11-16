@@ -3,6 +3,7 @@ import type { Locale } from "@/content/types";
 import { getImageAspect, getImageSize, getTransparentHole, hasTransparency } from "@/lib/image-aspect";
 import { PostCarousel } from "./PostCarousel";
 import { DiaryMarquee } from "./DiaryMarquee";
+import { isVideoPath } from "@/lib/project-photos";
 import { LaptopCarousel } from "./LaptopCarousel";
 import { DiaryVideo } from "./DiaryVideo";
 import { SlideCarousel } from "./SlideCarousel";
@@ -599,9 +600,13 @@ export async function TemplateGallery({
                   aspect={aspects[i]}
                   account={account ?? ""}
                   caption={
-                    posts.length > 1
-                      ? `${es ? "Post" : "Post"} ${i + 1} · ${group.length} ${es ? "piezas" : "slides"}`
-                      : `${group.length} ${es ? "piezas" : "slides"}`
+                    group.length === 1 && isVideoPath(group[0])
+                      ? posts.length > 1
+                        ? `${es ? "Post" : "Post"} ${i + 1} · Reel`
+                        : "Reel"
+                      : posts.length > 1
+                        ? `${es ? "Post" : "Post"} ${i + 1} · ${group.length} ${es ? "piezas" : "slides"}`
+                        : `${group.length} ${es ? "piezas" : "slides"}`
                   }
                   previousLabel={es ? "Pieza anterior" : "Previous slide"}
                   nextLabel={es ? "Pieza siguiente" : "Next slide"}

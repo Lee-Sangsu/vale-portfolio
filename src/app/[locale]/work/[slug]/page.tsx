@@ -25,7 +25,7 @@ import {
   getProjectPhotos,
   getTopLevelProjects,
 } from "@/content/portfolio";
-import { CHAPTER_FOLDERS } from "@/lib/project-photos";
+import { CHAPTER_FOLDERS, isVideoPath } from "@/lib/project-photos";
 import type { Locale } from "@/content/types";
 
 /** Own heading for a project's deck ("ppt") or poster ("afiches") section. */
@@ -47,7 +47,7 @@ const SECTION_TITLES: Record<string, Partial<Record<"ppt" | "afiches" | "visual"
   },
   "misiones-internacionales": { ppt: { es: "La propuesta de la misión", en: "The mission proposal" } },
   "seoul-women-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
-  "global-youth-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
+  "global-youth-summit": { ppt: { es: "Dossier para aliados", en: "Partner dossier" } },
   "seoul-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
   "ruta-8": {
     portafolio: { es: "Plan de comunicación", en: "Communication plan" },
@@ -70,7 +70,8 @@ const SECTION_TITLES: Record<string, Partial<Record<"ppt" | "afiches" | "visual"
  */
 function heroPieces(slug: string): string[] {
   const second = getProjectInstagramPosts(slug, 2);
-  if (!second.length) return getProjectInstagramPosts(slug).flat();
+  // Clips (reels) stay in their post; the ring and the collage only take still pieces.
+  if (!second.length) return getProjectInstagramPosts(slug).flat().filter((p) => !isVideoPath(p));
   const firsts = second.map((group) => group[0]);
   const seconds = second.filter((group) => group.length > 1).map((group) => group[1]);
   return [...firsts, ...seconds].slice(0, 7);
@@ -87,7 +88,7 @@ const INLINE_CHILDREN = new Set(["boost-lab-workshops"]);
 /** Instagram account shown on the posts of each chapter; other projects show their own title. */
 const INSTAGRAM_ACCOUNTS: Record<string, string> = {
   nomadher: "nomad_her",
-  "boost-lab": "boostlab",
+  "boost-lab": "boostlab.glb",
 };
 
 /** Keywords of each moodboard proposal, shown under it. */
@@ -252,7 +253,7 @@ export default async function WorkPage({
             {page.purpose.length ? (
               <div className="mt-9 rounded-[24px] bg-[#f4f4f4] px-6 py-5 sm:px-9 sm:py-6">
                 <span className="font-inter text-muted text-[13px]">
-                  {es ? "Propósito" : "Purpose"}
+                  {page.purposeLabel ?? (es ? "Propósito" : "Purpose")}
                 </span>
                 <ul
                   className="mt-3 grid divide-y divide-[#c8c8c2] sm:grid-cols-[repeat(var(--cols),minmax(0,1fr))] sm:divide-x sm:divide-y-0"

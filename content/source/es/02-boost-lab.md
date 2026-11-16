@@ -71,9 +71,9 @@ Filtros · Eventos y talleres · Marketing y contenido · Estrategia
 **Título** · Global Youth: Women's Entrepreneurship Summit
 
 **Descripción**
-Una cumbre gratuita en Bogotá, el 21 de septiembre de 2024, para mujeres jóvenes y estudiantes que quieren emprender. Llegamos a Colombia sin contactos y salimos con más de 45 instituciones aliadas y 400 personas en la sala.
+Una cumbre gratuita en Bogotá, el 21 de septiembre de 2024, para mujeres jóvenes y estudiantes que quieren emprender. Llegamos a Colombia sin un solo contacto y salimos con una red de más de 45 instituciones aliadas, 18 speakers y una sala con más de 400 personas.
 
-**Propósito** · Capital · Mentoría · Red
+**Logros** · 400+ asistentes · 45+ aliados · 18 speakers · 40 stands
 
 **Overview**
 Cliente · BOOST LAB
@@ -81,13 +81,13 @@ Mi rol · Concepto, alianzas, speakers, marketing, diseño y operación
 Tipo de proyecto · Summit presencial
 
 **01 Challenge**
-Las mujeres jóvenes en Colombia enfrentan tres barreras al emprender: capital, mentoría y red. BOOST LAB había nacido en Seúl y no tenía red en Bogotá. Había que construirla desde cero y, con ella, un evento gratuito para cientos de personas, con un equipo de dos.
+Las mujeres jóvenes y las estudiantes que quieren emprender en Colombia chocan con tres muros: acceso a financiación, mentoría y red de contactos. BOOST LAB había nacido en Seúl y no tenía un solo aliado en Bogotá. Había que construir la red y el evento al mismo tiempo, gratis para quien asistiera y con un equipo de dos personas.
 
 **02 Approach**
-Construimos la red a punta de LinkedIn y de salir a la calle. Contacté unas 55 organizaciones y a cada una le presentamos el problema concreto que podía resolver desde su lugar. Elegimos los dos temas que movían a Colombia en ese momento, mujeres e internacionalización, y nos aliamos con universidades para llenar la sala. Mi socio llevó tecnología, web, finanzas y la parte legal.
+Diseñamos un evento pensado para que mujeres jóvenes y estudiantes se vieran como la próxima generación de emprendedoras: una comunidad inclusiva y de apoyo para cerrar la brecha de género en el emprendimiento y entregar herramientas reales para lanzar un negocio. La red la construimos a punta de LinkedIn y de salir a la calle: contacté unas 55 organizaciones y a cada una le presentamos el problema concreto que podía resolver desde su lugar. Mi socio llevó tecnología, web, finanzas y la parte legal.
 
 **03 Result**
-400+ asistentes, 40 stands de emprendedoras, más de 45 instituciones aliadas y 18 speakers, entre ellas la senadora Andrea Padilla, Joanna Prieto de Geek Girls LATAM y Paola Andrea Franco del Fondo Impacta. La campaña sumó 142.473 views y los asistentes calificaron el summit con 4,8 sobre 5.
+Más de 400 asistentes y unos 40 stands de emprendedoras, más de 45 aliados estratégicos y 18 speakers, entre ellas la senadora Andrea Padilla, Joanna Prieto de Geek Girls LATAM y Paola Andrea Franco del Fondo Impacta. La campaña superó las 142.473 views y los asistentes calificaron el summit con 4,8 sobre 5.
 
 **Secciones extra**
 
@@ -99,17 +99,35 @@ Construimos la red a punta de LinkedIn y de salir a la calle. Contacté unas 55 
 142.473 · views en campaña
 4,8 / 5 · calificación de asistentes
 
+**Un evento gratuito e inclusivo, diseñado para**
+*Empoderar.* Un espacio seguro para que las mujeres se conecten, colaboren y aprendan unas de otras.
+*Aportar.* Speakers y workshops que dejan herramientas prácticas, no solo inspiración.
+*Crear comunidad.* Actividades y rifas pensadas para que el networking pasara de verdad.
+
+**Mis responsabilidades**
+*Conceptualización del evento.* Una estrategia integral alrededor de los retos específicos de las jóvenes emprendedoras.
+*Curaduría y gestión de speakers.* Un grupo diverso de emprendedoras y referentes dispuestas a compartir su experiencia.
+*Desarrollo de alianzas.* Alianzas estratégicas con organizaciones para ampliar el alcance y el impacto del evento.
+*Marketing y promoción.* Una campaña sólida para convocar a una audiencia amplia de futuras emprendedoras.
+*Logística y operación.* De la selección del venue a la coordinación en sitio el día del evento.
+
+**Resultados e impacto**
+*Asistencia récord.* Más de 400 participantes y unos 40 stands de emprendedoras, de sectores y orígenes muy distintos.
+*Alianzas sólidas.* Más de 45 aliados estratégicos, entre ellos la Cámara de Comercio de Bogotá, Invest in Bogotá, Geek Girls LATAM y las principales universidades.
+*Speakers que inspiran.* 18 emprendedoras reconocidas, como la senadora Andrea Padilla, Joanna Prieto, cofundadora de Geek Girls LATAM, y Paola Andrea Franco, directora de la Fundación Fondo Impacta.
+*Workshops que dejan algo.* Talleres interactivos de innovación, bienestar y metodologías ágiles, resolviendo problemas reales.
+*Más visibilidad.* Más de 142.473 views en todas las piezas de la campaña en redes.
+
 **Aliados**
-Cámara de Comercio de Bogotá · Universidad Externado de Colombia · Invest in Bogotá · Laboratoria · Geek Girls LATAM · Universidad Ean · más universidades colombianas
+Cámara de Comercio de Bogotá · Invest in Bogotá · Geek Girls LATAM · Laboratoria · Mondragon Team Academy · Jobly · Realtyplus · La Caja Lab
+We Push · Treebu Latam · Penguin Random House · BizNation · Notiontopia · Fundación EVA · Plurall · Mujeres y Producto · Fondo Impacta
+Universidad Externado de Colombia · Universidad Ean · Universidad de La Sabana · Universidad del Rosario · Universidad ECCI · SENA · LEINN International · Uniempresarial
 
 **Diseño**
 21 piezas gráficas, incluyendo un set por speaker para que cada una publicara en su LinkedIn e Instagram, reels de campaña y piezas del evento en sitio.
 
 **Detalles que diseñamos**
 Workshops de innovación, bienestar y metodologías ágiles. Almuerzo dentro del venue para que nadie saliera a buscar dónde comer. Una cena de cierre con mesas de pie, para que los aliados se movieran y se conocieran entre ellos. 32 voluntarias y voluntarios en operación.
-
-**Mi rol en detalle**
-Conceptualización del evento · curaduría y gestión de speakers · desarrollo de alianzas · marketing y promoción · logística y operación en sitio
 
 **Los paneles**
 01 Rompiendo barreras

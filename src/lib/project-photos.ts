@@ -22,6 +22,21 @@ import path from "node:path";
  * Slugs are the ones in src/content/portfolio/data.generated.json.
  */
 const PUBLIC_DIR = path.join(process.cwd(), "public");
+
+/**
+ * URL of a public file (slashes kept, the rest url-encoded) with a `?v=` version taken from the file's modification
+ * time. Replacing a photo under the same name changes the URL, so browsers and CDNs fetch the new one instead of a
+ * cached copy. Files that can't be read keep a plain URL.
+ */
+export function versionedAsset(relPath: string): string {
+  const url = "/" + relPath.split("/").map(encodeURIComponent).join("/");
+  try {
+    const mtime = fs.statSync(path.join(PUBLIC_DIR, relPath)).mtimeMs;
+    return `${url}?v=${Math.floor(mtime / 1000).toString(36)}`;
+  } catch {
+    return url;
+  }
+}
 const BASE = "portafolio/capitulos";
 const IMAGE_EXT = /\.(jpe?g|png|webp|avif)$/i;
 const VIDEO_EXT = /\.(mp4|webm|mov)$/i;
@@ -85,15 +100,18 @@ function listMedia(relDir: string): { path: string; kind: "image" | "video" }[] 
   }
 }
 
+/** True for a video URL/path (a reel inside an Instagram post, a clip in the diary). */
+export const isVideoPath = (p: string) => VIDEO_EXT.test(p.split("?")[0]);
+
 /**
  * Instagram posts of a project, as groups (one carousel each). Files straight inside `instagram/` are one post;
- * subfolders (`post-1/`, `post-2/`...) are one post each, in natural order.
+ * subfolders (`post-1/`, `post-2/`...) are one post each, in natural order. A piece can be a clip (mp4): a reel.
  */
 export function getProjectInstagramGroups(chapterId: string, slug: string, edition = 1): string[][] {
   const folder = CHAPTER_FOLDERS[chapterId];
   if (!folder) return [];
   const rel = `${BASE}/${folder}/proyectos/${slug}${editionPath(edition)}/instagram`;
-  const flat = listImages(rel);
+  const flat = listMedia(rel).map((m) => m.path);
   let subdirs: string[] = [];
   try {
     subdirs = fs
@@ -104,7 +122,7 @@ export function getProjectInstagramGroups(chapterId: string, slug: string, editi
   } catch {
     /* no folder yet */
   }
-  const groups = [flat, ...subdirs.map((name) => listImages(`${rel}/${name}`))];
+  const groups = [flat, ...subdirs.map((name) => listMedia(`${rel}/${name}`).map((m) => m.path))];
   return groups.filter((group) => group.length > 0);
 }
 

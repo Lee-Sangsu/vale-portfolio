@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
  * The waypoints are joined with a Catmull-Rom spline (cubic Béziers) so the ribbon is one
  * smooth loop instead of straight segments, and x/y scale together so the shape never distorts.
  * Photos at the loop's peak float above the container; page scroll eases the speed up and back down.
+ * Only a few photos ride at once; each one that completes a lap is replaced by the next in the queue.
  * Mobile: simple wrapping grid.
  */
 
@@ -56,8 +57,10 @@ function buildPath(scale: number): string {
   return d;
 }
 
-// Photos are staggered across 11 virtual slots → ~9.1 % gap between them
-const STAGGER_SLOTS = 11;
+// Only SLOT_COUNT photos ride the ribbon at once; the rest wait their turn. Every time a photo finishes
+// a lap it hands its slot to the next photo in the queue, so all of them show up without crowding the ribbon.
+const SLOT_COUNT = 10;
+const STAGGER_SLOTS = SLOT_COUNT; // one virtual slot per visible photo → even spacing along the loop
 const PHOTO_SCALE = 0.95; // photos at 1253px wide; they scale with the ribbon (medium size: ~105–125 px on a 1440 px screen)
 const MAX_RIBBON_PX = 1200; // the ribbon no longer stretches to the full width, so the photos ride closer together
 const MIN_PHOTO_PX = 84;
@@ -67,21 +70,21 @@ const SPEED_EASE = 3.2; // higher = speed follows the target faster
 const SCROLL_HOLD_MS = 160; // how long the boost lasts after the last scroll event
 const MAX_FRAME_SECONDS = 0.05;
 
-const TILES: { src: string; rot: number; size: number }[] = [
-  { src: `${RING}/ring-01.jpg`, rot: -8,  size: 123 },
-  { src: `${RING}/ring-02.jpg`, rot:  6,  size: 114 },
-  { src: `${RING}/ring-03.jpg`, rot: -4,  size: 100 },
-  { src: `${RING}/ring-04.jpg`, rot:  8,  size: 116 },
-  { src: `${RING}/ring-05.jpg`, rot: -6,  size: 134 },
-  { src: `${RING}/ring-06.jpg`, rot: 10,  size: 128 },
-  { src: `${RING}/ring-07.jpg`, rot: -10, size: 135 },
-  { src: `${RING}/ring-08.jpg`, rot: 12,  size: 112 },
-  { src: `${RING}/ring-09.jpg`, rot: -7,  size: 109 },
-  { src: `${RING}/ring-10.jpg`, rot: 14,  size: 116 },
-  { src: `${RING}/ring-11.jpg`, rot:  5,  size: 108 },
-  { src: `${RING}/ring-12.jpg`, rot: -5,  size: 138 },
-  { src: `${RING}/ring-13.jpg`, rot:  7,  size: 135 },
-  { src: `${RING}/ring-14.jpg`, rot: -9,  size: 132 },
+/** Every photo of the ring, in the order they enter. */
+const PHOTOS = Array.from({ length: 17 }, (_, i) => `${RING}/val-${String(i + 1).padStart(2, "0")}.jpg`);
+
+/** Tilt and size of each visible slot (the photo inside it changes every lap). */
+const SLOTS: { rot: number; size: number }[] = [
+  { rot: -8,  size: 123 },
+  { rot:  6,  size: 114 },
+  { rot: -4,  size: 100 },
+  { rot:  8,  size: 116 },
+  { rot: -6,  size: 134 },
+  { rot: 10,  size: 128 },
+  { rot: -10, size: 135 },
+  { rot: 12,  size: 112 },
+  { rot: -7,  size: 109 },
+  { rot: 14,  size: 116 },
 ];
 
 export function PhotoRing() {
@@ -90,6 +93,10 @@ export function PhotoRing() {
   const lastScrollRef = useRef(0);
   // scale = rendered ribbon width / SVG_W; drives the path, the container height and the photo sizes
   const [scale, setScale] = useState(1);
+  // Photo index per slot. The first SLOT_COUNT photos start on the ribbon; the queue continues from there.
+  const [slotPhotos, setSlotPhotos] = useState<number[]>(() => SLOTS.map((_, i) => i));
+  const nextPhotoRef = useRef(SLOT_COUNT);
+  const lastTRef = useRef<number[]>(SLOTS.map((_, i) => i / STAGGER_SLOTS));
 
   useEffect(() => {
     const el = containerRef.current;
@@ -125,13 +132,21 @@ export function PhotoRing() {
       speed += (target - speed) * (1 - Math.exp(-SPEED_EASE * delta));
       progress = (progress + (delta / BASE_DURATION) * speed) % 1;
 
-      tileRefs.current.forEach((node, i) => {
+      SLOTS.forEach((slot, i) => {
+        const node = tileRefs.current[i];
         if (!node) return;
         const t = (progress + i / STAGGER_SLOTS) % 1;
+        // The slot just wrapped from the end of the ribbon back to the start: hand it to the next photo in line.
+        if (t < lastTRef.current[i]) {
+          const next = nextPhotoRef.current % PHOTOS.length;
+          nextPhotoRef.current += 1;
+          setSlotPhotos((prev) => (prev[i] === next ? prev : prev.map((p, j) => (j === i ? next : p))));
+        }
+        lastTRef.current[i] = t;
         node.style.offsetDistance = `${(t * 100).toFixed(3)}%`;
         // Gentle sway around each photo's own tilt, so the ribbon feels alive
         const sway = Math.sin(t * Math.PI * 2 * 2 + i) * 4;
-        node.style.transform = `translate(-50%, -50%) rotate(${(TILES[i].rot + sway).toFixed(2)}deg)`;
+        node.style.transform = `translate(-50%, -50%) rotate(${(slot.rot + sway).toFixed(2)}deg)`;
       });
 
       frame = window.requestAnimationFrame(animate);
@@ -160,8 +175,9 @@ export function PhotoRing() {
           }
         `}</style>
 
-        {TILES.map((t, i) => {
+        {SLOTS.map((t, i) => {
           const size = Math.max(t.size * PHOTO_SCALE * scale, MIN_PHOTO_PX);
+          const src = PHOTOS[slotPhotos[i]];
           const offset = `${((i / STAGGER_SLOTS) * 100).toFixed(3)}%`;
 
           return (
@@ -183,7 +199,8 @@ export function PhotoRing() {
             >
               <div className="relative h-full w-full overflow-hidden bg-white shadow-[0_6px_16px_rgba(0,0,0,0.14)]">
                 <Image
-                  src={t.src}
+                  key={src}
+                  src={src}
                   alt=""
                   fill
                   sizes={`${Math.ceil(size)}px`}
@@ -195,15 +212,15 @@ export function PhotoRing() {
         })}
       </div>
 
-      {/* Mobile: simple wrapping grid */}
+      {/* Mobile: simple wrapping grid with the first photos of the queue */}
       <div className="flex flex-wrap justify-center gap-3 md:hidden">
-        {TILES.map((t, i) => (
+        {SLOTS.map((t, i) => (
           <div
             key={i}
             className="relative size-[104px] overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
             style={{ transform: `rotate(${t.rot / 3}deg)` }}
           >
-            <Image src={t.src} alt="" fill sizes="104px" className="object-cover" />
+            <Image src={PHOTOS[i]} alt="" fill sizes="104px" className="object-cover" />
           </div>
         ))}
       </div>

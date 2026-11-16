@@ -191,6 +191,7 @@
                 "Un perfil que invita a escribir",
                 "Un solo lenguaje de cards"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -354,6 +355,7 @@
                 "A profile that invites you to write",
                 "A single card language"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -536,6 +538,7 @@
                 "Templates que no se rompen",
                 "Del píxel al cartón"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -664,6 +667,7 @@
                 "Templates that don't break",
                 "From pixel to cardboard"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -810,6 +814,7 @@
                 "Convertir con ManyChat",
                 "Profundizar en la app"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -908,6 +913,7 @@
                 "Convert with ManyChat",
                 "Go deeper in the app"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1018,6 +1024,7 @@
                 "Series fijas",
                 "Del feed a la app"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1171,6 +1178,7 @@
                 "Fixed series",
                 "From the feed to the app"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1336,6 +1344,7 @@
                 "Creadoras",
                 "Reconocimiento visible"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1442,6 +1451,7 @@
                 "Creators",
                 "Visible recognition"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1556,6 +1566,7 @@
               "title": "Desarrollo de business decks",
               "description": "Además del producto, trabajo con la CEO en desarrollo de negocio. Buena parte de ese trabajo vive en decks: la historia que NomadHer le cuenta a cada aliado, inversionista o programa internacional, reescrita cada vez que cambia quien la va a leer.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1630,6 +1641,7 @@
               "title": "Business deck development",
               "description": "Besides the product, I work with the CEO on business development. A good part of that work lives in decks: the story NomadHer tells each partner, investor or international program, rewritten every time the reader changes.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1716,6 +1728,7 @@
               "title": "Rediseño del website",
               "description": "El nuevo sitio de NomadHer, con los Travel Camps guiados por mujeres locales en el centro. Diseño, estructura y contenido en Figma; construcción en Webflow junto a Elly.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1769,6 +1782,7 @@
               "title": "Website redesign",
               "description": "NomadHer's new site, with the Travel Camps guided by local women at the center. Design, structure and content in Figma; build in Webflow alongside Elly.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1838,6 +1852,7 @@
                 "Contar antes de mostrar caras",
                 "Un ritual por ciudad"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -1961,6 +1976,7 @@
                 "Count before showing faces",
                 "A ritual for each city"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2096,6 +2112,7 @@
                 "Planear sin fricción",
                 "Volver segura"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2220,6 +2237,7 @@
                 "Plan without friction",
                 "Get home safe"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2356,6 +2374,7 @@
                 "Avisar a tiempo",
                 "Devolver valor"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2472,6 +2491,7 @@
                 "Notify on time",
                 "Give value back"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2596,6 +2616,7 @@
               "title": "She Can Travel Anywhere · Seoul Edition",
               "description": "La edición de Seúl de un festival de viajes para mujeres, el 28 de marzo de 2026. Empecé en el concepto y la logística del espacio, y terminé diseñando todo lo que la gente tocó, leyó o se llevó a casa.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2664,6 +2685,7 @@
               "title": "She Can Travel Anywhere · Seoul Edition",
               "description": "The Seoul edition of a travel festival for women, on March 28, 2026. I started with the concept and the logistics of the space, and ended up designing everything people touched, read or took home.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2746,6 +2768,7 @@
               "title": "She Can Found Anywhere · Busan Workation",
               "description": "Una workation de cuatro días para fundadoras en Busan, del 6 al 9 de octubre de 2026, con la ciudad de Busan, Seo-gu, el CCEI y el escenario de BOUNCE 2026.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2789,6 +2812,7 @@
               "title": "She Can Found Anywhere · Busan Workation",
               "description": "A four-day workation for founders in Busan, October 6 to 9, 2026, with the city of Busan, Seo-gu, the CCEI and the BOUNCE 2026 stage.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2845,6 +2869,7 @@
               "title": "She Can Create Anywhere · Jeju Workation",
               "description": "Cinco noches en Jeju para diez creadoras, construyendo un MVP con vibe coding, con Jeju City y el Jeju CCEI como aliados.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2888,6 +2913,7 @@
               "title": "She Can Create Anywhere · Jeju Workation",
               "description": "Five nights in Jeju for ten creators, building an MVP with vibe coding, with Jeju City and the Jeju CCEI as partners.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2944,6 +2970,7 @@
               "title": "Wellness Creator Trip · Jeonnam",
               "description": "Un retiro de bienestar en Jeollanam-do para nueve creadoras de contenido, del 15 al 17 de septiembre de 2026.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -2987,6 +3014,7 @@
               "title": "Wellness Creator Trip · Jeonnam",
               "description": "A wellness retreat in Jeollanam-do for nine content creators, September 15 to 17, 2026.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -3039,6 +3067,7 @@
               "title": "Campañas con partners",
               "description": "Las campañas que llevan beneficios de marcas aliadas a la comunidad, diseñadas para vivir dentro de la app, además de en redes.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -3104,6 +3133,7 @@
               "title": "Partner campaigns",
               "description": "The campaigns that bring partner brand perks to the community, designed to live inside the app as well as on social media.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -3344,12 +3374,14 @@
             },
             "page": {
               "title": "Global Youth: Women's Entrepreneurship Summit",
-              "description": "Una cumbre gratuita en Bogotá, el 21 de septiembre de 2024, para mujeres jóvenes y estudiantes que quieren emprender. Llegamos a Colombia sin contactos y salimos con más de 45 instituciones aliadas y 400 personas en la sala.",
+              "description": "Una cumbre gratuita en Bogotá, el 21 de septiembre de 2024, para mujeres jóvenes y estudiantes que quieren emprender. Llegamos a Colombia sin un solo contacto y salimos con una red de más de 45 instituciones aliadas, 18 speakers y una sala con más de 400 personas.",
               "purpose": [
-                "Capital",
-                "Mentoría",
-                "Red"
+                "400+ asistentes",
+                "45+ aliados",
+                "18 speakers",
+                "40 stands"
               ],
+              "purposeLabel": "Logros",
               "overview": [
                 {
                   "label": "Cliente",
@@ -3364,9 +3396,9 @@
                   "value": "Summit presencial"
                 }
               ],
-              "challenge": "Las mujeres jóvenes en Colombia enfrentan tres barreras al emprender: capital, mentoría y red. BOOST LAB había nacido en Seúl y no tenía red en Bogotá. Había que construirla desde cero y, con ella, un evento gratuito para cientos de personas, con un equipo de dos.",
-              "approach": "Construimos la red a punta de LinkedIn y de salir a la calle. Contacté unas 55 organizaciones y a cada una le presentamos el problema concreto que podía resolver desde su lugar. Elegimos los dos temas que movían a Colombia en ese momento, mujeres e internacionalización, y nos aliamos con universidades para llenar la sala. Mi socio llevó tecnología, web, finanzas y la parte legal.",
-              "result": "400+ asistentes, 40 stands de emprendedoras, más de 45 instituciones aliadas y 18 speakers, entre ellas la senadora Andrea Padilla, Joanna Prieto de Geek Girls LATAM y Paola Andrea Franco del Fondo Impacta. La campaña sumó 142.473 views y los asistentes calificaron el summit con 4,8 sobre 5.",
+              "challenge": "Las mujeres jóvenes y las estudiantes que quieren emprender en Colombia chocan con tres muros: acceso a financiación, mentoría y red de contactos. BOOST LAB había nacido en Seúl y no tenía un solo aliado en Bogotá. Había que construir la red y el evento al mismo tiempo, gratis para quien asistiera y con un equipo de dos personas.",
+              "approach": "Diseñamos un evento pensado para que mujeres jóvenes y estudiantes se vieran como la próxima generación de emprendedoras: una comunidad inclusiva y de apoyo para cerrar la brecha de género en el emprendimiento y entregar herramientas reales para lanzar un negocio. La red la construimos a punta de LinkedIn y de salir a la calle: contacté unas 55 organizaciones y a cada una le presentamos el problema concreto que podía resolver desde su lugar. Mi socio llevó tecnología, web, finanzas y la parte legal.",
+              "result": "Más de 400 asistentes y unos 40 stands de emprendedoras, más de 45 aliados estratégicos y 18 speakers, entre ellas la senadora Andrea Padilla, Joanna Prieto de Geek Girls LATAM y Paola Andrea Franco del Fondo Impacta. La campaña superó las 142.473 views y los asistentes calificaron el summit con 4,8 sobre 5.",
               "extras": [
                 {
                   "title": "Cifras",
@@ -3399,19 +3431,128 @@
                   "blocks": []
                 },
                 {
+                  "title": "Un evento gratuito e inclusivo, diseñado para",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Empoderar",
+                          "text": "Un espacio seguro para que las mujeres se conecten, colaboren y aprendan unas de otras."
+                        },
+                        {
+                          "lead": "Aportar",
+                          "text": "Speakers y workshops que dejan herramientas prácticas, no solo inspiración."
+                        },
+                        {
+                          "lead": "Crear comunidad",
+                          "text": "Actividades y rifas pensadas para que el networking pasara de verdad."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Mis responsabilidades",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Conceptualización del evento",
+                          "text": "Una estrategia integral alrededor de los retos específicos de las jóvenes emprendedoras."
+                        },
+                        {
+                          "lead": "Curaduría y gestión de speakers",
+                          "text": "Un grupo diverso de emprendedoras y referentes dispuestas a compartir su experiencia."
+                        },
+                        {
+                          "lead": "Desarrollo de alianzas",
+                          "text": "Alianzas estratégicas con organizaciones para ampliar el alcance y el impacto del evento."
+                        },
+                        {
+                          "lead": "Marketing y promoción",
+                          "text": "Una campaña sólida para convocar a una audiencia amplia de futuras emprendedoras."
+                        },
+                        {
+                          "lead": "Logística y operación",
+                          "text": "De la selección del venue a la coordinación en sitio el día del evento."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Resultados e impacto",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Asistencia récord",
+                          "text": "Más de 400 participantes y unos 40 stands de emprendedoras, de sectores y orígenes muy distintos."
+                        },
+                        {
+                          "lead": "Alianzas sólidas",
+                          "text": "Más de 45 aliados estratégicos, entre ellos la Cámara de Comercio de Bogotá, Invest in Bogotá, Geek Girls LATAM y las principales universidades."
+                        },
+                        {
+                          "lead": "Speakers que inspiran",
+                          "text": "18 emprendedoras reconocidas, como la senadora Andrea Padilla, Joanna Prieto, cofundadora de Geek Girls LATAM, y Paola Andrea Franco, directora de la Fundación Fondo Impacta."
+                        },
+                        {
+                          "lead": "Workshops que dejan algo",
+                          "text": "Talleres interactivos de innovación, bienestar y metodologías ágiles, resolviendo problemas reales."
+                        },
+                        {
+                          "lead": "Más visibilidad",
+                          "text": "Más de 142.473 views en todas las piezas de la campaña en redes."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
                   "title": "Aliados",
                   "stats": false,
                   "blocks": [
                     {
-                      "type": "chips",
-                      "items": [
-                        "Cámara de Comercio de Bogotá",
-                        "Universidad Externado de Colombia",
-                        "Invest in Bogotá",
-                        "Laboratoria",
-                        "Geek Girls LATAM",
-                        "Universidad Ean",
-                        "más universidades colombianas"
+                      "type": "rows",
+                      "rows": [
+                        [
+                          "Cámara de Comercio de Bogotá",
+                          "Invest in Bogotá",
+                          "Geek Girls LATAM",
+                          "Laboratoria",
+                          "Mondragon Team Academy",
+                          "Jobly",
+                          "Realtyplus",
+                          "La Caja Lab"
+                        ],
+                        [
+                          "We Push",
+                          "Treebu Latam",
+                          "Penguin Random House",
+                          "BizNation",
+                          "Notiontopia",
+                          "Fundación EVA",
+                          "Plurall",
+                          "Mujeres y Producto",
+                          "Fondo Impacta"
+                        ],
+                        [
+                          "Universidad Externado de Colombia",
+                          "Universidad Ean",
+                          "Universidad de La Sabana",
+                          "Universidad del Rosario",
+                          "Universidad ECCI",
+                          "SENA",
+                          "LEINN International",
+                          "Uniempresarial"
+                        ]
                       ]
                     }
                   ]
@@ -3433,22 +3574,6 @@
                     {
                       "type": "p",
                       "text": "Workshops de innovación, bienestar y metodologías ágiles. Almuerzo dentro del venue para que nadie saliera a buscar dónde comer. Una cena de cierre con mesas de pie, para que los aliados se movieran y se conocieran entre ellos. 32 voluntarias y voluntarios en operación."
-                    }
-                  ]
-                },
-                {
-                  "title": "Mi rol en detalle",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "Conceptualización del evento",
-                        "curaduría y gestión de speakers",
-                        "desarrollo de alianzas",
-                        "marketing y promoción",
-                        "logística y operación en sitio"
-                      ]
                     }
                   ]
                 },
@@ -3493,12 +3618,14 @@
             },
             "page": {
               "title": "Global Youth: Women's Entrepreneurship Summit",
-              "description": "A free summit in Bogotá on September 21, 2024, for young women and students who want to start a business. We arrived in Colombia without contacts and left with more than 45 partner institutions and 400 people in the room.",
+              "description": "A free summit in Bogotá on September 21, 2024, for young women and students who want to start a business. We arrived in Colombia without a single contact and left with a network of more than 45 partner institutions, 18 speakers and a room of more than 400 people.",
               "purpose": [
-                "Capital",
-                "Mentoring",
-                "Network"
+                "400+ attendees",
+                "45+ partners",
+                "18 speakers",
+                "40 stands"
               ],
+              "purposeLabel": "Highlights",
               "overview": [
                 {
                   "label": "Cliente",
@@ -3513,9 +3640,9 @@
                   "value": "In-person summit"
                 }
               ],
-              "challenge": "Young women in Colombia face three barriers when they start a business: capital, mentoring and network. BOOST LAB was born in Seoul and had no network in Bogotá. We had to build one from scratch and, with it, a free event for hundreds of people, with a team of two.",
-              "approach": "We built the network through LinkedIn and by going out into the streets. I reached out to about 55 organizations, and to each one we presented the specific problem it could help solve from where it stood. We picked the two topics that were moving Colombia at that moment, women and internationalization, and partnered with universities to fill the room. My partner took care of technology, web, finance and legal.",
-              "result": "400+ attendees, 40 entrepreneur stands, more than 45 partner institutions and 18 speakers, including Senator Andrea Padilla, Joanna Prieto from Geek Girls LATAM and Paola Andrea Franco from Fondo Impacta. The campaign reached 142,473 views and attendees rated the summit 4.8 out of 5.",
+              "challenge": "Young women and students who want to start a business in Colombia run into three walls: access to finance, mentorship and networking. BOOST LAB was born in Seoul and had no partner in Bogotá. We had to build the network and the event at the same time, free for everyone who attended, with a team of two.",
+              "approach": "We designed a transformative event to empower young women and students to become the next generation of entrepreneurs: a supportive, inclusive community meant to bridge the gender gap in entrepreneurship and hand over the real tools to launch a venture. We built the network through LinkedIn and by going out into the streets: I reached out to about 55 organizations, and to each one we presented the specific problem it could help solve from where it stood. My partner took care of technology, web, finance and legal.",
+              "result": "More than 400 attendees and around 40 entrepreneur stands, over 45 strategic partners and 18 speakers, including Senator Andrea Padilla, Joanna Prieto from Geek Girls LATAM and Paola Andrea Franco from Fondo Impacta. The campaign passed 142,473 views and attendees rated the summit 4.8 out of 5.",
               "extras": [
                 {
                   "title": "Figures",
@@ -3548,19 +3675,128 @@
                   "blocks": []
                 },
                 {
+                  "title": "A fully free, inclusive event designed to",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Empower women",
+                          "text": "A safe space for women to connect, collaborate and learn from one another."
+                        },
+                        {
+                          "lead": "Offer valuable insights",
+                          "text": "Knowledgeable speakers and workshops that equip attendees with practical skills."
+                        },
+                        {
+                          "lead": "Foster community",
+                          "text": "Fun activities and raffles that turn the room into a networking space."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "My responsibilities",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Event conceptualization",
+                          "text": "A comprehensive event strategy built around the specific challenges young women entrepreneurs face."
+                        },
+                        {
+                          "lead": "Speaker recruitment and management",
+                          "text": "A diverse group of inspiring female entrepreneurs and thought leaders sharing their experience and insights."
+                        },
+                        {
+                          "lead": "Partnership development",
+                          "text": "Strategic partnerships with organizations to amplify the event's reach and impact."
+                        },
+                        {
+                          "lead": "Marketing and promotion",
+                          "text": "A robust campaign to attract a broad audience of aspiring entrepreneurs."
+                        },
+                        {
+                          "lead": "Logistics and operations",
+                          "text": "Every aspect of event planning, from venue selection to on-site coordination."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Outcomes and impact",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Record attendance",
+                          "text": "More than 400 participants and around 40 entrepreneur stands, from a wide range of backgrounds and industries."
+                        },
+                        {
+                          "lead": "Strong partnerships",
+                          "text": "Over 45 strategic partners, including the Chamber of Commerce of Bogotá, Invest in Bogotá, Geek Girls LATAM and leading universities."
+                        },
+                        {
+                          "lead": "Inspiring speakers",
+                          "text": "18 renowned female entrepreneurs, including Andrea Padilla, Colombian Senator, Joanna Prieto, co-founder of Geek Girls LATAM, and Paola Andrea Franco, director of the Fondo Impacta Foundation."
+                        },
+                        {
+                          "lead": "Engaging workshops",
+                          "text": "Interactive workshops on innovation, wellbeing and agile methodologies, developing solutions to real-world problems."
+                        },
+                        {
+                          "lead": "Increased visibility",
+                          "text": "Over 142,473 views across all campaign materials on social media."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
                   "title": "Partners",
                   "stats": false,
                   "blocks": [
                     {
-                      "type": "chips",
-                      "items": [
-                        "Cámara de Comercio de Bogotá",
-                        "Universidad Externado de Colombia",
-                        "Invest in Bogotá",
-                        "Laboratoria",
-                        "Geek Girls LATAM",
-                        "Universidad Ean",
-                        "more Colombian universities"
+                      "type": "rows",
+                      "rows": [
+                        [
+                          "Cámara de Comercio de Bogotá",
+                          "Invest in Bogotá",
+                          "Geek Girls LATAM",
+                          "Laboratoria",
+                          "Mondragon Team Academy",
+                          "Jobly",
+                          "Realtyplus",
+                          "La Caja Lab"
+                        ],
+                        [
+                          "We Push",
+                          "Treebu Latam",
+                          "Penguin Random House",
+                          "BizNation",
+                          "Notiontopia",
+                          "Fundación EVA",
+                          "Plurall",
+                          "Mujeres y Producto",
+                          "Fondo Impacta"
+                        ],
+                        [
+                          "Universidad Externado de Colombia",
+                          "Universidad Ean",
+                          "Universidad de La Sabana",
+                          "Universidad del Rosario",
+                          "Universidad ECCI",
+                          "SENA",
+                          "LEINN International",
+                          "Uniempresarial"
+                        ]
                       ]
                     }
                   ]
@@ -3582,22 +3818,6 @@
                     {
                       "type": "p",
                       "text": "Workshops on innovation, wellbeing and agile methodologies. Lunch inside the venue so nobody had to leave to look for food. A closing dinner with standing tables, so partners would move around and meet each other. 32 volunteers on operations."
-                    }
-                  ]
-                },
-                {
-                  "title": "My role in detail",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "Event conceptualization",
-                        "speaker curation and management",
-                        "partnership development",
-                        "marketing and promotion",
-                        "logistics and on-site operations"
-                      ]
                     }
                   ]
                 },
@@ -3661,6 +3881,7 @@
                 "Aprender reflexionando",
                 "Equipos diversos"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -3780,6 +4001,7 @@
                 "Learning by reflecting",
                 "Diverse teams"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -3905,6 +4127,7 @@
               "title": "Misiones Internacionales",
               "description": "Quince días en Seúl, Busan y Jeju con dos empresas latinoamericanas, del 25 de julio al 8 de agosto de 2025. Cada reunión, cada traslado y cada traducción, diseñados alrededor de la empresa que viaja.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Clientes",
@@ -4003,6 +4226,7 @@
               "title": "International Missions",
               "description": "Fifteen days in Seoul, Busan and Jeju with two Latin American companies, from July 25 to August 8, 2025. Every meeting, every transfer and every translation, designed around the company that travels.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Clientes",
@@ -4114,6 +4338,7 @@
               "title": "Seoul Women Entrepreneur Summit",
               "description": "Un summit en inglés en Seúl, en junio de 2024, armado tres meses después del primero, cuando notamos que casi no había mujeres en las listas de speakers.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -4272,6 +4497,7 @@
               "title": "Seoul Women Entrepreneur Summit",
               "description": "A summit in English in Seoul, in June 2024, put together three months after the first one, when we noticed there were almost no women on the speaker lists.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -4442,6 +4668,7 @@
               "title": "Seoul Entrepreneur Summit",
               "description": "El evento con el que nació BOOST LAB, en marzo de 2024: una tarde de charla de expertos, reto por equipos y pitch, con emprendedores coreanos e internacionales mezclados en cada mesa.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -4539,6 +4766,7 @@
               "title": "Seoul Entrepreneur Summit",
               "description": "The event BOOST LAB was born with, in March 2024: an afternoon of expert talks, a team challenge and a pitch, with Korean and international entrepreneurs mixed at every table.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -4656,6 +4884,7 @@
                 "Formar",
                 "Conectar"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -4800,6 +5029,7 @@
                 "Train",
                 "Connect"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -4954,6 +5184,7 @@
                 "Inteligencia emocional",
                 "Comunidad de pares"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5044,6 +5275,7 @@
                 "Emotional intelligence",
                 "Peer community"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5140,6 +5372,7 @@
               "title": "Youth Future Talent",
               "description": "Un programa de liderazgo de ocho meses, de enero a agosto de 2024, con miembros de consejos estudiantiles de colegios en Seúl, construido junto a Bnomad.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5233,6 +5466,7 @@
               "title": "Youth Future Talent",
               "description": "An eight-month leadership program, from January to August 2024, with student council members from schools in Seoul, built together with Bnomad.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5343,6 +5577,7 @@
                 "Ver el método por dentro",
                 "Salir con algo escrito"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5450,6 +5685,7 @@
                 "See the method from the inside",
                 "Leave with something written"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5718,6 +5954,7 @@
               "title": "Opuesto SAS",
               "description": "Creación de la marca de una constructora que fusiona elementos opuestos para crear espacios equilibrados.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5761,6 +5998,7 @@
               "title": "Opuesto SAS",
               "description": "Creation of the brand of a construction company that fuses opposite elements to create balanced spaces.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5815,6 +6053,7 @@
               "title": "Brújula Ética",
               "description": "La campaña de un podcast sobre ética y emprendimiento producido por la Pontificia Universidad Javeriana y la Universidad Loyola. Diseñé la primera edición y volvimos a trabajar juntos en la segunda. Más de sesenta piezas por edición, con una paleta pensada para estudiantes.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5857,6 +6096,7 @@
               "title": "Brújula Ética",
               "description": "The campaign for a podcast about ethics and entrepreneurship produced by the Pontificia Universidad Javeriana and the Universidad Loyola. I designed the first edition and we worked together again on the second. More than sixty pieces per edition, with a palette designed for students.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5909,6 +6149,7 @@
               "title": "Cooperativa Teampreneurship · 팀프러너십",
               "description": "La marca de una cooperativa educativa coreana dedicada al liderazgo de equipos, con un logo que reinterpreta un nudo tradicional.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -5950,6 +6191,7 @@
               "title": "Teampreneurship Cooperative · 팀프러너십",
               "description": "The brand of a Korean educational cooperative dedicated to team leadership, with a logo that reinterprets a traditional knot.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -6152,6 +6394,7 @@
               "title": "NOBLED Specialty Coffee",
               "description": "Una marca de café de especialidad en Berlín, construida alrededor de las historias de caficultores colombianos.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -6194,6 +6437,7 @@
               "title": "NOBLED Specialty Coffee",
               "description": "A specialty coffee brand in Berlin, built around the stories of Colombian coffee growers.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -6252,6 +6496,7 @@
                 "Stay simple",
                 "Sin cuenta bancaria coreana"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -6298,6 +6543,7 @@
                 "Stay simple",
                 "No Korean bank account"
               ],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -6350,6 +6596,7 @@
               "title": "Hola Guesthouse",
               "description": "Una guesthouse en la isla de Jeju pensada como un hogar para viajeros internacionales, con una marca construida alrededor de la hospitalidad.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",
@@ -6419,6 +6666,7 @@
               "title": "Hola Guesthouse",
               "description": "A guesthouse on Jeju island designed as a home for international travelers, with a brand built around hospitality.",
               "purpose": [],
+              "purposeLabel": null,
               "overview": [
                 {
                   "label": "Cliente",

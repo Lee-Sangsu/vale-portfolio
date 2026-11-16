@@ -340,6 +340,7 @@ function parseProject(heading, body, locale) {
   // title, description, purpose
   let title = "";
   let purpose = [];
+  let purposeLabel = null; // "Logros" / "Highlights" when the chips are achievements rather than a purpose
   const descLines = [];
   let inDesc = false;
   for (const raw of main) {
@@ -350,8 +351,9 @@ function parseProject(heading, body, locale) {
       inDesc = false;
     } else if (b && b.label === "Descripción" && b.value == null) {
       inDesc = true;
-    } else if (b && b.label === "Propósito" && b.value != null) {
+    } else if (b && /^(Propósito|Purpose|Logros|Highlights)$/.test(b.label) && b.value != null) {
       purpose = splitDots(b.value);
+      if (!/^(Propósito|Purpose)$/.test(b.label)) purposeLabel = b.label;
       inDesc = false;
     } else if (b && /^(Overview|01 Challenge)$/.test(b.label)) {
       inDesc = false;
@@ -395,6 +397,7 @@ function parseProject(heading, body, locale) {
       title,
       description: paragraphs(descLines).join("\n\n"),
       purpose,
+      purposeLabel,
       ...kase,
       extras,
     },

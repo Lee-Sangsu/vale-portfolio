@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 
+const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src.split("?")[0]);
+
 /**
  * An Instagram post, as it reads in the feed: the account on top, the pieces of the carousel swiping inside the
  * frame, the action row and the dots below. Arrows and the counter are ours, so every piece can be reached.
@@ -73,14 +75,29 @@ export function PostCarousel({
         >
           {slides.map((src, index) => (
             <li key={src} className="relative h-full w-full shrink-0 snap-center">
-              <Image
-                src={src}
-                alt={`${slideLabel} ${index + 1}`}
-                fill
-                sizes="(min-width: 640px) 520px, 100vw"
-                priority={index === 0}
-                className="object-cover"
-              />
+              {isVideo(src) ? (
+                // A reel: plays silently in a loop, like in the feed; the browser controls let people unmute it.
+                <video
+                  src={`${src}#t=0.1`}
+                  aria-label={`${slideLabel} ${index + 1}`}
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  controls
+                  preload="metadata"
+                  className="absolute inset-0 size-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={src}
+                  alt={`${slideLabel} ${index + 1}`}
+                  fill
+                  sizes="(min-width: 640px) 520px, 100vw"
+                  priority={index === 0}
+                  className="object-cover"
+                />
+              )}
             </li>
           ))}
         </ul>

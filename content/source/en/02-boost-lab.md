@@ -71,9 +71,9 @@ Filtros · Eventos y talleres · Marketing y contenido · Estrategia
 **Título** · Global Youth: Women's Entrepreneurship Summit
 
 **Descripción**
-A free summit in Bogotá on September 21, 2024, for young women and students who want to start a business. We arrived in Colombia without contacts and left with more than 45 partner institutions and 400 people in the room.
+A free summit in Bogotá on September 21, 2024, for young women and students who want to start a business. We arrived in Colombia without a single contact and left with a network of more than 45 partner institutions, 18 speakers and a room of more than 400 people.
 
-**Propósito** · Capital · Mentoring · Network
+**Highlights** · 400+ attendees · 45+ partners · 18 speakers · 40 stands
 
 **Overview**
 Cliente · BOOST LAB
@@ -81,13 +81,13 @@ Mi rol · Concept, partnerships, speakers, marketing, design and operations
 Tipo de proyecto · In-person summit
 
 **01 Challenge**
-Young women in Colombia face three barriers when they start a business: capital, mentoring and network. BOOST LAB was born in Seoul and had no network in Bogotá. We had to build one from scratch and, with it, a free event for hundreds of people, with a team of two.
+Young women and students who want to start a business in Colombia run into three walls: access to finance, mentorship and networking. BOOST LAB was born in Seoul and had no partner in Bogotá. We had to build the network and the event at the same time, free for everyone who attended, with a team of two.
 
 **02 Approach**
-We built the network through LinkedIn and by going out into the streets. I reached out to about 55 organizations, and to each one we presented the specific problem it could help solve from where it stood. We picked the two topics that were moving Colombia at that moment, women and internationalization, and partnered with universities to fill the room. My partner took care of technology, web, finance and legal.
+We designed a transformative event to empower young women and students to become the next generation of entrepreneurs: a supportive, inclusive community meant to bridge the gender gap in entrepreneurship and hand over the real tools to launch a venture. We built the network through LinkedIn and by going out into the streets: I reached out to about 55 organizations, and to each one we presented the specific problem it could help solve from where it stood. My partner took care of technology, web, finance and legal.
 
 **03 Result**
-400+ attendees, 40 entrepreneur stands, more than 45 partner institutions and 18 speakers, including Senator Andrea Padilla, Joanna Prieto from Geek Girls LATAM and Paola Andrea Franco from Fondo Impacta. The campaign reached 142,473 views and attendees rated the summit 4.8 out of 5.
+More than 400 attendees and around 40 entrepreneur stands, over 45 strategic partners and 18 speakers, including Senator Andrea Padilla, Joanna Prieto from Geek Girls LATAM and Paola Andrea Franco from Fondo Impacta. The campaign passed 142,473 views and attendees rated the summit 4.8 out of 5.
 
 **Secciones extra**
 
@@ -99,17 +99,35 @@ We built the network through LinkedIn and by going out into the streets. I reach
 142,473 · campaign views
 4.8 / 5 · attendee rating
 
+**A fully free, inclusive event designed to**
+*Empower women.* A safe space for women to connect, collaborate and learn from one another.
+*Offer valuable insights.* Knowledgeable speakers and workshops that equip attendees with practical skills.
+*Foster community.* Fun activities and raffles that turn the room into a networking space.
+
+**My responsibilities**
+*Event conceptualization.* A comprehensive event strategy built around the specific challenges young women entrepreneurs face.
+*Speaker recruitment and management.* A diverse group of inspiring female entrepreneurs and thought leaders sharing their experience and insights.
+*Partnership development.* Strategic partnerships with organizations to amplify the event's reach and impact.
+*Marketing and promotion.* A robust campaign to attract a broad audience of aspiring entrepreneurs.
+*Logistics and operations.* Every aspect of event planning, from venue selection to on-site coordination.
+
+**Outcomes and impact**
+*Record attendance.* More than 400 participants and around 40 entrepreneur stands, from a wide range of backgrounds and industries.
+*Strong partnerships.* Over 45 strategic partners, including the Chamber of Commerce of Bogotá, Invest in Bogotá, Geek Girls LATAM and leading universities.
+*Inspiring speakers.* 18 renowned female entrepreneurs, including Andrea Padilla, Colombian Senator, Joanna Prieto, co-founder of Geek Girls LATAM, and Paola Andrea Franco, director of the Fondo Impacta Foundation.
+*Engaging workshops.* Interactive workshops on innovation, wellbeing and agile methodologies, developing solutions to real-world problems.
+*Increased visibility.* Over 142,473 views across all campaign materials on social media.
+
 **Partners**
-Cámara de Comercio de Bogotá · Universidad Externado de Colombia · Invest in Bogotá · Laboratoria · Geek Girls LATAM · Universidad Ean · more Colombian universities
+Cámara de Comercio de Bogotá · Invest in Bogotá · Geek Girls LATAM · Laboratoria · Mondragon Team Academy · Jobly · Realtyplus · La Caja Lab
+We Push · Treebu Latam · Penguin Random House · BizNation · Notiontopia · Fundación EVA · Plurall · Mujeres y Producto · Fondo Impacta
+Universidad Externado de Colombia · Universidad Ean · Universidad de La Sabana · Universidad del Rosario · Universidad ECCI · SENA · LEINN International · Uniempresarial
 
 **Design**
 21 graphic pieces, including a set for each speaker so each of them could post on LinkedIn and Instagram, campaign reels and pieces for the on-site event.
 
 **Details we designed**
 Workshops on innovation, wellbeing and agile methodologies. Lunch inside the venue so nobody had to leave to look for food. A closing dinner with standing tables, so partners would move around and meet each other. 32 volunteers on operations.
-
-**My role in detail**
-Event conceptualization · speaker curation and management · partnership development · marketing and promotion · logistics and on-site operations
 
 **The panels**
 01 Breaking barriers

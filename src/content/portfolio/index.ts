@@ -1,6 +1,7 @@
 import type { Locale } from "../types";
 import type { ChapterId } from "../types";
 import { HERO_MANIFEST, MENTION_MANIFEST, encodeAsset } from "../photo-manifest";
+import { versionedAsset } from "@/lib/project-photos";
 import {
   getChapterCardCoverPath,
   getChapterCoverPath,
@@ -91,6 +92,9 @@ const LEGACY_IMAGE_KEY: Record<string, string> = {
 };
 
 /** Path relative to /public (not URL-encoded). The project's own `portada` folder wins over the old photos. */
+/** `versionedAsset` for an optional path. */
+const versioned = (p: string | undefined) => (p ? versionedAsset(p) : undefined);
+
 export function getProjectCoverPath(slug: string): string | undefined {
   const project = allProjects.find((p) => p.slug === slug);
   const key = LEGACY_IMAGE_KEY[slug] ?? slug;
@@ -102,48 +106,48 @@ export function getProjectCoverPath(slug: string): string | undefined {
 }
 
 export function getProjectCover(slug: string): string | undefined {
-  return encodeAsset(getProjectCoverPath(slug));
+  return versioned(getProjectCoverPath(slug));
 }
 
 /** Photos dropped in a project's `celular`, `instagram`, `presentacion` or `visual` folder (URL-encoded). */
 export function getProjectPhotos(slug: string, kind: ProjectPhotoKind, edition = 1): string[] {
   const project = allProjects.find((p) => p.slug === slug);
   if (!project) return [];
-  return getProjectPhotoPaths(project.chapter, slug, kind, edition).map((p) => encodeAsset(p)!);
+  return getProjectPhotoPaths(project.chapter, slug, kind, edition).map((p) => versionedAsset(p));
 }
 
 /** The chapter's `portada` photo (URL-encoded), shown on its card and at the top of its page. */
 export function getChapterCover(chapterId: string): string | undefined {
-  return encodeAsset(getChapterCoverPath(chapterId));
+  return versioned(getChapterCoverPath(chapterId));
 }
 
 /** All the photos in the chapter's `portada` folder (URL-encoded), for the rotating hero. */
 export function getChapterCovers(chapterId: string): string[] {
-  return getChapterCoverPaths(chapterId).map((p) => encodeAsset(p)!);
+  return getChapterCoverPaths(chapterId).map((p) => versionedAsset(p));
 }
 
 /** Everything in a project's `diario/` folder, photos and videos (URL-encoded). */
 export function getProjectDiary(slug: string): { src: string; kind: "image" | "video" }[] {
   const project = allProjects.find((p) => p.slug === slug);
   if (!project) return [];
-  return getProjectDiaryPaths(project.chapter, slug).map((m) => ({ src: encodeAsset(m.path)!, kind: m.kind }));
+  return getProjectDiaryPaths(project.chapter, slug).map((m) => ({ src: versionedAsset(m.path), kind: m.kind }));
 }
 
 /** Instagram posts of a project as groups, one carousel each (URL-encoded). */
 export function getProjectInstagramPosts(slug: string, edition = 1): string[][] {
   const project = allProjects.find((p) => p.slug === slug);
   if (!project) return [];
-  return getProjectInstagramGroups(project.chapter, slug, edition).map((group) => group.map((p) => encodeAsset(p)!));
+  return getProjectInstagramGroups(project.chapter, slug, edition).map((group) => group.map((p) => versionedAsset(p)));
 }
 
 /** The chapter's card photo in Portafolio (URL-encoded): `tarjeta/` if filled, else `portada/`. */
 export function getChapterCardCover(chapterId: string): string | undefined {
-  return encodeAsset(getChapterCardCoverPath(chapterId));
+  return versioned(getChapterCardCoverPath(chapterId));
 }
 
 /** Photos in a project-less chapter's `destacada`, `visual`, `presentacion` or `instagram` folder (URL-encoded). */
 export function getChapterPhotos(chapterId: string, kind: ChapterCaseKind): string[] {
-  return getChapterPhotoPaths(chapterId, kind).map((p) => encodeAsset(p)!);
+  return getChapterPhotoPaths(chapterId, kind).map((p) => versionedAsset(p));
 }
 
 /** "NomadHer · Seúl, 2025" → { chapter, place } for display. */

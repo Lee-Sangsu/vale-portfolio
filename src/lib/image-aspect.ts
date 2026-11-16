@@ -4,6 +4,9 @@ import sharp from "sharp";
 
 const cache = new Map<string, number>();
 
+/** Local file behind a public URL like "/portafolio/a/b.jpg?v=abc" (the version query is dropped). */
+const publicFile = (publicUrl: string) => path.join(process.cwd(), "public", decodeURIComponent(publicUrl.split("?")[0]));
+
 /** Display width / height of an MP4 (read from its `tkhd` box), or undefined if it can't be read. */
 function mp4Aspect(file: string): number | undefined {
   const data = fs.readFileSync(file);
@@ -45,7 +48,7 @@ function mp4Aspect(file: string): number | undefined {
  */
 export async function getImageAspect(publicUrl: string): Promise<number> {
   try {
-    const file = path.join(process.cwd(), "public", decodeURIComponent(publicUrl));
+    const file = publicFile(publicUrl);
     const key = `${file}:${fs.statSync(file).mtimeMs}`;
     const hit = cache.get(key);
     if (hit) return hit;
@@ -68,7 +71,7 @@ const alphaCache = new Map<string, boolean>();
 /** True when an image has a transparent channel (a mockup that already brings its own frame and shadow). */
 export async function hasTransparency(publicUrl: string): Promise<boolean> {
   try {
-    const file = path.join(process.cwd(), "public", decodeURIComponent(publicUrl));
+    const file = publicFile(publicUrl);
     const key = `${file}:${fs.statSync(file).mtimeMs}`;
     const hit = alphaCache.get(key);
     if (hit !== undefined) return hit;
@@ -88,7 +91,7 @@ const holeCache = new Map<string, { left: number; top: number; width: number; he
  */
 export async function getTransparentHole(publicUrl: string) {
   try {
-    const file = path.join(process.cwd(), "public", decodeURIComponent(publicUrl));
+    const file = publicFile(publicUrl);
     const key = `${file}:${fs.statSync(file).mtimeMs}`;
     if (holeCache.has(key)) return holeCache.get(key) ?? null;
     const { data, info } = await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
@@ -114,7 +117,7 @@ export async function getTransparentHole(publicUrl: string) {
 /** Pixel size of a public image, or null if it can't be read. */
 export async function getImageSize(publicUrl: string): Promise<{ width: number; height: number } | null> {
   try {
-    const { width, height } = await sharp(path.join(process.cwd(), "public", decodeURIComponent(publicUrl))).metadata();
+    const { width, height } = await sharp(publicFile(publicUrl)).metadata();
     return width && height ? { width, height } : null;
   } catch {
     return null;

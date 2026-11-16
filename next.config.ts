@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
     "/*": ["./public/**/*"],
   },
   images: {
+    // Project photos carry a `?v=<mtime>` query (see versionedAsset) so a replaced file is never served from a stale
+    // cache. Next 16 blocks query strings on local images unless a pattern allows them; this keeps every local path
+    // optimizable with or without that query, like before.
+    localPatterns: [{ pathname: "/**" }],
     // Next 16 only serves the qualities listed here and rounds any `quality` prop to the nearest one. Keeping a
     // single, high value makes every photo on the site (including the ones without an explicit `quality`) come out
     // at 92 instead of the default 75.

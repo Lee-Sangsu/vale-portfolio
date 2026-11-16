@@ -46,6 +46,8 @@ export type ProjectPage = Case & {
   title: string;
   description: string;
   purpose: string[];
+  /** Heading over the chips when they are not a purpose (e.g. "Logros"). */
+  purposeLabel?: string | null;
   extras: Extra[];
 };
 
