@@ -155,7 +155,7 @@ Filtros · Eventos y talleres · Diseño gráfico · Estrategia
 **Título** · Sejong Global Idea Hackathon
 
 **Descripción**
-Dos días en Sejong University para llevar una idea de cero a un pitch frente a jurado, con 19 emprendedores de 14 países. BOOST LAB × Bnomad × Sejong University Campus Town, 12 y 13 de diciembre de 2025.
+19 emprendedores, 14 países, dos días y un solo reto: convertir una idea en blanco en un pitch que convenza a un jurado. Así fue el Sejong Global Idea Hackathon, diseñado por BOOST LAB con Bnomad y Sejong University Campus Town. Seúl, 12 y 13 de diciembre de 2025.
 
 **Propósito** · Aprender haciendo · Aprender reflexionando · Equipos diversos
 
@@ -189,7 +189,7 @@ Diseñamos un programa con equipos preasignados y problemas sorteados, para que 
 Nueve worksheets de trabajo: identidad de equipo, situación del extranjero, definición de problema, ideación, deck de nueve slides, tips de pitch y debrief, entre otras. Todo el material se produjo en menos de un mes.
 
 **Captación**
-759 visitas a la página de inscripción en el día pico, cuatro días antes del evento. La mitad del tráfico llegó por recomendación y orgánico, y el 77% desde Seúl.
+759 visitas a la página de inscripción en el día pico, cuatro días antes del evento.
 
 **Investigación**
 El hackathon fue el piloto de mi tesis de grado, "Designing an AI-enabled Hybrid Incubation Program for Young International Entrepreneurs", calificada con 8,3.

@@ -344,6 +344,11 @@ export async function HeroMedia({
     );
   }
 
+  // With a Visual Diary below, `visual/` is only the hero: a small hand-picked collage (2 to 7 photos) is fine.
+  if (template === "visual" && photos.visual.length >= 2 && photos.diario?.length) {
+    return <TightCollage media={photos.visual.map((src) => ({ src, kind: "image" as const }))} title={title} />;
+  }
+
   return null;
 }
 
@@ -591,16 +596,20 @@ export async function TemplateGallery({
             ) : null}
           </div>
           {posts.length ? (
-            // Posts sit side by side like a feed: one column for a single post, two from the tablet up.
-            <div className={`mt-12 grid gap-10 sm:mt-16 ${posts.length > 1 ? "md:grid-cols-2 md:gap-12" : ""}`}>
-              {posts.map((group, i) => (
+            (() => {
+              // Still posts first, as a feed (one, two or three columns); reels in their own row below them.
+              const indexed = posts.map((group, i) => ({ group, i }));
+              const stills = indexed.filter(({ group }) => !(group.length === 1 && isVideoPath(group[0])));
+              const reels = indexed.filter(({ group }) => group.length === 1 && isVideoPath(group[0]));
+              const cols = (n: number) => (n >= 3 ? "md:grid-cols-3 md:gap-8" : n === 2 ? "md:grid-cols-2 md:gap-12" : "");
+              const card = ({ group, i }: { group: string[]; i: number }, isReel: boolean) => (
                 <PostCarousel
                   key={group[0]}
                   slides={group}
                   aspect={aspects[i]}
                   account={account ?? ""}
                   caption={
-                    group.length === 1 && isVideoPath(group[0])
+                    isReel
                       ? posts.length > 1
                         ? `${es ? "Post" : "Post"} ${i + 1} · Reel`
                         : "Reel"
@@ -612,8 +621,20 @@ export async function TemplateGallery({
                   nextLabel={es ? "Pieza siguiente" : "Next slide"}
                   slideLabel={es ? "Ver pieza" : "Show slide"}
                 />
-              ))}
-            </div>
+              );
+              return (
+                <>
+                  {stills.length ? (
+                    <div className={`mt-12 grid gap-10 sm:mt-16 ${cols(stills.length)}`}>{stills.map((p) => card(p, false))}</div>
+                  ) : null}
+                  {reels.length ? (
+                    <div className={`grid gap-10 ${stills.length ? "mt-10 md:mt-12" : "mt-12 sm:mt-16"} ${cols(reels.length)}`}>
+                      {reels.map((p) => card(p, true))}
+                    </div>
+                  ) : null}
+                </>
+              );
+            })()
           ) : (
             <div className="mt-10">
               <EmptyHint
