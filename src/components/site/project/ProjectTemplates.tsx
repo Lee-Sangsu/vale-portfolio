@@ -1,6 +1,11 @@
 import Image from "next/image";
 import type { Locale } from "@/content/types";
-import { getImageAspect, getImageSize, getTransparentHole, hasTransparency } from "@/lib/image-aspect";
+import {
+  getImageAspect,
+  getImageSize,
+  getTransparentHole,
+  hasTransparency,
+} from "@/lib/image-aspect";
 import { PostCarousel } from "./PostCarousel";
 import { DiaryMarquee } from "./DiaryMarquee";
 import { isVideoPath } from "@/lib/project-photos";
@@ -11,11 +16,20 @@ import { SlideCarousel } from "./SlideCarousel";
 export type TemplateId = "app" | "instagram" | "ppt" | "visual";
 
 /** Every kind of section a project page can show: the four page templates plus posters and website. */
-export type GalleryId = TemplateId | "afiches" | "web" | "grilla" | "moodboard" | "edition" | "portafolio";
+export type GalleryId =
+  | TemplateId
+  | "afiches"
+  | "web"
+  | "grilla"
+  | "moodboard"
+  | "edition"
+  | "portafolio";
 
 export type TemplatePhotos = {
   portada?: string;
   celular: string[];
+  /** App screens in named groups (onboarding, lounge...): each one gets its own row with a title. */
+  screenGroups?: { title: string; items: string[] }[];
   instagram: string[];
   presentacion: string[];
   visual: string[];
@@ -69,34 +83,86 @@ function Photo({
 }) {
   return (
     <div className={`relative overflow-hidden bg-[#ecece7] ${className}`}>
-      <Image src={src} alt="" fill sizes={sizes} priority={priority} className={fit} />
+      <Image
+        src={src}
+        alt=""
+        fill
+        sizes={sizes}
+        priority={priority}
+        className={fit}
+      />
     </div>
   );
 }
 
-/** A phone mockup around a screenshot: dark bezel, rounded screen and a small camera island. */
+/** The screens are designed at 375 × 852 (iPhone 15/16 frame): the mockup keeps exactly that proportion so nothing gets cut. */
+const PHONE_SCREEN_ASPECT = 375 / 852;
+
+/**
+ * A phone mockup around a screenshot: thin dark bezel, rounded screen and the camera island.
+ * Give it the screenshot's `aspect` (width / height): a screenshot taller than the screen is a full-page scroll,
+ * so hovering the phone scrolls it down to its end and leaving scrolls it back up (see `.phone-frame` in globals.css).
+ */
 function PhoneFrame({
   src,
   sizes,
   priority,
+  aspect,
   className = "",
 }: {
   src: string;
   sizes: string;
   priority?: boolean;
+  aspect?: number;
   className?: string;
 }) {
+  const scrolls = aspect !== undefined && aspect < PHONE_SCREEN_ASPECT * 0.96;
+  // How far the page has to travel to show its bottom, as a fraction of its own height.
+  const travel = scrolls ? 1 - aspect / PHONE_SCREEN_ASPECT : 0;
+  const seconds = Math.min(14, 1.6 + travel * 12);
   return (
     <div
-      className={`relative rounded-[13%/6%] bg-[#10110d] p-[3.2%] shadow-[0_18px_40px_rgba(0,0,0,0.22)] ${className}`}
+      className={`phone-frame relative rounded-[12.5%/5.6%] bg-[#111210] p-[1.25%] shadow-[0_18px_40px_rgba(0,0,0,0.2)] ${className}`}
+      style={
+        scrolls
+          ? ({
+              "--travel": `${(-travel * 100).toFixed(3)}%`,
+              "--seconds": `${seconds.toFixed(1)}s`,
+            } as React.CSSProperties)
+          : undefined
+      }
     >
-      <div className="relative aspect-[9/19.5] overflow-hidden rounded-[10.5%/4.9%] bg-[#ecece7]">
-        <Image src={src} alt="" fill sizes={sizes} priority={priority} className="object-cover object-top" />
+      <div
+        className="relative overflow-hidden rounded-[11.3%/5%] bg-[#f4f2ec]"
+        style={{ aspectRatio: `${375} / ${852}` }}
+      >
+        {scrolls ? (
+          <Image
+            src={src}
+            alt=""
+            width={750}
+            height={Math.round(750 / (aspect as number))}
+            sizes={sizes}
+            priority={priority}
+            quality={90}
+            className="phone-screen absolute inset-x-0 top-0 h-auto w-full"
+          />
+        ) : (
+          <Image
+            src={src}
+            alt=""
+            fill
+            sizes={sizes}
+            priority={priority}
+            quality={90}
+            className="object-cover object-top"
+          />
+        )}
+        <span
+          aria-hidden="true"
+          className="absolute top-[1.3%] left-1/2 h-[2.9%] w-[26%] -translate-x-1/2 rounded-full bg-[#111210]"
+        />
       </div>
-      <span
-        aria-hidden="true"
-        className="absolute top-[2.6%] left-1/2 h-[1.7%] w-[26%] -translate-x-1/2 rounded-full bg-[#10110d]"
-      />
     </div>
   );
 }
@@ -135,16 +201,33 @@ function packRows(aspects: number[], width: number) {
 }
 
 /** Tight mosaic: photos and clips packed edge to edge with a thin gap, each in its own proportions and direction. */
-async function TightCollage({ media, title }: { media: MediaItem[]; title: string }) {
-  const items = await Promise.all(media.map(async (m) => ({ ...m, aspect: await getImageAspect(m.src) })));
+async function TightCollage({
+  media,
+  title,
+}: {
+  media: MediaItem[];
+  title: string;
+}) {
+  const items = await Promise.all(
+    media.map(async (m) => ({ ...m, aspect: await getImageAspect(m.src) })),
+  );
   const rows = packRows(
     items.map((i) => i.aspect),
     1180,
   );
   return (
-    <div role="group" aria-label={title} className="flex flex-col" style={{ gap: COLLAGE_GAP }}>
+    <div
+      role="group"
+      aria-label={title}
+      className="flex flex-col"
+      style={{ gap: COLLAGE_GAP }}
+    >
       {rows.map(([from, to]) => (
-        <div key={from} className="flex flex-col sm:flex-row" style={{ gap: COLLAGE_GAP }}>
+        <div
+          key={from}
+          className="flex flex-col sm:flex-row"
+          style={{ gap: COLLAGE_GAP }}
+        >
           {items.slice(from, to).map(({ src, kind, aspect }, i) => (
             <div
               key={src}
@@ -192,17 +275,22 @@ export async function HeroMedia({
     const [first, second] = photos.celular;
     // Transparent PNG/WebP files are mockups that already carry their own phone frame and shadow: use them as they are.
     const framed = await hasTransparency(first);
-    const aspects = await Promise.all([first, second].filter(Boolean).map((src) => getImageAspect(src)));
+    const aspects = await Promise.all(
+      [first, second].filter(Boolean).map((src) => getImageAspect(src)),
+    );
     return (
       <div
         role="img"
         aria-label={title}
         // Side by side, almost touching: the small one behind-left, the big one right. Height drives the size.
-        className="mx-auto flex h-[min(88vw,560px)] w-full items-center justify-center gap-0 lg:h-[min(41vw,620px)]"
+        className="mx-auto flex h-[min(88vw,560px)] w-full items-center justify-center gap-[5%] lg:h-[min(41vw,620px)]"
       >
         {framed ? (
           <>
-            <div className="relative h-[80%] shrink-0" style={{ aspectRatio: String(aspects[0]) }}>
+            <div
+              className="relative h-[80%] shrink-0"
+              style={{ aspectRatio: String(aspects[0]) }}
+            >
               <Image
                 src={first}
                 alt=""
@@ -214,7 +302,10 @@ export async function HeroMedia({
               />
             </div>
             {second ? (
-              <div className="relative h-[97%] shrink-0" style={{ aspectRatio: String(aspects[1]) }}>
+              <div
+                className="relative h-[97%] shrink-0"
+                style={{ aspectRatio: String(aspects[1]) }}
+              >
                 <Image
                   src={second}
                   alt=""
@@ -229,8 +320,22 @@ export async function HeroMedia({
           </>
         ) : (
           <>
-            <PhoneFrame src={first} sizes="260px" priority className="h-auto w-[36%] shrink-0" />
-            {second ? <PhoneFrame src={second} sizes="320px" priority className="h-auto w-[44%] shrink-0" /> : null}
+            <PhoneFrame
+              src={first}
+              sizes="260px"
+              priority
+              aspect={aspects[0]}
+              className="h-auto w-[34%] shrink-0"
+            />
+            {second ? (
+              <PhoneFrame
+                src={second}
+                sizes="320px"
+                priority
+                aspect={aspects[1]}
+                className="h-auto w-[42%] shrink-0"
+              />
+            ) : null}
           </>
         )}
       </div>
@@ -241,7 +346,10 @@ export async function HeroMedia({
     const ring = photos.instagram.slice(0, 7);
     const aspects = await Promise.all(ring.map((src) => getImageAspect(src)));
     // Tiles shrink a little as the ring fills up, so neighbours never overlap.
-    const tileWidth = Math.min(18, 200 / ring.length);
+    // Tighter ring: the tiles sit closer to the centre and almost touch, so the hero reads as one cluster.
+    // Tight ring, smaller photos: the cluster stays compact but each photo keeps a little air around it.
+    const tileWidth = Math.min(16.5, 180 / ring.length);
+    const radius = 31;
     return (
       <div
         role="img"
@@ -269,8 +377,8 @@ export async function HeroMedia({
                 className="absolute"
                 style={{
                   width: `${tileWidth}%`,
-                  left: `${50 + 38 * Math.cos(angle)}%`,
-                  top: `${50 + 38 * Math.sin(angle)}%`,
+                  left: `${50 + radius * Math.cos(angle)}%`,
+                  top: `${50 + radius * Math.sin(angle)}%`,
                   transform: `translate(-50%, -50%) rotate(${(angle * 180) / Math.PI + 90}deg)`,
                 }}
               >
@@ -278,7 +386,14 @@ export async function HeroMedia({
                   className="relative overflow-hidden rounded-[4px] bg-[#ecece7] shadow-[0_8px_20px_rgba(0,0,0,0.16)]"
                   style={{ aspectRatio: String(aspects[i]) }}
                 >
-                  <Image src={src} alt="" fill quality={92} sizes="240px" className="object-cover" />
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    quality={92}
+                    sizes="240px"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             );
@@ -299,7 +414,15 @@ export async function HeroMedia({
         className="relative mx-auto w-full overflow-hidden rounded-[18px] bg-[#ecece7] shadow-[0_12px_32px_rgba(0,0,0,0.12)]"
         style={{ aspectRatio: String(aspect) }}
       >
-        <Image src={src} alt="" fill priority quality={92} sizes="(min-width: 1024px) 1000px, 100vw" className="object-cover" />
+        <Image
+          src={src}
+          alt=""
+          fill
+          priority
+          quality={92}
+          sizes="(min-width: 1024px) 1000px, 100vw"
+          className="object-cover"
+        />
       </div>
     );
   }
@@ -332,7 +455,14 @@ export async function HeroMedia({
         className="relative mx-auto w-full overflow-hidden rounded-[20px] bg-[#ecece7]"
         style={{ aspectRatio: String(aspect) }}
       >
-        <Image src={src} alt="" fill priority sizes="(min-width: 1280px) 1180px, 92vw" className="object-cover" />
+        <Image
+          src={src}
+          alt=""
+          fill
+          priority
+          sizes="(min-width: 1280px) 1180px, 92vw"
+          className="object-cover"
+        />
       </div>
     );
   }
@@ -340,15 +470,26 @@ export async function HeroMedia({
   if (template === "visual" && photos.visual.length >= 8) {
     return (
       <TightCollage
-        media={photos.visual.slice(0, heroCollageCount(photos.visual.length)).map((src) => ({ src, kind: "image" as const }))}
+        media={photos.visual
+          .slice(0, heroCollageCount(photos.visual.length))
+          .map((src) => ({ src, kind: "image" as const }))}
         title={title}
       />
     );
   }
 
   // With a Visual Diary below, `visual/` is only the hero: a small hand-picked collage (2 to 7 photos) is fine.
-  if (template === "visual" && photos.visual.length >= 2 && photos.diario?.length) {
-    return <TightCollage media={photos.visual.map((src) => ({ src, kind: "image" as const }))} title={title} />;
+  if (
+    template === "visual" &&
+    photos.visual.length >= 2 &&
+    photos.diario?.length
+  ) {
+    return (
+      <TightCollage
+        media={photos.visual.map((src) => ({ src, kind: "image" as const }))}
+        title={title}
+      />
+    );
   }
 
   return null;
@@ -360,7 +501,9 @@ export async function HeroMedia({
  */
 const HERO_COLLAGE_COUNT = 6;
 function heroCollageCount(total: number) {
-  return total - HERO_COLLAGE_COUNT >= 4 ? HERO_COLLAGE_COUNT : Math.min(total, 12);
+  return total - HERO_COLLAGE_COUNT >= 4
+    ? HERO_COLLAGE_COUNT
+    : Math.min(total, 12);
 }
 
 type Sized = { src: string; aspect: number };
@@ -395,11 +538,20 @@ function SevenPieceCollage({ items }: { items: Sized[] }) {
       className="relative shrink-0 overflow-hidden rounded-[14px] bg-[#ecece7]"
       style={{ width, aspectRatio: String(item.aspect) }}
     >
-      <Image src={item.src} alt="" fill sizes="(min-width: 1024px) 560px, 50vw" className="object-cover" />
+      <Image
+        src={item.src}
+        alt=""
+        fill
+        sizes="(min-width: 1024px) 560px, 50vw"
+        className="object-cover"
+      />
     </div>
   );
   return (
-    <div className="@container mt-10 hidden sm:block" style={{ containerType: "inline-size" }}>
+    <div
+      className="@container mt-10 hidden sm:block"
+      style={{ containerType: "inline-size" }}
+    >
       <div className="flex" style={{ gap: GAP }}>
         {[a, b, c].map((item) =>
           tile(item, `calc((100cqw - 2 * ${GAP}) * ${item.aspect / topSum})`),
@@ -408,14 +560,23 @@ function SevenPieceCollage({ items }: { items: Sized[] }) {
       <div className="flex items-start" style={{ gap: GAP, marginTop: GAP }}>
         {tile(p, `calc(${h} * ${p.aspect})`)}
         {tile(q, `calc(${h} * ${q.aspect})`)}
-        <div className="flex flex-col" style={{ gap: GAP, width: `calc((${h} - ${GAP}) / ${s})` }}>
+        <div
+          className="flex flex-col"
+          style={{ gap: GAP, width: `calc((${h} - ${GAP}) / ${s})` }}
+        >
           {[r, t].map((item) => (
             <div
               key={item.src}
               className="relative w-full overflow-hidden rounded-[14px] bg-[#ecece7]"
               style={{ aspectRatio: String(item.aspect) }}
             >
-              <Image src={item.src} alt="" fill sizes="(min-width: 1024px) 400px, 33vw" className="object-cover" />
+              <Image
+                src={item.src}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 400px, 33vw"
+                className="object-cover"
+              />
             </div>
           ))}
         </div>
@@ -435,6 +596,8 @@ export async function TemplateGallery({
   labels,
   account,
   visualInHero = true,
+  tallSlides = false,
+  classicPosts = false,
 }: {
   template: GalleryId;
   photos: TemplatePhotos;
@@ -450,6 +613,10 @@ export async function TemplateGallery({
   account?: string;
   /** False when the visual photos are not in the page's hero (a project of another template), so all of them show here. */
   visualInHero?: boolean;
+  /** Decks and boards keep the original tall carousel (full height, cropped sideways). */
+  tallSlides?: boolean;
+  /** Instagram posts as one tall horizontal strip (the original look), instead of post cards. */
+  classicPosts?: boolean;
 }) {
   const es = locale === "es";
 
@@ -462,8 +629,12 @@ export async function TemplateGallery({
           </h2>
           <div className="mt-6 sm:mt-10">
             <SlideCarousel
+              tall={tallSlides}
               slides={await Promise.all(
-                (photos.afiches ?? []).map(async (src) => ({ src, aspect: await getImageAspect(src) })),
+                (photos.afiches ?? []).map(async (src) => ({
+                  src,
+                  aspect: await getImageAspect(src),
+                })),
               )}
               previousLabel={es ? "Pieza anterior" : "Previous piece"}
               nextLabel={es ? "Pieza siguiente" : "Next piece"}
@@ -483,8 +654,12 @@ export async function TemplateGallery({
           </h2>
           <div className="mt-6 sm:mt-10">
             <SlideCarousel
+              tall={tallSlides}
               slides={await Promise.all(
-                (photos.portafolio ?? []).map(async (src) => ({ src, aspect: await getImageAspect(src) })),
+                (photos.portafolio ?? []).map(async (src) => ({
+                  src,
+                  aspect: await getImageAspect(src),
+                })),
               )}
               previousLabel={es ? "Página anterior" : "Previous page"}
               nextLabel={es ? "Página siguiente" : "Next page"}
@@ -512,7 +687,10 @@ export async function TemplateGallery({
                   src,
                   aspect: await getImageAspect(src),
                   framed: await hasTransparency(src),
-                  scroll: screenshot && hole && size ? { src: screenshot, ...size, hole } : undefined,
+                  scroll:
+                    screenshot && hole && size
+                      ? { src: screenshot, ...size, hole }
+                      : undefined,
                 };
               }),
             )}
@@ -541,35 +719,75 @@ export async function TemplateGallery({
     const phones = photos.celular;
     // The hero already shows the first two screens: the fan only appears when there are more than that.
     if (phones.length > 0 && phones.length <= 2) return null;
+    const aspects = await Promise.all(phones.map((src) => getImageAspect(src)));
+    const aspectOf = new Map(phones.map((src, i) => [src, aspects[i]]));
+    const groups = photos.screenGroups ?? [];
+    const anyScrolls = aspects.some((a) => a < PHONE_SCREEN_ASPECT * 0.96);
     return (
       <section className="overflow-hidden bg-white py-24 sm:py-36">
         <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
-          <h2 className="font-inter text-ink2 text-[32px] leading-tight font-bold sm:text-[40px]">
-            {es ? "Pantallas" : "Screens"}
-          </h2>
-          {phones.length ? (
-            <ul className="mt-12 flex items-end justify-start gap-4 overflow-x-auto px-2 pt-8 pb-10 sm:justify-center sm:gap-0 sm:overflow-visible">
-              {phones.map((src, i) => {
-                const mid = (phones.length - 1) / 2;
-                const offset = i - mid;
-                return (
-                  <li
-                    key={src}
-                    className="w-[150px] shrink-0 transition-transform duration-300 hover:z-10 hover:-translate-y-3 sm:-ml-6 sm:w-[19%] sm:max-w-[200px] sm:first:ml-0"
-                    style={{
-                      transform: `translateY(${Math.abs(offset) * 14}px) rotate(${offset * 4}deg)`,
-                    }}
-                  >
-                    <PhoneFrame src={src} sizes="220px" />
-                  </li>
-                );
-              })}
+          <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-2">
+            <h2 className="font-inter text-ink2 text-[32px] leading-tight font-bold sm:text-[40px]">
+              {es ? "Pantallas" : "Screens"}
+            </h2>
+            {anyScrolls ? (
+              <p className="font-inter hidden text-[13px] text-[#9aa09a] sm:block">
+                {es
+                  ? "Las pantallas largas se recorren solas al pasar el mouse por encima."
+                  : "Long screens scroll on their own when you hover over them."}
+              </p>
+            ) : null}
+          </div>
+          {groups.length ? (
+            // Screens by flow (onboarding, lounge, travel buddy...): one titled row per group, phones straight.
+            <div className="mt-12 space-y-16">
+              {groups.map((group) => (
+                <div key={group.title}>
+                  <h3 className="font-inter text-ink2 text-[20px] font-semibold sm:text-[24px]">
+                    {group.title}
+                  </h3>
+                  <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5">
+                    {group.items.map((src) => (
+                      <li
+                        key={src}
+                        className="transition-transform duration-300 hover:z-10 hover:-translate-y-2"
+                      >
+                        <PhoneFrame
+                          src={src}
+                          sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                          aspect={aspectOf.get(src)}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : phones.length ? (
+            // A calm grid, straight phones: every screen reads whole. Odd ones sit a little lower for rhythm.
+            <ul className="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5">
+              {phones.map((src, i) => (
+                <li
+                  key={src}
+                  className={`transition-transform duration-300 hover:z-10 hover:-translate-y-2 ${i % 2 ? "lg:translate-y-8 lg:hover:translate-y-6" : ""}`}
+                >
+                  <PhoneFrame
+                    src={src}
+                    sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                    aspect={aspects[i]}
+                  />
+                </li>
+              ))}
             </ul>
           ) : (
             <div className="mt-10">
               <EmptyHint
                 path={hints.celular}
-                label={es ? "Sube las pantallas de la app en:" : "Add the app screens in:"}
+                label={
+                  es
+                    ? "Sube las pantallas de la app en:"
+                    : "Add the app screens in:"
+                }
               />
             </div>
           )}
@@ -579,9 +797,15 @@ export async function TemplateGallery({
   }
 
   if (template === "instagram") {
-    const posts = photos.instagramPosts?.length ? photos.instagramPosts : photos.instagram.length ? [photos.instagram] : [];
+    const posts = photos.instagramPosts?.length
+      ? photos.instagramPosts
+      : photos.instagram.length
+        ? [photos.instagram]
+        : [];
     const total = posts.reduce((n, group) => n + group.length, 0);
-    const aspects = await Promise.all(posts.map((group) => getImageAspect(group[0])));
+    const aspects = await Promise.all(
+      posts.map((group) => getImageAspect(group[0])),
+    );
     return (
       <section className="bg-white py-24 sm:py-36">
         <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
@@ -597,14 +821,44 @@ export async function TemplateGallery({
               </p>
             ) : null}
           </div>
-          {posts.length ? (
+          {posts.length && classicPosts ? (
+            // The original look: one tall horizontal strip with every piece in order, the next one peeking in.
+            <SlideCarousel
+              tall
+              slides={await Promise.all(
+                posts
+                  .flat()
+                  .map(async (src) => ({
+                    src,
+                    aspect: await getImageAspect(src),
+                  })),
+              )}
+              previousLabel={es ? "Pieza anterior" : "Previous slide"}
+              nextLabel={es ? "Pieza siguiente" : "Next slide"}
+            />
+          ) : posts.length ? (
             (() => {
               // Still posts first, as a feed (one, two or three columns); reels in their own row below them.
               const indexed = posts.map((group, i) => ({ group, i }));
-              const stills = indexed.filter(({ group }) => !(group.length === 1 && isVideoPath(group[0])));
-              const reels = indexed.filter(({ group }) => group.length === 1 && isVideoPath(group[0]));
-              const cols = (n: number) => (n >= 3 ? "md:grid-cols-3 md:gap-8" : n === 2 ? "md:grid-cols-2 md:gap-12" : "");
-              const card = ({ group, i }: { group: string[]; i: number }, isReel: boolean) => (
+              // Reels and stories (tall 9:16 pieces) share the second row; square and 4:5 posts stay in the feed.
+              const isTall = ({ group, i }: { group: string[]; i: number }) =>
+                (group.length === 1 && isVideoPath(group[0])) || aspects[i] < 0.7;
+              const stills = indexed.filter((p) => !isTall(p));
+              const reels = indexed.filter(isTall);
+              const cols = (n: number) =>
+                classicPosts
+                  ? n > 1
+                    ? "md:grid-cols-2 md:gap-12"
+                    : ""
+                  : n >= 3
+                    ? "md:grid-cols-3 md:gap-8"
+                    : n === 2
+                      ? "md:grid-cols-2 md:gap-12"
+                      : "";
+              const card = (
+                { group, i }: { group: string[]; i: number },
+                isReel: boolean,
+              ) => (
                 <PostCarousel
                   key={group[0]}
                   slides={group}
@@ -613,8 +867,10 @@ export async function TemplateGallery({
                   caption={
                     isReel
                       ? posts.length > 1
-                        ? `${es ? "Post" : "Post"} ${i + 1} · Reel`
-                        : "Reel"
+                        ? `${es ? "Post" : "Post"} ${i + 1} · ${isVideoPath(group[0]) ? "Reel" : "Stories"}`
+                        : isVideoPath(group[0])
+                          ? "Reel"
+                          : "Stories"
                       : posts.length > 1
                         ? `${es ? "Post" : "Post"} ${i + 1} · ${group.length} ${es ? "piezas" : "slides"}`
                         : `${group.length} ${es ? "piezas" : "slides"}`
@@ -627,10 +883,16 @@ export async function TemplateGallery({
               return (
                 <>
                   {stills.length ? (
-                    <div className={`mt-12 grid gap-10 sm:mt-16 ${cols(stills.length)}`}>{stills.map((p) => card(p, false))}</div>
+                    <div
+                      className={`mt-12 grid gap-10 sm:mt-16 ${cols(stills.length)}`}
+                    >
+                      {stills.map((p) => card(p, false))}
+                    </div>
                   ) : null}
                   {reels.length ? (
-                    <div className={`grid gap-10 ${stills.length ? "mt-10 md:mt-12" : "mt-12 sm:mt-16"} ${cols(reels.length)}`}>
+                    <div
+                      className={`grid gap-10 ${stills.length ? "mt-10 md:mt-12" : "mt-12 sm:mt-16"} ${cols(reels.length)}`}
+                    >
                       {reels.map((p) => card(p, true))}
                     </div>
                   ) : null}
@@ -641,7 +903,11 @@ export async function TemplateGallery({
             <div className="mt-10">
               <EmptyHint
                 path={hints.instagram}
-                label={es ? "Sube los posts y carruseles en:" : "Add the posts and carousels in:"}
+                label={
+                  es
+                    ? "Sube los posts y carruseles en:"
+                    : "Add the posts and carousels in:"
+                }
               />
             </div>
           )}
@@ -654,9 +920,13 @@ export async function TemplateGallery({
     return (
       <section className="bg-[#3a17b0] py-14 sm:py-20">
         <div className="mx-auto max-w-[1280px] px-5 text-center sm:px-8">
-          <h2 className="font-inter text-[clamp(2.2rem,5vw,3.6rem)] leading-none font-bold text-white">{title}</h2>
+          <h2 className="font-inter text-[clamp(2.2rem,5vw,3.6rem)] leading-none font-bold text-white">
+            {title}
+          </h2>
           {body ? (
-            <p className="font-inter mx-auto mt-6 max-w-[640px] text-[17px] leading-[1.55] text-white/90">{body}</p>
+            <p className="font-inter mx-auto mt-6 max-w-[640px] text-[17px] leading-[1.55] text-white/90">
+              {body}
+            </p>
           ) : null}
         </div>
       </section>
@@ -665,10 +935,16 @@ export async function TemplateGallery({
 
   if (template === "moodboard") {
     const boards = await Promise.all(
-      (photos.moodboard ?? []).map(async (src) => ({ src, aspect: await getImageAspect(src) })),
+      (photos.moodboard ?? []).map(async (src) => ({
+        src,
+        aspect: await getImageAspect(src),
+      })),
     );
     const chosenIndex = boards.length - 1;
-    const board = ({ src, aspect }: { src: string; aspect: number }, index: number) => {
+    const board = (
+      { src, aspect }: { src: string; aspect: number },
+      index: number,
+    ) => {
       const chosen = index === chosenIndex && boards.length > 1;
       return (
         <figure key={src}>
@@ -676,11 +952,20 @@ export async function TemplateGallery({
             className="relative w-full overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_10px_32px_rgba(0,0,0,0.16)]"
             style={{ aspectRatio: String(aspect) }}
           >
-            <Image src={src} alt="" fill quality={92} sizes="(min-width: 1024px) 1200px, 92vw" className="object-cover" />
+            <Image
+              src={src}
+              alt=""
+              fill
+              quality={92}
+              sizes="(min-width: 1024px) 1200px, 92vw"
+              className="object-cover"
+            />
           </div>
           <figcaption className="font-inter text-ink2 mt-4 flex items-center gap-3 text-[15px] font-bold">
             {es ? `Propuesta ${index + 1}` : `Proposal ${index + 1}`}
-            {labels?.[index] ? <span className="text-ink font-normal">· {labels[index]}</span> : null}
+            {labels?.[index] ? (
+              <span className="text-ink font-normal">· {labels[index]}</span>
+            ) : null}
             {chosen ? (
               <span className="rounded-full bg-[#3a17b0] px-3 py-1 text-[12px] font-semibold text-white">
                 {es ? "Elegida" : "Chosen"}
@@ -704,7 +989,11 @@ export async function TemplateGallery({
           <div className="mt-16 grid gap-10 sm:mt-20 md:grid-cols-2">
             {boards.slice(0, chosenIndex).map(board)}
           </div>
-          {boards.length ? <div className="mt-10">{board(boards[chosenIndex], chosenIndex)}</div> : null}
+          {boards.length ? (
+            <div className="mt-10">
+              {board(boards[chosenIndex], chosenIndex)}
+            </div>
+          ) : null}
         </div>
       </section>
     );
@@ -723,7 +1012,11 @@ export async function TemplateGallery({
               (photos.grilla ?? []).map(async (src) => {
                 const aspect = await getImageAspect(src);
                 return (
-                  <div key={src} className="relative w-full bg-[#ecece7]" style={{ aspectRatio: String(aspect) }}>
+                  <div
+                    key={src}
+                    className="relative w-full bg-[#ecece7]"
+                    style={{ aspectRatio: String(aspect) }}
+                  >
                     <Image
                       src={src}
                       alt=""
@@ -751,8 +1044,12 @@ export async function TemplateGallery({
           </h2>
           {photos.presentacion.length ? (
             <SlideCarousel
+              tall={tallSlides}
               slides={await Promise.all(
-                photos.presentacion.map(async (src) => ({ src, aspect: await getImageAspect(src) })),
+                photos.presentacion.map(async (src) => ({
+                  src,
+                  aspect: await getImageAspect(src),
+                })),
               )}
               previousLabel={es ? "Diapositiva anterior" : "Previous slide"}
               nextLabel={es ? "Diapositiva siguiente" : "Next slide"}
@@ -774,7 +1071,10 @@ export async function TemplateGallery({
   // in two centered-title rows that drift sideways.
   if (photos.diario?.length) {
     const diaryItems = await Promise.all(
-      photos.diario.map(async (m) => ({ ...m, aspect: await getImageAspect(m.src) })),
+      photos.diario.map(async (m) => ({
+        ...m,
+        aspect: await getImageAspect(m.src),
+      })),
     );
     return (
       <section className="overflow-hidden bg-white py-24 sm:py-36">
@@ -789,14 +1089,24 @@ export async function TemplateGallery({
           </p>
         </div>
         <div className="mt-12 sm:mt-16">
-          <DiaryMarquee items={diaryItems} label="Visual Diary" rows={photos.diaryRows ?? 2} />
+          <DiaryMarquee
+            items={diaryItems}
+            label="Visual Diary"
+            rows={photos.diaryRows ?? 2}
+          />
         </div>
       </section>
     );
   }
 
   // visual: the first 8 photos live in the hero; the rest form a collage here.
-  const used = !visualInHero ? 0 : photos.visual.length >= 8 ? heroCollageCount(photos.visual.length) : photos.visual.length === 1 ? 1 : 0;
+  const used = !visualInHero
+    ? 0
+    : photos.visual.length >= 8
+      ? heroCollageCount(photos.visual.length)
+      : photos.visual.length === 1
+        ? 1
+        : 0;
   const rest = photos.visual.slice(used);
   if (!rest.length) {
     // The upload hint only makes sense while the project has nothing at all to show.
@@ -811,7 +1121,11 @@ export async function TemplateGallery({
         <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
           <EmptyHint
             path={hints.visual}
-            label={es ? "Sube las fotos del proyecto en:" : "Add the project photos in:"}
+            label={
+              es
+                ? "Sube las fotos del proyecto en:"
+                : "Add the project photos in:"
+            }
           />
         </div>
       </section>
@@ -819,9 +1133,14 @@ export async function TemplateGallery({
   }
   // Masonry: each photo goes to the shortest column, in file order, so neighbours in the
   // folder (01, 02...) land side by side and every column ends at about the same height.
-  const sized = await Promise.all(rest.map(async (src) => ({ src, aspect: await getImageAspect(src) })));
+  const sized = await Promise.all(
+    rest.map(async (src) => ({ src, aspect: await getImageAspect(src) })),
+  );
   const columnsFor = (n: number) => {
-    const cols: { src: string; aspect: number }[][] = Array.from({ length: n }, () => []);
+    const cols: { src: string; aspect: number }[][] = Array.from(
+      { length: n },
+      () => [],
+    );
     const heights = new Array(n).fill(0);
     for (const item of sized) {
       const target = heights.indexOf(Math.min(...heights));

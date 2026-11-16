@@ -404,7 +404,7 @@ Filtros · Eventos y talleres · Estrategia
 **Descripción**
 BOOST LAB's training line: short, practical workshops on brand, strategy and entrepreneurship. There is only one rule. Each person arrives with their project, works on it during the workshop and leaves with their own strategy written on paper.
 
-**Propósito** · Work live · See the method from the inside · Leave with something written
+**Propósito** · Work live · See the method from the inside · Leave with something built
 
 **Overview**
 Cliente · BOOST LAB, for entrepreneurs, small brands, students and company teams

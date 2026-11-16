@@ -5,7 +5,7 @@
 **Título** · NomadHer
 **Meta** · Seoul · Global · Oct 2025 - present
 **Descripción** *(tuyo)* · NomadHer is an app where women who travel find travel buddies, join experiences and build community across cities. I came in to design the product and stayed on to carry the visual system, the campaigns with partners and the content that keeps the community alive between versions.
-**Tags** · App redesign · Japan Airlines · Bloggers · Business decks
+**Tags** · App redesign · Japan Airlines · Content programs
 
 ---
 
@@ -20,13 +20,13 @@
 **Etiqueta** · [ NOMADHER ]
 
 **Texto de la banda**
-I joined in October 2025 as Founding Designer, to design the product of a community that already existed. Today I also carry what surrounds it: the visual system, the campaigns with international partners, the business decks the company uses to open doors and the content that keeps the community alive between versions.
+I joined in October 2025 as Founding Designer, to design the product of a community that already existed. Today I also carry what surrounds it: the visual system, the campaigns with international partners and the content that keeps the community alive between versions.
 
 **Cifras**
 
 | | |
 |---|---|
-| **21-23%** | month 1 retention in the app |
+| **4** | app spaces redesigned and in production |
 | **2M+** | total organic views on the content produced |
 | **31%** | newsletter open rate |
 
@@ -47,12 +47,10 @@ Creative direction for partners like Japan Airlines, Superalink and NordVPN, acr
 **[05] Content and community**
 Monthly guidelines, series, newsletter, and a program for bloggers and content creators.
 
-**[06] Business development**
-Business decks for partners, investors and international programs, from VivaTech to AlUla.
 
 ### Lo que salió de este capítulo · [ PROYECTOS ]
 
-App redesign · Applied brand · Creator Call with JAL · Instagram content · Bloggers Program · Business decks · Website redesign
+App redesign · Applied brand · Creator Call with JAL · Instagram content · Content Creation Programs · Website redesign
 
 
 ---
@@ -63,18 +61,18 @@ App redesign · Applied brand · Creator Call with JAL · Instagram content · B
 Etiquetas · UX/UI · 2025 - 2026
 Meta · NomadHer · Seoul, 2025 - 2026
 Título · App redesign
-Descripción · The foundation of the product: research, city-based architecture, profile, onboarding and design system.
+Descripción · Ongoing work, version after version: research, city-based architecture, profile, onboarding and design system.
 Tags · UX/UI · Product
 Filtros · UX/UI · Estrategia
 
 **PÁGINA**
 
-**Título** · App redesign · the foundation
+**Título** · App redesign
 
 **Descripción**
-The redesign of a community app that already existed, from interviews with users to the architecture that now supports every feature. This page tells the foundation. Inside it live the three spaces built on top of it: the Lounge, Travel Buddy and the levels system.
+The redesign of a community app that already existed, from interviews with users to the architecture that now supports every feature. It is ongoing work: a new version every five or six weeks since April 2026, each with its research, its spec and its measurement. Inside live the three spaces built on top: the Lounge, Travel Buddy and the levels system.
 
-**Propósito** · The city at the center · A profile that invites you to write · A single card language
+**How I work** · In daily dialogue with the engineering team · Aligned with business and partnerships · Every version improves the experience for users
 
 **Overview**
 Cliente · NomadHer
@@ -82,13 +80,13 @@ Mi rol · Founding Designer: research, UX/UI and product logic
 Tipo de proyecto · Product redesign, mobile app
 
 **01 Challenge**
-NomadHer had community and it had screens, but the screens didn't talk to each other. In interviews with 15 women and a focus group, the same pattern kept showing up: profiles got views but no messages, conversation slipped away to WhatsApp, and the Lounge lived far from where the action happened. And one fact weighed more than the rest: many users deleted the app once their trip was over.
+NomadHer had community and it had screens, but the screens didn't talk to each other. In interviews with 15 women and a focus group, the same pattern kept showing up: profiles got views but no messages, conversation slipped away to WhatsApp, and the Lounge lived far from where the action happened. And one fact weighed more than the rest: many users deleted the app once their trip was over. The challenge wasn't one screen but the system: an architecture that served travellers and locals alike, and a way of working that kept improving it version after version, with a small engineering team and a business that also needed it for its partners and camps.
 
 **02 Approach**
-I reframed the problem as structural: people connect with what others are doing right now, in the same city. I explored three architectures over more than fifteen prototype rounds, with Corner, Bumble and Hinge as references, and proposed a city-centered app that works just as well for people who are traveling as for people who live there. I unified the cards across spaces so everything speaks the same language. Every feature ships with its logic, edge cases and metrics in a spec for the engineering team.
+I reframed the problem as structural: people connect with what others are doing right now, in the same city. I explored three architectures over more than fifteen prototype rounds, with Corner, Bumble and Hinge as references, and proposed a city-centered app. I unified the cards across spaces so everything speaks the same language. And I organised the work in phases and versions: every feature ships with its logic, edge cases and metrics in a spec for the engineering team, is reviewed with business and partnerships when it touches camps, perks or partners, and is measured after launch to decide the next one. The interviews never stopped: they keep feeding the roadmap.
 
 **03 Result**
-A new version every five or six weeks since April 2026, from 9.6.0 to 9.6.5, with the profile, onboarding, design system and App Store redesigned. The app holds a month 1 retention of 21 to 23%, 5 to 6 times the average for social apps, and closed September 2026 with 16,782 monthly active users.
+A new version every five or six weeks since April 2026, from 9.6.0 to 9.6.5, with the profile, onboarding, design system and App Store redesigned, and the next ones already in design and in the engineering team's hands. The app's month 1 retention sits well above the average for social apps, and the process is now in place: research, spec, launch and measurement, on a loop.
 
 **Secciones extra**
 
@@ -143,7 +141,7 @@ Filtros · Diseño gráfico
 **Descripción**
 A brand is tested in use: in the banner that changes every week, in the poster of an event with another brand on top of it, in the card someone hands out at a fair. This page gathers how NomadHer lives beyond the logo, from the app to the street. Inside this project live the events and campaigns the brand went through, from the She Can festivals to partner campaigns.
 
-**Propósito** · A single brand · Templates that don't break · From pixel to cardboard
+**Propósito** · A single brand · Templates that don't break · From the screen to real life
 
 **Overview**
 Cliente · NomadHer
@@ -151,13 +149,13 @@ Mi rol · Brand direction and graphic design
 Tipo de proyecto · Applied brand system
 
 **01 Challenge**
-Hyo asked me to move the brand toward community, give it a more serious tone and, above all, unify it. Pieces came from several hands and the app and Instagram looked like two different brands. And day-to-day work demanded speed: new banners every week, events with different partners, and a team that needed to edit without asking a designer for every change.
+NomadHer has always wanted to sound like a friend, like the older sister you trust and also think "what a cool girl" about. But the brand didn't look like that. Many people were making graphics without any order, or pulling templates that looked generic instead of a designed brand. And those pieces had to live on Instagram, inside the app, in emails and in every space of the product, in different formats. Day-to-day work demanded speed and, at the same time, asked for a structure that didn't exist.
 
 **02 Approach**
-I started from clear rules, with a photography guide, editorial textures and brand guidelines that work for outside partners. On top I built templates meant to be edited without breaking. In the app banners, the brand shapes stay fixed over the photo, so changing the image moves nothing. For events, a base system that absorbs each partner's identity. And for the physical side, reusable pieces instead of single-use banners.
+I started with mood boards: defining the visual proposal and agreeing on how it would be followed. Then I met with the photographer so that every event produced the content we would later need on social media. From there came the brand guidelines, one for partners and one for the internal team, each with its own purpose. For what gets made constantly I built templates that can be edited without breaking: in the app banners the brand shapes stay fixed over the photo, and for events a base system that absorbs each partner's identity. Meanwhile, I worked directly on the campaigns that needed custom design.
 
 **03 Result**
-A single identity across the app, the App Store, Instagram, the newsletter, events and the team's stationery. Anyone on the team now builds a new banner by swapping the photo and text. The brand went along to events in Seoul and meetups in Milan, Paris, London and Tokyo, and held up next to the French Embassy, a marathon and a travel fair.
+A single identity across the app, the App Store, Instagram, emails, events and the team's stationery. And efficiency: the templates let the non-designers on the team edit what isn't vital, so I can fully focus on what is, like the event campaigns. Even when I don't design every piece, everything goes out on brand. This also includes the newsletter system I designed for the whole user journey, from the welcome email to each event's reminders. The brand went along to events in Seoul and meetups in Milan, Paris, London and Tokyo, and held up next to the French Embassy, a marathon and a travel fair.
 
 **Secciones extra**
 
@@ -171,6 +169,9 @@ A system of nine templates at 1224 × 597 px, six with a photo and three without
 *Women Marathon · May 2026.* Slides and banners with the organizers' textures. Sold out.
 *Meetups of the month.* Monthly banners for surf, Wine & K-sool, gayageum, traditional dance and international meetups.
 
+**Newsletter**
+An "email of the month" with Woman of the Month, perks, tips and events, built as a modular system in Figma with examples by season and sent through Mailjet. The new templates also let us measure each block.
+
 **Reusable signage**
 Mini cardboard signs of 30 × 30 cm and one horizontal A3, with "She Can Travel Anywhere", "Welcome to the sisterhood", the partner's logo and a brand illustration without text as a wildcard. They get used from event to event.
 
@@ -180,7 +181,7 @@ Story templates in four types, covers and Instagram grid, and editable templates
 **Stationery**
 Email signature for the whole team, with a step-by-step install guide, and business cards as editable templates.
 
-**The foundation**
+**The guides**
 Three initial moodboards (Elegant, Joyful and Power), a photography guide with three styles, editorial textures and brand guidelines to share with outside partners.
 
 ---
@@ -202,23 +203,23 @@ Filtros · Marketing y contenido · Diseño gráfico
 **Título** · Japan Airlines × NomadHer
 
 **Descripción**
-An open call to take content creators and women from the community to see Liverpool FC Women at Anfield, with Japan Airlines as a partner. Instagram, ManyChat and the app worked as a single funnel.
+A campaign with Japan Airlines to celebrate women in sport and in travel, with NomadHer as the bridge. Two creators flew from Tokyo to Anfield to tell the journey and six women from the community won their ticket to the Liverpool FC Women match. Instagram, ManyChat and the app worked as a single funnel.
 
-**Propósito** · Discover on Instagram · Convert with ManyChat · Go deeper in the app
+**Highlights** · 24,624 plays · 17.2% engagement · 53% reach beyond followers · 94.7% female audience
 
 **Overview**
 Cliente · Japan Airlines × NomadHer
-Mi rol · Creative direction and campaign production, alongside Joyce
+Mi rol · Creative direction and campaign production, with the partnerships team
 Tipo de proyecto · Multichannel partnership campaign
 
 **01 Challenge**
-Japan Airlines is the official airline of Liverpool FC. The deal, which Joyce brought in, included flights for two creators and tickets for six women from the community to go to the match. Every piece had to pass two approvals, the airline's and the club's, and still feel like NomadHer.
+Japan Airlines is the official airline partner of Liverpool FC. The deal brought to the brand included flights for two creators and tickets for six women from the community to attend the match at Anfield. It had to become an open call that felt like NomadHer, pass two approvals, the airline's and the club's, and move people from Instagram into the app, where they applied.
 
 **02 Approach**
-I built the creative layer on three connected channels: the open-call post on Instagram, with copy inspired by Nike's "Just Do It", ManyChat to turn comments into applications, and the experience page inside the app. Then came the giveaway, the winners announcement and the Anfield trip carousel with the creators' videos, in four formats.
+I designed the campaign as a three-layer system under one idea, She Can Fly, She Can Sports, She Can Travel Anywhere. In the app: the first-screen banner, the Lounge post that told the campaign and the Experience page where people applied. On Instagram: the creator call carousel, the stories and, in the second phase, the giveaway announcement and the last-days reminder. Between the two, ManyChat: anyone who commented FlyJAL got the steps and the app link by direct message. Every piece went through Japan Airlines' brand guidelines and Liverpool FC's review before going live.
 
 **03 Result**
-24,624 carousel plays, 17.2% engagement and 53% of reach from accounts that didn't follow us. 94.7% of the audience was female, with Korea, the United States and India leading, in line with the airline's priority routes. The open-call post drew 300 comments and 482 shares.
+The creator call carousel reached 24,624 plays and 9,089 accounts, with 17.2% engagement and 53% of its reach from accounts that didn't follow us. Shares nearly matched likes, 477 to 559: people were sending it to their friends. 94.7% of the audience was female and 80% was aged 25 to 44, with South Korea, the United States and India leading. The post beat the account's benchmark for three weeks in a row.
 
 **Secciones extra**
 
@@ -243,7 +244,7 @@ Open-call post and caption · announcement, steps, reminder and wrap-up stories 
 Etiquetas · Content · 2025 - 2026
 Meta · NomadHer · Seoul, 2025 - 2026
 Título · Instagram content
-Descripción · A content system with a monthly guideline, fixed series and automation, from Instagram to the app.
+Descripción · A content system with a monthly guideline, fixed series and a team that now runs it on its own, from Instagram to the app.
 Tags · Content strategy · Community
 Filtros · Marketing y contenido · Estrategia
 
@@ -252,23 +253,25 @@ Filtros · Marketing y contenido · Estrategia
 **Título** · Instagram content creation
 
 **Descripción**
-The creative leadership of NomadHer's content: the strategy, the series, the automation, the paid media and the newsletter. All designed as a system that repeats every week and connects Instagram with what happens inside the app.
+The creative leadership of NomadHer's content on Instagram: the strategy, the series, the automation and the paid media. All designed as a system that repeats every week, connects Instagram with what happens inside the app and is now run by the team.
 
 **Propósito** · Monthly guideline · Fixed series · From the feed to the app
 
 **Overview**
 Cliente · NomadHer
-Mi rol · Creative content lead: strategy, calendar, analysis and carousel design
+Mi rol · Creative content lead: strategy, ways of working and design; today, art direction and supervision
 Tipo de proyecto · Content strategy and editorial system
 
 **01 Challenge**
-The person who ran the content left right as I joined, and I took over the brand lead without an onboarding. Hyo's brief was to turn the account into something closer to a community: useful tips, more visibility for what happens in the app and a more serious voice. With a small team, content had to be producible fast without depending on the inspiration of the day.
+In my first weeks there was a change of roles and content landed on my desk with a clear brief: define a new guideline for the brand and make it structural. The account had to get closer to its community with useful tips and more visibility for what happens in the app, in a voice that is more serious yet close, like friends who travel, and be produced fast by a small team, without depending on the inspiration of the day.
 
 **02 Approach**
-In my first weeks I put together the benchmark, the account structure, the pillars, a North Star with its KPIs and the personas. I launched fixed series with their own day and in May 2026 I turned it into a content operating system: four weekly slots, cross-posting to the app and a monthly guideline that defines topics, formats and trends. On top of that, automation with ManyChat, a Meta paid media playbook and a modular newsletter.
+In my first weeks I put together the benchmark, the account structure, the pillars, a North Star with its KPIs and the personas. I launched fixed series with their own day and in May 2026 I turned it into a content operating system: four weekly slots, cross-posting to the app and a monthly guideline that defines topics, formats and trends. On top of that, automation with ManyChat and a Meta paid media playbook.
+
+For all of that to work, I redesigned the marketing space in Notion. Partner campaigns, the experiences that had to be communicated and the business model needed to be connected, and they weren't. With a team spread between Seoul and Paris, Notion became the place where anyone can see what content goes out, why and with which pieces.
 
 **03 Result**
-More than 2 million organic views on the content I've developed. The most viewed post, with 384,000 views, came out planned from that month's guideline. The newsletter reaches a 31% open rate, against a 20.5% industry benchmark in travel. Today I lead the analysis of every campaign and I have Jaden on board, who supports copy and research from Paris.
+More than 2 million organic views on the content I've developed. The most viewed post, with 384,000 views, came out planned from that month's guideline. The newsletter reaches a 31% open rate, against a 20.5% industry benchmark in travel. The system no longer depends on me. Today two people on the team run it following the guideline, the pillars and the Notion, and I step in as graphic designer and art director when there is a specific campaign or feedback is needed. Leaving it this structured is what let me move my focus to product design.
 
 **Secciones extra**
 
@@ -284,8 +287,6 @@ More than 2 million organic views on the content I've developed. The most viewed
 *What's Happening for Solo Female Travelers* · every month
 *Editorials* · history and culture, like "The Night That Women Saved Korea" or "Historically women"
 
-> *Note: if you want a description line for each series, add it yourself. I couldn't find the exact format of Nomad Times or 48 Hours of Spark and preferred not to make it up.*
-
 **The system**
 Content pillars · North Star and KPIs · personas · four weekly slots · cross-posting to the app · monthly guideline with topics, formats and trends
 
@@ -298,31 +299,31 @@ A Meta Ads Playbook in Notion, born from relaunching the Gangjin campaign with a
 **Travel Camp Promotion System**
 Each camp is promoted for a year, with a countdown of milestones: announcement, then 12, 8, 6 and 3 months before. Every two months, a slide with the active camps, and permanent highlights on the profile.
 
-**Newsletter**
-An "email of the month" with Woman of the Month, perks, tips and events, built as a modular system in Figma with examples by season and sent through Mailjet. The new templates also let us measure each block.
+**Story system**
+Every month there are events, camps and meetups to announce, and each one had to say what it includes, when it is and how to join. I designed story templates so all of that is visible at a glance: a cover per event, the schedule by day, what's included and the promotional pieces for closing registrations. The team only changes photo, date and text.
 
 ---
 
 ---
 
-## 1.5 Bloggers Program
+## 1.5 Content Creation Programs
 
 **CARD**
 Etiquetas · Community · 2026
 Meta · NomadHer · Global, 2026
-Título · Bloggers Program
-Descripción · Two programs that turn the community into authors, with their own badge inside the app.
+Título · Content Creation Programs
+Descripción · Two programs so NomadHer's content is created by its own community, from wherever they are travelling.
 Tags · Program · Community
 Filtros · Marketing y contenido · Estrategia
 
 **PÁGINA**
 
-**Título** · Bloggers Program
+**Título** · Content Creation Programs
 
 **Descripción**
-Two programs so that NomadHer's content is also written by its community: Official NomadHer Bloggers, for authors who publish guides inside the app, and the Travel Content Creator Pilot, for creators who tell their trips on social media.
+Two programs that hand NomadHer's voice to its community. Official NomadHer Bloggers invites women from the community to write guides to their cities inside the app. Travel Content Creator Pilot works with creators who tell their trips on social media. Real content, made by women travelling around the world.
 
-**Propósito** · Authors · Creators · Visible recognition
+**Propósito** · Local content, told by those who travel · A community that becomes visible · Real stories instead of research
 
 **Overview**
 Cliente · NomadHer
@@ -330,13 +331,13 @@ Mi rol · Design and management of both programs
 Tipo de proyecto · Community and creator programs
 
 **01 Challenge**
-The community had stories and local knowledge, but the app's useful content depended on the team. The ten festival ambassadors needed a way to keep going after the event. And any program had to give something concrete in return: visibility, recognition and a clear place inside the app.
+NomadHer is a global community, and its content had to feel that way. We wanted every city told by someone who had actually been there, not a text born from research or AI, and that could never come from the team alone. What we did have was a huge community travelling all over the world, eager to be seen, that nobody had asked to share their trips.
 
 **02 Approach**
-I benchmarked more than 15 ambassador programs and redesigned the brand's as the Travel Content Creator Pilot: two months, two to four pieces a month, a meetup and a commission per sale. For the bloggers I designed an open call and an eight-week cycle with onboarding, kit, certificate and content guide. On the product side, the program has its own badge and earns points in the levels system.
+I started with a benchmark of ambassador and creator programs, and two programs with one shared purpose came out of it. Official NomadHer Bloggers, for those who write: open call, selection, onboarding, content guide, an eight-week cycle with one-on-one meetings and a certificate at the end. Travel Content Creator Pilot, for those who create on social media, in two formats: a full edition, where one creator produces all the content of her trip so the storytelling gets stronger, and a light edition for community members who don't create content for a living and contribute a single post. To introduce them, an Instagram campaign that travelled through different places in the world through the community. And inside the app, each program has its own badge and earns points in the levels system.
 
 **03 Result**
-26 replies, 11 applications and five authors selected for the first pilot, from Paris and Da Lat, Singapore, Seoul and Mexico, Rotterdam, and Seoul and Jeju, among them a journalist and a writer. Their first articles are already published in the Blogs section, launched in 9.6.4, with the Blogger badge visible throughout their journey in the app.
+The launch worked. Five new blogs a month in the app's Blogs section, several of them amplified on Instagram, and content from different countries throughout the campaign. The first pilot's authors write from Paris, Da Lat, Singapore, Seoul, Mexico, Rotterdam and Jeju, and carry their Blogger badge across the whole app. Today NomadHer's content no longer comes only from the team: its community creates it.
 
 **Secciones extra**
 
@@ -344,61 +345,18 @@ I benchmarked more than 15 ambassador programs and redesigned the brand's as the
 Open call · selection · onboarding · welcome kit · content guide · eight-week cycle · certificate · Blogger badge · one-on-one meetings with each author
 
 **Travel Content Creator Pilot**
-2 months · 2 to 4 pieces a month · 1 meetup · 15% commission per sale
+Full edition: one creator, two months, monthly pieces and a meetup · Light edition: one post per community member
 
 **From program to product**
 Blogger badge in the Lounge, Travel Buddy, comments and Inbox · +500 points per published blog in the levels system · notification to the community when a new blog comes out
 
-**The foundation**
-A Notion space for creators, with its own content guide, and brand guidelines that work for sharing with outside partners.
+**What stays for the next editions**
+A Notion space for creators with its content guide, and brand guidelines ready to share with outside creators.
 
 ---
 
 ---
 
-## 1.6 Business decks
-
-**CARD**
-Etiquetas · Strategy · 2025 - 2026
-Meta · NomadHer · Seoul, 2025 - 2026
-Título · Business decks
-Descripción · The presentations NomadHer uses to open doors, from VivaTech Paris to AlUla.
-Tags · Presentation · Business development
-Filtros · Estrategia · Diseño gráfico
-
-**PÁGINA**
-
-**Título** · Business deck development
-
-**Descripción**
-Besides the product, I work with the CEO on business development. A good part of that work lives in decks: the story NomadHer tells each partner, investor or international program, rewritten every time the reader changes.
-
-**Overview**
-Cliente · NomadHer
-Mi rol · Narrative, data and presentation design, alongside Hyo
-Tipo de proyecto · Business and partnership presentations
-
-**01 Challenge**
-Each audience asks for a different version of the same company. A corporate partner looks for reach and audience; a startup jury looks at traction and model; a tourism program wants to see fit with its country. On top of that, several inherited decks still showed figures from 2022 and 2023.
-
-**02 Approach**
-I work each deck from its structure: what the reader needs to believe, in what order, and with what data point. I update the figures, leave the open questions for Hyo in writing and title each slide so it can be understood at a glance. The design lives in Figma and goes out in whatever format the destination asks for.
-
-**03 Result**
-A line of decks that already covers partnership, investment, government programs and the web. The VivaTech one went from 21 slides to 13 with updated data, and the business development one is published on the site in a long and a short version.
-
-**Secciones extra**
-
-**The decks**
-*Japan Airlines · Oct 2025.* Partnership deck with user insights and one-line headlines per slide.
-*VivaTech Paris · Jun 2026.* Five-minute deck for the startup stage, from 21 slides to 13.
-*Business deck · Jul 2026.* The company's general presentation, worked on with Hyo in review sessions.
-*NomadHer AlUla Hafawah · Jul 2026.* Proposal for Saudi Arabia, with a deck and a detailed proposal.
-*Business Development Deck · Oct 2026.* A long version of about 50 slides and a short one of about 25, to publish on the web.
-
----
-
----
 
 ## 1.7 Website redesign
 
@@ -415,7 +373,9 @@ Filtros · UX/UI · Estrategia
 **Título** · Website redesign
 
 **Descripción**
-NomadHer's new site, with the Travel Camps guided by local women at the center. Design, structure and content in Figma; build in Webflow alongside Elly.
+NomadHer's new site, built to connect with the community and show what the app already is: a network of women, camps guided by local women and partners in several countries. Design, structure and content in Figma; build in Webflow with the team's developer.
+
+**Propósito** · A site that connects with the community · One brand, from the app to the web · App tours, partners and camps in plain sight
 
 **Overview**
 Cliente · NomadHer
@@ -423,18 +383,13 @@ Mi rol · Web design, content architecture and copy
 Tipo de proyecto · Website redesign
 
 **01 Challenge**
-The site dragged along structures from earlier versions and didn't reflect what NomadHer sells today. The navigation needed ordering and search ranking needed protecting, all while speaking to travelers, hosts and partner brands at once.
+The site dragged along structures from earlier versions, didn't speak the same language as the app and didn't tell what NomadHer is today. It needed a redesign that connected with the community, unified the brand across every touchpoint and truly showed the app, the Travel Camps, the local side and the relationship with partners, without losing search ranking and while speaking to travelers, hosts and brands at once.
 
 **02 Approach**
-I started from an impact map that Hyo worked on with the Cartier team, reviewed references and put together the draft. I trained myself in Webflow so I could design within what can actually be built. We split the work into three branches, with Home and Experiences first, and every page leaves Figma with final copy, dynamic content defined and interaction notes for Elly.
+I started with a benchmark: what reference sites did well, what NomadHer's tone is and which parts could not be missing. From there I defined the structure and put the effort into the design: how each area is organized, what every section says and which new pages were needed to show the app, the camps and the partners. Every page left Figma with final copy, dynamic content defined and interaction notes. From then on I worked alongside the team's developer until the whole site was complete and built in Webflow.
 
 **03 Result**
-Full design of Home, Experiences, For partners, About, refund and cancellation policies, and the partnership request. The final navigation ends up as Experiences, Community, Blog, About, Partners and Host with us, and the first pages are already built in Webflow.
-
-**Secciones extra**
-
-**Design decisions**
-Few calls to action, on purpose. "How the app works" as a step-by-step walkthrough. Camps and blog in carousels of six at most, and partner and press logos on a loop.
+A site that finally speaks the same language as the app. Travelers get a guided tour that explains how NomadHer works before they download it. The Travel Camps have their own space, with every experience told by the local woman who guides it. Partners and hosts have a clear place to meet us and work with us. And the community, the blog and the brand's story live on pages of their own, with one identity from the app to the web.
 
 ---
 
@@ -528,7 +483,7 @@ Between a cold message and a formal event there was nothing. Users didn't know w
 I designed four pieces that chain together. Currently Active shows who has been active in the last 15 minutes. Women Meetups turns a small plan into a chat in seconds. Travel Status tells where each person is and why. And the meetup flow covers the before and the after: confirming attendance, leaving without awkwardness and answering, on the way back, how it felt. We started in Seoul and opened city by city based on demand.
 
 **03 Result**
-313 meetup joins in the first two weeks. In September, 429 users joined at least one meetup and 130 came back for more, close to 30%. Women Meetups went from Seoul to Paris and, since September 22, 2026, to every city. The RSVP and safety check-in are in test for 9.6.5.
+Hundreds of meetup joins in the first two weeks, and close to 30% of the women who join a meetup come back for another. Women Meetups went from Seoul to Paris and, since September 22, 2026, to every city. The RSVP and safety check-in are in test for 9.6.5.
 
 **Secciones extra**
 
@@ -582,7 +537,7 @@ Mi rol · UX/UI, points logic and phase system
 Tipo de proyecto · Loyalty system, mobile app
 
 **01 Challenge**
-The November 2025 diagnosis showed three gaps: hosts had no incentives, the value of being a member wasn't felt and participation wasn't recognized anywhere. Perks from partner brands were scattered and generated no commission. And notifications piled up without ever being cleared.
+The November 2025 diagnosis showed three gaps: hosts had no incentives, the value of being a member wasn't felt and participation wasn't recognized anywhere. Perks from partner brands were scattered. And notifications piled up without ever being cleared.
 
 **02 Approach**
 I designed the points logic with a benchmark of Booking Genius, for level permanence, Duolingo, for its two layers of XP and streak, and Gymshark, for rewarding community actions. The initial PRD had five levels. I recommended launching the community ones first and splitting Ambassador off as a pilot, and organized everything in four phases: launch, all levels, wallet and badges. Notifications and perks followed the same phase logic.
@@ -607,9 +562,6 @@ I separated alerts from conversations. Phase 1: each notification with its direc
 **Perks and wallet**
 A Perks page, a slider of four in the Lounge and a detail where the code reads like a ticket, with a "Copied" state. Local businesses without a code and QR for the big partners. NomadCard, the member card with the format NH-year-0000. And the wallet as phase 3 of levels, with a notice when a perk is about to expire.
 
-**Defined goals for Perks**
-30% of users open a perk in their first 30 days · 50% reveal the code · 40% of discoveries come from the Lounge slider
-
 ---
 
 ---
@@ -633,14 +585,14 @@ The Seoul edition of a travel festival for women, on March 28, 2026. I started w
 
 **Overview**
 Cliente · NomadHer
-Mi rol · Concept, logistics and graphic design for the festival, alongside Amy
+Mi rol · Concept, logistics and graphic design for the festival, with the community team
 Tipo de proyecto · In-person festival
 
 **01 Challenge**
 A one-day festival with a booth zone, an Inspire Space, a Build Lab, speakers, volunteers and ambassadors. Everything had to guide 300 people inside a physical venue, and before that, sell tickets on three different platforms.
 
 **02 Approach**
-With Amy we walked the space and defined which workshops made sense and how people would move. Then I designed the full system: map and program, A4 and A2 posters, banners by zone, speaker posts, lucky draw, tote bag, postcard, stickers and coupon cards, plus the volunteer and ambassador codes inside the app.
+With the community team we walked the space and defined which workshops made sense and how people would move. Then I designed the full system: map and program, A4 and A2 posters, banners by zone, speaker posts, lucky draw, tote bag, postcard, stickers and coupon cards, plus the volunteer and ambassador codes inside the app.
 
 **03 Result**
 300 attendees, ten active ambassadors on the day of the event, and ticket sales in three phases: a Flash Sale for Women's Week, the "Why She Travels" challenge and the "Bring Your Person" bundle. The ambassador program later became the Travel Content Creator Pilot.
@@ -677,13 +629,13 @@ Mi rol · Campaign, digital and printed pieces
 Tipo de proyecto · Campaign and in-person event
 
 **01 Challenge**
-The program had to convince two audiences that don't react the same way to the same image: Korean and Asian founders, and international founders. And it had to do it with a name only just defined in August.
+A workation for founders is a new product for a community of travellers: it had to explain what it is, who it is for and why it is worth four days in Busan, with the city, Seo-gu and the CCEI as institutional partners behind it. The program had to convince two audiences that don't react the same way to the same image, Korean and Asian founders, and international founders, and do it with a name only just defined in August and a short runway to October.
 
 **02 Approach**
-I designed the campaign in variants by audience, some with more Korean and Asian faces and others with more international faces, to see which connected with each. The set covered banner, lounge post, experience page, Instagram, Meta ads and founder posts. For the event, name cards, an X-banner of 600 × 1,800 mm and a welcome card.
+I started from the She Can [Verb] Anywhere series system and took it to a more corporate register, fitting founders and institutions. I designed the campaign in variants by audience, some with more Korean and Asian faces and others with more international faces, and ran them in parallel to see which connected with each. The set covered the whole journey: banner and post in the Lounge, the Experience page where people applied, Instagram, Meta ads and introduction posts for the selected founders. For the event days, name cards, a 600 × 1,800 mm X-banner and the welcome card, with the partners' logos on every piece.
 
 **03 Result**
-26 applications and 15 participants selected for the first edition, with a presence on the BOUNCE 2026 stage.
+26 applications and 15 founders selected for the first edition, from Korea and abroad, with a presence on the BOUNCE 2026 stage and an identity ready to repeat in the next city.
 
 ---
 
@@ -712,13 +664,13 @@ Mi rol · Art direction, series naming and jury
 Tipo de proyecto · Campaign and in-person program
 
 **01 Challenge**
-It was the first program of this format, and it needed an identity that could be repeated in other cities without redesigning from scratch.
+It was the first program of this format: five nights in Jeju for ten creators to build an MVP with vibe coding, with Jeju City and the Jeju CCEI as partners. There was no precedent and no name. It needed an identity that explained the program at a glance, convinced creators from different countries and could be repeated in other cities without redesigning from scratch.
 
 **02 Approach**
-I proposed the series name She Can Create Anywhere [City] Edition, which later gave rise to She Can Found Anywhere in Busan. I directed the design with Siin Lee along two routes, one corporate and one emotional, in carousel, covers and banners with partner logos. I designed the orientation presentation and sat on the jury for the final projects.
+I proposed the series name She Can Create Anywhere [City] Edition, an open format that later gave rise to She Can Found Anywhere in Busan. I directed the design, with a designer on the team, along two routes, one corporate and one emotional, and we compared them in carousel, covers and banners with the partners' logos before choosing. I designed the orientation presentation that opened the program and sat on the jury for the final projects, so I saw the campaign end to end, from the open call to the MVP.
 
 **03 Result**
-Ten spots, a five-night, six-day program, and a launch post with 20,600 views and 80 shares. The naming system is still used in the following editions.
+Ten spots filled, a five-night, six-day program, and a launch post with 20,600 views and 80 shares. The naming system and the identity are still used in the following editions of the series.
 
 ---
 
@@ -747,13 +699,13 @@ Mi rol · Open-call campaign and physical pieces for the trip
 Tipo de proyecto · Campaign and in-person experience
 
 **01 Challenge**
-The open call had to reach far for a trip with only nine spots. And the welcome called for large-format pieces, with the technical demands of a print shop.
+A three-day retreat in Jeollanam-do, with TDI as a partner, for nine content creators who would then tell the region to their audiences. The open call had to reach far and filter well for a trip with so few spots, and the welcome called for large-format pieces, with the technical demands of a print shop and short deadlines.
 
 **02 Approach**
-I designed the open-call post with its caption, the ManyChat automation and the banner in the app. For the trip: hand-held signs, the "Welcome to the sisterhood" banner, a horizontal banner of 5,000 × 700 mm with the die-cut adjustments the print shop asked for, and business cards.
+I designed the open call as a funnel: the post with its caption, the ManyChat automation that turned a comment into a direct message with the steps, and the banner inside the app. For the trip, the physical welcome kit: hand-held signs, the "Welcome to the sisterhood" banner, a 5,000 × 700 mm horizontal banner with the die-cut adjustments the print shop asked for, and business cards. The trip's photos came back to the brand as material for the campaigns that followed.
 
 **03 Result**
-400 applications for nine spots. Amy screened the candidates and contacted 60 before the final selection.
+400 applications for nine spots. The community team screened the candidates and contacted 60 before the final selection, and the trip left a bank of photos from Naju, Hampyeong and Muan that now carries the region's pieces.
 
 ---
 
@@ -782,19 +734,19 @@ Mi rol · Campaign design and in-app pieces
 Tipo de proyecto · Partnership campaigns
 
 **01 Challenge**
-A partner brand wants its perk to be seen and used. The community wants to feel the perk genuinely works for them. Each campaign had to solve both in the same banner.
+A partner brand wants its perk to be seen and used, and each one arrives with its own mechanic: a monthly giveaway, a discount code, vouchers, an event sponsorship. The community, on the other hand, wants to feel the perk genuinely works for them, not an ad. Each campaign had to solve both in the same banner, inside the app and on social, and be quick to set up every time a new partner came in.
 
 **02 Approach**
-I work each campaign as a set inside the app: banner, lounge post, experience page, push and winners announcement, plus the Instagram piece. For Superalink I changed the cover after the review, with photos of the community itself, so it would convey safety.
+I work each campaign as a set inside the app: banner, lounge post, experience page, push and winners announcement, plus the Instagram piece, all on the same templates so the team can repeat them. The difference is in the story: for Superalink I changed the cover after the review, with photos of the community itself, so an eSIM conveyed safety and not just price; for NordVPN the perk was told from the trip; for KiwiTaxi, from the story of arriving in a new city.
 
 **03 Result**
-Each partner got its own mechanic, and all of them ran on the same system of in-app pieces.
+Three partners, three different mechanics and one system of in-app pieces that is now the standard way to launch a perk at NomadHer: the Superalink giveaway has run every month since April 2026 with five winners, and new campaigns go up in days, not weeks.
 
 **Secciones extra**
 
 **The campaigns**
 *Superalink.* Monthly eSIM giveaway since April 2026, with five winners per month.
-*NordVPN.* Festival sponsorship for 3,000,000 KRW, and a community campaign with 76% off and four months free.
+*NordVPN.* Festival sponsorship and a community campaign with 76% off and four months free.
 *KiwiTaxi.* 10% off with a code, three €100 vouchers and a prize for the best travel story.
 
 ---

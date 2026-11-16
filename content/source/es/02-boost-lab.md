@@ -404,7 +404,7 @@ Filtros · Eventos y talleres · Estrategia
 **Descripción**
 La línea de formación de BOOST LAB: talleres cortos y prácticos de marca, estrategia y emprendimiento, y programas más largos. La regla es una sola. Cada persona llega con su proyecto, lo trabaja durante el taller y se va con su propia estrategia escrita en papel.
 
-**Propósito** · Trabajar en vivo · Ver el método por dentro · Salir con algo escrito
+**Propósito** · Trabajar en vivo · Ver el método por dentro · Salir con algo construido
 
 **Overview**
 Cliente · BOOST LAB, para emprendedores, marcas pequeñas, estudiantes y equipos de empresa

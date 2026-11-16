@@ -126,6 +126,30 @@ export function getProjectInstagramGroups(chapterId: string, slug: string, editi
   return groups.filter((group) => group.length > 0);
 }
 
+/** `celular/<group>/` subfolders of a project: app screens in named groups (01-onboarding, 02-lounge...), in folder order. */
+export function getProjectScreenGroups(
+  chapterId: string,
+  slug: string,
+  kind: "celular" | "visual" = "celular",
+): { name: string; paths: string[] }[] {
+  const folder = CHAPTER_FOLDERS[chapterId];
+  if (!folder) return [];
+  const rel = `${BASE}/${folder}/proyectos/${slug}/${kind}`;
+  let subdirs: string[] = [];
+  try {
+    subdirs = fs
+      .readdirSync(path.join(PUBLIC_DIR, rel), { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
+      .map((entry) => entry.name)
+      .sort(natural);
+  } catch {
+    /* no folder yet */
+  }
+  return subdirs
+    .map((name) => ({ name: name.replace(/^\d+-/, ""), paths: listImages(`${rel}/${name}`) }))
+    .filter((group) => group.paths.length > 0);
+}
+
 /** `diario/` folder of a project: everything (photos and videos) for its "Visual Diary". */
 export function getProjectDiaryPaths(chapterId: string, slug: string) {
   const folder = CHAPTER_FOLDERS[chapterId];

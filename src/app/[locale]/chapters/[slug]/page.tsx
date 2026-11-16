@@ -18,11 +18,10 @@ import {
   getChapter,
   getChapterCovers,
   getChapterPhotos,
-  getProjectCoverPath,
+  getProjectCover,
   getTopLevelProjects,
   portfolioChapters,
 } from "@/content/portfolio";
-import { encodeAsset } from "@/content/photo-manifest";
 import type { ChapterProject, Locale } from "@/content/types";
 import { CHAPTER_FOLDERS } from "@/lib/project-photos";
 import { routing } from "@/i18n/routing";
@@ -85,7 +84,8 @@ export default async function ChapterPage({
       en: project.en.card.description,
     },
     href: `/work/${project.slug}`,
-    image: getProjectCoverPath(project.slug),
+    // Versioned URL (?v=mtime): a replaced cover.jpg shows at once instead of the optimizer's cached copy.
+    image: getProjectCover(project.slug),
     filters: project.filters,
   }));
 
@@ -261,6 +261,7 @@ export default async function ChapterPage({
               locale={locale}
               hints={caseHints}
               title={es ? "Dossier del evento" : "Event dossier"}
+              tallSlides={chapter.id === "travelling-university"}
             />
           ) : null}
           {casePhotos.instagram.length ? (
@@ -269,6 +270,8 @@ export default async function ChapterPage({
               photos={casePhotos}
               locale={locale}
               hints={caseHints}
+              // Travelling University keeps the original look: one tall strip with the next piece peeking in.
+              classicPosts={chapter.id === "travelling-university"}
             />
           ) : null}
         </>
@@ -279,7 +282,6 @@ export default async function ChapterPage({
           projects={railProjects}
           locale={locale}
           accent={detail.accent}
-          chapterId={chapter.id}
           filters={railFilters}
         />
       ) : null}

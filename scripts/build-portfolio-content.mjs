@@ -33,7 +33,6 @@ const SLUGS = {
   "1.3": "jal-nomadher",
   "1.4": "instagram-content",
   "1.5": "bloggers-program",
-  "1.6": "business-decks",
   "1.7": "website-redesign",
   "1.8": "city-lounge",
   "1.9": "travel-buddy-meetups",
@@ -85,7 +84,6 @@ const TEMPLATE_BY_SLUG = {
   "website-redesign": "app",
   "instagram-content": "instagram",
   "jal-nomadher": "instagram",
-  "business-decks": "ppt",
   "ruta-8": "instagram",
   "eats-real": "app",
   "opuesto-sas": "app",
@@ -106,11 +104,11 @@ const FILTER_IDS = {
  * Membership comes from each project's own `Filtros` line; this only sorts.
  */
 const FILTER_ORDER = {
-  design: ["applied-brand","jal-nomadher","she-can-travel-anywhere-seoul","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","business-decks","brujula-etica","opuesto-sas","teampreneurship-cooperative","nobled-coffee","hola-guesthouse-jeju","eats-real","sejong-hackathon","ruta-8"],
+  design: ["applied-brand","jal-nomadher","she-can-travel-anywhere-seoul","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","brujula-etica","opuesto-sas","teampreneurship-cooperative","nobled-coffee","hola-guesthouse-jeju","eats-real","sejong-hackathon","ruta-8"],
   "ux-ui": ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","website-redesign","opuesto-sas","eats-real"],
   events: ["global-youth-summit","she-can-travel-anywhere-seoul","sejong-hackathon","ruta-8","boost-lab-workshops","misiones-internacionales","seoul-women-entrepreneur-summit","applied-brand","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip"],
   "marketing-content": ["instagram-content","jal-nomadher","bloggers-program","partner-campaigns","applied-brand","she-can-found-anywhere","she-can-create-anywhere","wellness-creator-trip","brujula-etica","global-youth-summit","seoul-women-entrepreneur-summit","ruta-8"],
-  strategy: ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","business-decks","instagram-content","bloggers-program","website-redesign","opuesto-sas","nobled-coffee","global-youth-summit","sejong-hackathon","misiones-internacionales","ruta-8","boost-lab-workshops"],
+  strategy: ["nomadher-app","city-lounge","travel-buddy-meetups","levels-badges-perks","instagram-content","bloggers-program","website-redesign","opuesto-sas","nobled-coffee","global-youth-summit","sejong-hackathon","misiones-internacionales","ruta-8","boost-lab-workshops"],
 };
 
 /** English for the short "type" tags (Etiquetas) the translators may have left in Spanish. */
@@ -347,7 +345,7 @@ function parseProject(heading, body, locale) {
       inDesc = false;
     } else if (b && b.label === "Descripción" && b.value == null) {
       inDesc = true;
-    } else if (b && /^(Propósito|Purpose|Logros|Highlights)$/.test(b.label) && b.value != null) {
+    } else if (b && /^(Propósito|Purpose|Logros|Highlights|Cómo trabajo|How I work)$/.test(b.label) && b.value != null) {
       purpose = splitDots(b.value);
       if (!/^(Propósito|Purpose)$/.test(b.label)) purposeLabel = b.label;
       inDesc = false;

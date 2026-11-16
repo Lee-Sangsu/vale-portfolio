@@ -10,6 +10,8 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { CaseSections } from "@/components/site/project/CaseSections";
 import { ProjectExtras } from "@/components/site/project/ProjectExtras";
+import { InstagramEmbeds } from "@/components/site/project/InstagramEmbeds";
+import { getImageAspect } from "@/lib/image-aspect";
 import {
   HeroMedia,
   TemplateGallery,
@@ -23,40 +25,80 @@ import {
   getProjectDiary,
   getProjectInstagramPosts,
   getProjectPhotos,
+  getProjectScreenGroups,
   getTopLevelProjects,
 } from "@/content/portfolio";
 import { CHAPTER_FOLDERS, isVideoPath } from "@/lib/project-photos";
 import type { Locale } from "@/content/types";
 
 /** Own heading for a project's deck ("ppt") or poster ("afiches") section. */
-const SECTION_TITLES: Record<string, Partial<Record<"ppt" | "afiches" | "visual" | "portafolio", Record<Locale, string>>>> = {
+const SECTION_TITLES: Record<
+  string,
+  Partial<
+    Record<
+      "ppt" | "afiches" | "visual" | "portafolio" | "web",
+      Record<Locale, string>
+    >
+  >
+> = {
   "nobled-coffee": { ppt: { es: "Brandbook", en: "Brandbook" } },
-  "teampreneurship-cooperative": { ppt: { es: "Guía de marca", en: "Brand guide" } },
+  "teampreneurship-cooperative": {
+    ppt: { es: "Guía de marca", en: "Brand guide" },
+  },
   "opuesto-sas": {
     ppt: { es: "Brandbook", en: "Brandbook" },
   },
   "eats-real": { afiches: { es: "Campaña", en: "Campaign" } },
   "nomadher-app": {
     afiches: { es: "App Store", en: "App Store" },
-    portafolio: { es: "Onboarding y guía de comunidad", en: "Onboarding and community guide" },
+    portafolio: {
+      es: "Onboarding y guía de comunidad",
+      en: "Onboarding and community guide",
+    },
   },
-  "bloggers-program": { afiches: { es: "Emails del programa", en: "Program emails" } },
+  "bloggers-program": {
+    afiches: { es: "Emails del programa", en: "Program emails" },
+  },
+  "applied-brand": {
+    web: {
+      es: "Newsletters y emails del user journey",
+      en: "Newsletters and user-journey emails",
+    },
+  },
   "instagram-content": {
-    portafolio: { es: "Sistema de stories", en: "Story system" },
-    afiches: { es: "Newsletter y emails", en: "Newsletter and emails" },
+    portafolio: { es: "Plantillas de stories", en: "Story templates" },
   },
-  "misiones-internacionales": { ppt: { es: "Los itinerarios", en: "The itineraries" } },
-  "seoul-women-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
-  "global-youth-summit": { ppt: { es: "Dossier para aliados", en: "Partner dossier" } },
+  "misiones-internacionales": {
+    ppt: { es: "Los itinerarios", en: "The itineraries" },
+  },
+  "seoul-women-entrepreneur-summit": {
+    ppt: { es: "Las slides del día", en: "The day's slides" },
+  },
+  "global-youth-summit": {
+    ppt: { es: "Dossier para aliados", en: "Partner dossier" },
+  },
   "sejong-hackathon": {
     ppt: { es: "Las plantillas de trabajo", en: "The worksheets" },
     afiches: { es: "Los reconocimientos", en: "The awards" },
   },
-  "business-decks": { portafolio: { es: "Booth deck del festival", en: "Festival booth deck" } },
-  "city-lounge": { portafolio: { es: "Propuestas y flujos", en: "Proposals and flows" } },
-  "travel-buddy-meetups": { portafolio: { es: "Flujos y versiones", en: "Flows and versions" } },
-  "levels-badges-perks": { portafolio: { es: "Niveles, badges y perks", en: "Levels, badges and perks" } },
-  "brujula-etica": { afiches: { es: "Pósters e historias", en: "Posters and stories" } },
+  "jal-nomadher": {
+    visual: { es: "El lanzamiento en la app", en: "The launch inside the app" },
+  },
+  "city-lounge": {
+    portafolio: { es: "Propuestas y flujos", en: "Proposals and flows" },
+  },
+  "travel-buddy-meetups": {
+    portafolio: { es: "Flujos y versiones", en: "Flows and versions" },
+  },
+  "levels-badges-perks": {
+    portafolio: {
+      es: "Niveles, badges y perks",
+      en: "Levels, badges and perks",
+    },
+  },
+  "brujula-etica": {
+    afiches: { es: "Pósters e historias", en: "Posters and stories" },
+  },
   "hola-guesthouse-jeju": {
     ppt: { es: "Brand guidelines", en: "Brand guidelines" },
     afiches: { es: "Folleto", en: "Brochure" },
@@ -70,9 +112,14 @@ const SECTION_TITLES: Record<string, Partial<Record<"ppt" | "afiches" | "visual"
 function heroPieces(slug: string): string[] {
   const second = getProjectInstagramPosts(slug, 2);
   // Clips (reels) stay in their post; the ring and the collage only take still pieces.
-  if (!second.length) return getProjectInstagramPosts(slug).flat().filter((p) => !isVideoPath(p));
+  if (!second.length)
+    return getProjectInstagramPosts(slug)
+      .flat()
+      .filter((p) => !isVideoPath(p));
   const firsts = second.map((group) => group[0]);
-  const seconds = second.filter((group) => group.length > 1).map((group) => group[1]);
+  const seconds = second
+    .filter((group) => group.length > 1)
+    .map((group) => group[1]);
   return [...firsts, ...seconds].slice(0, 7);
 }
 
@@ -93,13 +140,161 @@ const INSTAGRAM_ACCOUNTS: Record<string, string> = {
 /** Keywords of each moodboard proposal, shown under it. */
 const MOODBOARD_LABELS: Record<string, Record<Locale, string[]>> = {
   "brujula-etica": {
-    es: ["Juventud, proyección, pertenencia", "Impacto, determinación, acción", "Creatividad, flexibilidad, crecimiento"],
-    en: ["Youth, projection, belonging", "Impact, determination, action", "Creativity, flexibility, growth"],
+    es: [
+      "Juventud, proyección, pertenencia",
+      "Impacto, determinación, acción",
+      "Creatividad, flexibilidad, crecimiento",
+    ],
+    en: [
+      "Youth, projection, belonging",
+      "Impact, determination, action",
+      "Creativity, flexibility, growth",
+    ],
   },
 };
 
 /** Projects whose Visual Diary runs in more than two rows. */
-const DIARY_ROWS: Record<string, number> = { "seoul-women-entrepreneur-summit": 4 };
+/** Splits a description into sentences (a period followed by a space and a capital letter or quote starts a new one). */
+function splitSentences(text: string) {
+  return text
+    .split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡"“])/)
+    .map((t) => t.trim())
+    .filter(Boolean);
+}
+
+/** Titles for the `celular/<group>/` folders (the folder name without its number prefix). */
+const SCREEN_GROUP_TITLES: Record<string, Record<Locale, string>> = {
+  banners: { es: "Banners en la app", en: "In-app banners" },
+  "launch-posts": { es: "Launch posts", en: "Launch posts" },
+  "experience-posts": { es: "Experience posts", en: "Experience posts" },
+  "experience-cover": { es: "Experience cover", en: "Experience cover" },
+  onboarding: { es: "Onboarding", en: "Onboarding" },
+  lounge: { es: "Lounge", en: "Lounge" },
+  "travel-buddy": { es: "Travel Buddy", en: "Travel Buddy" },
+  experiences: { es: "Experiences", en: "Experiences" },
+  perfil: { es: "Perfil", en: "Profile" },
+  niveles: { es: "Niveles y perks", en: "Levels and perks" },
+};
+
+const DIARY_ROWS: Record<string, number> = {
+  "seoul-women-entrepreneur-summit": 4,
+};
+
+/** Live Instagram posts shown on a project page (public posts only, rendered with Instagram's embed). */
+type EmbedGroup = { title?: { es: string; en: string }; urls: string[] };
+const INSTAGRAM_EMBEDS: Record<string, EmbedGroup[]> = {
+  "instagram-content": [
+    {
+      title: {
+        es: "Convocatorias y anuncios",
+        en: "Open calls and announcements",
+      },
+      urls: [
+        "https://www.instagram.com/nomad_her/p/De1KaFalfQ1/",
+        "https://www.instagram.com/nomad_her/p/DdRrhPekYMx/",
+        "https://www.instagram.com/nomad_her/p/Dbc6ldelUqC/",
+        "https://www.instagram.com/nomad_her/p/DYRk2CmkdpT/",
+      ],
+    },
+    {
+      title: {
+        es: "Serie · What's happening this month",
+        en: "Series · What's happening this month",
+      },
+      urls: [
+        "https://www.instagram.com/nomad_her/p/Dc0DI27FQZ-/",
+        "https://www.instagram.com/p/DZrINmMFRR7/",
+        "https://www.instagram.com/p/DVL35UBEVIS/",
+      ],
+    },
+    {
+      title: {
+        es: "Serie · Historical women",
+        en: "Series · Historical women",
+      },
+      urls: [
+        "https://www.instagram.com/nomad_her/p/Ddb6jobkaFi/",
+        "https://www.instagram.com/p/Daj9d5AFbwr/",
+      ],
+    },
+    {
+      title: {
+        es: "Inspiración y empoderamiento",
+        en: "Inspiration and empowerment",
+      },
+      urls: [
+        "https://www.instagram.com/nomad_her/p/DVsK2G3ER5-/",
+        "https://www.instagram.com/nomad_her/p/DZoVOm-kW9f/",
+        "https://www.instagram.com/nomad_her/p/DT-t8GaAdU-/",
+      ],
+    },
+    {
+      title: { es: "How to · tips de viaje", en: "How to · travel tips" },
+      urls: [
+        "https://www.instagram.com/nomad_her/p/DUkeaVSkXZU/",
+        "https://www.instagram.com/nomad_her/p/DTuzgp4EVQ4/",
+        "https://www.instagram.com/nomad_her/p/DTaWVKFkX4z/",
+        "https://www.instagram.com/nomad_her/p/DTfoDMHkbsm/",
+        "https://www.instagram.com/nomad_her/p/DSm9GAyEXxG/",
+        "https://www.instagram.com/nomad_her/p/DSu47RpkSKF/",
+      ],
+    },
+    {
+      title: {
+        es: "Co-branded con mi cuenta",
+        en: "Co-branded with my own account",
+      },
+      urls: [
+        "https://www.instagram.com/nomad_her/p/DcQY1tDlZum/",
+        "https://www.instagram.com/nomad_her/p/DazdqXTFWXJ/",
+      ],
+    },
+  ],
+  "bloggers-program": [
+    {
+      title: {
+        es: "Official NomadHer Bloggers",
+        en: "Official NomadHer Bloggers",
+      },
+      urls: [
+        "https://www.instagram.com/p/DcvLvMdkZWd/",
+        "https://www.instagram.com/p/DdVROg5EZLf/",
+        "https://www.instagram.com/p/Ddl_G6DEeYH/",
+      ],
+    },
+    {
+      title: {
+        es: "Travel Content Creator Pilot · edición completa",
+        en: "Travel Content Creator Pilot · full edition",
+      },
+      urls: [
+        "https://www.instagram.com/p/DWCZ6LwkSvx/",
+        "https://www.instagram.com/reel/DWPHkLtzGas/",
+        "https://www.instagram.com/reel/DXcJ9VBEYht/",
+      ],
+    },
+    {
+      title: {
+        es: "Travel Content Creator Pilot · un post por comunidad",
+        en: "Travel Content Creator Pilot · one post per community",
+      },
+      urls: [
+        "https://www.instagram.com/p/DTxdpL4EQ1a/",
+        "https://www.instagram.com/p/DUV1XLTEcyv/",
+        "https://www.instagram.com/p/DVe0dbfkuLm/",
+      ],
+    },
+  ],
+};
+
+/** Projects whose live Instagram posts open the galleries (right after the case text) and replace the post files. */
+const EMBEDS_FIRST = new Set(["instagram-content"]);
+
+/** Projects that keep the original gallery look: tall deck slides and Instagram posts in two big columns. */
+const CLASSIC_GALLERY = new Set([
+  "brujula-etica",
+  "teampreneurship-cooperative",
+]);
 
 /** Order of a project's extra galleries when it differs from the default one (earlier = higher on the page). */
 const EXTRA_ORDER: Record<string, string[]> = {
@@ -151,38 +346,58 @@ export default async function WorkPage({
   const cover = getProjectCover(project.slug);
 
   // Photos dropped in the project's folders feed the template (app / instagram / ppt / visual).
+  const screenGroups = getProjectScreenGroups(project.slug);
+  // Launch pieces sorted in folders (visual/01-banners, 02-launch-posts...): one titled row per folder.
+  const launchGroups = getProjectScreenGroups(project.slug, "visual").map(
+    (g) => ({
+      title: SCREEN_GROUP_TITLES[g.name]?.[locale] ?? g.name,
+      items: g.items,
+    }),
+  );
   const photos: TemplatePhotos = {
     portada: cover,
-    celular: getProjectPhotos(project.slug, "celular"),
+    celular: getProjectPhotos(project.slug, "celular").length
+      ? getProjectPhotos(project.slug, "celular")
+      : screenGroups.flatMap((g) => g.items),
+    screenGroups: screenGroups.map((g) => ({
+      title: SCREEN_GROUP_TITLES[g.name]?.[locale] ?? g.name,
+      items: g.items,
+    })),
     // All Instagram pieces of the project, flat (the ring in the hero uses them); posts keep their own groups below.
     instagram: heroPieces(project.slug),
     presentacion: getProjectPhotos(project.slug, "presentacion"),
-    visual: getProjectPhotos(project.slug, "visual"),
+    visual: getProjectPhotos(project.slug, "visual").length
+      ? getProjectPhotos(project.slug, "visual")
+      : launchGroups.flatMap((g) => g.items),
     afiches: getProjectPhotos(project.slug, "afiches"),
     web: getProjectPhotos(project.slug, "web"),
     grilla: getProjectPhotos(project.slug, "grilla"),
     moodboard: getProjectPhotos(project.slug, "moodboard"),
     portafolio: getProjectPhotos(project.slug, "portafolio"),
     webScreens: getProjectPhotos(project.slug, "web/pantalla"),
-    instagramPosts: oneCarouselPerEdition(getProjectInstagramPosts(project.slug), project.slug),
+    instagramPosts: oneCarouselPerEdition(
+      getProjectInstagramPosts(project.slug),
+      project.slug,
+    ),
     diario: getProjectDiary(project.slug),
     diaryRows: DIARY_ROWS[project.slug],
   };
   // A second edition (edicion-2/ folder) gets its own block after the first one.
   const secondPosts = getProjectInstagramPosts(project.slug, 2);
-  const secondEdition: TemplatePhotos | null = secondPosts.length || getProjectPhotos(project.slug, "afiches", 2).length
-    ? {
-        portada: cover,
-        celular: [],
-        instagram: secondPosts.flat(),
-        presentacion: [],
-        visual: [],
-        afiches: getProjectPhotos(project.slug, "afiches", 2),
-        grilla: getProjectPhotos(project.slug, "grilla", 2),
-        // Many posts: one carousel with all the pieces, one after another.
-        instagramPosts: [secondPosts.flat()],
-      }
-    : null;
+  const secondEdition: TemplatePhotos | null =
+    secondPosts.length || getProjectPhotos(project.slug, "afiches", 2).length
+      ? {
+          portada: cover,
+          celular: [],
+          instagram: secondPosts.flat(),
+          presentacion: [],
+          visual: [],
+          afiches: getProjectPhotos(project.slug, "afiches", 2),
+          grilla: getProjectPhotos(project.slug, "grilla", 2),
+          // Many posts: one carousel with all the pieces, one after another.
+          instagramPosts: [secondPosts.flat()],
+        }
+      : null;
   const account = INSTAGRAM_ACCOUNTS[project.chapter] ?? page.title;
   const folder = `public/portafolio/capitulos/${CHAPTER_FOLDERS[project.chapter]}/proyectos/${project.slug}`;
   const hints = {
@@ -191,17 +406,31 @@ export default async function WorkPage({
     presentacion: `${folder}/presentacion/`,
     visual: `${folder}/visual/`,
   };
-  const media = await HeroMedia({ template: project.template, photos, title: page.title });
+  const media = await HeroMedia({
+    template: project.template,
+    photos,
+    title: page.title,
+  });
   // Instagram and the visual collage open with a centered title and description above the pictures.
-  const centered = (project.template === "instagram" || project.template === "visual") && Boolean(media);
-  const slidesLeft = (project.template === "ppt" || project.template === "app") && Boolean(media);
+  const centered =
+    (project.template === "instagram" || project.template === "visual") &&
+    Boolean(media);
+  const slidesLeft =
+    (project.template === "ppt" || project.template === "app") &&
+    Boolean(media);
   // The Instagram ring opens the page: it sits above the title, the text follows.
   const mediaFirst = project.template === "instagram" && Boolean(media);
+  const launchFirst =
+    project.template === "instagram" && photos.visual.length > 0;
 
-  const parent = project.parent ? getProject(project.parent, locale) : undefined;
+  const parent = project.parent
+    ? getProject(project.parent, locale)
+    : undefined;
   const children = project.children
     .map((childSlug) => getProject(childSlug, locale))
     .filter((child): child is NonNullable<typeof child> => Boolean(child));
+  const hasChildCards =
+    children.length > 0 && !INLINE_CHILDREN.has(project.slug);
 
   // Previous/next stay inside the same group: siblings of a child, or the chapter's top-level projects.
   const siblings = parent
@@ -228,9 +457,15 @@ export default async function WorkPage({
                   : ""
           }`}
         >
-          {media && slidesLeft ? <div className="lg:order-first">{media}</div> : null}
+          {media && slidesLeft ? (
+            <div className="lg:order-first">{media}</div>
+          ) : null}
           {media && mediaFirst ? media : null}
-          <div className={centered ? "mx-auto max-w-[760px] text-center" : "max-w-[760px]"}>
+          <div
+            className={
+              centered ? "mx-auto max-w-[760px] text-center" : "max-w-[760px]"
+            }
+          >
             {parent ? (
               <Link
                 href={`/work/${parent.slug}`}
@@ -244,44 +479,27 @@ export default async function WorkPage({
               href={`/chapters/${project.chapter}`}
               className="font-inter text-muted text-[13px] font-medium tracking-[0.08em] transition-colors hover:text-black"
             >
-              [ {es ? "CAPÍTULO" : "CHAPTER"} {chapter.number} · {chapter.t.page.label} ]
+              [ {es ? "CAPÍTULO" : "CHAPTER"} {chapter.number} ·{" "}
+              {chapter.t.page.label} ]
             </Link>
             <h1 className="font-inter text-ink2 mt-5 text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] font-bold">
               {page.title}
             </h1>
-            <p className="font-inter text-ink mt-6 text-[17px] leading-[1.55] sm:text-[19px]">
-              {page.description}
-            </p>
+            {/* Each sentence on its own line, the way a caption reads. */}
+            <div className="font-inter text-ink mt-6 space-y-3 text-[17px] leading-[1.55] sm:text-[19px]">
+              {splitSentences(page.description).map((sentence, i) => (
+                <p key={i}>{sentence}</p>
+              ))}
+            </div>
             <p className="font-inter text-muted mt-5 text-[14px] font-medium">
               {card.meta}
             </p>
-
-            {page.purpose.length ? (
-              <div className="mt-9 rounded-[24px] bg-[#f4f4f4] px-6 py-5 sm:px-9 sm:py-6">
-                <span className="font-inter text-muted text-[13px]">
-                  {page.purposeLabel ?? (es ? "Propósito" : "Purpose")}
-                </span>
-                <ul
-                  className="mt-3 grid divide-y divide-[#c8c8c2] sm:grid-cols-[repeat(var(--cols),minmax(0,1fr))] sm:divide-x sm:divide-y-0"
-                  style={{ ["--cols" as string]: page.purpose.length }}
-                >
-                  {page.purpose.map((item) => (
-                    <li
-                      key={item}
-                      className="font-inter text-ink2 flex min-h-[64px] items-center justify-center px-5 py-2 text-center text-balance sm:px-6 text-[15px] leading-snug font-bold sm:text-[17px]"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
           </div>
 
           {media && !slidesLeft && !mediaFirst ? media : null}
 
           {!media && cover ? (
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[18px] bg-[#ecece7] shadow-[0_12px_32px_rgba(0,0,0,0.12)]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] bg-[#ecece7] shadow-[0_12px_32px_rgba(0,0,0,0.12)] lg:aspect-auto lg:min-h-[560px] lg:self-stretch">
               <Image
                 src={cover}
                 alt={page.title}
@@ -293,11 +511,52 @@ export default async function WorkPage({
             </div>
           ) : null}
         </div>
+
+        {/* Purpose or highlights: always after the pictures, as a full-width editorial row under the hero. */}
+        {page.purpose.length ? (
+          <div className="mx-auto -mt-6 max-w-[1280px] px-5 pb-20 sm:px-8 md:-mt-12 md:pb-32">
+            <span className="font-inter text-muted text-[12px] font-medium tracking-[0.16em] uppercase">
+              {page.purposeLabel ?? (es ? "Propósito" : "Purpose")}
+            </span>
+            <ul
+              className="mt-4 grid gap-x-10 gap-y-6 sm:grid-cols-[repeat(var(--cols),minmax(0,1fr))]"
+              style={{ ["--cols" as string]: page.purpose.length }}
+            >
+              {page.purpose.map((item, i) => (
+                <li key={item} className="border-ink2 border-t pt-4">
+                  <span className="font-inter text-muted text-[12px] tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="font-display text-ink2 mt-3 max-w-[420px] text-[28px] leading-[0.95] tracking-[0.01em] text-balance sm:text-[34px]">
+                    {item}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </section>
 
       <CaseSections data={page} locale={locale} />
+      {INSTAGRAM_EMBEDS[project.slug] && EMBEDS_FIRST.has(project.slug) ? (
+        <InstagramEmbeds
+          groups={INSTAGRAM_EMBEDS[project.slug].map((g) => ({
+            title: g.title ? (es ? g.title.es : g.title.en) : undefined,
+            urls: g.urls,
+          }))}
+          title={es ? "Publicado en Instagram" : "Live on Instagram"}
+          note={
+            es
+              ? "Los posts reales, tal como se ven en la cuenta."
+              : "The real posts, as they live on the account."
+          }
+        />
+      ) : null}
       {(photos.moodboard ?? []).length ? (
-        <TemplateGallery account={account}
+        <TemplateGallery
+          account={account}
+          tallSlides={CLASSIC_GALLERY.has(project.slug)}
+          classicPosts={CLASSIC_GALLERY.has(project.slug)}
           template="moodboard"
           photos={photos}
           locale={locale}
@@ -306,7 +565,10 @@ export default async function WorkPage({
         />
       ) : null}
       {secondEdition ? (
-        <TemplateGallery account={account}
+        <TemplateGallery
+          account={account}
+          tallSlides={CLASSIC_GALLERY.has(project.slug)}
+          classicPosts={CLASSIC_GALLERY.has(project.slug)}
           template="edition"
           photos={photos}
           locale={locale}
@@ -314,37 +576,123 @@ export default async function WorkPage({
           title={es ? "Primera edición" : "First edition"}
         />
       ) : null}
-      <TemplateGallery account={account}
-        template={project.template}
-        photos={photos}
-        locale={locale}
-        hints={hints}
-        title={
-          project.template === "ppt"
-            ? SECTION_TITLES[project.slug]?.ppt?.[locale]
-            : secondEdition && project.template === "instagram"
-              ? "Social Media Carousel · " + (es ? "Versión 1" : "Version 1")
-              : undefined
-        }
-      />
+      {/* On a campaign page the pieces that launched it (app banner, Lounge post, Experience page) come before the Instagram posts. */}
+      {launchFirst && launchGroups.length ? (
+        <section className="bg-white py-24 sm:py-36">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
+            <h2 className="font-inter text-ink2 text-center text-[32px] leading-tight font-semibold">
+              {SECTION_TITLES[project.slug]?.visual?.[locale] ??
+                (es ? "Las piezas" : "The pieces")}
+            </h2>
+            <div className="mt-12 space-y-14">
+              {await Promise.all(
+                launchGroups.map(async (group) => {
+                  const sized = await Promise.all(
+                    group.items.map(async (src) => ({
+                      src,
+                      aspect: await getImageAspect(src),
+                    })),
+                  );
+                  return (
+                    <div key={group.title}>
+                      <h3 className="font-inter text-ink2 text-[18px] font-semibold sm:text-[20px]">
+                        {group.title}
+                      </h3>
+                      <ul className="mt-5 flex flex-wrap justify-start gap-4 sm:gap-5">
+                        {sized.map(({ src, aspect }) => (
+                          <li
+                            key={src}
+                            className="relative h-[150px] overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_8px_24px_rgba(0,0,0,0.10)] sm:h-[220px]"
+                            style={{ aspectRatio: String(aspect) }}
+                          >
+                            <Image
+                              src={src}
+                              alt=""
+                              fill
+                              sizes="(min-width: 640px) 420px, 60vw"
+                              quality={90}
+                              className="object-cover"
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                }),
+              )}
+            </div>
+          </div>
+        </section>
+      ) : launchFirst ? (
+        <TemplateGallery
+          account={account}
+          tallSlides={CLASSIC_GALLERY.has(project.slug)}
+          classicPosts={CLASSIC_GALLERY.has(project.slug)}
+          template="visual"
+          photos={photos}
+          locale={locale}
+          hints={hints}
+          visualInHero={false}
+          title={SECTION_TITLES[project.slug]?.visual?.[locale]}
+        />
+      ) : null}
+      {/* No main gallery when there is nothing to show: a visual project without photos (its work lives on Instagram). */}
+      {(hasChildCards && project.template === "visual") ||
+      (project.template === "visual" &&
+        photos.visual.length === 0 &&
+        (photos.diario ?? []).length === 0) ||
+      EMBEDS_FIRST.has(project.slug) ? null : (
+        <TemplateGallery
+          account={account}
+          tallSlides={CLASSIC_GALLERY.has(project.slug)}
+          classicPosts={CLASSIC_GALLERY.has(project.slug)}
+          template={project.template}
+          photos={photos}
+          locale={locale}
+          hints={hints}
+          title={
+            project.template === "ppt"
+              ? SECTION_TITLES[project.slug]?.ppt?.[locale]
+              : secondEdition && project.template === "instagram"
+                ? "Social Media Carousel · " + (es ? "Versión 1" : "Version 1")
+                : undefined
+          }
+        />
+      )}
       {/* A project can also carry other kinds of photos (a brandbook deck, phone screens...): show each one that has files. */}
       {(
         [
           ["ppt", photos.presentacion],
           ["portafolio", photos.portafolio ?? []],
-          ["instagram", photos.instagram],
+          ["instagram", EMBEDS_FIRST.has(project.slug) ? [] : photos.instagram],
           ["app", photos.celular],
           ["afiches", photos.afiches ?? []],
           ["web", photos.web ?? []],
           ["grilla", photos.grilla ?? []],
           // The Visual Diary (diario/) rides on the visual gallery, so it counts even when visual/ is empty.
-          ["visual", photos.visual.length ? photos.visual : (photos.diario ?? [])],
+          // A page that lists its child projects ("Dentro de este proyecto") keeps the hero collage only: no extra gallery.
+          [
+            "visual",
+            launchFirst || hasChildCards
+              ? []
+              : photos.visual.length
+                ? photos.visual
+                : (photos.diario ?? []),
+          ],
         ] as const
       )
-        .filter(([template, list]) => template !== project.template && list.length > 0)
-        .sort(([a], [b]) => extraRank(project.slug, a) - extraRank(project.slug, b))
+        .filter(
+          ([template, list]) =>
+            template !== project.template && list.length > 0,
+        )
+        .sort(
+          ([a], [b]) => extraRank(project.slug, a) - extraRank(project.slug, b),
+        )
         .map(([template]) => (
-          <TemplateGallery account={account}
+          <TemplateGallery
+            account={account}
+            tallSlides={CLASSIC_GALLERY.has(project.slug)}
+            classicPosts={CLASSIC_GALLERY.has(project.slug)}
             key={template}
             template={template}
             photos={photos}
@@ -352,7 +700,11 @@ export default async function WorkPage({
             hints={hints}
             visualInHero={false}
             title={
-              template === "ppt" || template === "afiches" || template === "visual" || template === "portafolio"
+              template === "ppt" ||
+              template === "afiches" ||
+              template === "visual" ||
+              template === "portafolio" ||
+              template === "web"
                 ? SECTION_TITLES[project.slug]?.[template]?.[locale]
                 : undefined
             }
@@ -360,7 +712,10 @@ export default async function WorkPage({
         ))}
       {secondEdition ? (
         <>
-          <TemplateGallery account={account}
+          <TemplateGallery
+            account={account}
+            tallSlides={CLASSIC_GALLERY.has(project.slug)}
+            classicPosts={CLASSIC_GALLERY.has(project.slug)}
             template="edition"
             photos={photos}
             locale={locale}
@@ -373,16 +728,24 @@ export default async function WorkPage({
             }
           />
           {secondEdition.instagram.length ? (
-            <TemplateGallery account={account}
+            <TemplateGallery
+              account={account}
+              tallSlides={CLASSIC_GALLERY.has(project.slug)}
+              classicPosts={CLASSIC_GALLERY.has(project.slug)}
               template="instagram"
               photos={secondEdition}
               locale={locale}
               hints={hints}
-              title={"Social Media Carousel · " + (es ? "Versión 2" : "Version 2")}
+              title={
+                "Social Media Carousel · " + (es ? "Versión 2" : "Version 2")
+              }
             />
           ) : null}
           {(secondEdition.afiches ?? []).length ? (
-            <TemplateGallery account={account}
+            <TemplateGallery
+              account={account}
+              tallSlides={CLASSIC_GALLERY.has(project.slug)}
+              classicPosts={CLASSIC_GALLERY.has(project.slug)}
               template="afiches"
               photos={secondEdition}
               locale={locale}
@@ -391,9 +754,31 @@ export default async function WorkPage({
             />
           ) : null}
           {(secondEdition.grilla ?? []).length ? (
-            <TemplateGallery account={account} template="grilla" photos={secondEdition} locale={locale} hints={hints} />
+            <TemplateGallery
+              account={account}
+              tallSlides={CLASSIC_GALLERY.has(project.slug)}
+              classicPosts={CLASSIC_GALLERY.has(project.slug)}
+              template="grilla"
+              photos={secondEdition}
+              locale={locale}
+              hints={hints}
+            />
           ) : null}
         </>
+      ) : null}
+      {INSTAGRAM_EMBEDS[project.slug] && !EMBEDS_FIRST.has(project.slug) ? (
+        <InstagramEmbeds
+          groups={INSTAGRAM_EMBEDS[project.slug].map((g) => ({
+            title: g.title ? (es ? g.title.es : g.title.en) : undefined,
+            urls: g.urls,
+          }))}
+          title={es ? "Publicado en Instagram" : "Live on Instagram"}
+          note={
+            es
+              ? "Los posts reales, tal como se ven en la cuenta."
+              : "The real posts, as they live on the account."
+          }
+        />
       ) : null}
       <ProjectExtras extras={page.extras} />
 
@@ -410,9 +795,18 @@ export default async function WorkPage({
                   intro={child.t.page.description}
                 />
                 {childVisual.length ? (
-                  <TemplateGallery account={account}
+                  <TemplateGallery
+                    account={account}
+                    tallSlides={CLASSIC_GALLERY.has(project.slug)}
+                    classicPosts={CLASSIC_GALLERY.has(project.slug)}
                     template="visual"
-                    photos={{ portada: undefined, celular: [], instagram: [], presentacion: [], visual: childVisual }}
+                    photos={{
+                      portada: undefined,
+                      celular: [],
+                      instagram: [],
+                      presentacion: [],
+                      visual: childVisual,
+                    }}
                     locale={locale}
                     hints={hints}
                     visualInHero={false}
@@ -450,7 +844,7 @@ export default async function WorkPage({
                           />
                         ) : null}
                       </span>
-                      <span className="flex flex-1 flex-col px-6 pb-6 pt-6">
+                      <span className="flex flex-1 flex-col px-6 pt-6 pb-6">
                         <span className="font-inter text-muted text-[13px] font-medium tracking-[0.08em]">
                           {child.t.card.labels.join(" · ")}
                         </span>
@@ -475,7 +869,9 @@ export default async function WorkPage({
 
       {/* ── Previous / next project in this chapter ── */}
       <nav
-        aria-label={es ? "Más proyectos del capítulo" : "More projects in this chapter"}
+        aria-label={
+          es ? "Más proyectos del capítulo" : "More projects in this chapter"
+        }
         className="border-t border-[#e2e2dc] bg-white"
       >
         <div className="mx-auto grid max-w-[1280px] gap-px px-5 py-10 sm:grid-cols-2 sm:px-8">

@@ -8,11 +8,14 @@ export function SlideCarousel({
   slides,
   previousLabel,
   nextLabel,
+  tall = false,
 }: {
   /** Each slide with its width / height, so mixed horizontal and vertical pieces keep their proportions. */
   slides: { src: string; aspect: number }[];
   previousLabel: string;
   nextLabel: string;
+  /** Slides keep the full shared height and crop sideways when they are wider than the box (the original look). */
+  tall?: boolean;
 }) {
   const trackRef = useRef<HTMLUListElement>(null);
 
@@ -24,14 +27,21 @@ export function SlideCarousel({
     const trackLeft = track.getBoundingClientRect().left;
     const padding = parseFloat(getComputedStyle(track).scrollPaddingLeft) || 0;
     const lefts = Array.from(track.children).map(
-      (item) => item.getBoundingClientRect().left - trackLeft + track.scrollLeft - padding,
+      (item) =>
+        item.getBoundingClientRect().left -
+        trackLeft +
+        track.scrollLeft -
+        padding,
     );
     const current = track.scrollLeft;
     const target =
       direction === 1
         ? lefts.find((left) => left > current + 8)
         : [...lefts].reverse().find((left) => left < current - 8);
-    track.scrollTo({ left: target ?? (direction === 1 ? track.scrollWidth : 0), behavior: "smooth" });
+    track.scrollTo({
+      left: target ?? (direction === 1 ? track.scrollWidth : 0),
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -39,13 +49,24 @@ export function SlideCarousel({
       {/* The scroll box is a little wider than the text on both sides (and taller), so each slide's own shadow is never clipped at the start. */}
       <ul
         ref={trackRef}
-        className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 py-8 [scroll-padding-inline:1.25rem] [scrollbar-width:none] sm:-mx-8 sm:gap-6 sm:px-8 sm:[scroll-padding-inline:2rem] [&::-webkit-scrollbar]:hidden"
+        className="-mx-5 flex snap-x snap-mandatory [scroll-padding-inline:1.25rem] gap-4 overflow-x-auto scroll-smooth px-5 py-8 [scrollbar-width:none] sm:-mx-8 sm:[scroll-padding-inline:2rem] sm:gap-6 sm:px-8 [&::-webkit-scrollbar]:hidden"
       >
         {slides.map(({ src, aspect }, i) => (
           <li
             key={src}
-            className="relative h-[clamp(260px,46vw,620px)] max-w-[92%] shrink-0 snap-start overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_10px_32px_rgba(0,0,0,0.16)]"
-            style={{ aspectRatio: String(aspect) }}
+            className={`relative shrink-0 snap-start overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_10px_32px_rgba(0,0,0,0.16)] ${
+              tall ? "h-[clamp(260px,46vw,620px)] max-w-[92%]" : ""
+            }`}
+            // Width from the slide's own proportion at the shared height, capped to the viewport: a wide board gets
+            // shorter instead of being cropped, so every piece shows whole. `tall` keeps the full height instead.
+            style={
+              tall
+                ? { aspectRatio: String(aspect) }
+                : {
+                    aspectRatio: String(aspect),
+                    width: `min(92%, calc(clamp(260px, 46vw, 620px) * ${aspect}))`,
+                  }
+            }
           >
             <Image
               src={src}

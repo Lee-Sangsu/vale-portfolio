@@ -1,6 +1,6 @@
 import type { Locale } from "../types";
 import type { ChapterId } from "../types";
-import { HERO_MANIFEST, MENTION_MANIFEST, encodeAsset } from "../photo-manifest";
+import { HERO_MANIFEST, MENTION_MANIFEST } from "../photo-manifest";
 import { versionedAsset } from "@/lib/project-photos";
 import {
   getChapterCardCoverPath,
@@ -8,6 +8,7 @@ import {
   getChapterCoverPaths,
   getProjectDiaryPaths,
   getProjectInstagramGroups,
+  getProjectScreenGroups as getProjectScreenGroupPaths,
   getChapterPhotoPaths,
   type ChapterCaseKind,
   getProjectPhotoPaths,
@@ -154,4 +155,11 @@ export function getChapterPhotos(chapterId: string, kind: ChapterCaseKind): stri
 export function splitMeta(meta: string) {
   const [chapter, ...rest] = meta.split(" · ");
   return { chapter, place: rest.join(" · ") };
+}
+
+/** App screens grouped by `celular/<group>/` subfolder (URL-encoded, versioned). */
+export function getProjectScreenGroups(slug: string, kind: "celular" | "visual" = "celular"): { name: string; items: string[] }[] {
+  const project = allProjects.find((p) => p.slug === slug);
+  if (!project) return [];
+  return getProjectScreenGroupPaths(project.chapter, slug, kind).map((g) => ({ name: g.name, items: g.paths.map((p) => versionedAsset(p)) }));
 }
