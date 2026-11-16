@@ -58,7 +58,8 @@ function buildPath(scale: number): string {
 
 // Photos are staggered across 11 virtual slots → ~9.1 % gap between them
 const STAGGER_SLOTS = 11;
-const PHOTO_SCALE = 1.3; // photos at 1253px wide; they scale with the ribbon
+const PHOTO_SCALE = 0.95; // photos at 1253px wide; they scale with the ribbon (medium size: ~105–125 px on a 1440 px screen)
+const MAX_RIBBON_PX = 1200; // the ribbon no longer stretches to the full width, so the photos ride closer together
 const MIN_PHOTO_PX = 84;
 const BASE_DURATION = 55; // seconds to traverse the full ribbon once
 const SCROLL_SPEEDUP = 2.4; // extra speed while the page is scrolling
@@ -150,8 +151,8 @@ export function PhotoRing() {
       {/* Desktop: photos ride the full-width ribbon. Height follows the ribbon's aspect ratio plus room for the photos. */}
       <div
         ref={containerRef}
-        className="relative hidden w-full md:block"
-        style={{ height: (SVG_H + Y_PAD * 2) * scale }}
+        className="relative mx-auto hidden w-full md:block"
+        style={{ maxWidth: MAX_RIBBON_PX, height: (SVG_H + Y_PAD * 2) * scale }}
       >
         <style>{`
           @media (prefers-reduced-motion: reduce) {

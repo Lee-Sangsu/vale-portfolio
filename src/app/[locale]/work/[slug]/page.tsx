@@ -49,7 +49,10 @@ const SECTION_TITLES: Record<string, Partial<Record<"ppt" | "afiches" | "visual"
   "seoul-women-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
   "global-youth-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
   "seoul-entrepreneur-summit": { ppt: { es: "Las slides del día", en: "The day's slides" } },
-  "ruta-8": { afiches: { es: "Póster de convocatoria", en: "Call poster" } },
+  "ruta-8": {
+    portafolio: { es: "Plan de comunicación", en: "Communication plan" },
+    afiches: { es: "Póster y correos de convocatoria", en: "Call poster and emails" },
+  },
   "business-decks": { portafolio: { es: "Booth deck del festival", en: "Festival booth deck" } },
   "city-lounge": { portafolio: { es: "Propuestas y flujos", en: "Proposals and flows" } },
   "travel-buddy-meetups": { portafolio: { es: "Flujos y versiones", en: "Flows and versions" } },
