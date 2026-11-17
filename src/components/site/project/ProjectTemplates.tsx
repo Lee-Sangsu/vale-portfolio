@@ -105,7 +105,7 @@ const PHONE_SCREEN_ASPECT = 375 / 852;
  * Give it the screenshot's `aspect` (width / height): a screenshot taller than the screen is a full-page scroll,
  * so hovering the phone scrolls it down to its end and leaving scrolls it back up (see `.phone-frame` in globals.css).
  */
-function PhoneFrame({
+export function PhoneFrame({
   src,
   sizes,
   priority,
@@ -730,7 +730,7 @@ export async function TemplateGallery({
         <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
           <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-2">
             <h2 className="font-inter text-ink2 text-[32px] leading-tight font-bold sm:text-[40px]">
-              {es ? "Pantallas" : "Screens"}
+              {title ?? (es ? "Pantallas" : "Screens")}
             </h2>
             {anyScrolls ? (
               <p className="font-inter hidden text-[13px] text-[#9aa09a] sm:block">
@@ -745,10 +745,16 @@ export async function TemplateGallery({
             <div className="mt-12 space-y-16">
               {groups.map((group) => (
                 <div key={group.title}>
-                  <h3 className="font-inter text-ink2 text-[20px] font-semibold sm:text-[24px]">
-                    {group.title}
-                  </h3>
-                  <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5">
+                  {/* A single flow already named by the section heading needs no second title. */}
+                  {groups.length === 1 && title ? null : (
+                    <h3 className="font-inter text-ink2 text-[20px] font-semibold sm:text-[24px]">
+                      {group.title}
+                    </h3>
+                  )}
+                  {/* Six screens fit one line on desktop; otherwise five per row. */}
+                  <ul
+                    className={`mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 ${group.items.length === 6 ? "lg:grid-cols-6" : "lg:grid-cols-5"}`}
+                  >
                     {group.items.map((src) => (
                       <li
                         key={src}

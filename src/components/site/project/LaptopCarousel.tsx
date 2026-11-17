@@ -125,7 +125,7 @@ function ScrollingLaptop({
             alt=""
             width={scroll.width}
             height={scroll.height}
-            quality={90}
+            quality={92}
             sizes="(min-width: 1080px) 760px, 70vw"
             className="block h-auto w-full"
           />

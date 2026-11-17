@@ -52,10 +52,7 @@ const SECTION_TITLES: Record<
   "eats-real": { afiches: { es: "Campaña", en: "Campaign" } },
   "nomadher-app": {
     afiches: { es: "App Store", en: "App Store" },
-    portafolio: {
-      es: "Onboarding y guía de comunidad",
-      en: "Onboarding and community guide",
-    },
+    portafolio: { es: "Onboarding", en: "Onboarding" },
   },
   "bloggers-program": {
     afiches: { es: "Emails del programa", en: "Program emails" },
@@ -132,6 +129,14 @@ function oneCarouselPerEdition(posts: string[][], slug: string): string[][] {
   return getProjectInstagramPosts(slug, 2).length ? [posts.flat()] : posts;
 }
 
+/** Pages whose other screens live in their child projects: only these phone-screen groups show on the page itself. */
+const ONLY_SCREEN_GROUPS: Record<string, string[]> = {
+  "nomadher-app": ["onboarding"],
+};
+
+/** Pages whose phone screens sit next to the text section they belong to (same title), instead of in a gallery of their own. */
+const SCREENS_BESIDE_TEXT = new Set(["city-lounge", "travel-buddy-meetups", "levels-badges-perks"]);
+
 /** Projects whose children are sections of their own page instead of cards linking to another page. */
 const INLINE_CHILDREN = new Set(["boost-lab-workshops"]);
 
@@ -181,11 +186,34 @@ const SCREEN_GROUP_TITLES: Record<string, Record<Locale, string>> = {
     es: "Papelería · tarjetas y firma de correo",
     en: "Stationery · cards and email signature",
   },
-  senaletica: { es: "Señalética · carteles de evento", en: "Signage · event signs" },
+  senaletica: { es: "Señalética del viaje", en: "Trip signage" },
   carrusel: { es: "Carrusel de lanzamiento", en: "Launch carousel" },
+  "lounge-where": { es: "Fase 1 · Where to?", en: "Phase 1 · Where to?" },
+  "lounge-when": { es: "Fase 2 · When", en: "Phase 2 · When" },
+  "lounge-city": { es: "Fase 3 · La página de ciudad", en: "Phase 3 · The city page" },
+  "tb-active": { es: "Currently Active", en: "Currently Active" },
+  "tb-meetups": { es: "Women Meetups", en: "Women Meetups" },
+  "tb-status": { es: "Travel Status", en: "Travel Status" },
+  "tb-after": { es: "Antes y después del meetup", en: "Before and after the meetup" },
+  "tb-v3": { es: "Travel Buddy V3", en: "Travel Buddy V3" },
+  "ex-states": { es: "Explore · tres estados", en: "Explore · three states" },
+  "ex-search": { es: "La búsqueda", en: "The search" },
+  "ex-chat": { es: "El chat de ciudad", en: "The city chat" },
+  "pp-seoul": { es: "People · Seúl", en: "People · Seoul" },
+  "pp-weekly": { es: "Every week · sin host", en: "Every week · no host" },
+  "pp-upfor": { es: "What are you up for?", en: "What are you up for?" },
+  "pp-match": { es: "El match y el chat", en: "The match and the chat" },
+  "lv-perfil": { es: "El perfil", en: "The profile" },
+  "lv-levels": { es: "Los niveles · fase 1", en: "The levels · phase 1" },
+  "lv-badges": { es: "Badges", en: "Badges" },
+  "lv-inbox": { es: "Notificaciones e Inbox", en: "Notifications and Inbox" },
+  "lv-perks": { es: "Perks y wallet", en: "Perks and wallet" },
+  "carrusel-condado": { es: "Carrusel · edición con el condado", en: "Carousel · county edition" },
+  "superalink-experience": { es: "Superalink · experience covers", en: "Superalink · experience covers" },
   "post-fundadoras": { es: "Post · las fundadoras", en: "Post · the founders" },
   experiencia: { es: "Experience posts", en: "Experience posts" },
-  impresos: { es: "Impresos del viaje", en: "Printed pieces for the trip" },
+  impresos: { es: "Pendones del viaje", en: "Trip banners" },
+  creadoras: { es: "Post · las diez creadoras", en: "Post · the ten creators" },
   "superalink-carrusel": { es: "Superalink · carrusel", en: "Superalink · carousel" },
   "superalink-posts": { es: "Superalink · posts y banners", en: "Superalink · posts and banners" },
   "superalink-app": { es: "Superalink · dentro de la app", en: "Superalink · inside the app" },
@@ -399,7 +427,9 @@ export default async function WorkPage({
   const cover = getProjectCover(project.slug);
 
   // Photos dropped in the project's folders feed the template (app / instagram / ppt / visual).
-  const screenGroups = getProjectScreenGroups(project.slug);
+  const screenGroups = getProjectScreenGroups(project.slug).filter(
+    (g) => !ONLY_SCREEN_GROUPS[project.slug] || ONLY_SCREEN_GROUPS[project.slug].includes(g.name),
+  );
   // Launch pieces sorted in folders (visual/01-banners, 02-launch-posts...): one titled row per folder.
   const launchGroups = getProjectScreenGroups(project.slug, "visual").map(
     (g) => ({
@@ -688,6 +718,7 @@ export default async function WorkPage({
         photos.visual.length === 0 &&
         (photos.diario ?? []).length === 0) ||
       EMBEDS_FIRST.has(project.slug) ||
+      SCREENS_BESIDE_TEXT.has(project.slug) ||
       // The titled rows already show every piece: no second "Galería" of the same files.
       (project.template === "visual" && launchGroups.length > 0) ? null : (
         <TemplateGallery
@@ -701,7 +732,9 @@ export default async function WorkPage({
           title={
             project.template === "ppt"
               ? SECTION_TITLES[project.slug]?.ppt?.[locale]
-              : secondEdition && project.template === "instagram"
+              : project.template === "app" && ONLY_SCREEN_GROUPS[project.slug]?.length === 1
+                ? photos.screenGroups?.[0]?.title
+                : secondEdition && project.template === "instagram"
                 ? "Social Media Carousel · " + (es ? "Versión 1" : "Version 1")
                 : undefined
           }
@@ -828,7 +861,21 @@ export default async function WorkPage({
           }
         />
       ) : null}
-      <ProjectExtras extras={page.extras} />
+      <ProjectExtras
+        extras={page.extras}
+        screens={
+          SCREENS_BESIDE_TEXT.has(project.slug)
+            ? await Promise.all(
+                (photos.screenGroups ?? []).map(async (g) => ({
+                  title: g.title,
+                  items: await Promise.all(
+                    g.items.map(async (src) => ({ src, aspect: await getImageAspect(src) })),
+                  ),
+                })),
+              )
+            : undefined
+        }
+      />
 
       {/* Parts of a project (Youth Future Talent inside the workshops): shown as sections of this same page. */}
       {INLINE_CHILDREN.has(project.slug)

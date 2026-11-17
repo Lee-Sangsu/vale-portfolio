@@ -1,4 +1,8 @@
 import type { Block, Extra, Stat } from "@/content/portfolio";
+import { PhoneFrame } from "@/components/site/project/ProjectTemplates";
+
+/** Phone screens shown next to the text section with the same title. */
+export type SectionScreens = { title: string; items: { src: string; aspect: number }[] };
 
 function StatCards({ stats }: { stats: Stat[] }) {
   return (
@@ -124,8 +128,9 @@ function BlockView({ block }: { block: Block }) {
 }
 
 /** The "Secciones extra" of a project: stat cards first, then one editorial row per section. */
-export function ProjectExtras({ extras }: { extras: Extra[] }) {
+export function ProjectExtras({ extras, screens }: { extras: Extra[]; screens?: SectionScreens[] }) {
   if (!extras.length) return null;
+  const screensFor = (title: string) => screens?.find((g) => g.title === title)?.items ?? [];
 
   const statSections = extras.filter((e) => Array.isArray(e.stats));
   const textSections = extras.filter((e) => !Array.isArray(e.stats));
@@ -143,21 +148,57 @@ export function ProjectExtras({ extras }: { extras: Extra[] }) {
         ))}
 
         <div className="divide-y divide-[#e2e2dc] border-t border-[#e2e2dc]">
-          {textSections.map((extra, index) => (
-            <article
-              key={`${extra.title}-${index}`}
-              className="grid gap-5 py-10 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)] lg:gap-16"
-            >
-              <h3 className="font-inter text-ink2 text-[24px] leading-[1.15] font-semibold sm:text-[28px]">
-                {extra.title}
-              </h3>
-              <div className="flex flex-col gap-5">
-                {extra.blocks.map((block, i) => (
-                  <BlockView key={i} block={block} />
-                ))}
-              </div>
-            </article>
-          ))}
+          {textSections.map((extra, index) => {
+            const shots = screensFor(extra.title);
+            if (shots.length) {
+              // Text on the left, its screens on the right: the reader sees the decision and the result together.
+              return (
+                <article
+                  key={`${extra.title}-${index}`}
+                  className="grid gap-8 py-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-16"
+                >
+                  <div>
+                    <h3 className="font-inter text-ink2 text-[24px] leading-[1.15] font-semibold sm:text-[28px]">
+                      {extra.title}
+                    </h3>
+                    <div className="mt-6 flex flex-col gap-5">
+                      {extra.blocks.map((block, i) => (
+                        <BlockView key={i} block={block} />
+                      ))}
+                    </div>
+                  </div>
+                  <ul
+                    className={`grid items-start gap-4 sm:gap-6 ${shots.length === 1 ? "mx-auto w-full max-w-[280px] grid-cols-1" : shots.length === 2 ? "mx-auto w-full max-w-[560px] grid-cols-2" : "grid-cols-3"}`}
+                  >
+                    {shots.map(({ src, aspect }) => (
+                      <li key={src}>
+                        <PhoneFrame
+                          src={src}
+                          sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 45vw"
+                          aspect={aspect}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            }
+            return (
+              <article
+                key={`${extra.title}-${index}`}
+                className="grid gap-5 py-10 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)] lg:gap-16"
+              >
+                <h3 className="font-inter text-ink2 text-[24px] leading-[1.15] font-semibold sm:text-[28px]">
+                  {extra.title}
+                </h3>
+                <div className="flex flex-col gap-5">
+                  {extra.blocks.map((block, i) => (
+                    <BlockView key={i} block={block} />
+                  ))}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

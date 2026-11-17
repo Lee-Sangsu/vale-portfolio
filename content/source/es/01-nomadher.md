@@ -80,13 +80,13 @@ Mi rol · Founding Designer: research, UX/UI y lógica de producto
 Tipo de proyecto · Rediseño de producto, app mobile
 
 **01 Challenge**
-NomadHer tenía comunidad y tenía pantallas, pero las pantallas no se hablaban entre sí. En entrevistas con 15 mujeres y un focus group apareció el mismo patrón: los perfiles recibían vistas y no mensajes, la conversación se escapaba a WhatsApp y el Lounge vivía lejos de donde pasaba la acción. Y un dato pesaba más que los demás: muchas usuarias borraban la app al terminar el viaje. El reto no era una pantalla sino el sistema: una arquitectura que sirviera igual a quien viaja y a quien vive en la ciudad, y una forma de trabajo que permitiera seguir mejorándola versión tras versión, con un equipo técnico pequeño y un negocio que también la necesitaba para sus aliados y sus camps.
+NomadHer tenía comunidad y tenía pantallas, pero las pantallas no se hablaban entre sí. En las entrevistas con usuarias y un focus group apareció el mismo patrón: los perfiles recibían vistas y no mensajes, la conversación se escapaba a WhatsApp y el Lounge vivía lejos de donde pasaba la acción. Y un dato pesaba más que los demás: muchas usuarias borraban la app al terminar el viaje. El reto no era una pantalla sino el sistema: una arquitectura que sirviera igual a quien viaja y a quien vive en la ciudad, y una forma de trabajo que permitiera seguir mejorándola versión tras versión, con un equipo técnico pequeño y un negocio que también la necesitaba para sus aliados y sus camps.
 
 **02 Approach**
-Reencuadré el problema como estructural: la gente se conecta con lo que otras hacen ahora, en la misma ciudad. Exploré tres arquitecturas en más de quince rondas de prototipo, con Corner, Bumble y Hinge como referencia, y propuse una app centrada en ciudades. Unifiqué las cards entre espacios para que todo hable un mismo idioma. Y organicé el trabajo por fases y versiones: cada feature sale con su lógica, casos borde y métricas en un spec para el equipo técnico, se revisa con negocio y partnerships cuando toca a camps, perks o aliados, y se mide después del lanzamiento para decidir la siguiente. Las entrevistas no pararon: siguen alimentando el roadmap.
+Reencuadré el problema como estructural: lo que une a dos mujeres en la app no es su perfil, sino estar en la misma ciudad al mismo tiempo y tener algo que hacer juntas esa semana. Exploré tres arquitecturas en más de quince rondas de prototipo, con Corner, Bumble y Hinge como referencia, y propuse una app centrada en ciudades. Unifiqué las cards entre espacios para que todo hable un mismo idioma. Y organicé el trabajo por fases y versiones: cada feature sale con su lógica, casos borde y métricas en un spec para el equipo técnico, se revisa con negocio y partnerships cuando toca a camps, perks o aliados, y se mide después del lanzamiento para decidir la siguiente. Las entrevistas no pararon: siguen alimentando el roadmap.
 
 **03 Result**
-Una versión nueva cada cinco o seis semanas desde abril de 2026, de la 9.6.0 a la 9.6.5, con perfil, onboarding, design system y App Store rediseñados, y las siguientes ya en diseño y en manos del equipo técnico. La retención de mes 1 de la app se mantiene muy por encima del promedio de las apps sociales, y el proceso quedó instalado: research, spec, lanzamiento y medición, en ciclo.
+Una versión nueva cada cinco o seis semanas desde abril de 2026, de la 9.6.0 a la 9.6.5, con perfil, onboarding, design system y App Store rediseñados. Pero el resultado más importante es cómo se construye: el equipo técnico y yo trabajamos en diálogo diario, cada feature llega con su spec, se prueba en builds de test antes de salir y se mide después para decidir la siguiente. Negocio y partnerships entran cuando una versión toca camps, perks o aliados, y las entrevistas con usuarias siguen alimentando el roadmap. Es un proceso constante, no un rediseño que se entrega y se cierra: las siguientes versiones ya están en diseño y en manos del equipo. La retención de mes 1 se mantiene muy por encima del promedio de las apps sociales.
 
 **Secciones extra**
 
@@ -94,31 +94,30 @@ Una versión nueva cada cinco o seis semanas desde abril de 2026, de la 9.6.0 a 
 Arranqué con un mapa de seis dolores de producto y Nomad Hearts, una serie de entrevistas sobre una base de 34 candidatas, más un focus group en Jeju. La síntesis cerró en personas, jobs to be done y seis áreas de producto. Las entrevistas siguen en 2026, y de ellas salió, por ejemplo, la propuesta del Lounge por ciudad.
 
 **Perfil**
-De ficha de datos a disparador de conversación. Follow como texto, hasta cinco fotos, un anillo que muestra cuánto falta para completarlo, una pregunta abierta, tags de estado (Expat, Student, Local, Digital Nomad, Traveler), intereses con un máximo de tres por categoría y una portada ajustable que acompaña a la usuaria en Travel Buddy, el Lounge y su avatar.
+*Problema.* En las entrevistas los perfiles recibían vistas y no mensajes: una ficha de datos que no daba nada de qué hablar.
+*Hipótesis.* Si cada parte del perfil cuenta cómo viaja ella y deja una excusa lista para escribirle, la vista se convierte en mensaje.
+*Solución.* Portada y hasta cinco fotos que cuentan cómo viaja, no solo cómo se ve. Una pregunta abierta como gancho. Tags de estado (Expat, Student, Local, Digital Nomad, Traveler) para saber en un vistazo si está de paso o vive en la ciudad. Intereses con máximo tres por categoría, para que digan algo de verdad. Un anillo de progreso que empuja a completarlo sin regañar. Follow como texto, para que se lea como una persona y no como un panel. Y la misma portada y avatar en Travel Buddy y el Lounge, para reconocerla en cualquier parte.
 
 **Onboarding y verificación**
-Un tour inicial que explica en segundos la diferencia entre Lounge, Travel Buddy y Blog. Un aviso de que la primera foto será el avatar público. Y una capa de seguridad para quien aún no está verificada: vista limitada y borrosa, sin mensajes ni perfiles abiertos, con un camino claro para verificarse con selfie y documento.
+*Problema.* Quien entraba por primera vez no entendía la diferencia entre Lounge, Travel Buddy y Blog, y una cuenta sin verificar podía ver y escribir a cualquiera.
+*Hipótesis.* Un tour de segundos y una capa de seguridad visible darían confianza desde el primer minuto, sin frenar el registro.
+*Solución.* Un tour inicial que explica cada espacio en una pantalla. Un aviso de que la primera foto será el avatar público. Y para quien aún no está verificada, vista limitada y borrosa, sin mensajes ni perfiles abiertos, con un camino claro para verificarse con selfie y documento.
 
 **Una arquitectura, un lenguaje**
-Las cards del Lounge, Travel Buddy y Experiences pasan a compartir estructura. El primer paso es un solo post para el Lounge y Travel Status, ya diseñado para la versión 9.6.6.
+*Problema.* Lounge, Travel Buddy y Experiences tenían cards distintas: cada espacio parecía otra app y cada feature nueva costaba el doble.
+*Hipótesis.* Si todo comparte una misma estructura de card, la app se aprende una sola vez y el equipo técnico construye una sola vez.
+*Solución.* Las cards de los tres espacios pasan a compartir estructura. El primer paso es un solo post para el Lounge y Travel Status, ya diseñado para la versión 9.6.6.
 
 **Design system**
-Button Kit, librerías de color, tipografía, íconos, botones y cards entregadas al equipo técnico, sobre grid de 8 puntos y áreas táctiles de 44 píxeles como mínimo. Tamaños mínimos y máximos definidos para que los botones funcionen igual en Android.
+*Problema.* Cada pantalla nueva se dibujaba desde cero y en Android los botones salían distintos que en iOS.
+*Hipótesis.* Con una librería compartida y reglas mínimas, diseño y desarrollo hablan el mismo idioma y cada versión sale más rápido.
+*Solución.* Button Kit, librerías de color, tipografía, íconos, botones y cards entregadas al equipo técnico, sobre grid de 8 puntos y áreas táctiles de 44 píxeles como mínimo. Tamaños mínimos y máximos definidos para que los botones funcionen igual en Android.
 
 **App Store**
 Siete pantallas de preview rediseñadas (Connection, Safety, Lounge, Travel Buddy, Experiences, Member Perks y Download), adaptadas a siete idiomas.
 
 **Emails del ciclo de vida**
 Bienvenida, verificación de correo, verificación en proceso, rechazo, registro a eventos, mensaje sin leer y post meetup, con toda su lógica de envío.
-
-**Versión por versión**
-9.6.0 · abr 2026 · markdown, Schedule y "About this experience" en experiencias
-9.6.1 · jun 2026 · perfil nuevo con anillo, preguntas y varias fotos
-9.6.2 · ago 2026 · Currently Active, Women Meetups, chats grupales, Inbox con Messages y Plans, eventos fijados
-9.6.4 · sep 2026 · Travel Status, Follow, Blogs, Perks y chat de eventos pagados
-9.6.5 · en test · niveles, onboarding nuevo, RSVP y check-in de seguridad, notificaciones
-9.6.6 · en diseño · post unificado del Lounge y Travel Status
-9.6.7 · entregada al equipo técnico · perfil V2.1, Travel Buddy V3, Travel Status V3, creación de meetups V4.1, conversation starters y celebración de nivel
 
 ---
 
@@ -386,7 +385,7 @@ Un sitio que por fin habla igual que la app. Las viajeras tienen un tour guiado 
 Etiquetas · UX/UI · 2026
 Meta · NomadHer · Seúl, 2026
 Título · Lounge: la ciudad como sala
-Descripción · Del feed global a la ciudad: búsqueda, chat por ciudad y un mapa que muestra lugares.
+Descripción · Del feed global a Explore: todo el mundo, una ciudad o una palabra, en la misma página.
 Tags · UX/UI · Research
 Filtros · UX/UI · Estrategia
 
@@ -395,9 +394,9 @@ Filtros · UX/UI · Estrategia
 **Título** · Lounge: la ciudad como sala
 
 **Descripción**
-El Lounge es el espacio donde la comunidad publica y conversa. Lo trabajé en dos frentes: arreglar lo que frenaba a las usuarias para escribir, y una propuesta en cuatro fases para organizarlo por ciudad y por fechas.
+El Lounge es el espacio donde la comunidad publica y conversa. Lo trabajé en dos frentes: arreglar lo que frenaba a las usuarias para escribir, y convertirlo en Explore, una página que lee la ciudad: todo el mundo, una ciudad o una palabra.
 
-**Propósito** · Ciudad más fechas · Contar antes de mostrar caras · Un ritual por ciudad
+**Propósito** · Leer la ciudad · Una página, tres estados · Nunca una pantalla rota
 
 **Overview**
 Cliente · NomadHer
@@ -408,30 +407,46 @@ Tipo de proyecto · Rediseño de un espacio de comunidad
 El objetivo que nos pusimos en febrero fue simple: que las usuarias tengan ganas de escribir. Las entrevistas mostraban lo contrario. Un post en Seúl se perdía en minutos entre el volumen de contenido, la caja de comentarios se bloqueaba y escribir una guía larga era incómodo. Una usuaria lo resumió pidiendo salas por ciudad, al estilo Discord.
 
 **02 Approach**
-Primero, lo que frenaba: rediseño de comentarios en tres opciones, likes y respuestas en una sola lógica, un post detail nuevo y un solo campo de contenido evidente al publicar. Después, el research: benchmark de once productos, de Timeleft y Nomad List a Strava, del que saqué ocho patrones. Con ellos armé una propuesta en cuatro fases, cada una con su criterio de "listo" medible.
+Primero, lo que frenaba: rediseño de comentarios en tres opciones, likes y respuestas en una sola lógica, un post detail nuevo y un solo campo de contenido evidente al publicar. Después, el research: benchmark de once productos, de Timeleft y Nomad List a Strava, del que saqué ocho patrones. Con ellos armé una propuesta en cuatro fases, y de la primera salió Explore: especificada pantalla por pantalla, sección por sección, y entregada en Figma y Notion.
 
 **03 Result**
-Comentarios, likes y post detail rediseñados y entregados al equipo técnico, banners por campaña en producción, y una hoja de ruta de cuatro fases que hoy guía las siguientes versiones. La primera fase, una búsqueda por ciudad e intereses, ya está en Figma, y el post unificado con Travel Status está diseñado para la 9.6.6.
+Comentarios, likes y post detail rediseñados y entregados al equipo técnico, banners por campaña en producción, y Explore · Phase 1 especificado completo: tres estados, siete secciones, la búsqueda y las reglas para la ciudad vacía. El benchmark de Explore y People (Tinder, Bumble BFF, Corner, NomadTable, Timeleft) dejó la regla de fondo: la gente se encuentra alrededor de un plan o un lugar, no de un perfil. Un tip lleva a un lugar, el lugar muestra a las mujeres que lo quieren, y esas mujeres llevan a un plan.
 
 **Secciones extra**
 
-**Las cuatro fases**
-*Fase 1 · Where to?* Una barra de búsqueda con ciudad e intereses. Lista cuando buscar por ciudad se use más que los chips de ciudades populares.
-*Fase 2 · When.* Ahora, esta semana o fechas propias, pre-llenado desde el Travel Status. Una card que dice "12 NomadHers in Seoul this week · 3 meetups planned" y un chat de ciudad con fecha, legible antes de unirse.
-*Fase 3 · La página de ciudad.* Pestañas Now, Meetups, Tips y Guides, rol visible para las locales, un encuentro semanal sin host ("NomadHer Wednesday · 7 pm · Hongdae") y un check-in "I'm meeting her".
-*Fase 4 · El mapa.* Lugares y meetups. Las mujeres aparecen solo como conteo por barrio, con un mínimo de cinco, y un switch entre Global y My city.
+**Explore · tres estados**
+*Problema.* El Lounge era un feed global: una mujer en Seúl leía posts de Bali y no encontraba a quien tenía al lado.
+*Hipótesis.* Una sola página puede servir para soñar un viaje, planearlo y estar allí, si cambia de estado con lo que ella elige.
+*Solución.* Explore abre en Everywhere. Al elegir una ciudad, cada sección habla de esa ciudad: "Seoul · 48 posts this week", los blogs de Seúl primero, los perks de Seúl, "Tips about Seoul", "Landing in Seoul this week". Al escribir una palabra que no es un lugar (kimchi, hiking, night bus), la misma página se vuelve resultados para esa palabra. Mismo orden, siete secciones, tres estados.
+
+**La búsqueda**
+*Problema.* Buscar una ciudad, un país o un tema eran tres cosas distintas, y en la app no existía ninguna.
+*Hipótesis.* Una sola barra puede entender las tres si los resultados se agrupan y la ciudad se aplica en un toque.
+*Solución.* Un sheet que sugiere Everywhere, la ciudad de su Travel Status y las ciudades con más posts esta semana. Al escribir, tres bloques: Cities, Country y "Search 'Seo' in all posts". Show all abre el lugar exacto o los resultados de la palabra; Clear all vuelve a Everywhere. Mayúsculas y tildes no importan: Bogota encuentra Bogotá.
+
+**El chat de ciudad**
+*Problema.* Saber que hay 48 posts de Seúl no dice si hay alguien allí esta semana, que es lo que importa para quedar.
+*Hipótesis.* Contar antes de mostrar caras: un número de mujeres hablando esta semana invita más que una lista de perfiles.
+*Solución.* Con una ciudad elegida, el banner de arriba cambia a "This week in Seoul · 12 NomadHers are chatting", con sus caras y "Join the chat". El número cuenta a quienes escribieron en los últimos 7 días, el banner es la única puerta al chat de ciudad, y si la ciudad todavía no tiene chat vuelve el carrusel de campañas.
+
+**Cuando la ciudad está vacía**
+*Problema.* Una ciudad con poco contenido se veía rota, y una página rota no invita a escribir.
+*Hipótesis.* Cada hueco es una invitación si dice exactamente qué hacer.
+*Solución.* Sin chat, carrusel de campañas. Sin blogs, "Coming soon". Sin tips, una card verde: "Been to Lyon? Add your tip · Takes a minute". Sin nadie aterrizando, la sección se oculta. Perks siempre muestra los que sirven en cualquier parte. Y al final, en todos los estados: "Your turn to share".
 
 **Los ocho patrones**
 Ciudad más rango de fechas · contar antes de mostrar caras · un chat de ciudad que existe antes de que llegue nadie · una ventana de 14 días antes a 3 después · chips de intención en lugar de texto libre · un ritual semanal sin host · visibilidad mutua con aprobación · lugar público y revelación tardía
 
 **La regla de fondo**
-La unidad es la ciudad más las fechas, nunca la ubicación exacta. Nueve reglas no negociables para el mapa, y una estrategia propia para la ciudad que todavía está vacía.
+La unidad es la ciudad más las fechas, nunca la ubicación exacta. Ciudad y fechas, sí; dónde está una persona, nunca. Lo que nadie resuelve bien, y nuestra ventaja: solo mujeres y verificadas, un solo Inbox, chats que se cierran solos y ninguna mujer escondida detrás de un pago.
 
 **Lo que viene**
-"What are you up for?", para elegir plan y fechas desde el Lounge y pasar directo a Travel Buddy, y círculos por ciudad. Los dos están en exploración.
+Meetups, los planes semanales, What are you up for y las travel buddies viven en People. Explore es para leer la ciudad; People, para conocer a las mujeres que están en ella. El mapa con lugares y conteos por barrio sigue en exploración.
 
 **Banners del Lounge**
-Un sistema de banners configurable por campaña, en carrusel y enlazado a la experiencia. Después definí el duplicado de banners y la publicación en varias ubicaciones a la vez, para que montar una campaña nueva fuera cuestión de minutos.
+*Problema.* Cada campaña nueva pedía un banner a medida y varios días de ida y vuelta con el equipo técnico.
+*Hipótesis.* Si el banner es un sistema configurable, montar una campaña debería tomar minutos, no días.
+*Solución.* Banners configurables por campaña, en carrusel y enlazados a la experiencia. Después definí el duplicado de banners y la publicación en varias ubicaciones a la vez.
 
 ---
 
@@ -443,7 +458,7 @@ Un sistema de banners configurable por campaña, en carrusel y enlazado a la exp
 Etiquetas · UX/UI · 2026
 Meta · NomadHer · Seúl, 2026
 Título · Travel Buddy: de la pantalla al encuentro
-Descripción · Quién está activa, planes en un toque y un check-in de seguridad después de cada encuentro.
+Descripción · Quién está activa, planes en un toque, un check-in de seguridad y People: planes sin host y lugares que se deslizan.
 Tags · UX/UI · Producto
 Filtros · UX/UI · Estrategia
 
@@ -452,7 +467,7 @@ Filtros · UX/UI · Estrategia
 **Título** · Travel Buddy: de la pantalla al encuentro
 
 **Descripción**
-Travel Buddy es donde las usuarias encuentran compañía. Diseñé el recorrido completo, de ver quién está cerca a encontrarse en persona y volver a casa: Currently Active, Women Meetups, Travel Status y el flujo después de cada meetup.
+Travel Buddy es donde las usuarias encuentran compañía. Diseñé el recorrido completo, de ver quién está cerca a encontrarse en persona y volver a casa: Currently Active, Women Meetups, Travel Status y el flujo después de cada meetup. Y su siguiente versión, People: planes semanales sin host y lugares que se deslizan en vez de personas.
 
 **Propósito** · Saber quién está · Planear sin fricción · Volver segura
 
@@ -468,30 +483,57 @@ Entre un mensaje en frío y un evento formal no había nada. Las usuarias no sab
 Diseñé cuatro piezas que se encadenan. Currently Active muestra quién estuvo activa en los últimos 15 minutos. Women Meetups convierte un plan pequeño en un chat en segundos. Travel Status cuenta dónde está cada una y por qué. Y el flujo del meetup cubre el antes y el después: confirmar asistencia, salir sin incomodar y responder, al volver, cómo se sintió. Arrancamos en Seúl y abrimos ciudad por ciudad según la demanda.
 
 **03 Result**
-Cientos de uniones a meetups en las dos primeras semanas, y cerca de un 30% de las usuarias que se unen a un meetup repiten. Women Meetups pasó de Seúl a París y, desde el 22 de septiembre de 2026, a todas las ciudades. El RSVP y el check-in de seguridad están en test para la 9.6.5.
+Cientos de uniones a meetups en las dos primeras semanas, y cerca de un 30% de las usuarias que se unen a un meetup repiten. Women Meetups pasó de Seúl a París y, desde el 22 de septiembre de 2026, a todas las ciudades. El RSVP y el check-in de seguridad están en test para la 9.6.5. People · Phase 1, con Every week y What are you up for, está especificado y entregado en Figma y Notion.
 
 **Secciones extra**
 
 **Currently Active**
-Activa ahora: actividad en los últimos 15 minutos, con punto verde. Recently Active: de 15 minutos a 14 días, visible solo en el perfil. Un carrusel de tres cards con chip de estado y bandera. Sin foto o sin estado, la usuaria no aparece, y si no hay nadie activo, la sección desaparece. Antes de diseñarlo hice un research de presencia en apps de citas: un punto verde en vivo puede ser un riesgo, así que la presencia tenía que tener propósito.
+*Problema.* Escribirle a alguien que no abre la app hace semanas es la forma más rápida de perder las ganas de intentarlo.
+*Hipótesis.* Mostrar quién está activa ahora multiplica las respuestas, siempre que la presencia tenga un propósito y no sea un rastreador.
+*Solución.* Activa ahora: actividad en los últimos 15 minutos, con punto verde. Recently Active: de 15 minutos a 14 días, visible solo en el perfil. Un carrusel de tres cards con chip de estado y bandera. Sin foto o sin estado, la usuaria no aparece; si no hay nadie activo, la sección desaparece. Antes hice un research de presencia en apps de citas: un punto verde en vivo puede ser un riesgo.
 
 **Women Meetups**
-Tres tipos de plan (Food & drinks, Cultural Place, Outdoor Activity), hasta dos semanas de anticipación, "Join the chat!" en lugar de un RSVP formal y un chat que se crea solo, con la descripción como primer mensaje y archivo automático 24 horas después del encuentro. Fuera de Seúl, un botón "Add my city": con 20 pedidos se abre una ciudad. Los meetups con más movimiento suben solos al Lounge con el badge "via Travel Buddy".
+*Problema.* Los planes se armaban en WhatsApp, fuera de la app, y cada uno necesitaba una organizadora que se hiciera cargo.
+*Hipótesis.* Si crear un plan cuesta tres toques y el chat nace solo, cualquier mujer puede ser host sin sentirse host.
+*Solución.* Tres tipos de plan (Food & drinks, Cultural Place, Outdoor Activity), hasta dos semanas de anticipación, "Join the chat!" en lugar de un RSVP formal y un chat que se crea solo, con la descripción como primer mensaje y archivo automático 24 horas después. Fuera de Seúl, "Add my city": con 20 pedidos se abre una ciudad. Los meetups con más movimiento suben solos al Lounge con el badge "via Travel Buddy".
 
 **Travel Status**
-Un flujo distinto para cada situación, Traveler, Local o Expat, y varias travel buddies a la vez cuando las fechas no se cruzan.
+*Problema.* Viajera, local y expat usaban el mismo formulario, y ninguna sentía que hablaba de ella.
+*Hipótesis.* Tres situaciones distintas merecen tres entradas distintas, aunque terminen en la misma card.
+*Solución.* Un flujo para cada situación, Traveler, Local o Expat, con una vista previa de cómo la verán las demás, y varias travel buddies a la vez cuando las fechas no se cruzan.
 
 **Antes y después del meetup**
-Antes: una pausa para leer los detalles antes de unirse, pestañas Chat y Details, y RSVP con Going, Maybe y Can't go. Unirse al meetup y al chat es una sola acción, y salir también. Después: "Did you make it?", y si no fue, por qué. Luego "How safe did you feel?". Cada respuesta "Not great" abre un espacio para contar qué pasó y avisa al equipo en el momento. Al final, una invitación a contar el encuentro en el Lounge.
+*Problema.* Nadie sabía si el encuentro había pasado, si había ido alguien ni cómo se había sentido.
+*Hipótesis.* Dos preguntas en el momento justo valen más que una encuesta larga, y la de seguridad tiene que llegar al equipo al instante.
+*Solución.* Antes: una pausa para leer los detalles, pestañas Chat y Details, y RSVP con Going, Maybe y Can't go; unirse al meetup y al chat es una sola acción. Después: "Did you make it?", y si no fue, por qué. Luego "How safe did you feel?": cada "Not great" abre un espacio para contar qué pasó y avisa al equipo en el momento. Al final, una invitación a contarlo en el Lounge.
 
 **Métricas definidas**
-Completitud de la encuesta · asistencia frente a no-shows · motivos · distribución de respuestas de seguridad · tasa de stories · hosts que repiten
+Completitud de la encuesta · asistencia frente a no-shows · motivos · distribución de respuestas de seguridad · tasa de stories · hosts que repiten · likes por sesión y likes que se vuelven match · matches que eligen día en 7 días · Count me in por plan y quién llegó · mensajes por chat de grupo
 
-**Travel Buddy V3**
-Búsqueda por fechas, decidida con benchmark de Airbnb, filtros y orden, una card de meetup nueva, y likes y comentarios.
+**People · Seúl**
+*Problema.* Travel Buddy devolvía todas las mujeres de una ciudad sin saber cuándo iban a estar allí, y los planes seguían armándose en WhatsApp.
+*Hipótesis.* Si la pestaña abre en su viaje, ciudad y fechas, todo lo demás se ordena solo.
+*Solución.* People, con la misma barra de búsqueda que Explore: "Seoul · Nov 3 → 10 · your dates". Debajo, Currently Active con su ciudad primero, Meetups in Seoul, Every week, What are you up for y Travel buddies con "On my dates" ya seleccionado. Sin ciudad, muestra quién está activa, meetups y buddies de todo el mundo.
+
+**Every week · sin host**
+*Problema.* Un meetup necesitaba que alguien se animara a organizarlo, y en una ciudad nueva casi nadie se anima.
+*Hipótesis.* Un ritual fijo, mismo día, misma hora, mismo lugar público, hace que el encuentro pase aunque nadie lo convoque.
+*Solución.* Cinco planes por ciudad. En Seúl: miércoles 19:30 Euljiro night, viernes 10:00 Coffee and laptops en Yeonnam, sábado 8:00 Namsan walk, sábado 16:00 Bike the Han River, domingo 9:00 Gwangjang market breakfast. Count me in la mete al chat de esa semana, hasta cinco mujeres; el chat abre con la primera y cierra al día siguiente del plan. Recordatorio la tarde anterior.
+
+**What are you up for?**
+*Problema.* Deslizar perfiles de personas es lo que hacen las apps de citas, y es exactamente lo que no queríamos.
+*Hipótesis.* Si ella desliza lugares y no mujeres, un like dice "yo iría" sin exponer a nadie.
+*Solución.* Cuatro moods: Cultural, Outdoors, Foodies y Cafés, doce lugares cada uno. La card muestra el lugar, el barrio, qué se lleva y cuántas mujeres están interesadas; nunca una fecha. ⓘ abre cómo llegar, horarios, precio y el tip de la mujer que lo sugirió. Todo se edita desde NomadMin; NomadHer nunca es host.
+
+**El match y el chat**
+*Problema.* Un like a un lugar no es un plan hasta que alguien pone un día.
+*Hipótesis.* Dos mujeres que quieren ir al mismo sitio solo necesitan un chat con fecha límite.
+*Solución.* Cuando una segunda mujer da like al mismo lugar, las dos ven "It's a plan!" y entran a un chat de grupo con 7 días para elegir día. Arriba, "Pick a day · 6 days left"; fijada, la guía del lugar: estación y salida, horarios, precio, el tip. Cada like nuevo se suma hasta cinco; el sexto abre un segundo grupo. Si no eligen día, el chat cierra y el lugar vuelve al swipe. Después, la encuesta del meetup.
 
 **Chats de eventos**
-Quien compra una experiencia, gratis o pagada, entra al chat del evento con la host. En producción desde la 9.6.4.
+*Problema.* Quien compraba una experiencia llegaba sola al evento, sin haber hablado con nadie antes.
+*Hipótesis.* Si la compra abre un chat, el evento empieza antes del evento.
+*Solución.* Quien compra una experiencia, gratis o pagada, entra al chat del evento con la host. En producción desde la 9.6.4.
 
 ---
 
@@ -533,19 +575,32 @@ Inbox y notificaciones nuevas en producción desde la 9.6.2. Follow y Perks, des
 **Secciones extra**
 
 **Los niveles · fase 1**
-Dreamer al verificarse. Explorer con 600 puntos en el mes. Blog +500, reseña de meetup +250, comentario +50 con tope diario. Reset mensual sin bajar de nivel, y nivel privado, como en Booking. Un anillo de progreso en el avatar, una pantalla My Level y una celebración de subida de nivel, con tres propuestas.
+*Problema.* Participar no cambiaba nada: quien escribía un blog y quien solo miraba tenían exactamente la misma app.
+*Hipótesis.* Dos niveles claros y una celebración al subir bastan para que participar se sienta, sin convertir la comunidad en un juego de puntos.
+*Solución.* Dreamer al verificarse. Explorer con 600 puntos en el mes: blog +500, reseña de meetup +250, comentario +50 con tope diario. Reset mensual sin bajar de nivel y nivel privado, como en Booking. Un anillo de progreso en el avatar, una pantalla My Level y una celebración de subida de nivel.
+
+**El perfil**
+*Problema.* El perfil mostraba una foto y un texto; el nivel, los badges y lo que una mujer había hecho en la comunidad no se veían en ninguna parte.
+*Hipótesis.* Si el perfil es donde aterriza el reconocimiento, participar tiene un lugar donde mirarse.
+*Solución.* Perfil nuevo en la 9.6.1: una foto principal con reglas claras (solo ella, cara visible, sin grupos ni gafas), un anillo de progreso alrededor del avatar con el nivel y los puntos del mes, y una sección Activities con My Level, Following, My Experiences y My Reviews. En el perfil público, el Travel Status y los badges junto al nombre dan contexto antes de escribirle.
 
 **Las cuatro fases**
 01 Lanzamiento con dos niveles · 02 Todos los niveles, con Inspirer y Ambassador · 03 Wallet, donde viven los perks ganados · 04 Badges por logros, ciudades y rachas
 
 **Badges**
-Blogger, equipo NomadHer y Ambassador, visibles en el Lounge, Travel Buddy, el detalle de cada post, Inbox y comentarios, con un pop-up que explica cada uno. El badge de Blogger conecta el producto con el programa de bloggers.
+*Problema.* En el Lounge no se distinguía a una blogger del programa, a alguien del equipo o a una embajadora de cualquier otra cuenta.
+*Hipótesis.* Un badge junto al nombre, visible en todos los espacios, da contexto y confianza sin una sola palabra.
+*Solución.* Blogger, equipo NomadHer y Ambassador, visibles en el Lounge, Travel Buddy, el detalle de cada post, Inbox y comentarios, con un pop-up que explica cada uno. El badge de Blogger conecta el producto con el programa de bloggers.
 
 **Notificaciones e Inbox**
-Separé alertas de conversaciones. Fase 1: cada notificación con su acción directa (Say hi, View plan, Open chat, Share story), agrupadas por hoy, ayer, esta semana y este mes. Fase 2: filtros Social, Meetups y System. Reglas de envío: recordatorios a 24 horas, 2 horas y 30 minutos, silencio de 22 a 8, máximo ocho push al día y likes agrupados cada hora.
+*Problema.* Alertas y conversaciones llegaban mezcladas a la misma bandeja, se acumulaban y nunca se limpiaban.
+*Hipótesis.* Si cada notificación trae su acción y las conversaciones viven aparte, la bandeja se vacía sola.
+*Solución.* Separé alertas de conversaciones. Fase 1: cada notificación con su acción directa (Say hi, View plan, Open chat, Share story), agrupadas por hoy, ayer, esta semana y este mes. Fase 2: filtros Social, Meetups y System. Reglas de envío: recordatorios a 24 horas, 2 horas y 30 minutos, silencio de 22 a 8, máximo ocho push al día y likes agrupados cada hora.
 
 **Perks y wallet**
-Una página de Perks, un slider de cuatro en el Lounge y un detalle donde el código se lee como un ticket, con estado "Copied". Comercios locales sin código y QR para los aliados grandes. NomadCard, la tarjeta de miembro con formato NH-año-0000. Y el wallet como fase 3 de niveles, con aviso cuando un perk está por vencer.
+*Problema.* Los beneficios de las marcas aliadas estaban dispersos y el valor de ser miembro no se veía en ningún lado.
+*Hipótesis.* Un perk tiene que leerse como un ticket: se encuentra, se copia y se usa en tres toques.
+*Solución.* Una página de Perks, un slider de cuatro en el Lounge y un detalle donde el código se lee como un ticket, con estado "Copied". Comercios locales sin código y QR para los aliados grandes. NomadCard, la tarjeta de miembro con formato NH-año-0000. Y el wallet como fase 3 de niveles, con aviso cuando un perk está por vencer.
 
 ---
 
@@ -720,7 +775,42 @@ Vender un destino desconocido sin fotos de postal. Lo que tiene Gangjin son pers
 Conté el pueblo como una historia, con postales y notas escritas a mano dentro del carrusel. Para la edición con el condado, la misma voz en un sistema completo: posts de lanzamiento en el Lounge, experience posts y banner en la app, con una promesa más directa: dos días para empezar algo, con una Living Library de cuatro mujeres que volvieron a empezar.
 
 **03 Result**
-Dos convocatorias en dos meses con una sola identidad. La edición con el condado salió con ocho plazas, selección por aplicación y un precio simbólico de ₩30.000, y las piezas quedaron como plantilla para las siguientes ediciones regionales.
+Dos convocatorias en dos meses con una sola identidad. La edición con el condado recibió 31 postulaciones para ocho plazas, con selección por aplicación y un precio simbólico de ₩30.000, y las piezas quedaron como plantilla para las siguientes ediciones regionales.
+
+---
+
+---
+
+## 1.17 She Can Reset Anywhere · Jeonnam
+
+**CARD**
+Etiquetas · Campaña · 2026
+Meta · NomadHer · Jeonnam, 2026
+Título · She Can Reset Anywhere
+Descripción · Un fin de semana para apagar el teléfono entre Naju, Hampyeong y Muan, contado como un reset.
+Tags · Campaña · Dirección de arte
+Filtros · Marketing y contenido · Diseño gráfico · Eventos y talleres
+
+**PÁGINA**
+
+**Título** · She Can Reset Anywhere · Jeonnam
+
+**Descripción**
+Dos días desde Seúl hasta los rincones tranquilos de Jeonnam para doce mujeres: baño de bosque en Naju, yoga al atardecer frente al mar de Hampyeong, noche en un hanok con vista al mar y hamacas en Muan. Diseñé la campaña con la que se abrió la convocatoria.
+
+**Overview**
+Cliente · NomadHer con Jeollanam-do
+Mi rol · Concepto, copy y diseño de las piezas
+Tipo de proyecto · Campaña de convocatoria
+
+**01 Challenge**
+Después del Wellness Creator Trip con creadoras, este viaje era para cualquier mujer de la comunidad. Había que vender descanso, no contenido, y explicar dos días de itinerario sin que pareciera un folleto de agencia.
+
+**02 Approach**
+La idea fue un "soft reset": una pantalla de carga que se convierte en el viaje. Tres verbos ordenan todo, log off, breathe in, reset, uno por parada, y las notas del teléfono cuentan el día a día. El mismo sistema en el post de lanzamiento del Lounge, los experience posts de la app y el banner.
+
+**03 Result**
+La convocatoria salió en la app y la web con doce plazas y selección por aplicación, y la campaña dejó un formato de un verbo por parada listo para las siguientes rutas de la región.
 
 ---
 

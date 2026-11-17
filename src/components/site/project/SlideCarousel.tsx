@@ -49,7 +49,7 @@ export function SlideCarousel({
       {/* The scroll box is a little wider than the text on both sides (and taller), so each slide's own shadow is never clipped at the start. */}
       <ul
         ref={trackRef}
-        className="-mx-5 flex snap-x snap-mandatory [scroll-padding-inline:1.25rem] gap-4 overflow-x-auto scroll-smooth px-5 py-8 [scrollbar-width:none] sm:-mx-8 sm:[scroll-padding-inline:2rem] sm:gap-6 sm:px-8 [&::-webkit-scrollbar]:hidden"
+        className="-mx-5 flex snap-x snap-mandatory items-center [scroll-padding-inline:1.25rem] gap-4 overflow-x-auto scroll-smooth px-5 py-8 [scrollbar-width:none] sm:-mx-8 sm:[scroll-padding-inline:2rem] sm:gap-6 sm:px-8 [&::-webkit-scrollbar]:hidden"
       >
         {slides.map(({ src, aspect }, i) => (
           <li
