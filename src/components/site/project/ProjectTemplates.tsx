@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PhoneScroller } from "@/components/site/project/PhoneScroller";
 import type { Locale } from "@/content/types";
 import {
   getImageAspect,
@@ -139,15 +140,13 @@ export function PhoneFrame({
         style={{ aspectRatio: `${375} / ${852}` }}
       >
         {scrolls ? (
-          <Image
+          <PhoneScroller
             src={src}
-            alt=""
             width={750}
             height={Math.round(750 / (aspect as number))}
             sizes={sizes}
             priority={priority}
-            quality={90}
-            className="phone-screen absolute inset-x-0 top-0 h-auto w-full"
+            seconds={seconds}
           />
         ) : (
           <Image
@@ -156,7 +155,7 @@ export function PhoneFrame({
             fill
             sizes={sizes}
             priority={priority}
-            quality={90}
+            quality={92}
             className="object-cover object-top"
           />
         )}

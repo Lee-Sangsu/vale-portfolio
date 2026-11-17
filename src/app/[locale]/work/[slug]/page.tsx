@@ -199,6 +199,7 @@ const SCREEN_GROUP_TITLES: Record<string, Record<Locale, string>> = {
   "ex-states": { es: "Explore · tres estados", en: "Explore · three states" },
   "ex-search": { es: "La búsqueda", en: "The search" },
   "ex-chat": { es: "El chat de ciudad", en: "The city chat" },
+  "ex-empty": { es: "Cuando la ciudad está vacía", en: "When the city is empty" },
   "pp-seoul": { es: "People · Seúl", en: "People · Seoul" },
   "pp-weekly": { es: "Every week · sin host", en: "Every week · no host" },
   "pp-upfor": { es: "What are you up for?", en: "What are you up for?" },

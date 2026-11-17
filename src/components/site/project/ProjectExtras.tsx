@@ -174,7 +174,7 @@ export function ProjectExtras({ extras, screens }: { extras: Extra[]; screens?: 
                       <li key={src}>
                         <PhoneFrame
                           src={src}
-                          sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 45vw"
+                          sizes="(min-width: 1024px) 400px, (min-width: 640px) 40vw, 60vw"
                           aspect={aspect}
                         />
                       </li>

@@ -1588,7 +1588,7 @@
                 }
               ],
               "challenge": "El objetivo que nos pusimos en febrero fue simple: que las usuarias tengan ganas de escribir. Las entrevistas mostraban lo contrario. Un post en Seúl se perdía en minutos entre el volumen de contenido, la caja de comentarios se bloqueaba y escribir una guía larga era incómodo. Una usuaria lo resumió pidiendo salas por ciudad, al estilo Discord.",
-              "approach": "Primero, lo que frenaba: rediseño de comentarios en tres opciones, likes y respuestas en una sola lógica, un post detail nuevo y un solo campo de contenido evidente al publicar. Después, el research: benchmark de once productos, de Timeleft y Nomad List a Strava, del que saqué ocho patrones. Con ellos armé una propuesta en cuatro fases, y de la primera salió Explore: especificada pantalla por pantalla, sección por sección, y entregada en Figma y Notion.",
+              "approach": "Primero, lo que frenaba: rediseño de comentarios en tres opciones, likes y respuestas en una sola lógica, un post detail nuevo y un solo campo de contenido evidente al publicar. Después, el research: benchmark de once productos, de Timeleft y Nomad List a Strava, y de ahí salió Explore: especificado pantalla por pantalla, sección por sección, y entregado en Figma y Notion.",
               "result": "Comentarios, likes y post detail rediseñados y entregados al equipo técnico, banners por campaña en producción, y Explore · Phase 1 especificado completo: tres estados, siete secciones, la búsqueda y las reglas para la ciudad vacía. El benchmark de Explore y People (Tinder, Bumble BFF, Corner, NomadTable, Timeleft) dejó la regla de fondo: la gente se encuentra alrededor de un plan o un lugar, no de un perfil. Un tip lleva a un lugar, el lugar muestra a las mujeres que lo quieren, y esas mujeres llevan a un plan.",
               "extras": [
                 {
@@ -1608,7 +1608,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Explore abre en Everywhere. Al elegir una ciudad, cada sección habla de esa ciudad: \"Seoul · 48 posts this week\", los blogs de Seúl primero, los perks de Seúl, \"Tips about Seoul\", \"Landing in Seoul this week\". Al escribir una palabra que no es un lugar (kimchi, hiking, night bus), la misma página se vuelve resultados para esa palabra. Mismo orden, siete secciones, tres estados."
+                          "text": "Explore abre en Everywhere: el carrusel de campañas, Blogs, NomadHer Perks, Tips around the world, Travelling this week y Posts around the world. Al elegir una ciudad, la barra la deja fija y cada sección habla de ella: aparece el chip Seoul en Blogs, \"Tips about Seoul\", \"Landing in Seoul this week · Say hi before they land\" y \"Posts about Seoul\". Al escribir una palabra que no es un lugar (kimchi), la misma página se vuelve resultados para esa palabra: \"Tips about kimchi · 1 tip so far\", \"Posts about kimchi\". Mismo orden, siete secciones, tres estados."
                         }
                       ]
                     }
@@ -1631,7 +1631,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Un sheet que sugiere Everywhere, la ciudad de su Travel Status y las ciudades con más posts esta semana. Al escribir, tres bloques: Cities, Country y \"Search 'Seo' in all posts\". Show all abre el lugar exacto o los resultados de la palabra; Clear all vuelve a Everywhere. Mayúsculas y tildes no importan: Bogota encuentra Bogotá."
+                          "text": "El sheet \"Explore the Lounge\" pregunta \"Who's writing about\" y sugiere Everywhere, la ciudad de su Travel Status y las ciudades con más posts esta semana, cada una con bandera y conteo. Al escribir \"Seo\", tres bloques: Cities (Seoul, Seogwipo, Seongnam), Country (South Korea · All cities) y Posts that mention it (\"Search 'Seo' in all posts · Tips, diaries and trips with that word\"). Show all abre el lugar exacto o los resultados de la palabra; Clear all vuelve a Everywhere. Mayúsculas y tildes no importan: Bogota encuentra Bogotá."
                         }
                       ]
                     }
@@ -1650,11 +1650,11 @@
                         },
                         {
                           "lead": "Hipótesis",
-                          "text": "Contar antes de mostrar caras: un número de mujeres hablando esta semana invita más que una lista de perfiles."
+                          "text": "Saber cuántas mujeres están hablando de Seúl esta semana invita más que una lista de perfiles."
                         },
                         {
                           "lead": "Solución",
-                          "text": "Con una ciudad elegida, el banner de arriba cambia a \"This week in Seoul · 12 NomadHers are chatting\", con sus caras y \"Join the chat\". El número cuenta a quienes escribieron en los últimos 7 días, el banner es la única puerta al chat de ciudad, y si la ciudad todavía no tiene chat vuelve el carrusel de campañas."
+                          "text": "Con una ciudad elegida, el banner de arriba cambia a \"This week in Seoul · 12 NomadHers are chatting\", con sus caras y \"Join the chat →\". El número cuenta a quienes escribieron en los últimos 7 días, el banner es la única puerta al chat de ciudad, y si la ciudad todavía no tiene chat vuelve el carrusel de campañas. Dentro, la card \"Weekly chat · Seoul, Korea · Ask for tips and meet women who are in Seoul this week\" abre la conversación, y la pestaña Members lista \"In Seoul this week · 12\": quién es local, expat, nómada digital o viajera, y hasta qué día se queda."
                         }
                       ]
                     }
@@ -1677,69 +1677,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Sin chat, carrusel de campañas. Sin blogs, \"Coming soon\". Sin tips, una card verde: \"Been to Lyon? Add your tip · Takes a minute\". Sin nadie aterrizando, la sección se oculta. Perks siempre muestra los que sirven en cualquier parte. Y al final, en todos los estados: \"Your turn to share\"."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Los ocho patrones",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "Ciudad más rango de fechas",
-                        "contar antes de mostrar caras",
-                        "un chat de ciudad que existe antes de que llegue nadie",
-                        "una ventana de 14 días antes a 3 después",
-                        "chips de intención en lugar de texto libre",
-                        "un ritual semanal sin host",
-                        "visibilidad mutua con aprobación",
-                        "lugar público y revelación tardía"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "La regla de fondo",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "La unidad es la ciudad más las fechas, nunca la ubicación exacta. Ciudad y fechas, sí; dónde está una persona, nunca. Lo que nadie resuelve bien, y nuestra ventaja: solo mujeres y verificadas, un solo Inbox, chats que se cierran solos y ninguna mujer escondida detrás de un pago."
-                    }
-                  ]
-                },
-                {
-                  "title": "Lo que viene",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "Meetups, los planes semanales, What are you up for y las travel buddies viven en People. Explore es para leer la ciudad; People, para conocer a las mujeres que están en ella. El mapa con lugares y conteos por barrio sigue en exploración."
-                    }
-                  ]
-                },
-                {
-                  "title": "Banners del Lounge",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problema",
-                          "text": "Cada campaña nueva pedía un banner a medida y varios días de ida y vuelta con el equipo técnico."
-                        },
-                        {
-                          "lead": "Hipótesis",
-                          "text": "Si el banner es un sistema configurable, montar una campaña debería tomar minutos, no días."
-                        },
-                        {
-                          "lead": "Solución",
-                          "text": "Banners configurables por campaña, en carrusel y enlazados a la experiencia. Después definí el duplicado de banners y la publicación en varias ubicaciones a la vez."
+                          "text": "Cada sección tiene su plan B. Si la ciudad no tiene chat, arriba se queda el carrusel de campañas. Si un filtro de blogs está vacío, la página lo dice sin drama (\"More blogs are on their way\") y propone otros blogs para leer mientras tanto; una card deja pedir el tema que falta. Si no hay tips, aparece una invitación a escribir el primero, con cuatro ideas para arrancar: tu café favorito, lo que te habría gustado saber, cómo moverte, un lugar escondido. Si nadie aterriza esa semana, la sección desaparece. Perks siempre muestra los que sirven en cualquier parte, y la página cierra igual en todos los estados: \"Your turn to share\"."
                         }
                       ]
                     }
@@ -1790,7 +1728,7 @@
                 }
               ],
               "challenge": "The goal we set in February was simple: make users want to write. The interviews showed the opposite. A post in Seoul got lost in minutes under the volume of content, the comment box froze and writing a long guide was awkward. One user summed it up by asking for rooms by city, Discord style.",
-              "approach": "First, what was holding people back: a comment redesign in three options, likes and replies in a single logic, a new post detail and a single, obvious content field when publishing. Then, the research: a benchmark of eleven products, from Timeleft and Nomad List to Strava, from which I pulled eight patterns. With them I built a four-phase proposal, and the first phase became Explore: specified screen by screen, section by section, and handed over in Figma and Notion.",
+              "approach": "First, what was holding people back: a comment redesign in three options, likes and replies in a single logic, a new post detail and a single, obvious content field when publishing. Then, the research: a benchmark of eleven products, from Timeleft and Nomad List to Strava, and out of it came Explore: specified screen by screen, section by section, and handed over in Figma and Notion.",
               "result": "Comments, likes and post detail redesigned and handed to the engineering team, campaign banners in production, and Explore · Phase 1 fully specified: three states, seven sections, the search and the rules for an empty city. The Explore and People benchmark (Tinder, Bumble BFF, Corner, NomadTable, Timeleft) set the underlying rule: people meet around a plan or a place, not a profile. A tip leads to a place, the place shows the women who want it, and those women lead to a plan.",
               "extras": [
                 {
@@ -1810,7 +1748,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "Explore opens on Everywhere. When she picks a city, every section talks about that city: \"Seoul · 48 posts this week\", Seoul blogs first, Seoul perks, \"Tips about Seoul\", \"Landing in Seoul this week\". When she types a word that is not a place (kimchi, hiking, night bus), the same page turns into results for that word. Same order, seven sections, three states."
+                          "text": "Explore opens on Everywhere: the campaign carousel, Blogs, NomadHer Perks, Tips around the world, Travelling this week and Posts around the world. When she picks a city, the bar keeps it and every section talks about it: a Seoul chip appears in Blogs, \"Tips about Seoul\", \"Landing in Seoul this week · Say hi before they land\" and \"Posts about Seoul\". When she types a word that is not a place (kimchi), the same page turns into results for that word: \"Tips about kimchi · 1 tip so far\", \"Posts about kimchi\". Same order, seven sections, three states."
                         }
                       ]
                     }
@@ -1833,7 +1771,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "A sheet that suggests Everywhere, the city in her Travel Status and the cities with the most posts this week. While she types, three blocks: Cities, Country and \"Search 'Seo' in all posts\". Show all opens the exact place or the word results; Clear all goes back to Everywhere. Capitals and accents don't matter: Bogota finds Bogotá."
+                          "text": "The \"Explore the Lounge\" sheet asks \"Who's writing about\" and suggests Everywhere, the city in her Travel Status and the cities with the most posts this week, each with its flag and count. Typing \"Seo\" gives three blocks: Cities (Seoul, Seogwipo, Seongnam), Country (South Korea · All cities) and Posts that mention it (\"Search 'Seo' in all posts · Tips, diaries and trips with that word\"). Show all opens the exact place or the word results; Clear all goes back to Everywhere. Capitals and accents don't matter: Bogota finds Bogotá."
                         }
                       ]
                     }
@@ -1852,11 +1790,11 @@
                         },
                         {
                           "lead": "Hypothesis",
-                          "text": "Count before showing faces: a number of women chatting this week invites more than a list of profiles."
+                          "text": "Knowing how many women are talking about Seoul this week invites more than a list of profiles."
                         },
                         {
                           "lead": "Solution",
-                          "text": "With a city picked, the top banner becomes \"This week in Seoul · 12 NomadHers are chatting\", with their faces and \"Join the chat\". The number counts women who wrote in the last 7 days, the banner is the only door to the city chat, and if the city has no chat yet the campaign carousel shows instead."
+                          "text": "With a city picked, the top banner becomes \"This week in Seoul · 12 NomadHers are chatting\", with their faces and \"Join the chat →\". The number counts women who wrote in the last 7 days, the banner is the only door to the city chat, and if the city has no chat yet the campaign carousel shows instead. Inside, the card \"Weekly chat · Seoul, Korea · Ask for tips and meet women who are in Seoul this week\" opens the conversation, and the Members tab lists \"In Seoul this week · 12\": who is a local, an expat, a digital nomad or a traveller, and until which day she stays."
                         }
                       ]
                     }
@@ -1879,69 +1817,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "No chat, campaign carousel. No blogs, \"Coming soon\". No tips, a light green card: \"Been to Lyon? Add your tip · Takes a minute\". Nobody landing, the section hides. Perks always show the ones that work anywhere. And at the end, in every state: \"Your turn to share\"."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "The eight patterns",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "City plus date range",
-                        "count before showing faces",
-                        "a city chat that exists before anyone arrives",
-                        "a window of 14 days before to 3 after",
-                        "intent chips instead of free text",
-                        "a weekly hostless ritual",
-                        "mutual visibility with approval",
-                        "public place and late reveal"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "The underlying rule",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "The unit is the city plus the dates, never the exact location. City and dates, yes; where a person is, never. What everyone gets wrong, and our advantage: women-only and verified, a single Inbox, chats that close on their own and no woman hidden behind a paywall."
-                    }
-                  ]
-                },
-                {
-                  "title": "What's next",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "p",
-                      "text": "Meetups, weekly plans, What are you up for and travel buddies live in People. Explore is for reading the city; People is for meeting the women in it. The map with places and counts per neighborhood is still in exploration."
-                    }
-                  ]
-                },
-                {
-                  "title": "Lounge banners",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problem",
-                          "text": "Every new campaign needed a custom banner and days of back and forth with the engineering team."
-                        },
-                        {
-                          "lead": "Hypothesis",
-                          "text": "If the banner is a configurable system, setting up a campaign should take minutes, not days."
-                        },
-                        {
-                          "lead": "Solution",
-                          "text": "Banners configurable by campaign, in a carousel and linked to the experience. After that I defined banner duplication and publishing to several placements at once."
+                          "text": "Every section has a plan B. If the city has no chat, the campaign carousel stays on top. If a blog filter is empty, the page says so without drama (\"More blogs are on their way\") and offers other blogs to read meanwhile; a card lets her ask for the missing topic. If there are no tips, an invitation to write the first one appears, with four ideas to start: your favourite café, what you wish you had known, getting around, a hidden spot. If nobody is landing that week, the section disappears. Perks always show the ones that work anywhere, and the page ends the same way in every state: \"Your turn to share\"."
                         }
                       ]
                     }
@@ -2137,7 +2013,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "People, con la misma barra de búsqueda que Explore: \"Seoul · Nov 3 → 10 · your dates\". Debajo, Currently Active con su ciudad primero, Meetups in Seoul, Every week, What are you up for y Travel buddies con \"On my dates\" ya seleccionado. Sin ciudad, muestra quién está activa, meetups y buddies de todo el mundo."
+                          "text": "People, con la misma barra de búsqueda que Explore; con una ciudad elegida, la barra muestra la ciudad y las fechas de su viaje. Debajo, Currently Active (\"10 online\", cada una con Local in, Expat in o Traveler in y su bandera), Meetups in Seoul, Every week · no host, What are you up for? y Travel buddies in Seoul con All, Travelers, Locals y Expats. Sin ciudad, las mismas secciones \"around the world\", y Every week y What are you up for desaparecen."
                         }
                       ]
                     }
@@ -2160,7 +2036,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Cinco planes por ciudad. En Seúl: miércoles 19:30 Euljiro night, viernes 10:00 Coffee and laptops en Yeonnam, sábado 8:00 Namsan walk, sábado 16:00 Bike the Han River, domingo 9:00 Gwangjang market breakfast. Count me in la mete al chat de esa semana, hasta cinco mujeres; el chat abre con la primera y cierra al día siguiente del plan. Recordatorio la tarde anterior."
+                          "text": "Planes fijos por ciudad, \"Every Wednesday · No host\": día y hora (\"Wednesdays · 19:30 · next one 5 Nov\"), punto de encuentro (\"Euljiro 3-ga station, exit 4\"), quién va (\"2 going · 3 spots left\"), About this plan y de quién salió (\"From a tip by Ana · public place, same plan every week\"). En Seúl: Street beer night en Euljiro, Coffee and laptops en Yeonnam y en Seongsu, Weekend brunch en Gangnam, Karaoke night en Hongdae, Korean BBQ night en Mapo y Shopping afternoon en Hongdae. Count me in la mete al chat de esa semana, hasta cinco mujeres. El chat abre con la card del plan y \"How this plan works\": nadie lo organiza, la guía está en Details y aquí solo acuerdan dónde encontrarse. Cierra al día siguiente."
                         }
                       ]
                     }
@@ -2183,7 +2059,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Cuatro moods: Cultural, Outdoors, Foodies y Cafés, doce lugares cada uno. La card muestra el lugar, el barrio, qué se lleva y cuántas mujeres están interesadas; nunca una fecha. ⓘ abre cómo llegar, horarios, precio y el tip de la mujer que lo sugirió. Todo se edita desde NomadMin; NomadHer nunca es host."
+                          "text": "Cuatro moods: Cultural, Outdoors, Foodies y Cafés, con la regla arriba: \"Like a place. A match opens a group chat.\" Cada card muestra el lugar (\"Visit Gyeongbokgung Palace in hanbok\"), el barrio (Jongno), una línea de qué se hace y cuántas están interesadas (\"3 interested\"); nunca una fecha. ⓘ abre la guía completa. Al final de cada mazo, \"Didn't find your plan? · Create a meetup\". Todo se edita desde NomadMin; NomadHer nunca es host."
                         }
                       ]
                     }
@@ -2206,7 +2082,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Cuando una segunda mujer da like al mismo lugar, las dos ven \"It's a plan!\" y entran a un chat de grupo con 7 días para elegir día. Arriba, \"Pick a day · 6 days left\"; fijada, la guía del lugar: estación y salida, horarios, precio, el tip. Cada like nuevo se suma hasta cinco; el sexto abre un segundo grupo. Si no eligen día, el chat cierra y el lugar vuelve al swipe. Después, la encuesta del meetup."
+                          "text": "Cuando una segunda mujer da like al mismo lugar, las dos ven \"It's a plan!\" y entran a un chat de grupo. Arriba, \"This chat closes in 10 days\"; el primer mensaje es \"You all picked this plan · Nobody hosts it, so agree on a day here. Everything else is in Details\". Al elegir día, la cabecera pasa a \"Thursday 6 Nov · 9:00 · day picked\". En Details, la guía del lugar: chips (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), The plan hora por hora, What it costs, Hours, Our tips y Keep the day going con el siguiente plan a pie, firmada \"From a tip by Mina · edited by NomadHer\". Cada like nuevo se suma hasta cinco; el sexto abre un segundo grupo. Si no eligen día, el chat cierra y el lugar vuelve al swipe. Después, la encuesta del meetup."
                         }
                       ]
                     }
@@ -2413,7 +2289,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "People, with the same search bar as Explore: \"Seoul · Nov 3 → 10 · your dates\". Below it, Currently Active with her city first, Meetups in Seoul, Every week, What are you up for and Travel buddies with \"On my dates\" already selected. With no city, it shows who is active, meetups and buddies from everywhere."
+                          "text": "People, with the same search bar as Explore; with a city picked, the bar shows the city and her trip dates. Below it, Currently Active (\"10 online\", each with Local in, Expat in or Traveler in and her flag), Meetups in Seoul, Every week · no host, What are you up for? and Travel buddies in Seoul with All, Travelers, Locals and Expats. With no city, the same sections \"around the world\", and Every week and What are you up for disappear."
                         }
                       ]
                     }
@@ -2436,7 +2312,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "Five plans per city. In Seoul: Wednesday 19:30 Euljiro night, Friday 10:00 Coffee and laptops in Yeonnam, Saturday 8:00 Namsan walk, Saturday 16:00 Bike the Han River, Sunday 9:00 Gwangjang market breakfast. Count me in adds her to that week's chat, up to five women; the chat opens with the first one and closes the day after the plan. A reminder the evening before."
+                          "text": "Fixed plans per city, \"Every Wednesday · No host\": day and time (\"Wednesdays · 19:30 · next one 5 Nov\"), meeting point (\"Euljiro 3-ga station, exit 4\"), who is going (\"2 going · 3 spots left\"), About this plan and whose idea it was (\"From a tip by Ana · public place, same plan every week\"). In Seoul: Street beer night in Euljiro, Coffee and laptops in Yeonnam and in Seongsu, Weekend brunch in Gangnam, Karaoke night in Hongdae, Korean BBQ night in Mapo and Shopping afternoon in Hongdae. Count me in adds her to that week's chat, up to five women. The chat opens with the plan card and \"How this plan works\": nobody hosts it, the guide is in Details and here they only agree on where to find each other. It closes the day after."
                         }
                       ]
                     }
@@ -2459,7 +2335,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "Four moods: Cultural, Outdoors, Foodies and Cafés, twelve places each. The card shows the place, the area, what she gets and how many women are interested; never a date. ⓘ opens how to get there, hours, price and the tip from the woman who suggested it. Everything is edited in NomadMin; NomadHer never hosts."
+                          "text": "Four moods: Cultural, Outdoors, Foodies and Cafés, with the rule on top: \"Like a place. A match opens a group chat.\" Each card shows the place (\"Visit Gyeongbokgung Palace in hanbok\"), the area (Jongno), one line on what you do and how many are interested (\"3 interested\"); never a date. ⓘ opens the full guide. At the end of each deck, \"Didn't find your plan? · Create a meetup\". Everything is edited in NomadMin; NomadHer never hosts."
                         }
                       ]
                     }
@@ -2482,7 +2358,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "When a second woman likes the same place, both see \"It's a plan!\" and enter a group chat with 7 days to pick a day. On top, \"Pick a day · 6 days left\"; pinned, the place guide: station and exit, hours, price, the tip. Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. Afterwards, the meetup survey."
+                          "text": "When a second woman likes the same place, both see \"It's a plan!\" and enter a group chat. On top, \"This chat closes in 10 days\"; the first message is \"You all picked this plan · Nobody hosts it, so agree on a day here. Everything else is in Details\". Once a day is picked, the header reads \"Thursday 6 Nov · 9:00 · day picked\". In Details, the place guide: chips (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), The plan hour by hour, What it costs, Hours, Our tips and Keep the day going with the next plan on foot, signed \"From a tip by Mina · edited by NomadHer\". Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. Afterwards, the meetup survey."
                         }
                       ]
                     }

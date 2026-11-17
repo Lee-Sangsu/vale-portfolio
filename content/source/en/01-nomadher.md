@@ -407,7 +407,7 @@ Tipo de proyecto · Redesign of a community space
 The goal we set in February was simple: make users want to write. The interviews showed the opposite. A post in Seoul got lost in minutes under the volume of content, the comment box froze and writing a long guide was awkward. One user summed it up by asking for rooms by city, Discord style.
 
 **02 Approach**
-First, what was holding people back: a comment redesign in three options, likes and replies in a single logic, a new post detail and a single, obvious content field when publishing. Then, the research: a benchmark of eleven products, from Timeleft and Nomad List to Strava, from which I pulled eight patterns. With them I built a four-phase proposal, and the first phase became Explore: specified screen by screen, section by section, and handed over in Figma and Notion.
+First, what was holding people back: a comment redesign in three options, likes and replies in a single logic, a new post detail and a single, obvious content field when publishing. Then, the research: a benchmark of eleven products, from Timeleft and Nomad List to Strava, and out of it came Explore: specified screen by screen, section by section, and handed over in Figma and Notion.
 
 **03 Result**
 Comments, likes and post detail redesigned and handed to the engineering team, campaign banners in production, and Explore · Phase 1 fully specified: three states, seven sections, the search and the rules for an empty city. The Explore and People benchmark (Tinder, Bumble BFF, Corner, NomadTable, Timeleft) set the underlying rule: people meet around a plan or a place, not a profile. A tip leads to a place, the place shows the women who want it, and those women lead to a plan.
@@ -417,36 +417,22 @@ Comments, likes and post detail redesigned and handed to the engineering team, c
 **Explore · three states**
 *Problem.* The Lounge was a global feed: a woman in Seoul read posts from Bali and never found the one sitting next to her.
 *Hypothesis.* One page can serve dreaming about a trip, planning it and being there, if it changes state with what she picks.
-*Solution.* Explore opens on Everywhere. When she picks a city, every section talks about that city: "Seoul · 48 posts this week", Seoul blogs first, Seoul perks, "Tips about Seoul", "Landing in Seoul this week". When she types a word that is not a place (kimchi, hiking, night bus), the same page turns into results for that word. Same order, seven sections, three states.
+*Solution.* Explore opens on Everywhere: the campaign carousel, Blogs, NomadHer Perks, Tips around the world, Travelling this week and Posts around the world. When she picks a city, the bar keeps it and every section talks about it: a Seoul chip appears in Blogs, "Tips about Seoul", "Landing in Seoul this week · Say hi before they land" and "Posts about Seoul". When she types a word that is not a place (kimchi), the same page turns into results for that word: "Tips about kimchi · 1 tip so far", "Posts about kimchi". Same order, seven sections, three states.
 
 **The search**
 *Problem.* Searching a city, a country or a topic were three different things, and the app had none of them.
 *Hypothesis.* One bar can understand all three if results are grouped and a city applies in one tap.
-*Solution.* A sheet that suggests Everywhere, the city in her Travel Status and the cities with the most posts this week. While she types, three blocks: Cities, Country and "Search 'Seo' in all posts". Show all opens the exact place or the word results; Clear all goes back to Everywhere. Capitals and accents don't matter: Bogota finds Bogotá.
+*Solution.* The "Explore the Lounge" sheet asks "Who's writing about" and suggests Everywhere, the city in her Travel Status and the cities with the most posts this week, each with its flag and count. Typing "Seo" gives three blocks: Cities (Seoul, Seogwipo, Seongnam), Country (South Korea · All cities) and Posts that mention it ("Search 'Seo' in all posts · Tips, diaries and trips with that word"). Show all opens the exact place or the word results; Clear all goes back to Everywhere. Capitals and accents don't matter: Bogota finds Bogotá.
 
 **The city chat**
 *Problem.* Knowing there are 48 posts from Seoul says nothing about whether anyone is there this week, which is what matters for meeting up.
-*Hypothesis.* Count before showing faces: a number of women chatting this week invites more than a list of profiles.
-*Solution.* With a city picked, the top banner becomes "This week in Seoul · 12 NomadHers are chatting", with their faces and "Join the chat". The number counts women who wrote in the last 7 days, the banner is the only door to the city chat, and if the city has no chat yet the campaign carousel shows instead.
+*Hypothesis.* Knowing how many women are talking about Seoul this week invites more than a list of profiles.
+*Solution.* With a city picked, the top banner becomes "This week in Seoul · 12 NomadHers are chatting", with their faces and "Join the chat →". The number counts women who wrote in the last 7 days, the banner is the only door to the city chat, and if the city has no chat yet the campaign carousel shows instead. Inside, the card "Weekly chat · Seoul, Korea · Ask for tips and meet women who are in Seoul this week" opens the conversation, and the Members tab lists "In Seoul this week · 12": who is a local, an expat, a digital nomad or a traveller, and until which day she stays.
 
 **When the city is empty**
 *Problem.* A city with little content looked broken, and a broken page doesn't invite anyone to write.
 *Hypothesis.* Every gap is an invitation if it says exactly what to do.
-*Solution.* No chat, campaign carousel. No blogs, "Coming soon". No tips, a light green card: "Been to Lyon? Add your tip · Takes a minute". Nobody landing, the section hides. Perks always show the ones that work anywhere. And at the end, in every state: "Your turn to share".
-
-**The eight patterns**
-City plus date range · count before showing faces · a city chat that exists before anyone arrives · a window of 14 days before to 3 after · intent chips instead of free text · a weekly hostless ritual · mutual visibility with approval · public place and late reveal
-
-**The underlying rule**
-The unit is the city plus the dates, never the exact location. City and dates, yes; where a person is, never. What everyone gets wrong, and our advantage: women-only and verified, a single Inbox, chats that close on their own and no woman hidden behind a paywall.
-
-**What's next**
-Meetups, weekly plans, What are you up for and travel buddies live in People. Explore is for reading the city; People is for meeting the women in it. The map with places and counts per neighborhood is still in exploration.
-
-**Lounge banners**
-*Problem.* Every new campaign needed a custom banner and days of back and forth with the engineering team.
-*Hypothesis.* If the banner is a configurable system, setting up a campaign should take minutes, not days.
-*Solution.* Banners configurable by campaign, in a carousel and linked to the experience. After that I defined banner duplication and publishing to several placements at once.
+*Solution.* Every section has a plan B. If the city has no chat, the campaign carousel stays on top. If a blog filter is empty, the page says so without drama ("More blogs are on their way") and offers other blogs to read meanwhile; a card lets her ask for the missing topic. If there are no tips, an invitation to write the first one appears, with four ideas to start: your favourite café, what you wish you had known, getting around, a hidden spot. If nobody is landing that week, the section disappears. Perks always show the ones that work anywhere, and the page ends the same way in every state: "Your turn to share".
 
 ---
 
@@ -513,22 +499,22 @@ Survey completion · attendance versus no-shows · reasons · distribution of sa
 **People · Seoul**
 *Problem.* Travel Buddy returned every woman in a city without knowing when she would be there, and plans were still being made on WhatsApp.
 *Hypothesis.* If the tab opens on her trip, city and dates, everything else falls into place.
-*Solution.* People, with the same search bar as Explore: "Seoul · Nov 3 → 10 · your dates". Below it, Currently Active with her city first, Meetups in Seoul, Every week, What are you up for and Travel buddies with "On my dates" already selected. With no city, it shows who is active, meetups and buddies from everywhere.
+*Solution.* People, with the same search bar as Explore; with a city picked, the bar shows the city and her trip dates. Below it, Currently Active ("10 online", each with Local in, Expat in or Traveler in and her flag), Meetups in Seoul, Every week · no host, What are you up for? and Travel buddies in Seoul with All, Travelers, Locals and Expats. With no city, the same sections "around the world", and Every week and What are you up for disappear.
 
 **Every week · no host**
 *Problem.* A meetup needed someone willing to organise it, and in a new city almost nobody dares.
 *Hypothesis.* A fixed ritual, same day, same time, same public spot, makes the meetup happen even if nobody calls it.
-*Solution.* Five plans per city. In Seoul: Wednesday 19:30 Euljiro night, Friday 10:00 Coffee and laptops in Yeonnam, Saturday 8:00 Namsan walk, Saturday 16:00 Bike the Han River, Sunday 9:00 Gwangjang market breakfast. Count me in adds her to that week's chat, up to five women; the chat opens with the first one and closes the day after the plan. A reminder the evening before.
+*Solution.* Fixed plans per city, "Every Wednesday · No host": day and time ("Wednesdays · 19:30 · next one 5 Nov"), meeting point ("Euljiro 3-ga station, exit 4"), who is going ("2 going · 3 spots left"), About this plan and whose idea it was ("From a tip by Ana · public place, same plan every week"). In Seoul: Street beer night in Euljiro, Coffee and laptops in Yeonnam and in Seongsu, Weekend brunch in Gangnam, Karaoke night in Hongdae, Korean BBQ night in Mapo and Shopping afternoon in Hongdae. Count me in adds her to that week's chat, up to five women. The chat opens with the plan card and "How this plan works": nobody hosts it, the guide is in Details and here they only agree on where to find each other. It closes the day after.
 
 **What are you up for?**
 *Problem.* Swiping through people is what dating apps do, and it is exactly what we didn't want.
 *Hypothesis.* If she swipes places and not women, a like says "I would go" without exposing anyone.
-*Solution.* Four moods: Cultural, Outdoors, Foodies and Cafés, twelve places each. The card shows the place, the area, what she gets and how many women are interested; never a date. ⓘ opens how to get there, hours, price and the tip from the woman who suggested it. Everything is edited in NomadMin; NomadHer never hosts.
+*Solution.* Four moods: Cultural, Outdoors, Foodies and Cafés, with the rule on top: "Like a place. A match opens a group chat." Each card shows the place ("Visit Gyeongbokgung Palace in hanbok"), the area (Jongno), one line on what you do and how many are interested ("3 interested"); never a date. ⓘ opens the full guide. At the end of each deck, "Didn't find your plan? · Create a meetup". Everything is edited in NomadMin; NomadHer never hosts.
 
 **The match and the chat**
 *Problem.* A like on a place is not a plan until someone picks a day.
 *Hypothesis.* Two women who want the same place only need a chat with a deadline.
-*Solution.* When a second woman likes the same place, both see "It's a plan!" and enter a group chat with 7 days to pick a day. On top, "Pick a day · 6 days left"; pinned, the place guide: station and exit, hours, price, the tip. Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. Afterwards, the meetup survey.
+*Solution.* When a second woman likes the same place, both see "It's a plan!" and enter a group chat. On top, "This chat closes in 10 days"; the first message is "You all picked this plan · Nobody hosts it, so agree on a day here. Everything else is in Details". Once a day is picked, the header reads "Thursday 6 Nov · 9:00 · day picked". In Details, the place guide: chips (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), The plan hour by hour, What it costs, Hours, Our tips and Keep the day going with the next plan on foot, signed "From a tip by Mina · edited by NomadHer". Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. Afterwards, the meetup survey.
 
 **Event chats**
 *Problem.* Anyone who bought an experience arrived at the event alone, without having spoken to anyone first.

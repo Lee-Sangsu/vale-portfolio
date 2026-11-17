@@ -67,29 +67,6 @@ function ScrollingLaptop({
 
   useEffect(() => {
     updateThumb();
-    const wrap = wrapRef.current;
-    const screen = screenRef.current;
-    if (!wrap || !screen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let timers: number[] = [];
-    // The first time the laptop comes into view, the site scrolls down and back on its own to show it can move.
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        observer.disconnect();
-        demoRef.current = true;
-        timers = [
-          window.setTimeout(() => screen.scrollTo({ top: screen.clientHeight * 0.45, behavior: "smooth" }), 900),
-          window.setTimeout(() => screen.scrollTo({ top: 0, behavior: "smooth" }), 2600),
-          window.setTimeout(() => (demoRef.current = false), 4200),
-        ];
-      },
-      { threshold: 0.6 },
-    );
-    observer.observe(wrap);
-    return () => {
-      observer.disconnect();
-      timers.forEach((t) => window.clearTimeout(t));
-    };
   }, []);
 
   // Any real interaction means the hint did its job.
