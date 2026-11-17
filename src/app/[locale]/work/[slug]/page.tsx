@@ -13,6 +13,7 @@ import { ProjectExtras } from "@/components/site/project/ProjectExtras";
 import { InstagramEmbeds } from "@/components/site/project/InstagramEmbeds";
 import { SlideCarousel } from "@/components/site/project/SlideCarousel";
 import { getImageAspect } from "@/lib/image-aspect";
+import { HeroMosaic, type MosaicItem } from "@/components/site/project/HeroMosaic";
 import {
   HeroMedia,
   TemplateGallery,
@@ -493,11 +494,45 @@ export default async function WorkPage({
     presentacion: `${folder}/presentacion/`,
     visual: `${folder}/visual/`,
   };
-  const media = await HeroMedia({
-    template: project.template,
-    photos,
-    title: page.title,
-  });
+  // Marca aplicada opens with a wall of everything on the page: the covers of the projects inside, banners,
+  // stationery and website screens, so the whole body of work shows at a glance.
+  const mosaic =
+    project.slug === "applied-brand"
+      ? await (async () => {
+          const pick = <T,>(arr: T[], idx: number[]) => idx.map((i) => arr[i]).filter(Boolean);
+          const groups = Object.fromEntries(
+            getProjectScreenGroups(project.slug, "visual").map((g) => [g.name, g.items]),
+          );
+          const kids = project.children
+            .map((childSlug) => ({ child: getProject(childSlug, locale), src: getProjectCover(childSlug) }))
+            .filter((k): k is { child: NonNullable<typeof k.child>; src: string } => Boolean(k.child && k.src))
+            .map((k) => ({ src: k.src, href: `/work/${k.child.slug}`, label: k.child.t.card.title }));
+          const loose = [
+            ...photos.visual.slice(0, 1),
+            ...pick(groups["banners-figma"] ?? [], [2, 0]),
+            ...pick(groups["banners-canva"] ?? [], [0]),
+            ...pick(groups["papeleria"] ?? [], [0, 2]),
+          ].map((src) => ({ src }));
+          // Interleave covers and pieces so every row (and its first three tiles on phones) mixes both.
+          const mixed: { src: string; href?: string; label?: string }[] = [];
+          const max = Math.max(kids.length, loose.length);
+          for (let i = 0; i < max; i++) {
+            if (kids[i]) mixed.push(kids[i]);
+            if (loose[i]) mixed.push(loose[i]);
+          }
+          const items: MosaicItem[] = await Promise.all(
+            mixed.map(async (m) => ({ ...m, aspect: await getImageAspect(m.src) })),
+          );
+          return <HeroMosaic items={items} title={page.title} />;
+        })()
+      : null;
+  const media =
+    mosaic ??
+    (await HeroMedia({
+      template: project.template,
+      photos,
+      title: page.title,
+    }));
   // Instagram and the visual collage open with a centered title and description above the pictures.
   const centered =
     (project.template === "instagram" || project.template === "visual") &&
@@ -584,10 +619,10 @@ export default async function WorkPage({
             </p>
           </div>
 
-          {media && !slidesLeft && !mediaFirst ? media : null}
+          {media && !slidesLeft && !mediaFirst ? <div className="max-lg:-order-1">{media}</div> : null}
 
           {!media && cover ? (
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] bg-[#ecece7] shadow-[0_12px_32px_rgba(0,0,0,0.12)] lg:aspect-auto lg:min-h-[560px] lg:self-stretch">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] max-lg:-order-1 bg-[#ecece7] shadow-[0_12px_32px_rgba(0,0,0,0.12)] lg:aspect-auto lg:min-h-[560px] lg:self-stretch">
               <Image
                 src={cover}
                 alt={page.title}
