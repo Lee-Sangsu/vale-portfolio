@@ -141,7 +141,7 @@ export function CategoryShowcase({
                 src={project.img}
                 alt=""
                 fill
-                sizes="(max-width: 1023px) 50vw, 372px"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 372px"
                 className="animate-[fadeIn_0.4s_ease] object-cover"
               />
             </div>

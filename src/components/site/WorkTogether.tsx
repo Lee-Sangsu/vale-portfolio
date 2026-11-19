@@ -77,21 +77,21 @@ export function WorkTogether({ variant = "coffee" }: WorkTogetherProps) {
   }
 
   return (
-    <section className="bg-white px-5 py-20 sm:px-8 sm:py-28">
+    <section id="contacto" className="scroll-mt-6 bg-white px-5 py-20 sm:px-8 sm:py-28">
       <div className="mx-auto flex max-w-[1100px] flex-col items-center gap-12 md:flex-row md:items-stretch md:justify-center md:gap-16">
         {/* Photo + hand */}
-        <div className="relative h-[360px] w-[266px] shrink-0 sm:h-[390px] sm:w-[286px]">
+        <div className="relative h-[270px] w-[200px] shrink-0 sm:h-[390px] sm:w-[286px]">
           <div className="absolute inset-0 overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)]">
             <Image
               src="/compartido/retratos/work-together-coffee.jpg"
               alt=""
               fill
-              sizes="286px"
+              sizes="(min-width: 640px) 286px, 286px"
               preload
               className="object-cover object-center"
             />
           </div>
-          <div className="absolute bottom-0 left-0 flex size-[72px] -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-[#7B173B] text-[28px] shadow-lg sm:size-[83px] sm:text-[30px]">
+          <div className="absolute bottom-0 left-0 flex size-[60px] -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-[#7B173B] text-[24px] shadow-lg sm:size-[83px] sm:text-[30px]">
             ✋
           </div>
         </div>

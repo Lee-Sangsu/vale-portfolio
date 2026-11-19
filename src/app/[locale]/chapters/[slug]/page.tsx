@@ -122,7 +122,15 @@ export default async function ChapterPage({
     <main style={pageStyle}>
       <section className="relative isolate min-h-[680px] overflow-hidden bg-[#111] sm:min-h-[760px] lg:min-h-[900px]">
         {covers.length ? (
-          <RotatingCover srcs={covers} />
+          // Phones: the photo keeps its own proportions at the top and fades into the dark background,
+          // instead of being stretched to cover the whole title area. From md up it covers the hero.
+          <div className="absolute inset-x-0 top-0 -z-20 aspect-[4/3] md:inset-0 md:aspect-auto">
+            <RotatingCover srcs={covers} />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#111] md:hidden"
+            />
+          </div>
         ) : (
           <div
             aria-hidden="true"
@@ -198,7 +206,7 @@ export default async function ChapterPage({
             {page.responsibilities.map((responsibility) => (
               <article
                 key={responsibility.n}
-                className="flex min-h-[256px] flex-col border-r border-b border-[#d1d1cc] p-6 sm:min-h-[280px] sm:p-8"
+                className="flex flex-col border-r border-b border-[#d1d1cc] p-5 sm:min-h-[280px] sm:p-8"
               >
                 <p className="font-inter text-muted text-[13px] font-medium tracking-[0.08em] sm:text-[14px]">
                   [ {responsibility.n} ]

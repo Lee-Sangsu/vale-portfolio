@@ -25,28 +25,30 @@ const STICKERS: Sticker[] = [
   {
     src: "/sobre-mi/figma/hero-paint-set-cutout.png",
     alt: "",
-    className: "left-[3%] top-[14%] w-[120px] lg:w-[173px]",
+    className: "left-[4%] top-[25%] w-[78px] md:left-[3%] md:top-[14%] md:w-[120px] lg:w-[173px]",
     rotate: 12.4,
     mobile: true,
   },
   {
     src: "/sobre-mi/figma/hero-screenshot-sticker.png",
     alt: "",
-    className: "left-[24%] top-[10%] w-[150px] lg:w-[220px]",
+    className: "left-[36%] top-[19%] w-[74px] md:left-[24%] md:top-[10%] md:w-[150px] lg:w-[220px]",
     rotate: -20.61,
+    mobile: true,
   },
   {
     src: "/sobre-mi/figma/hero-sticker-black-graphic.png",
     alt: "",
-    className: "right-[6%] top-[12%] w-[150px] lg:w-[210px]",
+    className: "right-[4%] top-[22%] w-[88px] md:right-[6%] md:top-[12%] md:w-[150px] lg:w-[210px]",
     rotate: 0,
     mobile: true,
   },
   {
     src: "/sobre-mi/figma/hero-flowers-cutout.png",
     alt: "",
-    className: "-left-[2%] top-[64%] w-[150px] lg:w-[200px]",
+    className: "-left-[3%] top-[70%] w-[104px] md:-left-[2%] md:top-[64%] md:w-[150px] lg:w-[200px]",
     rotate: 6.26,
+    mobile: true,
   },
   {
     src: "/sobre-mi/figma/hero-green-worm.png",
@@ -57,21 +59,23 @@ const STICKERS: Sticker[] = [
   {
     src: "/sobre-mi/figma/hero-fruit-photo.png",
     alt: "",
-    className: "left-[33%] top-[74%] w-[80px] lg:w-[110px]",
+    className: "left-[36%] top-[84%] w-[54px] md:left-[33%] md:top-[74%] md:w-[80px] lg:w-[110px]",
     rotate: 11.87,
+    mobile: true,
   },
   {
     src: "/sobre-mi/figma/hero-red-plane.png",
     alt: "",
-    className: "right-[14%] top-[66%] w-[200px] lg:w-[280px]",
+    className: "right-[6%] top-[73%] w-[140px] md:right-[14%] md:top-[66%] md:w-[200px] lg:w-[280px]",
     rotate: 0,
     mobile: true,
   },
   {
     src: "/sobre-mi/figma/hero-phone.png",
     alt: "",
-    className: "-right-[2%] top-[44%] w-[130px] lg:w-[180px]",
+    className: "-right-[1%] top-[45%] w-[66px] md:-right-[2%] md:top-[44%] md:w-[130px] lg:w-[180px]",
     rotate: -13.64,
+    mobile: true,
   },
 ];
 

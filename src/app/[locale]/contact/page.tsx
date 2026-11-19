@@ -37,7 +37,7 @@ export default async function ContactPage({
   return (
     <main className="bg-white">
       {/* ── Photo ring + page title ─────────────────────────────── */}
-      <section className="relative overflow-hidden px-5 pb-12 pt-28 sm:px-8 sm:pt-32 md:pb-20 md:pt-40">
+      <section className="relative overflow-hidden px-5 pb-12 pt-36 sm:px-8 sm:pt-32 md:pb-20 md:pt-40">
         <SiteNav tone="dark" />
 
         {/* Title sits top-left, overlapping the empty center of the ring */}
@@ -48,7 +48,7 @@ export default async function ContactPage({
         </div>
 
         {/* Full-bleed: negative margins cancel the section's px-5/sm:px-8 padding */}
-        <div className="-mx-5 mt-8 sm:-mx-8 md:mt-2">
+        <div className="-mx-5 mt-14 sm:-mx-8 md:mt-2">
           <PhotoRing />
         </div>
       </section>
@@ -101,8 +101,8 @@ export default async function ContactPage({
             </div>
           </div>
 
-          {/* Right column: portrait card */}
-          <div className="relative mx-auto h-[393px] w-[275px] shrink-0 overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] md:mx-0">
+          {/* Right column: portrait card (desktop only; on phones the ring above is portrait enough) */}
+          <div className="relative mx-auto hidden h-[393px] w-[275px] shrink-0 overflow-hidden rounded-[16px] shadow-[0_8px_22px_rgba(0,0,0,0.12)] md:mx-0 md:block">
             <Image
               src={portrait}
               alt="Valeria Jiménez"

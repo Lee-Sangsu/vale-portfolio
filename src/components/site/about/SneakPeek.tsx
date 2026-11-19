@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AutoStrip } from "@/components/site/AutoStrip";
 import { Link } from "@/i18n/navigation";
 import { getProject, getProjectCover } from "@/content/portfolio";
 import type { Locale } from "@/content/types";
@@ -45,19 +46,14 @@ export function SneakPeek({ locale }: { locale: Locale }) {
 
   if (items.length === 0) return null;
 
-  // Duplicated once so the -50% translate loops seamlessly.
-  const strip = [...items, ...items];
-
   return (
-    <section className="overflow-hidden bg-white px-0 py-20 sm:py-24">
-      <h2 className="font-inter text-ink2 px-5 text-center text-[28px] font-semibold sm:px-8 sm:text-[34px]">
+    <section className="overflow-hidden bg-white px-0 py-14 sm:py-24">
+      <h2 className="font-inter text-ink2 px-5 text-center text-[24px] font-semibold sm:px-8 sm:text-[34px]">
         {es ? "Un adelanto de mi trabajo" : "Sneak peek of my work"}
       </h2>
 
       <div
-        role="region"
-        aria-label={es ? "Galería visual de trabajos" : "Visual work gallery"}
-        className="relative mt-14 overflow-hidden"
+        className="relative mt-8 sm:mt-14"
         style={{
           maskImage:
             "linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%)",
@@ -65,46 +61,42 @@ export function SneakPeek({ locale }: { locale: Locale }) {
             "linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%)",
         }}
       >
-        <ul
-          className="marquee-track flex w-max items-end gap-[23px] pb-6 will-change-transform"
-          style={{ ["--marquee-duration" as string]: "70s" }}
+        <AutoStrip
+          label={es ? "Galería visual de trabajos" : "Visual work gallery"}
+          durationSeconds={70}
+          trackClassName="items-start gap-4 pb-6 sm:items-end sm:gap-[23px]"
         >
-          {strip.map((item, index) => {
-            const duplicate = index >= items.length;
-            return (
-              <li
-                key={`${item.slug}-${index}`}
-                className="shrink-0"
-                aria-hidden={duplicate || undefined}
+          {items.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/work/${item.slug}`}
+              className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6e726e]"
+            >
+              {/* Phones: every tile is the same square so the strip reads evenly; from sm up the staggered Figma frames return. */}
+              <span
+                className="relative block aspect-square w-[40vw] overflow-hidden rounded-[5px] bg-[#ecece7] shadow-[0_6px_14px_rgba(0,0,0,0.12)] sm:aspect-[var(--fa)] sm:w-[min(var(--fw),44vw)]"
+                style={
+                  {
+                    "--fw": `${item.frame.w}px`,
+                    "--fa": `${item.frame.w} / ${item.frame.h}`,
+                  } as React.CSSProperties
+                }
               >
-                <Link
-                  href={`/work/${item.slug}`}
-                  tabIndex={duplicate ? -1 : undefined}
-                  className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6e726e]"
-                >
-                  <span
-                    className="relative block overflow-hidden rounded-[5px] bg-[#ecece7] shadow-[0_6px_14px_rgba(0,0,0,0.12)]"
-                    style={{
-                      width: `min(${item.frame.w}px, 72vw)`,
-                      aspectRatio: `${item.frame.w} / ${item.frame.h}`,
-                    }}
-                  >
-                    <Image
-                      src={item.cover}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 340px, 72vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                    />
-                  </span>
-                  <span className="font-inter text-ink2 mt-3 block max-w-[260px] text-[14px] leading-snug font-medium transition-opacity group-hover:opacity-70">
-                    {item.title}
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                <Image
+                  src={item.cover}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 340px, (min-width: 640px) 44vw, 80vw"
+                  draggable={false}
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                />
+              </span>
+              <span className="font-inter text-ink2 mt-2 block max-w-[40vw] truncate text-[12px] leading-snug font-medium transition-opacity group-hover:opacity-70 sm:mt-3 sm:max-w-[260px] sm:text-[14px] sm:whitespace-normal">
+                {item.title}
+              </span>
+            </Link>
+          ))}
+        </AutoStrip>
       </div>
     </section>
   );

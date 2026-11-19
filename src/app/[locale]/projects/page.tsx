@@ -17,6 +17,7 @@ import { encodeAsset } from "@/content/photo-manifest";
 import { carryOn } from "@/content/about";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CommunityStrip } from "@/components/site/CommunityStrip";
+import { TouchReveal } from "@/components/site/TouchReveal";
 import { WorkTogether } from "@/components/site/WorkTogether";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProjectChapterGrid } from "@/components/site/ProjectChapterGrid";
@@ -42,7 +43,7 @@ const CARRYON_ITEMS = [
     width: 2263,
     height: 1366,
     className:
-      "left-[6%] top-[11%] w-[31%] sm:left-[9%] sm:top-[22%] sm:w-[9.5%]",
+      "left-[3%] top-[9%] w-[22%] sm:left-[9%] sm:top-[22%] sm:w-[9.5%]",
     sizes: "(min-width: 640px) 10vw, 31vw",
     labelClassName: "top-full mt-2",
   },
@@ -53,7 +54,7 @@ const CARRYON_ITEMS = [
     width: 207,
     height: 354,
     className:
-      "left-[56%] top-[6%] w-[14%] sm:left-[30%] sm:top-[6%] sm:w-[5.5%]",
+      "left-[50%] top-[3%] w-[9%] sm:left-[30%] sm:top-[6%] sm:w-[5.5%]",
     sizes: "(min-width: 640px) 6vw, 14vw",
     labelClassName: "top-full mt-2",
   },
@@ -64,7 +65,7 @@ const CARRYON_ITEMS = [
     width: 953,
     height: 772,
     className:
-      "right-[8%] top-[19%] w-[26%] sm:right-[27%] sm:top-[15%] sm:w-[9%]",
+      "right-[4%] top-[24%] w-[18%] sm:right-[27%] sm:top-[15%] sm:w-[9%]",
     sizes: "(min-width: 640px) 9vw, 26vw",
     labelClassName: "top-full mt-2",
   },
@@ -75,7 +76,7 @@ const CARRYON_ITEMS = [
     width: 4660,
     height: 4660,
     className:
-      "right-[7%] top-[6%] w-[27%] sm:right-[5%] sm:top-[14%] sm:w-[10%]",
+      "right-[5%] top-[5%] w-[19%] sm:right-[5%] sm:top-[14%] sm:w-[10%]",
     sizes: "(min-width: 640px) 10vw, 27vw",
     labelClassName: "top-full mt-2",
   },
@@ -86,7 +87,7 @@ const CARRYON_ITEMS = [
     width: 2577,
     height: 1793,
     className:
-      "left-[3%] top-[54%] w-[32%] sm:left-[6%] sm:top-[51%] sm:w-[10%]",
+      "left-[3%] top-[54%] w-[22%] sm:left-[6%] sm:top-[51%] sm:w-[10%]",
     sizes: "(min-width: 640px) 10vw, 32vw",
     labelClassName: "top-full mt-2",
   },
@@ -97,7 +98,7 @@ const CARRYON_ITEMS = [
     width: 2916,
     height: 2916,
     className:
-      "left-[10%] top-[35%] w-[30%] sm:left-[20%] sm:top-[39%] sm:w-[9%]",
+      "left-[6%] top-[31%] w-[19%] sm:left-[20%] sm:top-[39%] sm:w-[9%]",
     sizes: "(min-width: 640px) 9vw, 30vw",
     labelClassName: "top-full mt-2",
   },
@@ -108,7 +109,7 @@ const CARRYON_ITEMS = [
     width: 2131,
     height: 2557,
     className:
-      "left-[20%] top-[75%] w-[21%] sm:left-[18%] sm:top-[67%] sm:w-[6.5%]",
+      "left-[7%] top-[79%] w-[13%] sm:left-[18%] sm:top-[67%] sm:w-[6.5%]",
     sizes: "(min-width: 640px) 7vw, 21vw",
     labelClassName: "top-full mt-2",
   },
@@ -119,7 +120,7 @@ const CARRYON_ITEMS = [
     width: 3308,
     height: 2203,
     className:
-      "left-[47%] top-[80%] w-[38%] sm:left-[27%] sm:top-[74%] sm:w-[13%]",
+      "left-[26%] top-[83%] w-[26%] sm:left-[27%] sm:top-[74%] sm:w-[13%]",
     sizes: "(min-width: 640px) 13vw, 38vw",
     labelClassName: "top-full mt-2",
   },
@@ -130,7 +131,7 @@ const CARRYON_ITEMS = [
     width: 1552,
     height: 2002,
     className:
-      "right-[4%] top-[43%] w-[22%] sm:right-[15%] sm:top-[37%] sm:w-[7%]",
+      "right-[5%] top-[45%] w-[15%] sm:right-[15%] sm:top-[37%] sm:w-[7%]",
     sizes: "(min-width: 640px) 7vw, 22vw",
     labelClassName: "top-full mt-2",
   },
@@ -141,7 +142,7 @@ const CARRYON_ITEMS = [
     width: 338,
     height: 459,
     className:
-      "right-[34%] top-[63%] w-[30%] sm:right-[22.5%] sm:top-[60%] sm:w-[9.5%]",
+      "left-[57%] top-[84%] w-[17%] sm:right-[22.5%] sm:top-[60%] sm:w-[9.5%]",
     sizes: "(min-width: 640px) 10vw, 30vw",
     labelClassName: "top-full mt-2",
   },
@@ -152,7 +153,7 @@ const CARRYON_ITEMS = [
     width: 2371,
     height: 2623,
     className:
-      "right-[5%] top-[77%] w-[25%] sm:right-[6%] sm:top-[66%] sm:w-[8%]",
+      "right-[3%] top-[67%] w-[17%] sm:right-[6%] sm:top-[66%] sm:w-[8%]",
     sizes: "(min-width: 640px) 8vw, 25vw",
     labelClassName: "top-full mt-2",
   },
@@ -170,21 +171,21 @@ const chaptersTravelPhotos = [
     className:
       "left-[11.5%] top-[21.5%] z-10 h-[52.1%] w-[37.5%] -rotate-[18.79deg]",
     hoverClass:
-      "group-hover:-translate-x-14 group-hover:scale-[1.14] group-hover:-rotate-[24deg]",
+      "group-hover:-translate-x-14 group-data-[reveal=on]/reveal:-translate-x-14 group-hover:scale-[1.14] group-data-[reveal=on]/reveal:scale-[1.14] group-hover:-rotate-[24deg] group-data-[reveal=on]/reveal:-rotate-[24deg]",
   },
   {
     src: encodeAsset("portafolio/viajando-por-el-mundo/chapters-travel-2.jpeg")!,
     className:
       "left-[35.3%] top-[21.5%] z-20 h-[52.1%] w-[37.5%] -rotate-[1.88deg]",
     hoverClass:
-      "delay-[40ms] group-hover:scale-[1.2] group-hover:rotate-[1deg]",
+      "delay-[40ms] group-hover:scale-[1.2] group-data-[reveal=on]/reveal:scale-[1.2] group-hover:rotate-[1deg] group-data-[reveal=on]/reveal:rotate-[1deg]",
   },
   {
     src: encodeAsset("portafolio/viajando-por-el-mundo/chapters-travel-3.jpeg")!,
     className:
       "left-[60%] top-[27.3%] z-30 h-[52.1%] w-[28.5%] rotate-[9.42deg]",
     hoverClass:
-      "delay-[80ms] group-hover:translate-x-14 group-hover:scale-[1.14] group-hover:rotate-[15deg]",
+      "delay-[80ms] group-hover:translate-x-14 group-data-[reveal=on]/reveal:translate-x-14 group-hover:scale-[1.14] group-data-[reveal=on]/reveal:scale-[1.14] group-hover:rotate-[15deg] group-data-[reveal=on]/reveal:rotate-[15deg]",
   },
 ];
 
@@ -209,7 +210,7 @@ export default async function ProjectsPage({
       w: 303, h: 383,
       className: "left-[35.66%] top-[24.9%] z-[10] w-[15.5%] rotate-[10deg]",
       hoverClass:
-        "delay-[0ms] group-hover:-translate-x-[67%] group-hover:-translate-y-[39%] group-hover:scale-[1.05] group-hover:rotate-[5deg]",
+        "delay-[0ms] group-hover:-translate-x-[67%] group-data-[reveal=on]/reveal:-translate-x-[67%] group-hover:-translate-y-[39%] group-data-[reveal=on]/reveal:-translate-y-[39%] group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:rotate-[5deg] group-data-[reveal=on]/reveal:rotate-[5deg]",
     },
     {
       src: encodeAsset("portafolio/portada-carpeta/folder-team.png")!,
@@ -217,7 +218,7 @@ export default async function ProjectsPage({
       w: 338, h: 631,
       className: "left-[22.94%] top-[32%] z-[12] w-[18%] -rotate-[8deg]",
       hoverClass:
-        "delay-[60ms] group-hover:-translate-x-[100%] group-hover:-translate-y-[34%] group-hover:scale-[1.05] group-hover:-rotate-[10deg]",
+        "delay-[60ms] group-hover:-translate-x-[100%] group-data-[reveal=on]/reveal:-translate-x-[100%] group-hover:-translate-y-[34%] group-data-[reveal=on]/reveal:-translate-y-[34%] group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:-rotate-[10deg] group-data-[reveal=on]/reveal:-rotate-[10deg]",
     },
     {
       src: encodeAsset("portafolio/portada-carpeta/folder-nobled.png")!,
@@ -225,7 +226,7 @@ export default async function ProjectsPage({
       w: 332, h: 430,
       className: "left-[46.14%] top-[48.2%] z-[15] w-[17.5%] rotate-[11deg]",
       hoverClass:
-        "delay-[150ms] group-hover:-translate-x-[148%] group-hover:-translate-y-[48%] group-hover:scale-[1.05] group-hover:rotate-[8deg]",
+        "delay-[150ms] group-hover:-translate-x-[148%] group-data-[reveal=on]/reveal:-translate-x-[148%] group-hover:-translate-y-[48%] group-data-[reveal=on]/reveal:-translate-y-[48%] group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:rotate-[8deg] group-data-[reveal=on]/reveal:rotate-[8deg]",
     },
     {
       src: encodeAsset("portafolio/portada-carpeta/folder-superalink.png")!,
@@ -233,7 +234,7 @@ export default async function ProjectsPage({
       w: 288, h: 324,
       className: "left-[50.15%] top-[26.7%] z-[11] w-[15%] -rotate-[9deg]",
       hoverClass:
-        "delay-[30ms] group-hover:-translate-x-[38%] group-hover:-translate-y-[40%] group-hover:scale-[1.05] group-hover:-rotate-[9deg]",
+        "delay-[30ms] group-hover:-translate-x-[38%] group-data-[reveal=on]/reveal:-translate-x-[38%] group-hover:-translate-y-[40%] group-data-[reveal=on]/reveal:-translate-y-[40%] group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:-rotate-[9deg] group-data-[reveal=on]/reveal:-rotate-[9deg]",
     },
     {
       src: encodeAsset("portafolio/portada-carpeta/folder-brujula.png")!,
@@ -241,7 +242,7 @@ export default async function ProjectsPage({
       w: 354, h: 646,
       className: "left-[60.86%] top-[24.3%] z-[16] w-[19.5%] rotate-[6deg]",
       hoverClass:
-        "delay-[180ms] group-hover:translate-x-[74%] group-hover:-translate-y-[20%] group-hover:scale-[1.05] group-hover:rotate-[6deg]",
+        "delay-[180ms] group-hover:translate-x-[74%] group-data-[reveal=on]/reveal:translate-x-[74%] group-hover:-translate-y-[20%] group-data-[reveal=on]/reveal:-translate-y-[20%] group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:rotate-[6deg] group-data-[reveal=on]/reveal:rotate-[6deg]",
     },
     {
       src: encodeAsset("portafolio/portada-carpeta/folder-card.png")!,
@@ -249,7 +250,7 @@ export default async function ProjectsPage({
       w: 303, h: 379,
       className: "left-[40.45%] top-[52.9%] z-[14] w-[14%] -rotate-[1deg]",
       hoverClass:
-        "delay-[120ms] group-hover:translate-x-[90%] group-hover:-translate-y-[72%] group-hover:scale-[1.05] group-hover:rotate-[3deg]",
+        "delay-[120ms] group-hover:translate-x-[90%] group-data-[reveal=on]/reveal:translate-x-[90%] group-hover:-translate-y-[72%] group-data-[reveal=on]/reveal:-translate-y-[72%] group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:rotate-[3deg] group-data-[reveal=on]/reveal:rotate-[3deg]",
     },
     {
       src: encodeAsset("portafolio/portada-carpeta/folder-mic.png")!,
@@ -257,7 +258,7 @@ export default async function ProjectsPage({
       w: 243, h: 371,
       className: "left-[57.92%] top-[55.9%] z-[17] w-[14.5%] -rotate-[6deg]",
       hoverClass:
-        "delay-[210ms] group-hover:translate-x-[75%] group-hover:-translate-y-[60%] group-hover:scale-[1.05] group-hover:-rotate-[8deg]",
+        "delay-[210ms] group-hover:translate-x-[75%] group-data-[reveal=on]/reveal:translate-x-[75%] group-hover:-translate-y-[60%] group-data-[reveal=on]/reveal:-translate-y-[60%] group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:-rotate-[8deg] group-data-[reveal=on]/reveal:-rotate-[8deg]",
     },
     {
       src: encodeAsset("portafolio/portada-carpeta/folder-people.png")!,
@@ -265,7 +266,7 @@ export default async function ProjectsPage({
       w: 234, h: 233,
       className: "left-[44.13%] top-[34.8%] z-[13] w-[12.5%] -rotate-[3deg]",
       hoverClass:
-        "delay-[90ms] group-hover:-translate-x-[51%] group-hover:translate-y-0 group-hover:scale-[1.05] group-hover:-rotate-[6deg]",
+        "delay-[90ms] group-hover:-translate-x-[51%] group-data-[reveal=on]/reveal:-translate-x-[51%] group-hover:translate-y-0 group-data-[reveal=on]/reveal:translate-y-0 group-hover:scale-[1.05] group-data-[reveal=on]/reveal:scale-[1.05] group-hover:-rotate-[6deg] group-data-[reveal=on]/reveal:-rotate-[6deg]",
     },
   ];
 
@@ -339,7 +340,7 @@ export default async function ProjectsPage({
                     width={photo.w}
                     height={photo.h}
                     preload
-                    sizes="(max-width: 640px) 30vw, 240px"
+                    sizes="(max-width: 640px) 60vw, 240px"
                     className="h-auto w-full"
                   />
                 </div>
@@ -374,10 +375,11 @@ export default async function ProjectsPage({
       {/* ── Chapters grid ── */}
       <section className="bg-white px-5 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-[1100px]">
-          <div
+          <TouchReveal
             aria-hidden="true"
             data-projects-chapters="travel-collage"
-            className="group relative mx-auto mb-6 aspect-[320/340] w-full max-w-[320px] sm:mb-8"
+            threshold={0.7}
+            className="group group/reveal relative mx-auto mb-6 aspect-[320/340] w-full max-w-[320px] sm:mb-8"
           >
             <p className="absolute inset-x-0 top-0 text-center font-inter text-[15px] text-[#6e726e]">
               Viajando por el mundo
@@ -397,7 +399,7 @@ export default async function ProjectsPage({
                     src={photo.src}
                     alt=""
                     fill
-                    sizes="(max-width: 320px) 38vw, 120px"
+                    sizes="(max-width: 639px) 80vw, 120px"
                     className="object-cover"
                   />
                 </div>
@@ -415,7 +417,7 @@ export default async function ProjectsPage({
                 🌸
               </span>
             </div>
-          </div>
+          </TouchReveal>
           <h2 className="font-inter text-ink2 text-center text-[32px] font-bold sm:text-[40px]">
             {es ? "Capítulos" : "Chapters"}
           </h2>
@@ -435,8 +437,8 @@ export default async function ProjectsPage({
 
       {/* ── What's in my carry-on? ── */}
       <section className="relative overflow-hidden bg-white">
-        <div className="relative mx-auto h-[640px] w-full overflow-hidden sm:h-auto sm:min-h-[460px] sm:aspect-[2/1] lg:min-h-0">
-          {CARRYON_ITEMS.map((item) => (
+        <TouchReveal threshold={0.2} className="group/reveal relative mx-auto h-[700px] w-full overflow-hidden sm:h-auto sm:min-h-[460px] sm:aspect-[2/1] lg:min-h-0">
+          {CARRYON_ITEMS.map((item, index) => (
             <div
               key={item.src}
               tabIndex={0}
@@ -449,12 +451,13 @@ export default async function ProjectsPage({
                 alt=""
                 width={item.width}
                 height={item.height}
-                className="pointer-events-none h-auto w-full select-none object-contain transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[4deg] group-hover:scale-[1.06] group-focus-visible:-translate-y-2 group-focus-visible:rotate-[4deg] group-focus-visible:scale-[1.06] motion-reduce:transform-none motion-reduce:transition-none"
+                className="pointer-events-none h-auto w-full select-none object-contain transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[4deg] group-hover:scale-[1.06] group-data-[reveal=on]/reveal:-translate-y-2 group-data-[reveal=on]/reveal:rotate-[4deg] group-data-[reveal=on]/reveal:scale-[1.06] group-focus-visible:-translate-y-2 group-focus-visible:rotate-[4deg] group-focus-visible:scale-[1.06] motion-reduce:transform-none motion-reduce:transition-none"
                 sizes={item.sizes}
               />
               <span
                 aria-hidden="true"
-                className={`pointer-events-none absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-inter text-[12px] font-medium text-[#1c211e] opacity-0 transition-opacity duration-200 group-hover:opacity-70 group-focus-visible:opacity-70 sm:text-[14px] ${item.labelClassName}`}
+                className={`pointer-events-none absolute left-1/2 w-[96px] -translate-x-1/2 text-center font-inter text-[11px] leading-tight font-medium text-[#1c211e] opacity-0 sm:w-auto sm:whitespace-nowrap transition-opacity duration-200 group-hover:opacity-70 group-focus-visible:opacity-70 group-data-[reveal=on]/reveal:opacity-70 sm:text-[14px] ${item.labelClassName}`}
+                style={{ transitionDelay: `${index * 25}ms` }}
               >
                 {item.label[locale]}
               </span>
@@ -466,11 +469,11 @@ export default async function ProjectsPage({
             alt=""
             width={CARRYON_BAG.width}
             height={CARRYON_BAG.height}
-            className="pointer-events-none absolute top-[49%] left-1/2 z-20 h-auto w-[42%] max-w-[250px] min-w-[205px] -translate-x-1/2 -translate-y-1/2 select-none object-contain sm:w-[13%] sm:min-w-[160px] sm:max-w-[300px]"
+            className="pointer-events-none absolute top-[49%] left-1/2 z-20 h-auto w-[36%] max-w-[210px] min-w-[170px] -translate-x-1/2 -translate-y-1/2 select-none object-contain sm:w-[13%] sm:min-w-[160px] sm:max-w-[300px]"
             sizes="(min-width: 640px) 13vw, 42vw"
           />
 
-          <h2 className="font-quinn pointer-events-none absolute top-[49%] left-1/2 z-30 w-[82%] -translate-x-1/2 -translate-y-1/2 text-center text-[42px] leading-[0.98] font-bold tracking-normal text-[#101713]/90 sm:w-[48%] sm:text-[48px] md:text-[58px] lg:text-[64px] xl:text-[72px] 2xl:text-[82px]">
+          <h2 className="font-quinn pointer-events-none absolute top-[49%] left-1/2 z-30 w-[82%] -translate-x-1/2 -translate-y-1/2 text-center text-[34px] leading-[0.98] font-bold tracking-normal text-[#101713]/90 sm:w-[48%] sm:text-[48px] md:text-[58px] lg:text-[64px] xl:text-[72px] 2xl:text-[82px]">
             {es ? (
               <>
                 <span className="block">¿Qué llevo</span>
@@ -490,7 +493,7 @@ export default async function ProjectsPage({
             {es ? "Roles" : "Roles"}: {carryOn.roles}.{" "}
             {es ? "Disponible" : "Available"}: {carryOn.available}.
           </p>
-        </div>
+        </TouchReveal>
       </section>
 
       <WorkTogether />

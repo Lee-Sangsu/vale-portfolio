@@ -50,7 +50,7 @@ export function PostCarousel({
   const initial = account.replace(/^@/, "").charAt(0).toUpperCase();
 
   return (
-    <article className="mx-auto w-full max-w-[520px] overflow-hidden rounded-[18px] border border-[#e6e6e1] bg-white shadow-[0_14px_44px_rgba(0,0,0,0.10)]">
+    <article className="mx-auto w-full max-w-[320px] overflow-hidden sm:max-w-[520px] rounded-[18px] border border-[#e6e6e1] bg-white shadow-[0_14px_44px_rgba(0,0,0,0.10)]">
       {/* Header: avatar, account, menu */}
       <header className="flex items-center gap-3 px-4 py-3">
         <span

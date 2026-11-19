@@ -103,7 +103,7 @@ function ScrollingLaptop({
             width={scroll.width}
             height={scroll.height}
             quality={92}
-            sizes="(min-width: 1080px) 760px, 70vw"
+            sizes="(min-width: 1080px) 760px, 100vw"
             className="block h-auto w-full"
           />
         </div>
@@ -193,10 +193,10 @@ export function LaptopCarousel({
           paddingInline: "calc((100% - min(1000px, 92vw)) / 2)",
           scrollPaddingInline: "calc((100% - min(1000px, 92vw)) / 2)",
         }}
-        className="flex snap-x snap-mandatory items-start gap-10 overflow-x-auto scroll-smooth [scrollbar-width:none] sm:gap-20 [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory items-start gap-6 overflow-x-auto scroll-smooth [scrollbar-width:none] sm:gap-20 [&::-webkit-scrollbar]:hidden"
       >
         {screens.map(({ src, aspect, framed, scroll }, i) => (
-          <li key={src} className="w-[min(1000px,92vw)] shrink-0 snap-center">
+          <li key={src} className="w-[min(1000px,86vw)] shrink-0 snap-center">
             {scroll ? (
               <ScrollingLaptop frame={src} aspect={aspect} scroll={scroll} priority={i === 0} hint={scrollHint} />
             ) : framed ? (

@@ -1,12 +1,12 @@
 import Image from "next/image";
+import { AutoStrip } from "@/components/site/AutoStrip";
 import { listPhotos } from "@/lib/photos";
 
 export type FeatureItem = { title: string; href: string; img: string };
 
 /**
  * Auto-scrolling strip of brand logos.
- * Uses the global `.marquee-track` animation; duplicates the list for a
- * seamless loop; it keeps running on hover.
+ * Drifts on its own; hovering steers it and a drag moves it by hand (see AutoStrip).
  */
 export function FeatureProjectsMarquee({
   label,
@@ -20,8 +20,6 @@ export function FeatureProjectsMarquee({
 
   if (logos.length === 0) return null;
 
-  const strip = [...logos, ...logos];
-
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto mb-7 max-w-[1460px] px-6 sm:px-8">
@@ -31,10 +29,9 @@ export function FeatureProjectsMarquee({
       </div>
 
       <div
-        className="relative overflow-hidden"
+        className="relative"
         style={
           {
-            ["--marquee-duration" as string]: `${durationSeconds}s`,
             maskImage:
               "linear-gradient(to right, transparent 0, black 5%, black 95%, transparent 100%)",
             WebkitMaskImage:
@@ -42,28 +39,26 @@ export function FeatureProjectsMarquee({
           } as React.CSSProperties
         }
       >
-        <ul
-          className="marquee-track flex w-max items-stretch gap-[22px] will-change-transform"
-          aria-hidden="true"
+        <AutoStrip
+          durationSeconds={durationSeconds}
+          trackClassName="items-stretch gap-[22px]"
         >
-          {strip.map((logo, i) => (
-            <li
-              key={`${logo}-${i}`}
-              className="shrink-0"
-              aria-hidden={i >= logos.length}
+          {logos.map((logo) => (
+            <div
+              key={logo}
+              className="relative h-[172px] w-[210px] overflow-hidden rounded-[12px] bg-[#f3f2ee] sm:h-[192px] sm:w-[234px]"
             >
-              <div className="relative h-[172px] w-[210px] overflow-hidden rounded-[12px] bg-[#f3f2ee] sm:h-[192px] sm:w-[234px]">
-                <Image
-                  src={logo}
-                  alt=""
-                  fill
-                  sizes="(max-width: 639px) 210px, 234px"
-                  className="object-contain p-5 sm:p-6"
-                />
-              </div>
-            </li>
+              <Image
+                src={logo}
+                alt=""
+                fill
+                sizes="(max-width: 639px) 210px, 234px"
+                draggable={false}
+                className="object-contain p-5 sm:p-6"
+              />
+            </div>
           ))}
-        </ul>
+        </AutoStrip>
       </div>
     </section>
   );

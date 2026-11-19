@@ -30,10 +30,10 @@ export function FolderSticker({
       <img
         src={src}
         alt=""
-        className="h-auto w-[64px] drop-shadow-[0_6px_12px_rgba(0,0,0,0.15)] sm:w-[80px]"
+        className="h-auto w-[46px] drop-shadow-[0_6px_12px_rgba(0,0,0,0.15)] sm:w-[80px]"
       />
       <span
-        className="px-3 py-[2px] font-heebo text-[12px] uppercase leading-[1.6] sm:text-[14px]"
+        className="max-w-[78px] px-[6px] py-[1px] text-center font-heebo text-[9px] uppercase leading-[1.4] sm:max-w-none sm:px-3 sm:text-[14px] sm:leading-[1.6]"
         style={{ backgroundColor: color, color: textColor }}
       >
         {label}
@@ -42,7 +42,7 @@ export function FolderSticker({
   );
 
   const cls = clsx(
-    "flex w-fit flex-col items-center gap-[10px] transition-transform duration-200",
+    "flex w-fit flex-col items-center gap-[8px] transition-transform duration-200",
     href && "pointer-events-auto cursor-pointer hover:-translate-y-1 hover:scale-[1.03]",
     className,
   );

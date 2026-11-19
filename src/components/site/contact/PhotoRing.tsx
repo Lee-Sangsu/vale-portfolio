@@ -9,7 +9,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
  * smooth loop instead of straight segments, and x/y scale together so the shape never distorts.
  * Photos at the loop's peak float above the container; page scroll eases the speed up and back down.
  * Only a few photos ride at once; each one that completes a lap is replaced by the next in the queue.
- * Mobile: simple wrapping grid.
+ * Phones get the same ribbon, scaled down with the viewport (the photos shrink with it).
  */
 
 const RING = "/contacto/anillo-de-fotos";
@@ -64,6 +64,7 @@ const STAGGER_SLOTS = SLOT_COUNT; // one virtual slot per visible photo → even
 const PHOTO_SCALE = 0.95; // photos at 1253px wide; they scale with the ribbon (medium size: ~105–125 px on a 1440 px screen)
 const MAX_RIBBON_PX = 1200; // the ribbon no longer stretches to the full width, so the photos ride closer together
 const MIN_PHOTO_PX = 84;
+const MIN_PHOTO_PX_PHONE = 40; // under ~630px the ribbon is a third of its size, so the floor drops too
 const BASE_DURATION = 55; // seconds to traverse the full ribbon once
 const SCROLL_SPEEDUP = 2.4; // extra speed while the page is scrolling
 const SPEED_EASE = 3.2; // higher = speed follows the target faster
@@ -163,10 +164,10 @@ export function PhotoRing() {
 
   return (
     <>
-      {/* Desktop: photos ride the full-width ribbon. Height follows the ribbon's aspect ratio plus room for the photos. */}
+      {/* Photos ride the full-width ribbon. Height follows the ribbon's aspect ratio plus room for the photos. */}
       <div
         ref={containerRef}
-        className="relative mx-auto hidden w-full md:block"
+        className="relative mx-auto block w-full"
         style={{ maxWidth: MAX_RIBBON_PX, height: (SVG_H + Y_PAD * 2) * scale }}
       >
         <style>{`
@@ -176,7 +177,7 @@ export function PhotoRing() {
         `}</style>
 
         {SLOTS.map((t, i) => {
-          const size = Math.max(t.size * PHOTO_SCALE * scale, MIN_PHOTO_PX);
+          const size = Math.max(t.size * PHOTO_SCALE * scale, scale < 0.5 ? MIN_PHOTO_PX_PHONE : MIN_PHOTO_PX);
           const src = PHOTOS[slotPhotos[i]];
           const offset = `${((i / STAGGER_SLOTS) * 100).toFixed(3)}%`;
 
@@ -203,7 +204,7 @@ export function PhotoRing() {
                   src={src}
                   alt=""
                   fill
-                  sizes={`${Math.ceil(size)}px`}
+                  sizes={`${Math.max(120, Math.ceil(size))}px`}
                   className="object-cover"
                 />
               </div>
@@ -212,18 +213,6 @@ export function PhotoRing() {
         })}
       </div>
 
-      {/* Mobile: simple wrapping grid with the first photos of the queue */}
-      <div className="flex flex-wrap justify-center gap-3 md:hidden">
-        {SLOTS.map((t, i) => (
-          <div
-            key={i}
-            className="relative size-[104px] overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
-            style={{ transform: `rotate(${t.rot / 3}deg)` }}
-          >
-            <Image src={PHOTOS[i]} alt="" fill sizes="104px" className="object-cover" />
-          </div>
-        ))}
-      </div>
     </>
   );
 }

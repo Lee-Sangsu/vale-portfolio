@@ -38,7 +38,7 @@ export function HeroMosaic({ items, title }: { items: MosaicItem[]; title: strin
                 fill
                 priority={r === 0}
                 quality={92}
-                sizes="(min-width: 1024px) 18vw, (min-width: 640px) 22vw, 33vw"
+                sizes="(min-width: 1024px) 18vw, (min-width: 640px) 22vw, 66vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             );

@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { DiaryVideo } from "./DiaryVideo";
 
-export type DiaryItem = { src: string; kind: "image" | "video"; aspect: number };
+export type DiaryItem = {
+  src: string;
+  kind: "image" | "video";
+  aspect: number;
+};
 
 /** Splits the items between `count` rows keeping them all about as long, in order. */
 function splitRows(items: DiaryItem[], count: number) {
@@ -19,17 +23,22 @@ function splitRows(items: DiaryItem[], count: number) {
 }
 
 const SECONDS_PER_ASPECT = 9; // how long one unit of tile width takes to cross; keeps the pace the same in any row
-const HOVER_MAX_SPEED = 1400; // px per second with the cursor at the very edge of a row
-const HOVER_DEAD_ZONE = 0.12; // fraction of the half-width around the centre where hovering only holds the row still
 
 /**
  * Linear rows of photos and clips, all the same height, each keeping its own proportions.
- * Every row drifts sideways in a loop (odd rows the opposite way). Hovering steers a row: the photos run
- * toward the side the cursor is on, faster near the edges, so the whole row can be skimmed quickly.
- * Dragging it (mouse or finger) moves it by hand; on release it keeps drifting from there.
+ * Every row drifts sideways in a loop (odd rows the opposite way) and pauses while the mouse is over it.
+ * A horizontal wheel or trackpad swipe scrolls a row; dragging it (mouse or finger) moves it by hand.
  * With reduced motion the rows stay still and can be scrolled by hand.
  */
-export function DiaryMarquee({ items, label, rows = 2 }: { items: DiaryItem[]; label: string; rows?: number }) {
+export function DiaryMarquee({
+  items,
+  label,
+  rows = 2,
+}: {
+  items: DiaryItem[];
+  label: string;
+  rows?: number;
+}) {
   const split = splitRows(items, Math.max(1, rows));
 
   return (
@@ -46,7 +55,11 @@ export function DiaryMarquee({ items, label, rows = 2 }: { items: DiaryItem[]; l
           .diary-track { transform: none !important; }
         }
       `}</style>
-      <div className="flex flex-col" data-rows={split.length} style={{ gap: "clamp(8px, 1vw, 14px)" }}>
+      <div
+        className="flex flex-col"
+        data-rows={split.length}
+        style={{ gap: "clamp(8px, 1vw, 14px)" }}
+      >
         {split.map((row, r) => (
           <MarqueeRow key={r} row={row} label={label} reverse={r % 2 === 1} />
         ))}
@@ -55,14 +68,27 @@ export function DiaryMarquee({ items, label, rows = 2 }: { items: DiaryItem[]; l
   );
 }
 
-function MarqueeRow({ row, label, reverse }: { row: DiaryItem[]; label: string; reverse: boolean }) {
+function MarqueeRow({
+  row,
+  label,
+  reverse,
+}: {
+  row: DiaryItem[];
+  label: string;
+  reverse: boolean;
+}) {
   const trackRef = useRef<HTMLUListElement>(null);
   const [dragging, setDragging] = useState(false);
   // Everything that moves lives in refs: the loop runs outside React.
   const offset = useRef(0); // px scrolled into the loop, always in [0, half)
-  const hover = useRef<number | null>(null); // cursor position across the row, -1 (left edge) … 1 (right edge); null = not hovering
-  const drag = useRef<{ id: number; lastX: number; moved: number } | null>(null);
-  const duration = Math.max(30, row.reduce((n, i) => n + i.aspect, 0) * SECONDS_PER_ASPECT);
+  const hover = useRef(false); // mouse over the row: the drift pauses
+  const drag = useRef<{ id: number; lastX: number; moved: number } | null>(
+    null,
+  );
+  const duration = Math.max(
+    30,
+    row.reduce((n, i) => n + i.aspect, 0) * SECONDS_PER_ASPECT,
+  );
   // The set is doubled so the track can slide by exactly half of its width and loop seamlessly.
   const looped = [...row, ...row];
 
@@ -87,15 +113,9 @@ function MarqueeRow({ row, label, reverse }: { row: DiaryItem[]; label: string; 
       const dt = Math.min((now - previous) / 1000, 0.05);
       previous = now;
       if (!drag.current) {
-        if (hover.current === null) {
+        if (!hover.current) {
           const speed = half() / duration; // px per second, so every row crosses at the same pace
           offset.current += (reverse ? -1 : 1) * speed * dt;
-        } else {
-          // Steer with the cursor: photos move toward the side it is on, easing in from the centre.
-          const x = hover.current;
-          const beyond = Math.max(0, Math.abs(x) - HOVER_DEAD_ZONE) / (1 - HOVER_DEAD_ZONE);
-          const steer = Math.sign(x) * beyond * beyond;
-          offset.current -= steer * HOVER_MAX_SPEED * dt;
         }
         wrap();
         paint();
@@ -105,14 +125,22 @@ function MarqueeRow({ row, label, reverse }: { row: DiaryItem[]; label: string; 
     frame = requestAnimationFrame(tick);
 
     const el = track.parentElement!;
-    const place = (e: PointerEvent) => {
-      const r = el.getBoundingClientRect();
-      hover.current = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
-    };
     const onEnter = (e: PointerEvent) => {
-      if (e.pointerType === "mouse") place(e);
+      if (e.pointerType === "mouse") hover.current = true;
     };
-    const onLeave = () => (hover.current = null);
+    const onLeave = () => (hover.current = false);
+    // A sideways wheel or trackpad swipe scrolls the row; vertical scrolling keeps moving the page.
+    const onWheel = (e: WheelEvent) => {
+      const dx =
+        e.shiftKey && Math.abs(e.deltaX) < Math.abs(e.deltaY)
+          ? e.deltaY
+          : e.deltaX;
+      if (Math.abs(dx) <= Math.abs(e.deltaY) && !e.shiftKey) return;
+      e.preventDefault();
+      offset.current += dx;
+      wrap();
+      paint();
+    };
     const onDown = (e: PointerEvent) => {
       if (e.pointerType === "mouse" && e.button !== 0) return;
       drag.current = { id: e.pointerId, lastX: e.clientX, moved: 0 };
@@ -124,7 +152,6 @@ function MarqueeRow({ row, label, reverse }: { row: DiaryItem[]; label: string; 
       setDragging(true);
     };
     const onMove = (e: PointerEvent) => {
-      if (e.pointerType === "mouse" && !drag.current) place(e);
       const d = drag.current;
       if (!d || d.id !== e.pointerId) return;
       const dx = e.clientX - d.lastX;
@@ -139,10 +166,11 @@ function MarqueeRow({ row, label, reverse }: { row: DiaryItem[]; label: string; 
       if (!d || d.id !== e.pointerId) return;
       drag.current = null;
       setDragging(false);
-      if (e.pointerType !== "mouse") hover.current = null; // a finger lifting is not a hover
+      if (e.pointerType !== "mouse") hover.current = false; // a finger lifting is not a hover
     };
     el.addEventListener("pointerenter", onEnter);
     el.addEventListener("pointerleave", onLeave);
+    el.addEventListener("wheel", onWheel, { passive: false });
     el.addEventListener("pointerdown", onDown);
     el.addEventListener("pointermove", onMove);
     el.addEventListener("pointerup", onUp);
@@ -151,6 +179,7 @@ function MarqueeRow({ row, label, reverse }: { row: DiaryItem[]; label: string; 
       cancelAnimationFrame(frame);
       el.removeEventListener("pointerenter", onEnter);
       el.removeEventListener("pointerleave", onLeave);
+      el.removeEventListener("wheel", onWheel);
       el.removeEventListener("pointerdown", onDown);
       el.removeEventListener("pointermove", onMove);
       el.removeEventListener("pointerup", onUp);
@@ -166,12 +195,22 @@ function MarqueeRow({ row, label, reverse }: { row: DiaryItem[]; label: string; 
             key={`${item.src}-${i}`}
             aria-hidden={i >= row.length ? true : undefined}
             className="relative shrink-0 overflow-hidden rounded-[16px] bg-[#ecece7] shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
-            style={{ height: "var(--tile-h)", aspectRatio: String(item.aspect) }}
+            style={{
+              height: "var(--tile-h)",
+              aspectRatio: String(item.aspect),
+            }}
           >
             {item.kind === "video" ? (
               <DiaryVideo src={item.src} label={label} />
             ) : (
-              <Image src={item.src} alt="" fill sizes="(min-width: 1024px) 400px, 60vw" className="object-cover" draggable={false} />
+              <Image
+                src={item.src}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 400px, 100vw"
+                className="object-cover"
+                draggable={false}
+              />
             )}
           </li>
         ))}

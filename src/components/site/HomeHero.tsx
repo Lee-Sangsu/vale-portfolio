@@ -14,7 +14,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
     : "I design brands, products and events that make it off the page. Here you'll find branding, events, campaigns and digital products, driven by creativity and teamwork.";
 
   const mailHref = "mailto:valejimenezc2003@gmail.com";
-  const cvHref = es ? "/inicio/documentos/cv-es.pdf" : "/inicio/documentos/cv-en.pdf";
+  const cvHref = es
+    ? "/inicio/documentos/cv-es.pdf"
+    : "/inicio/documentos/cv-en.pdf";
   const calendlyHref = "https://calendly.com/valejimenezc2003/30min";
   const servicesHref = "/inicio/documentos/servicios-creativos.pdf";
 
@@ -83,7 +85,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
         className="object-cover object-bottom"
       />
       {/* Top gradient for nav legibility */}
-      <div className="absolute inset-x-0 top-0 z-20 pointer-events-none h-[160px] bg-gradient-to-b from-white/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[160px] bg-gradient-to-b from-white/70 to-transparent" />
 
       <SiteNav tone="light" />
 
@@ -109,22 +111,66 @@ export function HomeHero({ locale }: { locale: Locale }) {
       </div>
 
       {/* Center stack */}
-      <div className="relative z-10 mx-auto flex max-w-[900px] flex-col items-center px-5 pt-[120px] pb-16 sm:pt-[150px]">
-        {/* Browser window with portrait */}
-        <WindowCard
-          title="valejimenez.com"
-          className="w-[300px] sm:w-[350px]"
-          bodyClassName="relative aspect-[1050/1140]"
-        >
-          <Image
-            src={encodeAsset(`${MAIN}/Val Hero.png`)!}
-            alt="Valeria Jiménez"
-            fill
-            sizes="(min-width: 640px) 350px, 300px"
-            quality={92}
-            className="object-cover"
-          />
-        </WindowCard>
+      <div className="relative z-10 mx-auto flex max-w-[900px] flex-col items-center px-5 pt-[150px] pb-16 sm:pt-[150px]">
+        {/* Portrait row: on phones the four folders flank a smaller window (the
+            floating scatter is desktop-only); from md up the wrapper vanishes. */}
+        <div className="flex w-full items-center justify-center gap-3 md:contents">
+          <div className="flex flex-col items-center gap-7 md:hidden">
+            <FolderSticker
+              src={folders[0].src}
+              label={folders[0].label}
+              color={folders[0].color}
+              textColor={folders[0].textColor}
+              rotate={folders[0].rotate}
+              href={folders[0].href}
+              external={folders[0].external}
+            />
+            <FolderSticker
+              src={folders[1].src}
+              label={folders[1].label}
+              color={folders[1].color}
+              textColor={folders[1].textColor}
+              rotate={folders[1].rotate}
+              href={folders[1].href}
+              external={folders[1].external}
+            />
+          </div>
+          {/* Browser window with portrait */}
+          <WindowCard
+            title="valejimenez.com"
+            className="w-[172px] sm:w-[350px]"
+            bodyClassName="relative aspect-[1050/1140]"
+          >
+            <Image
+              src={encodeAsset(`${MAIN}/Val Hero.png`)!}
+              alt="Valeria Jiménez"
+              fill
+              sizes="(min-width: 640px) 350px, 350px"
+              quality={92}
+              className="object-cover"
+            />
+          </WindowCard>
+          <div className="flex flex-col items-center gap-7 md:hidden">
+            <FolderSticker
+              src={folders[2].src}
+              label={folders[2].label}
+              color={folders[2].color}
+              textColor={folders[2].textColor}
+              rotate={folders[2].rotate}
+              href={folders[2].href}
+              external={folders[2].external}
+            />
+            <FolderSticker
+              src={folders[3].src}
+              label={folders[3].label}
+              color={folders[3].color}
+              textColor={folders[3].textColor}
+              rotate={folders[3].rotate}
+              href={folders[3].href}
+              external={folders[3].external}
+            />
+          </div>
+        </div>
 
         {/* Name highlight + blinking text cursor */}
         <h1 className="font-heebo relative mt-7 flex items-start justify-center text-[clamp(34px,11vw,44px)] leading-none font-bold text-black sm:text-[64px]">
@@ -153,15 +199,6 @@ export function HomeHero({ locale }: { locale: Locale }) {
             {bio}
           </p>
         </div>
-
-        {/* Mobile CTA — the floating folders are desktop-only, so phones get a
-            plain button to email. */}
-        <a
-          href={mailHref}
-          className="font-inter mt-8 inline-flex items-center gap-2 rounded-full bg-[#043c9f] px-7 py-3 text-[14px] font-semibold text-white shadow-[0_8px_20px_rgba(4,60,159,0.35)] transition-transform hover:-translate-y-0.5 md:hidden"
-        >
-          {es ? "Colaboremos" : "Let's Collab"} <span aria-hidden>→</span>
-        </a>
       </div>
     </section>
   );

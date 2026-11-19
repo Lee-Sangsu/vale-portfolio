@@ -45,21 +45,23 @@ export function SlideCarousel({
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-6 sm:mt-10">
       {/* The scroll box is a little wider than the text on both sides (and taller), so each slide's own shadow is never clipped at the start. */}
       <ul
         ref={trackRef}
-        className="-mx-5 flex snap-x snap-mandatory items-center [scroll-padding-inline:1.25rem] gap-4 overflow-x-auto scroll-smooth px-5 py-8 [scrollbar-width:none] sm:-mx-8 sm:[scroll-padding-inline:2rem] sm:gap-6 sm:px-8 [&::-webkit-scrollbar]:hidden"
+        className="-mx-5 flex snap-x snap-mandatory [scroll-padding-inline:1.25rem] items-center gap-3 overflow-x-auto scroll-smooth px-5 py-6 [scrollbar-width:none] sm:-mx-8 sm:[scroll-padding-inline:2rem] sm:gap-6 sm:px-8 sm:py-8 [&::-webkit-scrollbar]:hidden"
       >
         {slides.map(({ src, aspect }, i) => (
           <li
             key={src}
-            className="relative shrink-0 snap-start overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_10px_32px_rgba(0,0,0,0.16)]"
+            // On phones a piece takes most of the width but not all of it, so the next one always peeks in;
+            // from sm up the desktop proportions apply.
+            className={`relative shrink-0 snap-start overflow-hidden rounded-[10px] bg-[#ecece7] shadow-[0_10px_32px_rgba(0,0,0,0.16)] ${aspect > 1.4 ? "[--slide-max:92%] sm:[--slide-max:72%]" : "[--slide-max:74%] sm:[--slide-max:92%]"}`}
             // Every piece keeps its own proportions at a shared height; a wide one is capped by the viewport and gets
             // shorter instead of cropped, so nothing is ever cut and the next piece always peeks in.
             style={{
               aspectRatio: String(aspect),
-              width: `min(${aspect > 1.4 ? 72 : 92}%, calc(clamp(240px, 40vw, ${tall ? 560 : 540}px) * ${aspect}))`,
+              width: `min(var(--slide-max), calc(clamp(240px, 40vw, ${tall ? 560 : 540}px) * ${aspect}))`,
             }}
           >
             <Image
@@ -69,6 +71,7 @@ export function SlideCarousel({
               sizes="(min-width: 1280px) 1100px, 92vw"
               priority={i === 0}
               quality={92}
+              draggable={false}
               className="object-cover"
             />
           </li>

@@ -96,11 +96,12 @@ export async function SkillsSection({ locale }: { locale: Locale }) {
           </p>
         </div>
 
-        <div className="mx-auto mt-28 flex w-full justify-center pb-8 xl:absolute xl:top-[463px] xl:left-[756px] xl:mt-0 xl:w-[160px] xl:pb-0 2xl:left-[885px]">
+        <div className="mx-auto mt-16 flex w-full justify-center pb-8 sm:mt-28 xl:absolute xl:top-[463px] xl:left-[756px] xl:mt-0 xl:w-[160px] xl:pb-0 2xl:left-[885px]">
           <IpodCard
             locale={locale}
             tracks={skills.map((skill) => skill.title)}
             scale={1.45}
+            phoneScale={1.1}
             previews={previews}
           />
         </div>

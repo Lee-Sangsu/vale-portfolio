@@ -373,6 +373,9 @@ const INSTAGRAM_EMBEDS: Record<string, EmbedGroup[]> = {
 /** Projects whose live Instagram posts open the galleries (right after the case text) and replace the post files. */
 const EMBEDS_FIRST = new Set(["instagram-content"]);
 
+/** Projects whose visual/ photo is only the page cover: no extra "Galería" of it below the decks. */
+const NO_VISUAL_GALLERY = new Set(["hola-guesthouse-jeju"]);
+
 /** Projects that keep the original gallery look: tall deck slides and Instagram posts in two big columns. */
 const CLASSIC_GALLERY = new Set([
   "brujula-etica",
@@ -790,7 +793,7 @@ export default async function WorkPage({
           // A page that lists its child projects ("Dentro de este proyecto") keeps the hero collage only: no extra gallery.
           [
             "visual",
-            launchFirst || hasChildCards
+            launchFirst || hasChildCards || NO_VISUAL_GALLERY.has(project.slug)
               ? []
               : photos.visual.length
                 ? photos.visual

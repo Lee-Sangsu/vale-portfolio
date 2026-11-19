@@ -1881,7 +1881,7 @@
               ],
               "challenge": "Entre un mensaje en frío y un evento formal no había nada. Las usuarias no sabían quién estaba en línea de verdad, dudaban en escribir, y los planes terminaban armándose en WhatsApp. Cualquier solución tenía que funcionar para mujeres que se encuentran con desconocidas en una ciudad nueva, así que la seguridad tenía que estar en el diseño desde el primer paso.",
               "approach": "Diseñé cuatro piezas que se encadenan. Currently Active muestra quién estuvo activa en los últimos 15 minutos. Women Meetups convierte un plan pequeño en un chat en segundos. Travel Status cuenta dónde está cada una y por qué. Y el flujo del meetup cubre el antes y el después: confirmar asistencia, salir sin incomodar y responder, al volver, cómo se sintió. Arrancamos en Seúl y abrimos ciudad por ciudad según la demanda.",
-              "result": "Cientos de uniones a meetups en las dos primeras semanas, y cerca de un 30% de las usuarias que se unen a un meetup repiten. Women Meetups pasó de Seúl a París y, desde el 22 de septiembre de 2026, a todas las ciudades. El RSVP y el check-in de seguridad están en test para la 9.6.5. People · Phase 1, con Every week y What are you up for, está especificado y entregado en Figma y Notion.",
+              "result": "Cerca de un 30% de las usuarias que se unen a un meetup repiten. Women Meetups pasó de Seúl a París y, desde el 22 de septiembre de 2026, a todas las ciudades. El RSVP y el check-in de seguridad están en test para la 9.6.5. People · Phase 1, con Every week y What are you up for, está especificado y entregado en Figma y Notion.",
               "extras": [
                 {
                   "title": "Currently Active",
@@ -2013,7 +2013,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "People, con la misma barra de búsqueda que Explore; con una ciudad elegida, la barra muestra la ciudad y las fechas de su viaje. Debajo, Currently Active (\"10 online\", cada una con Local in, Expat in o Traveler in y su bandera), Meetups in Seoul, Every week · no host, What are you up for? y Travel buddies in Seoul con All, Travelers, Locals y Expats. Sin ciudad, las mismas secciones \"around the world\", y Every week y What are you up for desaparecen."
+                          "text": "People, con la misma barra de búsqueda que Explore; con una ciudad elegida, la barra muestra \"Seoul · Oct 16 → 22 · 7 days\". Debajo, Currently Active (\"10 online\", cada una con su chip Local, Expat o Nomad), Meetups in Seoul, Every week · no host, What are you up for? con cuatro moods (\"Cafés · 12 places · 21 interest\") y Travel buddies in Seoul con All, Travelers, Locals y Expats. Sin ciudad, las mismas secciones \"around the world\", y Every week y What are you up for desaparecen."
                         }
                       ]
                     }
@@ -2036,7 +2036,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Planes fijos por ciudad, \"Every Wednesday · No host\": día y hora (\"Wednesdays · 19:30 · next one 5 Nov\"), punto de encuentro (\"Euljiro 3-ga station, exit 4\"), quién va (\"2 going · 3 spots left\"), About this plan y de quién salió (\"From a tip by Ana · public place, same plan every week\"). En Seúl: Street beer night en Euljiro, Coffee and laptops en Yeonnam y en Seongsu, Weekend brunch en Gangnam, Karaoke night en Hongdae, Korean BBQ night en Mapo y Shopping afternoon en Hongdae. Count me in la mete al chat de esa semana, hasta cinco mujeres. El chat abre con la card del plan y \"How this plan works\": nadie lo organiza, la guía está en Details y aquí solo acuerdan dónde encontrarse. Cierra al día siguiente."
+                          "text": "Siete planes fijos, uno por día de la semana, \"Every Friday · No host\": día y hora (\"Fridays · 19:30 · next one 20 Nov\"), el lugar (\"Craft Roo(t) · Ikseon-dong\"), cupos (\"3 spots left\") y About this plan. En Seúl: Coffee and laptops en Seongsu los martes, Korean BBQ night en Mapo los miércoles, Coffee and laptops en Gwanghwamun los jueves, Craft beer en Ikseon-dong los viernes, Shopping afternoon en Gangnam y Karaoke night en Hongdae los sábados y Sunday brunch en Hannam los domingos. Count me in la mete al chat de esa semana, hasta cinco mujeres; si está lleno, la card dice \"Full this week\" y ofrece \"Remind me\" para la siguiente. El chat abre con la card del plan y Details trae la guía completa: Important to know, Where you meet con Copy address y Open in Naver Map, How to find the group, The plan hora por hora, What it costs, Hours y Our tips, firmada \"Same plan every week · edited by NomadHer\". Al final de la fila, \"Got a plan of your own? · Start a meetup\"."
                         }
                       ]
                     }
@@ -2059,7 +2059,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Cuatro moods: Cultural, Outdoors, Foodies y Cafés, con la regla arriba: \"Like a place. A match opens a group chat.\" Cada card muestra el lugar (\"Visit Gyeongbokgung Palace in hanbok\"), el barrio (Jongno), una línea de qué se hace y cuántas están interesadas (\"3 interested\"); nunca una fecha. ⓘ abre la guía completa. Al final de cada mazo, \"Didn't find your plan? · Create a meetup\". Todo se edita desde NomadMin; NomadHer nunca es host."
+                          "text": "Cuatro moods: Cultural, Outdoors, Foodies y Cafés, con la regla arriba: \"Like a place. A match opens a group chat.\" Cada card es una foto a pantalla completa, tres por lugar, con el nombre (\"Visit Gyeongbokgung Palace in hanbok\"), una línea de qué se hace y el barrio (Jongno); nunca una fecha. Veinticinco lugares en Seúl, cada uno con su guía: nueve culturales, ocho al aire libre, cuatro de comida y cuatro cafés. Al final de cada mazo, \"Didn't find your plan? · Create your own meetup. Pick the place and the day\". Todo se edita desde NomadMin; NomadHer nunca es host."
                         }
                       ]
                     }
@@ -2082,7 +2082,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Cuando una segunda mujer da like al mismo lugar, las dos ven \"It's a plan!\" y entran a un chat de grupo. Arriba, \"This chat closes in 10 days\"; el primer mensaje es \"You all picked this plan · Nobody hosts it, so agree on a day here. Everything else is in Details\". Al elegir día, la cabecera pasa a \"Thursday 6 Nov · 9:00 · day picked\". En Details, la guía del lugar: chips (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), The plan hora por hora, What it costs, Hours, Our tips y Keep the day going con el siguiente plan a pie, firmada \"From a tip by Mina · edited by NomadHer\". Cada like nuevo se suma hasta cinco; el sexto abre un segundo grupo. Si no eligen día, el chat cierra y el lugar vuelve al swipe. Después, la encuesta del meetup."
+                          "text": "Cuando una segunda mujer da like al mismo lugar, aparece \"You and 3 NomadHers liked this · It's a plan!\", con \"Open the group chat\" o \"Keep swiping\". Arriba del chat, \"This chat closes in 10 days\"; el primer mensaje es \"You all liked this place. Pick a day together here\". Al elegir día, una card fija lo deja claro: \"Day picked · Thursday 6 Nov · 9:00 · Gyeongbokgung station, exit 5\". En Details, la guía del lugar: Important to know (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), Where you meet, How to find the group, The plan de 8:30 a 11:30, What it costs, Hours y Our tips, firmada \"From a tip by Mina · edited by NomadHer\". Cada like nuevo se suma hasta cinco; el sexto abre un segundo grupo. Si no eligen día, el chat cierra y el lugar vuelve al swipe. Después del encuentro, la misma pregunta de siempre dentro del chat: \"Did you make it to the palace?\"."
                         }
                       ]
                     }
@@ -2157,7 +2157,7 @@
               ],
               "challenge": "Between a cold message and a formal event there was nothing. Users didn't know who was really online, hesitated to write, and plans ended up being made on WhatsApp. Any solution had to work for women meeting strangers in a new city, so safety had to be in the design from the very first step.",
               "approach": "I designed four pieces that chain together. Currently Active shows who has been active in the last 15 minutes. Women Meetups turns a small plan into a chat in seconds. Travel Status tells where each person is and why. And the meetup flow covers the before and the after: confirming attendance, leaving without awkwardness and answering, on the way back, how it felt. We started in Seoul and opened city by city based on demand.",
-              "result": "Hundreds of meetup joins in the first two weeks, and close to 30% of the women who join a meetup come back for another. Women Meetups went from Seoul to Paris and, since September 22, 2026, to every city. The RSVP and safety check-in are in test for 9.6.5. People · Phase 1, with Every week and What are you up for, is specified and handed over in Figma and Notion.",
+              "result": "Close to 30% of the women who join a meetup come back for another. Women Meetups went from Seoul to Paris and, since September 22, 2026, to every city. The RSVP and safety check-in are in test for 9.6.5. People · Phase 1, with Every week and What are you up for, is specified and handed over in Figma and Notion.",
               "extras": [
                 {
                   "title": "Currently Active",
@@ -2289,7 +2289,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "People, with the same search bar as Explore; with a city picked, the bar shows the city and her trip dates. Below it, Currently Active (\"10 online\", each with Local in, Expat in or Traveler in and her flag), Meetups in Seoul, Every week · no host, What are you up for? and Travel buddies in Seoul with All, Travelers, Locals and Expats. With no city, the same sections \"around the world\", and Every week and What are you up for disappear."
+                          "text": "People, with the same search bar as Explore; with a city picked, the bar reads \"Seoul · Oct 16 → 22 · 7 days\". Below it, Currently Active (\"10 online\", each with her Local, Expat or Nomad chip), Meetups in Seoul, Every week · no host, What are you up for? with four moods (\"Cafés · 12 places · 21 interest\") and Travel buddies in Seoul with All, Travelers, Locals and Expats. With no city, the same sections \"around the world\", and Every week and What are you up for disappear."
                         }
                       ]
                     }
@@ -2312,7 +2312,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "Fixed plans per city, \"Every Wednesday · No host\": day and time (\"Wednesdays · 19:30 · next one 5 Nov\"), meeting point (\"Euljiro 3-ga station, exit 4\"), who is going (\"2 going · 3 spots left\"), About this plan and whose idea it was (\"From a tip by Ana · public place, same plan every week\"). In Seoul: Street beer night in Euljiro, Coffee and laptops in Yeonnam and in Seongsu, Weekend brunch in Gangnam, Karaoke night in Hongdae, Korean BBQ night in Mapo and Shopping afternoon in Hongdae. Count me in adds her to that week's chat, up to five women. The chat opens with the plan card and \"How this plan works\": nobody hosts it, the guide is in Details and here they only agree on where to find each other. It closes the day after."
+                          "text": "Seven fixed plans, one per day of the week, \"Every Friday · No host\": day and time (\"Fridays · 19:30 · next one 20 Nov\"), the spot (\"Craft Roo(t) · Ikseon-dong\"), seats (\"3 spots left\") and About this plan. In Seoul: Coffee and laptops in Seongsu on Tuesdays, Korean BBQ night in Mapo on Wednesdays, Coffee and laptops in Gwanghwamun on Thursdays, Craft beer in Ikseon-dong on Fridays, Shopping afternoon in Gangnam and Karaoke night in Hongdae on Saturdays and Sunday brunch in Hannam on Sundays. Count me in adds her to that week's chat, up to five women; when it is full, the card says \"Full this week\" and offers \"Remind me\" for the next one. The chat opens with the plan card, and Details holds the full guide: Important to know, Where you meet with Copy address and Open in Naver Map, How to find the group, The plan hour by hour, What it costs, Hours and Our tips, signed \"Same plan every week · edited by NomadHer\". At the end of the row, \"Got a plan of your own? · Start a meetup\"."
                         }
                       ]
                     }
@@ -2335,7 +2335,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "Four moods: Cultural, Outdoors, Foodies and Cafés, with the rule on top: \"Like a place. A match opens a group chat.\" Each card shows the place (\"Visit Gyeongbokgung Palace in hanbok\"), the area (Jongno), one line on what you do and how many are interested (\"3 interested\"); never a date. ⓘ opens the full guide. At the end of each deck, \"Didn't find your plan? · Create a meetup\". Everything is edited in NomadMin; NomadHer never hosts."
+                          "text": "Four moods: Cultural, Outdoors, Foodies and Cafés, with the rule on top: \"Like a place. A match opens a group chat.\" Each card is a full-bleed photo, three per place, with the name (\"Visit Gyeongbokgung Palace in hanbok\"), one line on what you do and the area (Jongno); never a date. Twenty-five places in Seoul, each with its own guide: nine cultural, eight outdoors, four foodie and four cafés. At the end of each deck, \"Didn't find your plan? · Create your own meetup. Pick the place and the day\". Everything is edited in NomadMin; NomadHer never hosts."
                         }
                       ]
                     }
@@ -2358,7 +2358,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "When a second woman likes the same place, both see \"It's a plan!\" and enter a group chat. On top, \"This chat closes in 10 days\"; the first message is \"You all picked this plan · Nobody hosts it, so agree on a day here. Everything else is in Details\". Once a day is picked, the header reads \"Thursday 6 Nov · 9:00 · day picked\". In Details, the place guide: chips (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), The plan hour by hour, What it costs, Hours, Our tips and Keep the day going with the next plan on foot, signed \"From a tip by Mina · edited by NomadHer\". Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. Afterwards, the meetup survey."
+                          "text": "When a second woman likes the same place, she sees \"You and 3 NomadHers liked this · It's a plan!\", with \"Open the group chat\" or \"Keep swiping\". On top of the chat, \"This chat closes in 10 days\"; the first message is \"You all liked this place. Pick a day together here\". Once a day is picked, a pinned card makes it clear: \"Day picked · Thursday 6 Nov · 9:00 · Gyeongbokgung station, exit 5\". In Details, the place guide: Important to know (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), Where you meet, How to find the group, The plan from 8:30 to 11:30, What it costs, Hours and Our tips, signed \"From a tip by Mina · edited by NomadHer\". Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. After the meetup, the usual question lands inside the chat: \"Did you make it to the palace?\"."
                         }
                       ]
                     }
@@ -2487,7 +2487,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Perfil nuevo en la 9.6.1: una foto principal con reglas claras (solo ella, cara visible, sin grupos ni gafas), un anillo de progreso alrededor del avatar con el nivel y los puntos del mes, y una sección Activities con My Level, Following, My Experiences y My Reviews. En el perfil público, el Travel Status y los badges junto al nombre dan contexto antes de escribirle."
+                          "text": "Perfil nuevo en la 9.6.1: una foto principal con reglas claras (solo ella, cara visible, sin grupos ni gafas), un anillo de progreso alrededor del avatar con el nivel y los puntos del mes, y una sección Activities con My Level, Following, My Experiences y My Reviews. En el perfil público, Follow y Message arriba, el Travel Status, sus intereses y, si es blogger, una card con sus blogs ('12 blogs on NomadHer · Read ›'): contexto suficiente antes de escribirle."
                         }
                       ]
                     }
@@ -2665,7 +2665,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "New profile in 9.6.1: a main photo with clear rules (only her, face visible, no groups or sunglasses), a progress ring around the avatar with her level and the month's points, and an Activities section with My Level, Following, My Experiences and My Reviews. On the public profile, Travel Status and the badges next to the name give context before writing to her."
+                          "text": "New profile in 9.6.1: a main photo with clear rules (only her, face visible, no groups or sunglasses), a progress ring around the avatar with her level and the month's points, and an Activities section with My Level, Following, My Experiences and My Reviews. On the public profile, Follow and Message on top, her Travel Status, her interests and, if she is a blogger, a card with her blogs ('12 blogs on NomadHer · Read ›'): enough context before writing to her."
                         }
                       ]
                     }

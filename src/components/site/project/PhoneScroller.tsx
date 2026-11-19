@@ -5,8 +5,9 @@ import { useEffect, useRef } from "react";
 
 /**
  * The screen of a phone mockup when the screenshot is a full page: it sits in a scrollable box.
- * Hovering the phone scrolls the page down on its own; a wheel, trackpad or finger over it takes over at once
- * (the auto-scroll stops), and when the pointer leaves, the page glides back to the top.
+ * With a mouse, hovering the phone scrolls the page down on its own and leaving glides it back to the top.
+ * On touch devices the box is not scrollable (a finger must keep scrolling the page), so the tour simply plays
+ * when the phone comes into view and rewinds when it leaves. With a mouse, a wheel or trackpad takes over at once.
  */
 export function PhoneScroller({
   src,
@@ -63,17 +64,31 @@ export function PhoneScroller({
       box.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
     };
     const frame = box.closest(".phone-frame") ?? box;
-    frame.addEventListener("pointerenter", autoScroll);
-    frame.addEventListener("pointerleave", back);
+    const canHover = window.matchMedia("(hover: hover)").matches;
+    let observer: IntersectionObserver | null = null;
+    if (canHover) {
+      frame.addEventListener("pointerenter", autoScroll);
+      frame.addEventListener("pointerleave", back);
+    } else {
+      // No mouse to hover with (phones, tablets): the tour starts on its own once most of the
+      // phone is on screen and rewinds when it scrolls away, so it plays again next time.
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) autoScroll();
+          else back();
+        },
+        { threshold: 0.6 },
+      );
+      observer.observe(frame);
+    }
     box.addEventListener("wheel", takeOver, { passive: true });
-    box.addEventListener("touchstart", takeOver, { passive: true });
     box.addEventListener("pointerdown", takeOver);
     return () => {
       stop();
+      observer?.disconnect();
       frame.removeEventListener("pointerenter", autoScroll);
       frame.removeEventListener("pointerleave", back);
       box.removeEventListener("wheel", takeOver);
-      box.removeEventListener("touchstart", takeOver);
       box.removeEventListener("pointerdown", takeOver);
     };
   }, [seconds]);
@@ -81,7 +96,7 @@ export function PhoneScroller({
   return (
     <div
       ref={boxRef}
-      className="phone-screen-box absolute inset-0 overflow-y-auto overscroll-y-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      className="phone-screen-box absolute inset-0 overflow-y-auto overscroll-y-contain [scrollbar-width:none] [@media(hover:none)]:overflow-hidden [@media(hover:none)]:overscroll-y-auto [&::-webkit-scrollbar]:hidden"
     >
       <Image
         src={src}

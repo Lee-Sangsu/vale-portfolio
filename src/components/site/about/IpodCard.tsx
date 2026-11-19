@@ -79,7 +79,8 @@ const getServerSongs = () => SONGS;
 export function IpodCard({
   locale,
   tracks,
-  scale = 1,
+  scale: desktopScale = 1,
+  phoneScale,
   previews = {},
 }: {
   locale: Locale;
@@ -88,8 +89,20 @@ export function IpodCard({
   previews?: Record<string, string | null>;
   /** Visual size multiplier; the card is drawn on a fixed 160px grid. */
   scale?: number;
+  /** Smaller multiplier used under 768px, so the card does not swallow a phone screen. */
+  phoneScale?: number;
 }) {
   const es = locale === "es";
+  const isPhone = useSyncExternalStore(
+    (cb) => {
+      const mq = window.matchMedia("(max-width: 767px)");
+      mq.addEventListener("change", cb);
+      return () => mq.removeEventListener("change", cb);
+    },
+    () => window.matchMedia("(max-width: 767px)").matches,
+    () => false,
+  );
+  const scale = isPhone && phoneScale !== undefined ? phoneScale : desktopScale;
   const [active, setActive] = useState(0);
   // Advances with every click so songs keep rotating past the 4 skills.
   const [songIndex, setSongIndex] = useState(0);

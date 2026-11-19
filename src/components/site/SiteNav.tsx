@@ -91,33 +91,36 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
           </button>
 
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              href="/contact"
-              className="rounded-full bg-[#111] px-[22px] py-[11px] font-inter text-[15px] font-semibold text-white transition-opacity hover:opacity-80"
+            {/* Every page ends with the "Let's grab a coffee" block, so the CTA scrolls there instead of leaving the page. */}
+            <a
+              href="#contacto"
+              className="rounded-full bg-[#111] px-[16px] py-[9px] font-inter text-[13px] font-semibold text-white transition-opacity hover:opacity-80 sm:px-[22px] sm:py-[11px] sm:text-[15px]"
             >
               {locale === "es" ? "Contacto" : "Contact"}
-            </Link>
+            </a>
           </motion.div>
         </div>
       </div>
 
-      {/* Mobile link row */}
-      <div className="flex items-center justify-center gap-6 pb-2 md:hidden">
-        {NAV.map((item) => {
-          const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={clsx(
-                "px-1 py-2 font-inter text-[13px] font-medium",
-                onDark ? "text-white/90" : light ? "text-white/90" : active ? "text-nav" : "text-nav-dim",
-              )}
-            >
-              {locale === "es" ? item.es : item.en}
-            </Link>
-          );
-        })}
+      {/* Mobile link row: the same white pill as desktop, scaled down and centered */}
+      <div className="flex justify-center px-5 pb-2 md:hidden">
+        <div className="flex items-center gap-[18px] rounded-full bg-white px-[22px] py-[9px] shadow-[0_4px_18px_rgba(0,0,0,0.08)]">
+          {NAV.map((item) => {
+            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={clsx(
+                  "whitespace-nowrap font-inter text-[13px] font-medium transition-colors",
+                  active ? "text-nav" : "text-nav-dim",
+                )}
+              >
+                {locale === "es" ? item.es : item.en}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );

@@ -29,11 +29,11 @@ export function WindowCard({
           <span className="size-[11px] rounded-full bg-[#28c840]" />
         </span>
         {title && (
-          <span className="flex-1 text-center font-inter text-[13px] font-medium text-[#555]">
+          <span className="hidden min-w-0 flex-1 truncate text-center font-inter text-[13px] font-medium text-[#555] sm:block">
             {title}
           </span>
         )}
-        <span className="w-[45px]" />
+        <span className="w-[20px] sm:w-[45px]" />
       </div>
       <div className={bodyClassName}>{children}</div>
     </div>

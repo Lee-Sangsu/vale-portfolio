@@ -435,7 +435,7 @@ export async function HeroMedia({
           <Photo
             key={src}
             src={src}
-            sizes="(min-width: 1024px) 220px, 30vw"
+            sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 60vw"
             priority={i === 0}
             fit="object-cover object-top"
             className="aspect-[343/588] flex-1 rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.1)]"
@@ -543,7 +543,7 @@ function SevenPieceCollage({ items }: { items: Sized[] }) {
         src={item.src}
         alt=""
         fill
-        sizes="(min-width: 1024px) 560px, 50vw"
+        sizes="(min-width: 1024px) 560px, 100vw"
         className="object-cover"
       />
     </div>
@@ -575,7 +575,7 @@ function SevenPieceCollage({ items }: { items: Sized[] }) {
                 src={item.src}
                 alt=""
                 fill
-                sizes="(min-width: 1024px) 400px, 33vw"
+                sizes="(min-width: 1024px) 400px, (min-width: 640px) 33vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -761,7 +761,7 @@ export async function TemplateGallery({
                       >
                         <PhoneFrame
                           src={src}
-                          sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                          sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 100vw"
                           aspect={aspectOf.get(src)}
                         />
                       </li>
@@ -780,7 +780,7 @@ export async function TemplateGallery({
                 >
                   <PhoneFrame
                     src={src}
-                    sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                    sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 100vw"
                     aspect={aspects[i]}
                   />
                 </li>
@@ -1169,7 +1169,7 @@ export async function TemplateGallery({
                 src={src}
                 alt=""
                 fill
-                sizes={n === 3 ? "(min-width: 1024px) 400px, 33vw" : "50vw"}
+                sizes={n === 3 ? "(min-width: 1024px) 400px, (min-width: 640px) 33vw, 100vw" : "(min-width: 640px) 50vw, 100vw"}
                 className="object-cover"
               />
             </div>
