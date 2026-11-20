@@ -1884,7 +1884,7 @@
               "result": "Cerca de un 30% de las usuarias que se unen a un meetup repiten. Women Meetups pasó de Seúl a París y, desde el 22 de septiembre de 2026, a todas las ciudades. El RSVP y el check-in de seguridad están en test para la 9.6.5. People · Phase 1, con Every week y What are you up for, está especificado y entregado en Figma y Notion.",
               "extras": [
                 {
-                  "title": "Currently Active",
+                  "title": "La pestaña People",
                   "stats": false,
                   "blocks": [
                     {
@@ -1892,15 +1892,15 @@
                       "items": [
                         {
                           "lead": "Problema",
-                          "text": "Escribirle a alguien que no abre la app hace semanas es la forma más rápida de perder las ganas de intentarlo."
+                          "text": "Travel Buddy mostraba a todas las mujeres de una ciudad sin saber cuándo estarían allí ni quién estaba activa."
                         },
                         {
                           "lead": "Hipótesis",
-                          "text": "Mostrar quién está activa ahora multiplica las respuestas, siempre que la presencia tenga un propósito y no sea un rastreador."
+                          "text": "Si la pestaña abre en su ciudad y sus fechas, y muestra quién está ahora, lo demás se ordena solo."
                         },
                         {
                           "lead": "Solución",
-                          "text": "Activa ahora: actividad en los últimos 15 minutos, con punto verde. Recently Active: de 15 minutos a 14 días, visible solo en el perfil. Un carrusel de tres cards con chip de estado y bandera. Sin foto o sin estado, la usuaria no aparece; si no hay nadie activo, la sección desaparece. Antes hice un research de presencia en apps de citas: un punto verde en vivo puede ser un riesgo."
+                          "text": "Una barra \"Who's in\" con ciudad y fechas. Currently Active: quien usó la app en los últimos 15 minutos, con punto verde y chip Local, Expat o Nomad; si no hay nadie, la sección desaparece. Abajo, las travel buddies de la ciudad con los filtros All, Travelers, Locals y Expats."
                         }
                       ]
                     }
@@ -1915,105 +1915,15 @@
                       "items": [
                         {
                           "lead": "Problema",
-                          "text": "Los planes se armaban en WhatsApp, fuera de la app, y cada uno necesitaba una organizadora que se hiciera cargo."
+                          "text": "Los planes se armaban en WhatsApp y cada uno necesitaba una organizadora."
                         },
                         {
                           "lead": "Hipótesis",
-                          "text": "Si crear un plan cuesta tres toques y el chat nace solo, cualquier mujer puede ser host sin sentirse host."
+                          "text": "Si crear un plan cuesta tres toques y el chat nace solo, cualquiera puede ser host sin sentirse host."
                         },
                         {
                           "lead": "Solución",
-                          "text": "Tres tipos de plan (Food & drinks, Cultural Place, Outdoor Activity), hasta dos semanas de anticipación, \"Join the chat!\" en lugar de un RSVP formal y un chat que se crea solo, con la descripción como primer mensaje y archivo automático 24 horas después. Fuera de Seúl, \"Add my city\": con 20 pedidos se abre una ciudad. Los meetups con más movimiento suben solos al Lounge con el badge \"via Travel Buddy\"."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Travel Status",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problema",
-                          "text": "Viajera, local y expat usaban el mismo formulario, y ninguna sentía que hablaba de ella."
-                        },
-                        {
-                          "lead": "Hipótesis",
-                          "text": "Tres situaciones distintas merecen tres entradas distintas, aunque terminen en la misma card."
-                        },
-                        {
-                          "lead": "Solución",
-                          "text": "Un flujo para cada situación, Traveler, Local o Expat, con una vista previa de cómo la verán las demás, y varias travel buddies a la vez cuando las fechas no se cruzan."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Antes y después del meetup",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problema",
-                          "text": "Nadie sabía si el encuentro había pasado, si había ido alguien ni cómo se había sentido."
-                        },
-                        {
-                          "lead": "Hipótesis",
-                          "text": "Dos preguntas en el momento justo valen más que una encuesta larga, y la de seguridad tiene que llegar al equipo al instante."
-                        },
-                        {
-                          "lead": "Solución",
-                          "text": "Antes: una pausa para leer los detalles, pestañas Chat y Details, y RSVP con Going, Maybe y Can't go; unirse al meetup y al chat es una sola acción. Después: \"Did you make it?\", y si no fue, por qué. Luego \"How safe did you feel?\": cada \"Not great\" abre un espacio para contar qué pasó y avisa al equipo en el momento. Al final, una invitación a contarlo en el Lounge."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Métricas definidas",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "Completitud de la encuesta",
-                        "asistencia frente a no-shows",
-                        "motivos",
-                        "distribución de respuestas de seguridad",
-                        "tasa de stories",
-                        "hosts que repiten",
-                        "likes por sesión y likes que se vuelven match",
-                        "matches que eligen día en 7 días",
-                        "Count me in por plan y quién llegó",
-                        "mensajes por chat de grupo"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "People · Seúl",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problema",
-                          "text": "Travel Buddy devolvía todas las mujeres de una ciudad sin saber cuándo iban a estar allí, y los planes seguían armándose en WhatsApp."
-                        },
-                        {
-                          "lead": "Hipótesis",
-                          "text": "Si la pestaña abre en su viaje, ciudad y fechas, todo lo demás se ordena solo."
-                        },
-                        {
-                          "lead": "Solución",
-                          "text": "People, con la misma barra de búsqueda que Explore; con una ciudad elegida, la barra muestra \"Seoul · Oct 16 → 22 · 7 days\". Debajo, Currently Active (\"10 online\", cada una con su chip Local, Expat o Nomad), Meetups in Seoul, Every week · no host, What are you up for? con cuatro moods (\"Cafés · 12 places · 21 interest\") y Travel buddies in Seoul con All, Travelers, Locals y Expats. Sin ciudad, las mismas secciones \"around the world\", y Every week y What are you up for desaparecen."
+                          "text": "Tipo de actividad, ciudad y fecha hasta 15 días. \"Finish your plan\" muestra la card y las reglas, con la casilla de las Meetup Guidelines. Al publicar nace el chat con la descripción como primer mensaje; las demás entran con Tap to RSVP."
                         }
                       ]
                     }
@@ -2032,11 +1942,11 @@
                         },
                         {
                           "lead": "Hipótesis",
-                          "text": "Un ritual fijo, mismo día, misma hora, mismo lugar público, hace que el encuentro pase aunque nadie lo convoque."
+                          "text": "Un ritual fijo, mismo día, misma hora, mismo lugar, hace que el encuentro pase aunque nadie lo convoque."
                         },
                         {
                           "lead": "Solución",
-                          "text": "Siete planes fijos, uno por día de la semana, \"Every Friday · No host\": día y hora (\"Fridays · 19:30 · next one 20 Nov\"), el lugar (\"Craft Roo(t) · Ikseon-dong\"), cupos (\"3 spots left\") y About this plan. En Seúl: Coffee and laptops en Seongsu los martes, Korean BBQ night en Mapo los miércoles, Coffee and laptops en Gwanghwamun los jueves, Craft beer en Ikseon-dong los viernes, Shopping afternoon en Gangnam y Karaoke night en Hongdae los sábados y Sunday brunch en Hannam los domingos. Count me in la mete al chat de esa semana, hasta cinco mujeres; si está lleno, la card dice \"Full this week\" y ofrece \"Remind me\" para la siguiente. El chat abre con la card del plan y Details trae la guía completa: Important to know, Where you meet con Copy address y Open in Naver Map, How to find the group, The plan hora por hora, What it costs, Hours y Our tips, firmada \"Same plan every week · edited by NomadHer\". Al final de la fila, \"Got a plan of your own? · Start a meetup\"."
+                          "text": "Siete planes fijos en Seúl, uno por día: de Coffee and laptops en Seongsu a Sunday brunch en Hannam. Count me in la mete al chat de esa semana, hasta cinco mujeres; si está lleno, \"Remind me\" para la siguiente. Details trae la guía completa: dónde, cómo encontrar al grupo, el plan hora por hora y qué cuesta."
                         }
                       ]
                     }
@@ -2059,7 +1969,7 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Cuatro moods: Cultural, Outdoors, Foodies y Cafés, con la regla arriba: \"Like a place. A match opens a group chat.\" Cada card es una foto a pantalla completa, tres por lugar, con el nombre (\"Visit Gyeongbokgung Palace in hanbok\"), una línea de qué se hace y el barrio (Jongno); nunca una fecha. Veinticinco lugares en Seúl, cada uno con su guía: nueve culturales, ocho al aire libre, cuatro de comida y cuatro cafés. Al final de cada mazo, \"Didn't find your plan? · Create your own meetup. Pick the place and the day\". Todo se edita desde NomadMin; NomadHer nunca es host."
+                          "text": "Cuatro moods: Cultural, Outdoors, Foodies y Cafés. Cada card es un lugar con una línea de qué se hace y el barrio; nunca una fecha. Veinticinco lugares en Seúl, cada uno con su guía. Al final del mazo, \"Create your own meetup\"."
                         }
                       ]
                     }
@@ -2082,14 +1992,14 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Cuando una segunda mujer da like al mismo lugar, aparece \"You and 3 NomadHers liked this · It's a plan!\", con \"Open the group chat\" o \"Keep swiping\". Arriba del chat, \"This chat closes in 10 days\"; el primer mensaje es \"You all liked this place. Pick a day together here\". Al elegir día, una card fija lo deja claro: \"Day picked · Thursday 6 Nov · 9:00 · Gyeongbokgung station, exit 5\". En Details, la guía del lugar: Important to know (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), Where you meet, How to find the group, The plan de 8:30 a 11:30, What it costs, Hours y Our tips, firmada \"From a tip by Mina · edited by NomadHer\". Cada like nuevo se suma hasta cinco; el sexto abre un segundo grupo. Si no eligen día, el chat cierra y el lugar vuelve al swipe. Después del encuentro, la misma pregunta de siempre dentro del chat: \"Did you make it to the palace?\"."
+                          "text": "Con el segundo like aparece \"It's a plan!\" y se abre un chat de grupo que cierra en 10 días. Al elegir día, queda fijado arriba con el punto de encuentro. Details trae la guía del lugar. Hasta cinco por chat; si no eligen día, el lugar vuelve al swipe."
                         }
                       ]
                     }
                   ]
                 },
                 {
-                  "title": "Chats de eventos",
+                  "title": "Antes y después del meetup",
                   "stats": false,
                   "blocks": [
                     {
@@ -2097,15 +2007,38 @@
                       "items": [
                         {
                           "lead": "Problema",
-                          "text": "Quien compraba una experiencia llegaba sola al evento, sin haber hablado con nadie antes."
+                          "text": "Nadie sabía si el encuentro había pasado, si había ido alguien ni cómo se había sentido."
                         },
                         {
                           "lead": "Hipótesis",
-                          "text": "Si la compra abre un chat, el evento empieza antes del evento."
+                          "text": "Dos preguntas en el momento justo valen más que una encuesta larga, y la de seguridad tiene que llegar al equipo al instante."
                         },
                         {
                           "lead": "Solución",
-                          "text": "Quien compra una experiencia, gratis o pagada, entra al chat del evento con la host. En producción desde la 9.6.4."
+                          "text": "Antes: pestañas Chat y Details y RSVP con Going, Maybe y Can't go. Después, en el chat: \"Did you make it?\". Si no fue, el motivo en un toque. Si fue, \"How safe did you feel?\": cada \"Not great\" avisa al equipo en el momento. Al cerrar, la reseña del meetup por +250 puntos."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Travel Status",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Problema",
+                          "text": "Viajera, local y expat usaban el mismo formulario, y ninguna sentía que hablaba de ella."
+                        },
+                        {
+                          "lead": "Hipótesis",
+                          "text": "Tres situaciones distintas merecen tres entradas distintas, aunque terminen en la misma card."
+                        },
+                        {
+                          "lead": "Solución",
+                          "text": "Traveler: ciudad y fechas, o \"I'm Flexible\" con los meses en que podría ir. Local: su ciudad base, sin fecha de fin. Expat: dónde vive y desde cuándo. Las tres terminan en la misma vista previa de la card."
                         }
                       ]
                     }
@@ -2160,7 +2093,7 @@
               "result": "Close to 30% of the women who join a meetup come back for another. Women Meetups went from Seoul to Paris and, since September 22, 2026, to every city. The RSVP and safety check-in are in test for 9.6.5. People · Phase 1, with Every week and What are you up for, is specified and handed over in Figma and Notion.",
               "extras": [
                 {
-                  "title": "Currently Active",
+                  "title": "The People tab",
                   "stats": false,
                   "blocks": [
                     {
@@ -2168,15 +2101,15 @@
                       "items": [
                         {
                           "lead": "Problem",
-                          "text": "Writing to someone who hasn't opened the app in weeks is the fastest way to stop trying."
+                          "text": "Travel Buddy showed every woman in a city without knowing when she would be there or who was active."
                         },
                         {
                           "lead": "Hypothesis",
-                          "text": "Showing who is active right now multiplies replies, as long as presence has a purpose and isn't a tracker."
+                          "text": "If the tab opens on her city and dates, and shows who is there right now, everything else falls into place."
                         },
                         {
                           "lead": "Solution",
-                          "text": "Active now: activity in the last 15 minutes, with a green dot. Recently Active: from 15 minutes to 14 days, visible only on the profile. A carousel of three cards with a status chip and a flag. Without a photo or a status the user doesn't appear; if no one is active, the section disappears. Before that I researched presence in dating apps: a live green dot can be a risk."
+                          "text": "A \"Who's in\" bar with city and dates. Currently Active: whoever used the app in the last 15 minutes, with a green dot and a Local, Expat or Nomad chip; if no one is active, the section disappears. Below, the city's travel buddies with the All, Travelers, Locals and Expats filters."
                         }
                       ]
                     }
@@ -2191,105 +2124,15 @@
                       "items": [
                         {
                           "lead": "Problem",
-                          "text": "Plans were made on WhatsApp, outside the app, and each one needed an organiser willing to take charge."
+                          "text": "Plans were made on WhatsApp and each one needed an organiser."
                         },
                         {
                           "lead": "Hypothesis",
-                          "text": "If creating a plan takes three taps and the chat creates itself, any woman can host without feeling like a host."
+                          "text": "If creating a plan takes three taps and the chat creates itself, anyone can host without feeling like a host."
                         },
                         {
                           "lead": "Solution",
-                          "text": "Three plan types (Food & drinks, Cultural Place, Outdoor Activity), up to two weeks in advance, \"Join the chat!\" instead of a formal RSVP and a chat that creates itself, with the description as the first message and automatic archiving 24 hours later. Outside Seoul, \"Add my city\": with 20 requests a city opens. The busiest meetups rise on their own to the Lounge with the badge \"via Travel Buddy\"."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Travel Status",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problem",
-                          "text": "Traveller, local and expat filled in the same form, and none of them felt it was about her."
-                        },
-                        {
-                          "lead": "Hypothesis",
-                          "text": "Three different situations deserve three different entries, even if they end in the same card."
-                        },
-                        {
-                          "lead": "Solution",
-                          "text": "One flow per situation, Traveler, Local or Expat, with a preview of how the others will see her, and several travel buddies at once when the dates don't overlap."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Before and after the meetup",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problem",
-                          "text": "Nobody knew whether the meetup had happened, whether anyone had shown up or how it had felt."
-                        },
-                        {
-                          "lead": "Hypothesis",
-                          "text": "Two questions at the right moment are worth more than a long survey, and the safety one has to reach the team instantly."
-                        },
-                        {
-                          "lead": "Solution",
-                          "text": "Before: a pause to read the details, Chat and Details tabs, and RSVP with Going, Maybe and Can't go; joining the meetup and the chat is one action. After: \"Did you make it?\", and if not, why. Then \"How safe did you feel?\": every \"Not great\" opens a space to say what happened and alerts the team right away. At the end, an invitation to tell it in the Lounge."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Defined metrics",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "Survey completion",
-                        "attendance versus no-shows",
-                        "reasons",
-                        "distribution of safety answers",
-                        "story rate",
-                        "repeat hosts",
-                        "likes per session and likes that turn into a match",
-                        "matches that pick a day within 7 days",
-                        "Count me in per plan and who showed up",
-                        "messages per group chat"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "People · Seoul",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "items",
-                      "items": [
-                        {
-                          "lead": "Problem",
-                          "text": "Travel Buddy returned every woman in a city without knowing when she would be there, and plans were still being made on WhatsApp."
-                        },
-                        {
-                          "lead": "Hypothesis",
-                          "text": "If the tab opens on her trip, city and dates, everything else falls into place."
-                        },
-                        {
-                          "lead": "Solution",
-                          "text": "People, with the same search bar as Explore; with a city picked, the bar reads \"Seoul · Oct 16 → 22 · 7 days\". Below it, Currently Active (\"10 online\", each with her Local, Expat or Nomad chip), Meetups in Seoul, Every week · no host, What are you up for? with four moods (\"Cafés · 12 places · 21 interest\") and Travel buddies in Seoul with All, Travelers, Locals and Expats. With no city, the same sections \"around the world\", and Every week and What are you up for disappear."
+                          "text": "Activity type, city and a date up to 15 days ahead. \"Finish your plan\" shows the card and the rules, with the Meetup Guidelines checkbox. On posting, the chat is born with the description as the first message; the others come in with Tap to RSVP."
                         }
                       ]
                     }
@@ -2308,11 +2151,11 @@
                         },
                         {
                           "lead": "Hypothesis",
-                          "text": "A fixed ritual, same day, same time, same public spot, makes the meetup happen even if nobody calls it."
+                          "text": "A fixed ritual, same day, same time, same spot, makes the meetup happen even if nobody calls it."
                         },
                         {
                           "lead": "Solution",
-                          "text": "Seven fixed plans, one per day of the week, \"Every Friday · No host\": day and time (\"Fridays · 19:30 · next one 20 Nov\"), the spot (\"Craft Roo(t) · Ikseon-dong\"), seats (\"3 spots left\") and About this plan. In Seoul: Coffee and laptops in Seongsu on Tuesdays, Korean BBQ night in Mapo on Wednesdays, Coffee and laptops in Gwanghwamun on Thursdays, Craft beer in Ikseon-dong on Fridays, Shopping afternoon in Gangnam and Karaoke night in Hongdae on Saturdays and Sunday brunch in Hannam on Sundays. Count me in adds her to that week's chat, up to five women; when it is full, the card says \"Full this week\" and offers \"Remind me\" for the next one. The chat opens with the plan card, and Details holds the full guide: Important to know, Where you meet with Copy address and Open in Naver Map, How to find the group, The plan hour by hour, What it costs, Hours and Our tips, signed \"Same plan every week · edited by NomadHer\". At the end of the row, \"Got a plan of your own? · Start a meetup\"."
+                          "text": "Seven fixed plans in Seoul, one per day: from Coffee and laptops in Seongsu to Sunday brunch in Hannam. Count me in adds her to that week's chat, up to five women; when it is full, \"Remind me\" for the next one. Details holds the full guide: where, how to find the group, the plan hour by hour and what it costs."
                         }
                       ]
                     }
@@ -2335,7 +2178,7 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "Four moods: Cultural, Outdoors, Foodies and Cafés, with the rule on top: \"Like a place. A match opens a group chat.\" Each card is a full-bleed photo, three per place, with the name (\"Visit Gyeongbokgung Palace in hanbok\"), one line on what you do and the area (Jongno); never a date. Twenty-five places in Seoul, each with its own guide: nine cultural, eight outdoors, four foodie and four cafés. At the end of each deck, \"Didn't find your plan? · Create your own meetup. Pick the place and the day\". Everything is edited in NomadMin; NomadHer never hosts."
+                          "text": "Four moods: Cultural, Outdoors, Foodies and Cafés. Each card is a place with one line on what you do and the area; never a date. Twenty-five places in Seoul, each with its own guide. At the end of the deck, \"Create your own meetup\"."
                         }
                       ]
                     }
@@ -2358,14 +2201,14 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "When a second woman likes the same place, she sees \"You and 3 NomadHers liked this · It's a plan!\", with \"Open the group chat\" or \"Keep swiping\". On top of the chat, \"This chat closes in 10 days\"; the first message is \"You all liked this place. Pick a day together here\". Once a day is picked, a pinned card makes it clear: \"Day picked · Thursday 6 Nov · 9:00 · Gyeongbokgung station, exit 5\". In Details, the place guide: Important to know (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), Where you meet, How to find the group, The plan from 8:30 to 11:30, What it costs, Hours and Our tips, signed \"From a tip by Mina · edited by NomadHer\". Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. After the meetup, the usual question lands inside the chat: \"Did you make it to the palace?\"."
+                          "text": "With the second like, \"It's a plan!\" opens a group chat that closes in 10 days. Once a day is picked, it stays pinned on top with the meeting point. Details holds the place guide. Up to five per chat; if no day is picked, the place goes back into the swipe."
                         }
                       ]
                     }
                   ]
                 },
                 {
-                  "title": "Event chats",
+                  "title": "Before and after the meetup",
                   "stats": false,
                   "blocks": [
                     {
@@ -2373,15 +2216,38 @@
                       "items": [
                         {
                           "lead": "Problem",
-                          "text": "Anyone who bought an experience arrived at the event alone, without having spoken to anyone first."
+                          "text": "Nobody knew whether the meetup had happened, whether anyone had shown up or how it had felt."
                         },
                         {
                           "lead": "Hypothesis",
-                          "text": "If the purchase opens a chat, the event starts before the event."
+                          "text": "Two questions at the right moment are worth more than a long survey, and the safety one has to reach the team instantly."
                         },
                         {
                           "lead": "Solution",
-                          "text": "Anyone who buys an experience, free or paid, joins the event chat with the host. In production since 9.6.4."
+                          "text": "Before: Chat and Details tabs and RSVP with Going, Maybe and Can't go. After, in the chat: \"Did you make it?\". If she didn't go, the reason in one tap. If she did, \"How safe did you feel?\": every \"Not great\" alerts the team right away. On closing, the meetup review for +250 points."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Travel Status",
+                  "stats": false,
+                  "blocks": [
+                    {
+                      "type": "items",
+                      "items": [
+                        {
+                          "lead": "Problem",
+                          "text": "Traveller, local and expat filled in the same form, and none of them felt it was about her."
+                        },
+                        {
+                          "lead": "Hypothesis",
+                          "text": "Three different situations deserve three different entries, even if they end in the same card."
+                        },
+                        {
+                          "lead": "Solution",
+                          "text": "Traveler: city and dates, or \"I'm Flexible\" with the months she might come. Local: her home base, no end date. Expat: where she lives and since when. All three end in the same card preview."
                         }
                       ]
                     }
@@ -2410,7 +2276,7 @@
               ],
               "meta": "NomadHer · Seúl, 2026",
               "title": "Niveles, badges y perks: reconocer a la comunidad",
-              "description": "Un sistema de reconocimiento en cuatro fases, de los puntos al wallet.",
+              "description": "Un sistema de reconocimiento por fases, de los puntos a los perks.",
               "tags": [
                 "UX/UI",
                 "Gamificación"
@@ -2444,11 +2310,11 @@
                 }
               ],
               "challenge": "En el diagnóstico de noviembre de 2025 aparecían tres huecos: las hosts no tenían incentivos, el valor de ser miembro no se percibía y la participación no se reconocía en ningún lado. Los perks de marcas aliadas estaban dispersos. Y las notificaciones se acumulaban sin limpiarse nunca.",
-              "approach": "Diseñé la lógica de puntos con benchmark de Booking Genius, por la permanencia del nivel, Duolingo, por las dos capas de XP y racha, y Gymshark, por premiar acciones de comunidad. El PRD inicial tenía cinco niveles. Recomendé lanzar primero los comunitarios y separar Ambassador como piloto, y ordené todo en cuatro fases: lanzamiento, todos los niveles, wallet y badges. Notificaciones y perks siguieron la misma lógica de fases.",
+              "approach": "Diseñé la lógica de puntos con benchmark de Booking Genius, por la permanencia del nivel, Duolingo, por las dos capas de XP y racha, y Gymshark, por premiar acciones de comunidad. El PRD inicial tenía cinco niveles. Recomendé lanzar primero los comunitarios y separar Ambassador como piloto, y ordené todo por fases: lanzamiento con dos niveles, todos los niveles y wallet. Notificaciones y perks siguieron la misma lógica de fases.",
               "result": "Inbox y notificaciones nuevas en producción desde la 9.6.2. Follow y Perks, desde la 9.6.4. La fase 1 de niveles y la nueva lógica de notificaciones están en test para la 9.6.5. Los badges de equipo y bloggers ya se ven en el Lounge, Travel Buddy, comentarios e Inbox.",
               "extras": [
                 {
-                  "title": "Los niveles · fase 1",
+                  "title": "Los niveles",
                   "stats": false,
                   "blocks": [
                     {
@@ -2460,11 +2326,11 @@
                         },
                         {
                           "lead": "Hipótesis",
-                          "text": "Dos niveles claros y una celebración al subir bastan para que participar se sienta, sin convertir la comunidad en un juego de puntos."
+                          "text": "Niveles claros, puntos que premian lo que de verdad mueve a la comunidad y una celebración al subir bastan para que participar se sienta, sin convertir la comunidad en un juego de puntos."
                         },
                         {
                           "lead": "Solución",
-                          "text": "Dreamer al verificarse. Explorer con 600 puntos en el mes: blog +500, reseña de meetup +250, comentario +50 con tope diario. Reset mensual sin bajar de nivel y nivel privado, como en Booking. Un anillo de progreso en el avatar, una pantalla My Level y una celebración de subida de nivel."
+                          "text": "Dreamer al verificarse. Explorer con 600 puntos en el mes, que se renuevan cada mes sin bajar de nivel, como en Booking. Inspirer, el nivel nuevo, con 5.000 puntos cada tres meses, badge propio, acceso prioritario a aliados y 10% en travel camps. Local y Global Ambassador quedan solo por invitación. La tabla de puntos creció con People: blog +500, guía +300, crear un meetup +300, historia de meetup +250, unirse a un plan sin host +150, tip +120, responder una pregunta +120, match con una actividad +100, journal +60, comentario +50, pregunta +40. Cada pantalla My Level muestra qué tiene, qué sigue y cómo mantenerlo."
                         }
                       ]
                     }
@@ -2479,7 +2345,7 @@
                       "items": [
                         {
                           "lead": "Problema",
-                          "text": "El perfil mostraba una foto y un texto; el nivel, los badges y lo que una mujer había hecho en la comunidad no se veían en ninguna parte."
+                          "text": "El perfil mostraba una foto y un texto; el nivel, las fotos y lo que una mujer había hecho en la comunidad no se veían en ninguna parte."
                         },
                         {
                           "lead": "Hipótesis",
@@ -2487,29 +2353,14 @@
                         },
                         {
                           "lead": "Solución",
-                          "text": "Perfil nuevo en la 9.6.1: una foto principal con reglas claras (solo ella, cara visible, sin grupos ni gafas), un anillo de progreso alrededor del avatar con el nivel y los puntos del mes, y una sección Activities con My Level, Following, My Experiences y My Reviews. En el perfil público, Follow y Message arriba, el Travel Status, sus intereses y, si es blogger, una card con sus blogs ('12 blogs on NomadHer · Read ›'): contexto suficiente antes de escribirle."
+                          "text": "Perfil nuevo en la 9.6.1: una foto principal con reglas claras (solo ella, cara visible, sin grupos ni gafas), hasta seis fotos que se reordenan arrastrando y una portada que se ajusta con vista previa, más un anillo de progreso alrededor del avatar con el nivel y los puntos del mes, y una sección Activities con My Level, Following, My Experiences y My Reviews. En el perfil público, Follow y Message arriba, el Travel Status, sus intereses y, si es blogger, una card con sus blogs ('12 blogs on NomadHer · Read ›'): contexto suficiente antes de escribirle."
                         }
                       ]
                     }
                   ]
                 },
                 {
-                  "title": "Las cuatro fases",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "01 Lanzamiento con dos niveles",
-                        "02 Todos los niveles, con Inspirer y Ambassador",
-                        "03 Wallet, donde viven los perks ganados",
-                        "04 Badges por logros, ciudades y rachas"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Badges",
+                  "title": "Experiences · banner de host",
                   "stats": false,
                   "blocks": [
                     {
@@ -2517,15 +2368,15 @@
                       "items": [
                         {
                           "lead": "Problema",
-                          "text": "En el Lounge no se distinguía a una blogger del programa, a alguien del equipo o a una embajadora de cualquier otra cuenta."
+                          "text": "La pestaña Experiences solo mostraba experiencias para comprar; nada invitaba a una usuaria a crear la suya, y las cards no decían cuántas iban ni si quedaba cupo."
                         },
                         {
                           "lead": "Hipótesis",
-                          "text": "Un badge junto al nombre, visible en todos los espacios, da contexto y confianza sin una sola palabra."
+                          "text": "Si la invitación a ser host está arriba de la lista, con foto y prueba de comunidad, más mujeres se animan a proponer un plan."
                         },
                         {
                           "lead": "Solución",
-                          "text": "Blogger, equipo NomadHer y Ambassador, visibles en el Lounge, Travel Buddy, el detalle de cada post, Inbox y comentarios, con un pop-up que explica cada uno. El badge de Blogger conecta el producto con el programa de bloggers."
+                          "text": "Un banner nuevo encabeza la pestaña: \"Host with NomadHer · Host the plan you wish you'd found as a traveler\", con \"Apply to become host ›\". Debajo, las cards rediseñadas: tipo y duración (\"2-day · Private Small Group\"), fecha, lugar, rating, quiénes van (\"5 joined · 2 spots left\") y precio con descuento de miembro. Cada estado tiene su versión: sin nadie todavía solo salen los cupos, llena dice \"Sold out\", sin descuento solo el precio de la app y sin reseñas no hay rating."
                         }
                       ]
                     }
@@ -2588,7 +2439,7 @@
               ],
               "meta": "NomadHer · Seoul, 2026",
               "title": "Levels, badges and perks: recognizing the community",
-              "description": "A recognition system in four phases, from points to the wallet.",
+              "description": "A recognition system in phases, from points to perks.",
               "tags": [
                 "UX/UI",
                 "Gamification"
@@ -2622,11 +2473,11 @@
                 }
               ],
               "challenge": "The November 2025 diagnosis showed three gaps: hosts had no incentives, the value of being a member wasn't felt and participation wasn't recognized anywhere. Perks from partner brands were scattered. And notifications piled up without ever being cleared.",
-              "approach": "I designed the points logic with a benchmark of Booking Genius, for level permanence, Duolingo, for its two layers of XP and streak, and Gymshark, for rewarding community actions. The initial PRD had five levels. I recommended launching the community ones first and splitting Ambassador off as a pilot, and organized everything in four phases: launch, all levels, wallet and badges. Notifications and perks followed the same phase logic.",
+              "approach": "I designed the points logic with a benchmark of Booking Genius, for level permanence, Duolingo, for its two layers of XP and streak, and Gymshark, for rewarding community actions. The initial PRD had five levels. I recommended launching the community ones first and splitting Ambassador off as a pilot, and organized everything in phases: launch with two levels, all levels and wallet. Notifications and perks followed the same phase logic.",
               "result": "New Inbox and notifications in production since 9.6.2. Follow and Perks, since 9.6.4. Phase 1 of the levels and the new notification logic are in test for 9.6.5. The team and blogger badges already show up in the Lounge, Travel Buddy, comments and Inbox.",
               "extras": [
                 {
-                  "title": "The levels · phase 1",
+                  "title": "The levels",
                   "stats": false,
                   "blocks": [
                     {
@@ -2638,11 +2489,11 @@
                         },
                         {
                           "lead": "Hypothesis",
-                          "text": "Two clear levels and a celebration when you move up are enough to make participation felt, without turning the community into a points game."
+                          "text": "Clear levels, points that reward what really moves the community and a celebration when you move up are enough to make participation felt, without turning the community into a points game."
                         },
                         {
                           "lead": "Solution",
-                          "text": "Dreamer on verification. Explorer with 600 points in the month: blog +500, meetup review +250, comment +50 with a daily cap. Monthly reset without dropping a level and a private level, as in Booking. A progress ring on the avatar, a My Level screen and a level-up celebration."
+                          "text": "Dreamer on verification. Explorer with 600 points in the month, renewed every month without dropping a level, as in Booking. Inspirer, the new level, with 5,000 points every three months, its own badge, priority partner access and 10% off travel camps. Local and Global Ambassador stay invitation only. The points table grew with People: blog +500, guide +300, create a meetup +300, meetup story +250, join a no-host plan +150, tip +120, answer a question +120, match with an activity +100, journal +60, comment +50, question +40. Every My Level screen shows what she has, what comes next and how to keep it."
                         }
                       ]
                     }
@@ -2657,7 +2508,7 @@
                       "items": [
                         {
                           "lead": "Problem",
-                          "text": "The profile showed a photo and a text; the level, the badges and what a woman had done in the community were visible nowhere."
+                          "text": "The profile showed a photo and a text; the level, the photos and what a woman had done in the community were visible nowhere."
                         },
                         {
                           "lead": "Hypothesis",
@@ -2665,29 +2516,14 @@
                         },
                         {
                           "lead": "Solution",
-                          "text": "New profile in 9.6.1: a main photo with clear rules (only her, face visible, no groups or sunglasses), a progress ring around the avatar with her level and the month's points, and an Activities section with My Level, Following, My Experiences and My Reviews. On the public profile, Follow and Message on top, her Travel Status, her interests and, if she is a blogger, a card with her blogs ('12 blogs on NomadHer · Read ›'): enough context before writing to her."
+                          "text": "New profile in 9.6.1: a main photo with clear rules (only her, face visible, no groups or sunglasses), up to six photos she rearranges by dragging and a cover photo adjusted with a preview, plus a progress ring around the avatar with her level and the month's points, and an Activities section with My Level, Following, My Experiences and My Reviews. On the public profile, Follow and Message on top, her Travel Status, her interests and, if she is a blogger, a card with her blogs ('12 blogs on NomadHer · Read ›'): enough context before writing to her."
                         }
                       ]
                     }
                   ]
                 },
                 {
-                  "title": "The four phases",
-                  "stats": false,
-                  "blocks": [
-                    {
-                      "type": "chips",
-                      "items": [
-                        "01 Launch with two levels",
-                        "02 All levels, with Inspirer and Ambassador",
-                        "03 Wallet, where earned perks live",
-                        "04 Badges for achievements, cities and streaks"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Badges",
+                  "title": "Experiences · host banner",
                   "stats": false,
                   "blocks": [
                     {
@@ -2695,15 +2531,15 @@
                       "items": [
                         {
                           "lead": "Problem",
-                          "text": "In the Lounge you couldn't tell a program blogger, a team member or an ambassador from any other account."
+                          "text": "The Experiences tab only showed experiences to buy; nothing invited a user to create her own, and the cards didn't say how many were going or whether there was room left."
                         },
                         {
                           "lead": "Hypothesis",
-                          "text": "A badge next to the name, visible in every space, gives context and trust without a single word."
+                          "text": "If the invitation to host sits at the top of the list, with a photo and community proof, more women dare to propose a plan."
                         },
                         {
                           "lead": "Solution",
-                          "text": "Blogger, NomadHer team and Ambassador, visible in the Lounge, Travel Buddy, each post's detail, Inbox and comments, with a pop-up that explains each one. The Blogger badge connects the product with the bloggers program."
+                          "text": "A new banner heads the tab: \"Host with NomadHer · Host the plan you wish you'd found as a traveler\", with \"Apply to become host ›\". Below it, the redesigned cards: type and length (\"2-day · Private Small Group\"), date, place, rating, who is going (\"5 joined · 2 spots left\") and the price with the member discount. Every state has its version: with nobody yet only the spots show, full says \"Sold out\", without a discount only the app price, and without reviews no rating."
                         }
                       ]
                     }

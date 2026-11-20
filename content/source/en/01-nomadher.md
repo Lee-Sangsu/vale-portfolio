@@ -473,53 +473,40 @@ Close to 30% of the women who join a meetup come back for another. Women Meetups
 
 **Secciones extra**
 
-**Currently Active**
-*Problem.* Writing to someone who hasn't opened the app in weeks is the fastest way to stop trying.
-*Hypothesis.* Showing who is active right now multiplies replies, as long as presence has a purpose and isn't a tracker.
-*Solution.* Active now: activity in the last 15 minutes, with a green dot. Recently Active: from 15 minutes to 14 days, visible only on the profile. A carousel of three cards with a status chip and a flag. Without a photo or a status the user doesn't appear; if no one is active, the section disappears. Before that I researched presence in dating apps: a live green dot can be a risk.
+**The People tab**
+*Problem.* Travel Buddy showed every woman in a city without knowing when she would be there or who was active.
+*Hypothesis.* If the tab opens on her city and dates, and shows who is there right now, everything else falls into place.
+*Solution.* A "Who's in" bar with city and dates. Currently Active: whoever used the app in the last 15 minutes, with a green dot and a Local, Expat or Nomad chip; if no one is active, the section disappears. Below, the city's travel buddies with the All, Travelers, Locals and Expats filters.
 
 **Women Meetups**
-*Problem.* Plans were made on WhatsApp, outside the app, and each one needed an organiser willing to take charge.
-*Hypothesis.* If creating a plan takes three taps and the chat creates itself, any woman can host without feeling like a host.
-*Solution.* Three plan types (Food & drinks, Cultural Place, Outdoor Activity), up to two weeks in advance, "Join the chat!" instead of a formal RSVP and a chat that creates itself, with the description as the first message and automatic archiving 24 hours later. Outside Seoul, "Add my city": with 20 requests a city opens. The busiest meetups rise on their own to the Lounge with the badge "via Travel Buddy".
-
-**Travel Status**
-*Problem.* Traveller, local and expat filled in the same form, and none of them felt it was about her.
-*Hypothesis.* Three different situations deserve three different entries, even if they end in the same card.
-*Solution.* One flow per situation, Traveler, Local or Expat, with a preview of how the others will see her, and several travel buddies at once when the dates don't overlap.
-
-**Before and after the meetup**
-*Problem.* Nobody knew whether the meetup had happened, whether anyone had shown up or how it had felt.
-*Hypothesis.* Two questions at the right moment are worth more than a long survey, and the safety one has to reach the team instantly.
-*Solution.* Before: a pause to read the details, Chat and Details tabs, and RSVP with Going, Maybe and Can't go; joining the meetup and the chat is one action. After: "Did you make it?", and if not, why. Then "How safe did you feel?": every "Not great" opens a space to say what happened and alerts the team right away. At the end, an invitation to tell it in the Lounge.
-
-**Defined metrics**
-Survey completion · attendance versus no-shows · reasons · distribution of safety answers · story rate · repeat hosts · likes per session and likes that turn into a match · matches that pick a day within 7 days · Count me in per plan and who showed up · messages per group chat
-
-**People · Seoul**
-*Problem.* Travel Buddy returned every woman in a city without knowing when she would be there, and plans were still being made on WhatsApp.
-*Hypothesis.* If the tab opens on her trip, city and dates, everything else falls into place.
-*Solution.* People, with the same search bar as Explore; with a city picked, the bar reads "Seoul · Oct 16 → 22 · 7 days". Below it, Currently Active ("10 online", each with her Local, Expat or Nomad chip), Meetups in Seoul, Every week · no host, What are you up for? with four moods ("Cafés · 12 places · 21 interest") and Travel buddies in Seoul with All, Travelers, Locals and Expats. With no city, the same sections "around the world", and Every week and What are you up for disappear.
+*Problem.* Plans were made on WhatsApp and each one needed an organiser.
+*Hypothesis.* If creating a plan takes three taps and the chat creates itself, anyone can host without feeling like a host.
+*Solution.* Activity type, city and a date up to 15 days ahead. "Finish your plan" shows the card and the rules, with the Meetup Guidelines checkbox. On posting, the chat is born with the description as the first message; the others come in with Tap to RSVP.
 
 **Every week · no host**
 *Problem.* A meetup needed someone willing to organise it, and in a new city almost nobody dares.
-*Hypothesis.* A fixed ritual, same day, same time, same public spot, makes the meetup happen even if nobody calls it.
-*Solution.* Seven fixed plans, one per day of the week, "Every Friday · No host": day and time ("Fridays · 19:30 · next one 20 Nov"), the spot ("Craft Roo(t) · Ikseon-dong"), seats ("3 spots left") and About this plan. In Seoul: Coffee and laptops in Seongsu on Tuesdays, Korean BBQ night in Mapo on Wednesdays, Coffee and laptops in Gwanghwamun on Thursdays, Craft beer in Ikseon-dong on Fridays, Shopping afternoon in Gangnam and Karaoke night in Hongdae on Saturdays and Sunday brunch in Hannam on Sundays. Count me in adds her to that week's chat, up to five women; when it is full, the card says "Full this week" and offers "Remind me" for the next one. The chat opens with the plan card, and Details holds the full guide: Important to know, Where you meet with Copy address and Open in Naver Map, How to find the group, The plan hour by hour, What it costs, Hours and Our tips, signed "Same plan every week · edited by NomadHer". At the end of the row, "Got a plan of your own? · Start a meetup".
+*Hypothesis.* A fixed ritual, same day, same time, same spot, makes the meetup happen even if nobody calls it.
+*Solution.* Seven fixed plans in Seoul, one per day: from Coffee and laptops in Seongsu to Sunday brunch in Hannam. Count me in adds her to that week's chat, up to five women; when it is full, "Remind me" for the next one. Details holds the full guide: where, how to find the group, the plan hour by hour and what it costs.
 
 **What are you up for?**
 *Problem.* Swiping through people is what dating apps do, and it is exactly what we didn't want.
 *Hypothesis.* If she swipes places and not women, a like says "I would go" without exposing anyone.
-*Solution.* Four moods: Cultural, Outdoors, Foodies and Cafés, with the rule on top: "Like a place. A match opens a group chat." Each card is a full-bleed photo, three per place, with the name ("Visit Gyeongbokgung Palace in hanbok"), one line on what you do and the area (Jongno); never a date. Twenty-five places in Seoul, each with its own guide: nine cultural, eight outdoors, four foodie and four cafés. At the end of each deck, "Didn't find your plan? · Create your own meetup. Pick the place and the day". Everything is edited in NomadMin; NomadHer never hosts.
+*Solution.* Four moods: Cultural, Outdoors, Foodies and Cafés. Each card is a place with one line on what you do and the area; never a date. Twenty-five places in Seoul, each with its own guide. At the end of the deck, "Create your own meetup".
 
 **The match and the chat**
 *Problem.* A like on a place is not a plan until someone picks a day.
 *Hypothesis.* Two women who want the same place only need a chat with a deadline.
-*Solution.* When a second woman likes the same place, she sees "You and 3 NomadHers liked this · It's a plan!", with "Open the group chat" or "Keep swiping". On top of the chat, "This chat closes in 10 days"; the first message is "You all liked this place. Pick a day together here". Once a day is picked, a pinned card makes it clear: "Day picked · Thursday 6 Nov · 9:00 · Gyeongbokgung station, exit 5". In Details, the place guide: Important to know (2.5 to 3 hours, Free in hanbok, Closed Tuesdays, Best at opening), Where you meet, How to find the group, The plan from 8:30 to 11:30, What it costs, Hours and Our tips, signed "From a tip by Mina · edited by NomadHer". Every new like joins, up to five; the sixth opens a second group. If no day is picked, the chat closes and the place goes back into the swipe. After the meetup, the usual question lands inside the chat: "Did you make it to the palace?".
+*Solution.* With the second like, "It's a plan!" opens a group chat that closes in 10 days. Once a day is picked, it stays pinned on top with the meeting point. Details holds the place guide. Up to five per chat; if no day is picked, the place goes back into the swipe.
 
-**Event chats**
-*Problem.* Anyone who bought an experience arrived at the event alone, without having spoken to anyone first.
-*Hypothesis.* If the purchase opens a chat, the event starts before the event.
-*Solution.* Anyone who buys an experience, free or paid, joins the event chat with the host. In production since 9.6.4.
+**Before and after the meetup**
+*Problem.* Nobody knew whether the meetup had happened, whether anyone had shown up or how it had felt.
+*Hypothesis.* Two questions at the right moment are worth more than a long survey, and the safety one has to reach the team instantly.
+*Solution.* Before: Chat and Details tabs and RSVP with Going, Maybe and Can't go. After, in the chat: "Did you make it?". If she didn't go, the reason in one tap. If she did, "How safe did you feel?": every "Not great" alerts the team right away. On closing, the meetup review for +250 points.
+
+**Travel Status**
+*Problem.* Traveller, local and expat filled in the same form, and none of them felt it was about her.
+*Hypothesis.* Three different situations deserve three different entries, even if they end in the same card.
+*Solution.* Traveler: city and dates, or "I'm Flexible" with the months she might come. Local: her home base, no end date. Expat: where she lives and since when. All three end in the same card preview.
 
 ---
 
@@ -531,7 +518,7 @@ Survey completion · attendance versus no-shows · reasons · distribution of sa
 Etiquetas · UX/UI · 2026
 Meta · NomadHer · Seoul, 2026
 Título · Levels, badges and perks: recognizing the community
-Descripción · A recognition system in four phases, from points to the wallet.
+Descripción · A recognition system in phases, from points to perks.
 Tags · UX/UI · Gamification
 Filtros · UX/UI · Estrategia
 
@@ -553,30 +540,27 @@ Tipo de proyecto · Loyalty system, mobile app
 The November 2025 diagnosis showed three gaps: hosts had no incentives, the value of being a member wasn't felt and participation wasn't recognized anywhere. Perks from partner brands were scattered. And notifications piled up without ever being cleared.
 
 **02 Approach**
-I designed the points logic with a benchmark of Booking Genius, for level permanence, Duolingo, for its two layers of XP and streak, and Gymshark, for rewarding community actions. The initial PRD had five levels. I recommended launching the community ones first and splitting Ambassador off as a pilot, and organized everything in four phases: launch, all levels, wallet and badges. Notifications and perks followed the same phase logic.
+I designed the points logic with a benchmark of Booking Genius, for level permanence, Duolingo, for its two layers of XP and streak, and Gymshark, for rewarding community actions. The initial PRD had five levels. I recommended launching the community ones first and splitting Ambassador off as a pilot, and organized everything in phases: launch with two levels, all levels and wallet. Notifications and perks followed the same phase logic.
 
 **03 Result**
 New Inbox and notifications in production since 9.6.2. Follow and Perks, since 9.6.4. Phase 1 of the levels and the new notification logic are in test for 9.6.5. The team and blogger badges already show up in the Lounge, Travel Buddy, comments and Inbox.
 
 **Secciones extra**
 
-**The levels · phase 1**
+**The levels**
 *Problem.* Taking part changed nothing: the woman who wrote a blog and the one who only watched had exactly the same app.
-*Hypothesis.* Two clear levels and a celebration when you move up are enough to make participation felt, without turning the community into a points game.
-*Solution.* Dreamer on verification. Explorer with 600 points in the month: blog +500, meetup review +250, comment +50 with a daily cap. Monthly reset without dropping a level and a private level, as in Booking. A progress ring on the avatar, a My Level screen and a level-up celebration.
+*Hypothesis.* Clear levels, points that reward what really moves the community and a celebration when you move up are enough to make participation felt, without turning the community into a points game.
+*Solution.* Dreamer on verification. Explorer with 600 points in the month, renewed every month without dropping a level, as in Booking. Inspirer, the new level, with 5,000 points every three months, its own badge, priority partner access and 10% off travel camps. Local and Global Ambassador stay invitation only. The points table grew with People: blog +500, guide +300, create a meetup +300, meetup story +250, join a no-host plan +150, tip +120, answer a question +120, match with an activity +100, journal +60, comment +50, question +40. Every My Level screen shows what she has, what comes next and how to keep it.
 
 **The profile**
-*Problem.* The profile showed a photo and a text; the level, the badges and what a woman had done in the community were visible nowhere.
+*Problem.* The profile showed a photo and a text; the level, the photos and what a woman had done in the community were visible nowhere.
 *Hypothesis.* If the profile is where recognition lands, taking part has a place to be seen.
-*Solution.* New profile in 9.6.1: a main photo with clear rules (only her, face visible, no groups or sunglasses), a progress ring around the avatar with her level and the month's points, and an Activities section with My Level, Following, My Experiences and My Reviews. On the public profile, Follow and Message on top, her Travel Status, her interests and, if she is a blogger, a card with her blogs ('12 blogs on NomadHer · Read ›'): enough context before writing to her.
+*Solution.* New profile in 9.6.1: a main photo with clear rules (only her, face visible, no groups or sunglasses), up to six photos she rearranges by dragging and a cover photo adjusted with a preview, plus a progress ring around the avatar with her level and the month's points, and an Activities section with My Level, Following, My Experiences and My Reviews. On the public profile, Follow and Message on top, her Travel Status, her interests and, if she is a blogger, a card with her blogs ('12 blogs on NomadHer · Read ›'): enough context before writing to her.
 
-**The four phases**
-01 Launch with two levels · 02 All levels, with Inspirer and Ambassador · 03 Wallet, where earned perks live · 04 Badges for achievements, cities and streaks
-
-**Badges**
-*Problem.* In the Lounge you couldn't tell a program blogger, a team member or an ambassador from any other account.
-*Hypothesis.* A badge next to the name, visible in every space, gives context and trust without a single word.
-*Solution.* Blogger, NomadHer team and Ambassador, visible in the Lounge, Travel Buddy, each post's detail, Inbox and comments, with a pop-up that explains each one. The Blogger badge connects the product with the bloggers program.
+**Experiences · host banner**
+*Problem.* The Experiences tab only showed experiences to buy; nothing invited a user to create her own, and the cards didn't say how many were going or whether there was room left.
+*Hypothesis.* If the invitation to host sits at the top of the list, with a photo and community proof, more women dare to propose a plan.
+*Solution.* A new banner heads the tab: "Host with NomadHer · Host the plan you wish you'd found as a traveler", with "Apply to become host ›". Below it, the redesigned cards: type and length ("2-day · Private Small Group"), date, place, rating, who is going ("5 joined · 2 spots left") and the price with the member discount. Every state has its version: with nobody yet only the spots show, full says "Sold out", without a discount only the app price, and without reviews no rating.
 
 **Notifications and Inbox**
 *Problem.* Alerts and conversations landed mixed in the same tray, piled up and were never cleared.
